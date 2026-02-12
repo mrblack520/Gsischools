@@ -1,0 +1,9 @@
+
+    <?php $__env->startSection('title'); ?> 
+        <?php echo app('translator')->get('fees.fees_invoice'); ?>
+    <?php $__env->stopSection(); ?>
+<?php $__env->startSection('mainContent'); ?>
+    <?php echo $__env->make('fees::_allFeesList',['role'=> 'student'], array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('backEnd.master', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH /home/gsistiww/public_html/portal/Modules/Fees/Resources/views/student/feesInfo.blade.php ENDPATH**/ ?>

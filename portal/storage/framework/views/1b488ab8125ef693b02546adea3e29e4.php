@@ -1,0 +1,1 @@
+<?php echo @$body; ?><?php /**PATH /home/gsistiww/public_html/portal/resources/views/backEnd/email/emailBody.blade.php ENDPATH**/ ?>

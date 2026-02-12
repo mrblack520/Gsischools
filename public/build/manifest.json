@@ -1,0 +1,181 @@
+{
+  "public/assets/images/arrow-right-dark.png": {
+    "file": "assets/arrow-right-dark-D5tkU5lk.png",
+    "src": "public/assets/images/arrow-right-dark.png"
+  },
+  "public/assets/images/chain.png": {
+    "file": "assets/chain-9ROSMcj4.png",
+    "src": "public/assets/images/chain.png"
+  },
+  "public/assets/images/chat.png": {
+    "file": "assets/chat-BY_7Kwb5.png",
+    "src": "public/assets/images/chat.png"
+  },
+  "public/assets/images/dark-bullets.svg": {
+    "file": "assets/dark-bullets-Ck83vl3w.svg",
+    "src": "public/assets/images/dark-bullets.svg"
+  },
+  "public/assets/images/dark-tick.png": {
+    "file": "assets/dark-tick-BL4XH91W.png",
+    "src": "public/assets/images/dark-tick.png"
+  },
+  "public/assets/images/filter.png": {
+    "file": "assets/filter-oCvLfBeq.png",
+    "src": "public/assets/images/filter.png"
+  },
+  "public/assets/images/handle-multi-tasks.png": {
+    "file": "assets/handle-multi-tasks-CJw9PT5c.png",
+    "src": "public/assets/images/handle-multi-tasks.png"
+  },
+  "public/assets/images/ng-3.png": {
+    "file": "assets/ng-3-CUBmKNDI.png",
+    "src": "public/assets/images/ng-3.png"
+  },
+  "public/assets/images/video-chat-img.webp": {
+    "file": "assets/video-chat-img-C49wlAQ1.webp",
+    "src": "public/assets/images/video-chat-img.webp"
+  },
+  "public/assets/images/young-man-wearing-headphones.webp": {
+    "file": "assets/young-man-wearing-headphones-DQAMYnxl.webp",
+    "src": "public/assets/images/young-man-wearing-headphones.webp"
+  },
+  "public/assets/images/young-woman-sits-cafe.webp": {
+    "file": "assets/young-woman-sits-cafe-C4R22q6Q.webp",
+    "src": "public/assets/images/young-woman-sits-cafe.webp"
+  },
+  "resources/css/app.css": {
+    "file": "assets/app-Dtk9ee6C.css",
+    "src": "resources/css/app.css",
+    "isEntry": true
+  },
+  "resources/css/style.css": {
+    "file": "assets/style-BktvJ5ov.css",
+    "src": "resources/css/style.css",
+    "isEntry": true
+  },
+  "resources/images/after-efect-img.png": {
+    "file": "assets/after-efect-img-D7FBpLZ8.png",
+    "src": "resources/images/after-efect-img.png"
+  },
+  "resources/images/arrow-up.png": {
+    "file": "assets/arrow-up-9tTFANlt.png",
+    "src": "resources/images/arrow-up.png"
+  },
+  "resources/images/dark-bullets.svg": {
+    "file": "assets/dark-bullets-Ck83vl3w.svg",
+    "src": "public/assets/images/dark-bullets.svg"
+  },
+  "resources/images/dots-vertical.png": {
+    "file": "assets/dots-vertical-CFC8kQYx.png",
+    "src": "resources/images/dots-vertical.png"
+  },
+  "resources/images/expert-work.png": {
+    "file": "assets/expert-work-DZVwi5Bk.png",
+    "src": "resources/images/expert-work.png"
+  },
+  "resources/images/faqs-bg.png": {
+    "file": "assets/faqs-bg-BlOw2P9w.png",
+    "src": "resources/images/faqs-bg.png"
+  },
+  "resources/images/footer-bg.png": {
+    "file": "assets/footer-bg-BPKXAE92.png",
+    "src": "resources/images/footer-bg.png"
+  },
+  "resources/images/login-side-img.png": {
+    "file": "assets/login-side-img-CVpSnAPd.png",
+    "src": "resources/images/login-side-img.png"
+  },
+  "resources/images/minus.png": {
+    "file": "assets/minus-DMCZXzPn.png",
+    "src": "resources/images/minus.png"
+  },
+  "resources/images/plus.png": {
+    "file": "assets/plus-DH-DoNCd.png",
+    "src": "resources/images/plus.png"
+  },
+  "resources/images/rectangle-image.png": {
+    "file": "assets/rectangle-image-CbNh7LXf.png",
+    "src": "resources/images/rectangle-image.png"
+  },
+  "resources/images/rectangle-img.png": {
+    "file": "assets/rectangle-img-DQV2SKs4.png",
+    "src": "resources/images/rectangle-img.png"
+  },
+  "resources/images/slider-bg.png": {
+    "file": "assets/slider-bg-BjkjIylY.png",
+    "src": "resources/images/slider-bg.png"
+  },
+  "resources/images/tick-light.png": {
+    "file": "assets/tick-light-DorUqsIK.png",
+    "src": "resources/images/tick-light.png"
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-D7rSfOek.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true,
+    "css": [
+      "assets/app-DMrXgt0y.css"
+    ],
+    "assets": [
+      "assets/chat-BY_7Kwb5.png",
+      "assets/filter-oCvLfBeq.png",
+      "assets/chain-9ROSMcj4.png",
+      "assets/video-chat-img-C49wlAQ1.webp",
+      "assets/dark-bullets-Ck83vl3w.svg",
+      "assets/young-woman-sits-cafe-C4R22q6Q.webp",
+      "assets/dark-tick-BL4XH91W.png",
+      "assets/handle-multi-tasks-CJw9PT5c.png",
+      "assets/young-man-wearing-headphones-DQAMYnxl.webp",
+      "assets/ng-3-CUBmKNDI.png"
+    ]
+  },
+  "resources/js/partials/optional-profession-form.js": {
+    "file": "assets/optional-profession-form-Cuk0Ez3a.js",
+    "name": "optional-profession-form",
+    "src": "resources/js/partials/optional-profession-form.js",
+    "isEntry": true
+  },
+  "resources/js/partials/optional-university-form.js": {
+    "file": "assets/optional-university-form-D7Fl9Bni.js",
+    "name": "optional-university-form",
+    "src": "resources/js/partials/optional-university-form.js",
+    "isEntry": true
+  },
+  "resources/js/partials/optional-university-profession-form.js": {
+    "file": "assets/optional-university-profession-form-Cuk0Ez3a.js",
+    "name": "optional-university-profession-form",
+    "src": "resources/js/partials/optional-university-profession-form.js",
+    "isEntry": true
+  },
+  "resources/js/partials/profession-form.js": {
+    "file": "assets/profession-form-9Xv2VwFd.js",
+    "name": "profession-form",
+    "src": "resources/js/partials/profession-form.js",
+    "isEntry": true
+  },
+  "resources/js/partials/register-script.js": {
+    "file": "assets/register-script-DZIvFv1H.js",
+    "name": "register-script",
+    "src": "resources/js/partials/register-script.js",
+    "isEntry": true
+  },
+  "resources/js/partials/university-form.js": {
+    "file": "assets/university-form-BhE7U6RC.js",
+    "name": "university-form",
+    "src": "resources/js/partials/university-form.js",
+    "isEntry": true
+  },
+  "resources/js/partials/university-profession-form.js": {
+    "file": "assets/university-profession-form-DMMhdC4Q.js",
+    "name": "university-profession-form",
+    "src": "resources/js/partials/university-profession-form.js",
+    "isEntry": true
+  },
+  "resources/js/script.js": {
+    "file": "assets/script-Dw2yi-dQ.js",
+    "name": "script",
+    "src": "resources/js/script.js",
+    "isEntry": true
+  }
+}
