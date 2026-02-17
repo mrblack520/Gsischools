@@ -15,7 +15,8 @@
 
                 </ul>
             </div>
-            <div class="mt-5 col-md-2 new-menu-list">
+            <div class="mt-5 col-6 col-md-2 new-menu-list order-1 text-start">
+
                 <div class="footer-tab">
 
                     <ul class="mb-0 " style="padding-left:0;">
@@ -28,7 +29,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="mt-5 col-md-3 new-menu-list explore">
+            <div class="mt-5 col-6 col-md-3 new-menu-list explore order-2 order-md-2 text-start text-md-start">
                 <div class="footer-tab ">
 
                     <ul class="mb-0 " style="padding-left:0;">
@@ -39,7 +40,8 @@
                     </ul>
                 </div>
             </div>
-            <div class="mt-5 col-md-3 new-menu-list ps-1">
+            <div class="mt-5 col-12 col-md-3 new-menu-list ps-1 order-2 order-md-4 text-center">
+
                 <div class="footer-tab">
                     <h5> Sign Up </h5>
                     <div class="singup-bg">

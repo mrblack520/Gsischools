@@ -1,9 +1,12 @@
 <template>
     <!-- Tabs -->
-    <div class="tabs">
-        <div v-for="(faq, ind) in faqs" @click="selectedFaq = faq"
-            :class="{ 'active': selectedFaq === faq, 'tab': true }">
-            {{ faq.toUpperCase() }}
+    <div class="tabs-wrapper" style="overflow-x:auto;">
+        <div class="tabs" style="display:flex; flex-wrap:nowrap;">
+            <div v-for="(faq, ind) in faqs" @click="selectedFaq = faq"
+                :class="{ 'active': selectedFaq === faq, 'tab': true }"
+                style="flex:0 0 auto; cursor:pointer; padding: 10px 20px;">
+                {{ faq.toUpperCase() }}
+            </div>
         </div>
     </div>
 
@@ -28,6 +31,7 @@
             id="view-all-faqs">View all FAQs</a>
     </div>
 </template>
+
 
 <script setup>
 import { ref } from 'vue';
