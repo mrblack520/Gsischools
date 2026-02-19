@@ -86,7 +86,7 @@
                                 <div class="col-md-12 mb-4">
                                     <div class="accordion__item">
                                         <div class="accordion__header" data-toggle="#faq1"><a
-                                                href="{{ route('frontend.read-more') }}">What is the admission process
+                                                href="#">What is the admission process
                                                 at Guiding Star International?</a>
                                         </div>
                                         <div class="accordion__content" id="faq1">

@@ -3164,6 +3164,12 @@ section {
             rgba(189, 103, 255, 0.19) 77.46%);
 }
 
+@media(max-width:768px){
+    .filter-toggle-sec .right .img-con .filter-bg-gradient{
+        right: -12px;
+    }
+}
+
 .filter-toggle-sec .filter-toggle-sec-3 .left .para span {
     color: var(--color-primary);
     font-weight: 700;
@@ -3240,7 +3246,7 @@ section {
     height: 435.7px;
     border-radius: 20%;
         bottom: -188px;
-    right: -12px;
+    right: 0px;
     }
 }
 
@@ -3389,6 +3395,11 @@ section {
     z-index: 1;
     right: -188px;
     top: 67px;
+}
+@media(max-width:768px){
+    .blank-grid .container img {
+         right: 0px;
+    }
 }
 
 .blank-grid .container .container-1 {
@@ -6576,6 +6587,11 @@ input::-webkit-inner-spin-button {
     font-size: 60px;
     margin-bottom: 6px;
 }
+@media(max-width:768px){
+    .about-expert-area h2{
+        font-size: 30px;
+    }
+}
 
 .expert-area .container .left p {
     text-transform: initial;
@@ -7321,13 +7337,14 @@ input::-webkit-inner-spin-button {
 
 
     .uni-sub-banner h2 span {
-        font-size: 49px;
+        font-size: 36px;
         display: flex;
         justify-content: center;
         align-items: center;
         text-align: center;
-        line-height: 48px;
+        line-height: 38px;
     }
+    
 
 
 
