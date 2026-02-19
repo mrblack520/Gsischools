@@ -9,7 +9,7 @@
                 <div class="col-md-12">
                     <h2 class="sub-banner-heading">
                         About
-                        <span !important;">
+                        <span !important;>
                             Guiding Star International
                         </span>
                     </h2>

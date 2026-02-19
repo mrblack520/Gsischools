@@ -20,12 +20,11 @@
                 <div class="footer-tab">
 
                     <ul class="mb-0 " style="padding-left:0;">
-                        <li> <a href="{{ route('frontend.request-form') }}"> Home </a> </li>
+                        <li> <a href="{{ route('frontend.home') }}"> Home </a> </li>
                         <li> <a href="{{ route('frontend.faqs') }}">FAQs</a> </li>
                         <li> <a href="{{ route('frontend.about') }}">About</a> </li>
                         <li><a href="{{ route('frontend.profession') }}">Events</a></li>
-                        <!-- <li><a href="javascript:void(0);">Account / Register </a></li> -->
-                        <!-- <li><a href="javascript:void(0);">About</a></li> -->
+                       
                     </ul>
                 </div>
             </div>
@@ -73,7 +72,7 @@
                 <div class="row" bis_skin_checked="1">
                     <div class="col-md-6" bis_skin_checked="1">
                         <div class="d-flex justify-content-start align-items-center footer-tab" bis_skin_checked="1">
-                            <p class="mb-0 center"> Copyright © 2025 All rights reserved by GSI.</p>
+                            <p class="mb-0 center"> Copyright © 2026 All rights reserved by GSI.</p>
                         </div>
                     </div>
                     <div class="col-md-6" bis_skin_checked="1">

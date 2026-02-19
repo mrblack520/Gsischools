@@ -1,56 +1,56 @@
-<header class="Header" id="new_sticky">
-    <div class="container" bis_skin_checked="1">
-        <a class="Header__logo Header__logo--white-text" href="/"><img src="/assets/images/gsilogo.png"
-                alt="header-logo" class="img-fluid header-logo"></a>
-        <nav class="Header__menu navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    <ul class="Header__menu-list">
-                        <a><li class="nav-link active" aria-current="page" href="{{ route('frontend.home') }}">Home</li></a>
-                        <li class="Header__menu-list-item"><a href="{{ route('frontend.home') }}"
-                                rel="nofollow">Home</a>
-                        </li>
+<header">
+  <nav id="mainNavbar" class="navbar navbar-expand-lg py-2 fixed-top"
+    style="background: linear-gradient( 105.74deg, #f1ebff 1.46%, #e0d9ff1a 54.76%, #eafffa7a 98.54%)">
 
-                        <li class="Header__menu-list-item"><a href="{{ route('frontend.profession') }}"
-                                rel="nofollow">Events</a>
-                        </li>
+    <div class="container">
 
-                        </li>
-                        <li class="Header__menu-list-item"><a href="{{ route('frontend.about') }}"
-                                rel="nofollow">About</a>
-                        </li>
-                        <li class="Header__menu-list-item"><a href="{{ route('frontend.faqs') }}">FAQs</a></li>
-                        <li class="Header__menu-list-item"><a href="{{ route('frontend.privacy-policy') }}">Policies</a>
-                        </li>
+      <!-- Logo Left -->
+      <a class="navbar-brand" href="{{ route('frontend.home') }}">
+        <img src="/assets/images/gsilogo.png" id="navLogo">
 
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <div class="Header__user-box" bis_skin_checked="1">
+      </a>
 
-            <side-nav />
-        </div>
-    </div>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-link active" aria-current="page" href="#">Home</a>
-        <a class="nav-link" href="#">Features</a>
-        <a class="nav-link" href="#">Pricing</a>
-        <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+
+      <!-- Mobile Toggle -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Right Side Menu -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+
+          <li class="nav-item mx-lg-1">
+            <a class="nav-link fw-semibold" href="{{ route('frontend.home') }}">Home</a>
+          </li>
+
+          <li class="nav-item mx-lg-1">
+            <a class="nav-link fw-semibold" href="{{ route('frontend.profession') }}">Events</a>
+          </li>
+
+          <li class="nav-item mx-lg-1">
+            <a class="nav-link fw-semibold" href="{{ route('frontend.about') }}">About</a>
+          </li>
+
+          <li class="nav-item mx-lg-1">
+            <a class="nav-link fw-semibold" href="{{ route('frontend.faqs') }}">FAQs</a>
+          </li>
+
+          <li class="nav-item mx-lg-1">
+            <a class="nav-link fw-semibold" href="{{ route('frontend.privacy-policy') }}">Policies</a>
+          </li>
+
+          <li class="nav-item ms-lg-2">
+            <a class="btn btn-outline-dark rounded-pill px-3 fw-bold admission-btn nav-button" href="{{ route('frontend.register') }}">
+              Online Admission
+            </a>
+          </li>
+
+        </ul>
+
       </div>
+
     </div>
-  </div>
-</nav>
-</header>
+  </nav>
+  
+  </header>

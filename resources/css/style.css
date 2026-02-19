@@ -2847,11 +2847,21 @@ section {
     margin-top: 8px;
 }
 
+@media(max-width:768px){
+    .uni-sub-banner h2 {
+            font-size: 37px;
+    }
+}
+
 .uni-sub-banner h2 span {
     font-weight: 600;
     font-size: 70px;
     line-height: 59px;
     color: var(--color-primary-light);
+}
+
+@media(max-width:768px){
+
 }
 
 .inner-uni-area {
@@ -2996,6 +3006,12 @@ section {
     border-bottom-left-radius: 20px;
 }
 
+@media(max-width:768px){
+    .filter-sec .container .filter-con {
+            padding: 15px 40px;
+    }
+}
+
 .filter-sec .container .filter-con span {
     padding-top: 8px;
 }
@@ -3035,8 +3051,24 @@ section {
     margin: 30px 0 20px;
 }
 
+
+@media(max-width:768px){
+    .inner-sub-heading {
+        font-size: 30px;
+        margin-top: 5px;
+    }
+}
+
 .book-your-session .right h3 {
     margin: 95px 0 20px;
+}
+
+@media(max-width:768px){
+    .book-your-session .right h3 {
+        margin-top: 140px;
+        margin-right: 75px;
+        padding-left: -55px;
+    }
 }
 
 .filter-toggle-sec .left h3 span,
@@ -3202,6 +3234,16 @@ section {
     right: -85px;
 }
 
+@media(max-width:768px){
+    .book-your-session .left .img-container .bys-bg-gradient-1{
+            width: 364.7px;
+    height: 435.7px;
+    border-radius: 20%;
+        bottom: -188px;
+    right: -12px;
+    }
+}
+
 .book-your-session .left .img-container .bys-bg-gradient-2 {
     position: absolute;
     width: 609px;
@@ -3214,6 +3256,16 @@ section {
             rgba(189, 103, 255, 0.19) 77.46%);
     bottom: 30px;
     right: -28px;
+}
+
+
+@media(max-width:768px){
+    .book-your-session .left .img-container .bys-bg-gradient-2{
+            width: 273px;
+    height: 195px;
+        bottom: 6px;
+    right: 14px;
+    }
 }
 
 .book-your-session .left .img-container {
@@ -3234,6 +3286,15 @@ section {
     left: 122px;
     box-shadow: 0px 4px 17px 0px #00000026;
     background: var(--color-white);
+}
+
+@media(max-width:768px){
+    .book-your-session .left .img-container .message-div{
+            width: 200px;
+    height: 108px;
+            bottom: -88px;
+    left: 52px;
+    }
 }
 
 .book-your-session .left .img-container .message-div .position-relative {
@@ -3377,6 +3438,14 @@ section {
     z-index: 3;
 }
 
+@media(max-width:768px){
+    .explore-sec .explore-main-con {
+        width: 286px;
+        padding: 30px;
+        margin-bottom: 30px;
+    }
+}
+
 .explore-sec .bg-gradient-e {
     position: absolute;
     top: 12px;
@@ -3393,6 +3462,16 @@ section {
     z-index: -2;
 }
 
+
+@media(max-width:768px){
+   .explore-sec .bg-gradient-e {
+            top: 2px;
+    left: -29px;
+    width: 345px;
+    height: 240px;
+    }
+}
+
 .explore-sec .explore-main-con .explore-con {
     display: flex;
     justify-content: center;
@@ -3407,7 +3486,7 @@ section {
     line-height: 24px;
     text-align: center;
     text-decoration-style: solid;
-    text-decoration-offset: 0%;
+    text-decoration-offset:0%;
     text-decoration-thickness: 0%;
     text-decoration-skip-ink: auto;
     color: #000000b4;
@@ -3426,6 +3505,7 @@ section {
     justify-content: center;
     gap: 18px;
     margin: 110px 0 50px;
+    padding-top: 100px;
 }
 
 .university-sec .explore-btns {
@@ -3433,6 +3513,7 @@ section {
     justify-content: start;
     gap: 20px;
 }
+
 
 .explore-sec .explore-btns a,
 .university-sec .explore-btns a,
@@ -3445,6 +3526,14 @@ section {
     padding: 16px 37.6px 9px;
     cursor: pointer;
     font-weight: 500;
+}
+
+@media(max-width:768px){
+    .explore-sec .explore-btns a{
+              padding-right: 6px;
+        padding-left: 2px;
+        margin-top: -6px;
+    }
 }
 
 .university-sec .explore-btns a,
@@ -3929,7 +4018,7 @@ section {
 }
 
 .register-form-sec .registeration-form .goals-wrapper .checkbox-con {
-    min-width: 357px;
+    min-width: 254px;
 }
 
 .register-form-sec .registeration-form .accept-terms label p {
@@ -5130,6 +5219,11 @@ div:where(.swal2-container) button:where(.swal2-styled):where(.swal2-confirm) {
     border-radius: 12px;
     cursor: pointer;
     background: white;
+}
+@media(max-width:768px){
+    .example-question-sec .container .filter-con {
+        width:100%;
+    }
 }
 
 .example-question-sec .container .row {
@@ -6968,13 +7062,458 @@ input::-webkit-inner-spin-button {
     color: #333333;
 }
 }
+/* ars css end  */
+
+
+/* School and acadmey sec  */
+
+
+@media (max-width: 768px) {
+    .inner-uni-area {
+        display: flex;
+        flex-direction: column; /* stack school then academy */
+        gap: 2rem;
+    }
+
+    /* Make text appear above image */
+    .inner-uni-area .left, 
+    .inner-uni-area .right {
+        display: flex;
+        flex-direction: column; /* stack text above image */
+        width: 100%;
+    }
+
+    /* Move the text div to the top */
+    .inner-uni-area .left .div,
+    .inner-uni-area .right .div {
+        order: 0; /* text first */
+        margin-bottom: 1rem;
+    }
+
+    /* Move images below text */
+    .inner-uni-area .left img.img,
+    .inner-uni-area .right img.img {
+        order: 1; /* image second */
+        width: 100%;
+        height: auto;
+    }
+
+    /* Smaller text and buttons for mobile */
+    .inner-uni-area .div h3 {
+        font-size: 1.3rem;
+    }
+    .inner-uni-area .div p {
+        font-size: 0.95rem;
+    }
+    .inner-uni-area .div a {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    /* Bottom small images */
+    .inner-uni-area .d-flex img {
+        width: 100px; /* adjust as needed */
+        height: auto;
+    }
+}
+
+
+/* css for responsive */
+
+.tab-content .tab-item {
+    display: none;
+    margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+    .action-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    .tab-btn {
+        width: 100%;
+        padding: 0.6rem;
+        font-size: 1rem;
+    }
+}
+
+
+/* slides  */
+
+@media (max-width: 768px) {
+    how-we-work img {
+        display: none;
+    }
+    how-we-work .slide-text {
+        font-size: 1rem;
+        line-height: 1.4;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .book-your-session .left, 
+    .book-your-session .right {
+        width: 100%;
+        text-align: center;
+        padding: 0px;
+    }
+    .book-your-session img.man-with-headset-sits {
+        width: 80%;
+        height: auto;
+        margin: 0 auto;
+    }
+    .book-your-session .mt-5.d-flex {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    .book-your-session .mt-5.d-flex a {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+
+/* sign up  */
+
+/* @media (max-width: 768px) {
+    .sign-up, .explore-aficionados, .faq-section {
+        padding: 1rem;
+        font-size: 1rem;
+        text-align: center;
+    }
+} */
 
 
 
 
+/* =========================
+   Default Improvements
+========================= */
+
+.filter-sec .row,
+.filter-toggle-sec .row {
+    display: flex;
+    align-items: center;
+}
+
+.filter-con {
+    text-align: center;
+    flex: 1;
+}
+
+.filter-con span {
+    display: block;
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+.filter-toggle-sec img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* =========================
+   Tablet Responsive
+========================= */
+
+@media (max-width: 991px) {
+
+    .filter-toggle-sec .col-md-6 {
+        margin-bottom: 30px;
+    }
+
+    .filter-toggle-sec h3 {
+        font-size: 24px;
+    }
+
+    .filter-toggle-sec .para {
+        font-size: 14px;
+    }
+}
+
+/* =========================
+   Mobile Responsive
+========================= */
+
+@media (max-width: 767px) {
+
+    /* Top 3 icons section */
+    .filter-sec .row {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .filter-con {
+        width: 100%;
+    }
+
+    /* Toggle sections */
+    .filter-toggle-sec .row {
+        flex-direction: column;
+    }
+
+    .filter-toggle-sec .left,
+    .filter-toggle-sec .right {
+        width: 100%;
+        text-align: center;
+    }
+
+    .filter-toggle-sec .right {
+        margin-top: 20px;
+    }
+
+    .filter-toggle-sec h3 {
+        font-size: 22px;
+    }
+
+    .filter-toggle-sec .para,
+    .filter-toggle-sec .para3 {
+        font-size: 14px;
+        text-align: left;
+    }
+
+    .filter-toggle-sec ul {
+        padding-left: 0;
+        text-align: left;
+    }
+
+    .filter-toggle-sec ul li {
+        font-size: 14px;
+        margin-bottom: 8px;
+    }
+
+    .img-con {
+        display: flex;
+        justify-content: center;
+    }
+
+    .img-con img {
+        max-width: 90%;
+    }
+}
 
 
 
+/* Ibrahim css start */
+
+/* Mobile Devices */
+@media (max-width: 576px) {
 
 
 
+    .new-university-sec .right {
+        overflow: hidden;
+    }
+
+    .new-university-sec .right .bg-gradient {
+        width: 302px;
+        height: 300px;
+        border-radius: 50%;
+        background: linear-gradient(160.22deg, rgba(155, 138, 227, 0.3) 8.78%, rgba(255, 255, 255, 0.3) 82.44%) !important;
+        position: absolute;
+        top: 7px;
+        left: 25px;
+        z-index: -5;
+    }
+
+
+    .uni-sub-banner h2 span {
+        font-size: 49px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        line-height: 48px;
+    }
+
+
+
+    .account-about-btn {
+
+        margin-left: -17px;
+    }
+
+.new-university-sec .right {
+    padding-top: 36px;
+}
+
+
+
+    .about-join-question-point .right .img-con .bg-effect {
+        left: -71px;
+        top: -33px;
+    }
+
+    .join-question-point .right .img-con .bg-object {
+        width: 200px;
+        /* further reduced */
+        height: 210px;
+        /* proportional */
+        border-radius: 28px;
+        /* slightly adjusted for better look */
+        background: #e6e5ff;
+        position: absolute;
+        z-index: -1;
+        bottom: -18px;
+        /* adjusted to match new size */
+        right: 12px;
+        /* cleaner alignment */
+    }
+
+    .about-university-sec {
+        padding-top: 15px;
+    }
+
+}
+
+
+
+@media(max-width:768px) {
+
+    .registration-card {
+        width: 250px;
+    }
+
+    .expert-area {
+        padding: 33px 0 42px;
+        background: linear-gradient(to bottom, #dddff9, #fcfafd);
+        clip-path: ellipse(110% 50% at 50% 50%);
+        height: auto;
+    }
+
+
+}
+
+/* NAVBAR HEADER */
+
+#mainNavbar {
+    background:
+        linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)),
+        /* soft white base */
+        linear-gradient(105.74deg,
+            #f1ebff 1.46%,
+            #e0d9ff1a 54.76%,
+            #eafffa7a 98.54%);
+    /* your original gradient */
+
+    backdrop-filter: blur(8px);
+    /* premium glass effect */
+    -webkit-backdrop-filter: blur(8px);
+
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    /* soft floating shadow */
+    transition: none;
+    /* Important */
+    z-index: 1030;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    transition: padding 0.4s ease, background 0.4s ease, box-shadow 0.4s ease;
+    will-change: transform;
+    transform: translate3d(0, 0, 0);
+}
+
+/* Default navbar */
+#navLogo {
+    height: 50px;
+    transition: all 0.4s ease;
+}
+
+#mainNavbar.top-mode {
+    padding-top: 35px;
+    padding-bottom: 35px;
+}
+
+#mainNavbar.top-mode #navLogo {
+
+    height: 64px;
+}
+
+
+
+.admission-btn:hover {
+    background-color: #9b88e6;
+    border-color: #9b88e6;
+    color: #ffffff;
+    box-shadow: 0 8px 20px rgba(155, 136, 230, 0.3);
+}
+
+.admission-btn {
+    border: 1px solid #9b88e6;
+    color: #6c757d;
+    /* Bootstrap grey */
+
+    font-weight: 300;
+    /* light font */
+    transition: all 0.3s ease;
+    
+}
+
+/* Bigger at top */
+#mainNavbar.top-mode {
+    padding-top: 35px;
+    padding-bottom: 35px;
+}
+
+/* Logo smooth resize */
+#navLogo {
+    height: 65px;
+    transition: all 0.4s ease;
+}
+
+/* Bigger logo at top */
+#mainNavbar.top-mode #navLogo {
+    height: 100px;
+}
+
+body {
+    padding-top: 55px;
+}
+
+@media (max-width: 991.98px) {
+
+    .navbar-hide {
+        transform: translateY(-100%);
+
+    }
+
+    #navLogo {
+        height: 50px;
+    }
+
+    #mainNavbar.top-mode #navLogo {
+
+        height: 64px;
+    }
+
+    body {
+        padding-top: 55px;
+    }
+
+    /* Logo smooth resize */
+    #navLogo {
+        height: 50px;
+    }
+
+    /* Bigger logo at top */
+    #mainNavbar.top-mode #navLogo {
+        height: 62px;
+    }
+}
+@media (max-width: 575.98px) {
+
+    body {
+        padding-top: 0px;
+    }
+}
+
+
+
+.nav-button{
+    height: 36px;
+    margin-top: -10px;
+}
+
+/* Ibrahim css end */
