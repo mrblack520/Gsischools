@@ -8,7 +8,7 @@
     <div class="container">
         <div class="row align-items-center">
 
-            <!-- Image Column (Mobile pe upar) -->
+           
             <div class="col-12 col-md-6 order-1 order-md-2 right-side-img text-center mb-4 mb-md-0">
                 <img src="/assets/images/main-banner-right-img.webp" class="img-fluid" alt="">
             </div>

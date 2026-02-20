@@ -91,25 +91,39 @@
         </div>
     </div>
 </section>
-<section class="blank-grid">
+<section class="my-section">
+        <svg class="d-none" xmlns="http://www.w3.org/2000/svg">
+            <symbol id="enlarge" viewBox="0 0 16 16">
+                <path
+                    d="M1.5 1a.5.5 0 0 0-.5.5v4a.5.5 0 0 1-1 0v-4A1.5 1.5 0 0 1 1.5 0h4a.5.5 0 0 1 0 1h-4zM10 .5a.5.5 0 0 1 .5-.5h4A1.5 1.5 0 0 1 16 1.5v4a.5.5 0 0 1-1 0v-4a.5.5 0 0 0-.5-.5h-4a.5.5 0 0 1-.5-.5zM.5 10a.5.5 0 0 1 .5.5v4a.5.5 0 0 0 .5.5h4a.5.5 0 0 1 0 1h-4A1.5 1.5 0 0 1 0 14.5v-4a.5.5 0 0 1 .5-.5zm15 0a.5.5 0 0 1 .5.5v4a1.5 1.5 0 0 1-1.5 1.5h-4a.5.5 0 0 1 0-1h4a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 1 .5-.5z" />
+            </symbol>
+            <symbol id="exit" viewBox="0 0 16 16">
+                <path
+                    d="M5.5 0a.5.5 0 0 1 .5.5v4A1.5 1.5 0 0 1 4.5 6h-4a.5.5 0 0 1 0-1h4a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 1 .5-.5zm5 0a.5.5 0 0 1 .5.5v4a.5.5 0 0 0 .5.5h4a.5.5 0 0 1 0 1h-4A1.5 1.5 0 0 1 10 4.5v-4a.5.5 0 0 1 .5-.5zM0 10.5a.5.5 0 0 1 .5-.5h4A1.5 1.5 0 0 1 6 11.5v4a.5.5 0 0 1-1 0v-4a.5.5 0 0 0-.5-.5h-4a.5.5 0 0 1-.5-.5zm10 1a1.5 1.5 0 0 1 1.5-1.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 0-.5.5v4a.5.5 0 0 1-1 0v-4z" />
+            </symbol>
+        </svg>
+        
+       
+<section class="photo-gallery">
     <div class="container">
-        <img src="assets/images/girl-bg 4.png" alt="">
-        <div class="row gx-3">
-            <div class="col-md-12 ">
-                <div class="container-1 "></div>
-            </div>
-            <div class="col-md-6 pe-2">
-                <div class="container-2"></div>
-            </div>
-            <div class="col-md-6 ps-2">
-                <div class="container-3"></div>
-            </div>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 gallery-grid" id="gallery">
         </div>
     </div>
 </section>
+ 
+<div class="gsi-lightbox">
+  <span class="gsi-close">&times;</span>
+  <span class="gsi-prev">&#10094;</span>
+  <img class="gsi-lightbox-img">
+  <span class="gsi-next">&#10095;</span>
+</div>
+    </section>
+
+    @include('frontend.partials.explore-sec')
 
 
 
-@include('frontend.partials.explore-sec')
 
-@endsection1
+
+
+@endsection

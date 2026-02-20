@@ -7533,4 +7533,237 @@ body {
     margin-top: -10px;
 }
 
+.my-section {
+  --lightbox: rgb(0 0 0 / 0.75);
+  --carousel-text: #fff;
+}
+
+body {
+  margin: 1.5rem 0 3.5rem;
+}
+
+@keyframes zoomin {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.gallery-item {
+  display: block;
+}
+
+.gallery-item pic {
+  box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.15);
+  transition: box-shadow 0.2s;
+}
+
+.gallery-item:hover pic {
+  box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.35);
+}
+
+.my-section .lightbox-modal .modal-content {
+  background-color: var(--lightbox);
+}
+
+.my-section .lightbox-modal .btn-close {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  font-size: 1.25rem;
+  z-index: 10;
+  filter: invert(1) grayscale(100);
+}
+
+.my-section .lightbox-modal .modal-body {
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+
+.my-section .lightbox-modal .lightbox-content {
+  width: 100%;
+}
+
+.my-section .lightbox-modal .carousel-indicators {
+  margin-bottom: 0;
+}
+
+.my-section .lightbox-modal .carousel-indicators [data-bs-target] {
+  background-color: var(--carousel-text) !important;
+}
+
+.my-section .lightbox-modal .carousel-inner {
+  width: 75%;
+}
+
+.my-section .lightbox-modal .carousel-inner img {
+  animation: zoomin 10s linear infinite;
+}
+
+.my-section .lightbox-modal .carousel-item .carousel-caption {
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding-bottom: 2rem;
+  background-color: var(--lightbox);
+  color: var(--carousel-text) !important;
+}
+
+.my-section .lightbox-modal .carousel-control-prev,
+.my-section .lightbox-modal .carousel-control-next {
+  width: auto;
+}
+
+.my-section .lightbox-modal .carousel-control-prev {
+  left: 1.25rem;
+}
+
+.my-section .lightbox-modal .carousel-control-next {
+  right: 1.25rem;
+}
+
+
+@media (min-width: 1400px) {
+  .my-section .lightbox-modal .carousel-inner {
+    max-width: 60%;
+  }
+}
+
+[data-bs-theme="dark"] .my-section .lightbox-modal .carousel-control-next-icon,
+[data-bs-theme="dark"] .my-section .lightbox-modal .carousel-control-prev-icon {
+  filter: none;
+}
+
+.btn-fullscreen-enlarge,
+.btn-fullscreen-exit {
+  position: absolute;
+  top: 1.25rem;
+  right: 3.5rem;
+  z-index: 10;
+  border: 0;
+  background: transparent;
+  opacity: 0.6;
+  font-size: 1.25rem;
+}
+
+.bi {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.035em;
+  fill: currentcolor;
+}
+.pic {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.small-img {
+  height: 180px;   /* smaller height */
+}
+.gsi-lightbox img {
+  height: auto !important;
+  max-height: 90vh;
+  object-fit: contain;
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;      /* allows wrapping on small screens */
+  gap: 8px;             /* small space between buttons */
+  margin-top: 40px;
+}
+
+.page-btn {
+  margin: 0;            /* remove default spacing */
+  padding: 8px 14px;
+  border: 1px solid #9b88e6;
+  background: white;
+  color: #9b88e6;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.3s ease;
+}
+
+.page-btn:hover {
+  background: #9b88e6;
+  color: white;
+}
+.page-btn.active {
+  background: #9b88e6;
+  color: #fff;
+  border-color: #9b88e6;
+}
+.my-section .gsi-lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.my-section .gsi-lightbox img {
+  max-width: 80%;
+  max-height: 80%;
+}
+
+.my-section .gsi-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+}
+.my-section .gsi-lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.my-section .gsi-lightbox-img {
+  max-width: 80%;
+  max-height: 80%;
+}
+
+.my-section .gsi-close {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+}
+
+.my-section .gsi-prev,
+.my-section .gsi-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 50px;
+  color: white;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.my-section .gsi-prev { left: 40px; }
+.my-section .gsi-next { right: 40px; }
+.gallery-title {
+  font-size: 28px;
+  font-weight: 600;
+}
 /* Ibrahim css end */
