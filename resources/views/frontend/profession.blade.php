@@ -7,7 +7,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h2 class="sub-banner-heading">Questionpoint for <span>Professions</span></h2>
+                <h2 class="sub-banner-heading"><span>Where Guidance </span> Meets Excellence</h2>
             </div>
             <div class="inner-uni-area">
                 <div class="col-md-6 left">
@@ -112,4 +112,4 @@
 
 @include('frontend.partials.explore-sec')
 
-@endsection
+@endsection1
