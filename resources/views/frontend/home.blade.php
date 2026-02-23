@@ -214,7 +214,7 @@
             <!-- Left column (image) -->
             <div class="col-12 col-md-6 left" data-aos="fade-up" data-aos-delay="400" data-aos-duration="500">
                 <div class="bg-gradient"></div>
-                <img src="/assets/images/desk-his-bedroom.webp" alt="" class="img-fluid">
+                <img src="/assets/images/gsipic2.png" alt="" class="img-fluid">
             </div>
 
             <!-- Right column (text) -->
@@ -259,7 +259,7 @@
         <div class="row">
             <div class="col-12 col-md-6 rightt" data-aos="fade-up" data-aos-delay="400" data-aos-duration="500">
                 <div class="bg-gradient"></div>
-                <img src="/assets/images/classroom-study-space.webp" alt="" class="img-fluid">
+                <img src="/assets/images/gsipic27.png" alt="" class="img-fluid">
             </div>
             <div class="col-12 col-md-6 ps-md-5 next-gen" data-aos="fade-up" data-aos-delay="500" data-aos-duration="500">
                 <h2>Building Brighter Futures <span> with GSI Schools</span></h2>
@@ -313,7 +313,7 @@
      data-aos="fade-up" data-aos-delay="500" data-aos-duration="500">
     <div class="position-relative w-100">
         <div class="bg-gradient position-absolute w-100 h-100"></div>
-        <img src="/assets/images/confident-businesswoman.webp" alt="" class="img-fluid">
+        <img src="/assets/images/gsipic33.png" alt="" class="img-fluid">
     </div>
 </div>
 
@@ -360,7 +360,7 @@
                 <div class="col-md-6 left">
                     <div class="img-con">
                         <img class="bg-effect" src="assets/images/girl-bg 3.svg" alt="">
-                        <img class="front-img" src="/assets/images/i-did-it.webp" alt="">
+                        <img class="front-img" src="/assets/images/gsipicn9.png" alt="">
                         <div class="bg-object"></div>
                     </div>
                 </div>
