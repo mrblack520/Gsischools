@@ -10,7 +10,7 @@
 
            
             <div class="col-12 col-md-6 order-1 order-md-2 right-side-img text-center mb-4 mb-md-0">
-                <img src="/assets/images/heroimg.webp" class="img-fluid test" alt="">
+                <img src="/assets/images/heroimg1.webp" class="img-fluid test" alt="">
             </div>
 
             <!-- Text Column -->
