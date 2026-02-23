@@ -23,7 +23,7 @@ class FrontendController extends Controller
         $slides = [
             [
                 'title' => ' Easy Registration',
-                'image' => asset('/assets/images/registration-and-profile.webp'),
+                'image' => asset('/assets/images/gsipicn12.png'),
                 'paragraphs' => [
                     
                     "We make admissions simple and stress-free for both parents and students. With a clear admission process, families can smoothly enroll their child in the right class without unnecessary delays. From Play Group to Grade 10, every step is designed to be transparent and supportive.
@@ -426,60 +426,61 @@ class FrontendController extends Controller
 
     public function profession()
     {
-        $slides = [
-            [
-                'title' => 'Ask away – it’s all about the questions',
-                'image' => asset('/assets/images/profession-slider-01.webp'),
-                'paragraphs' => [
-                    'What do you really want to know?',
-                    "What’s been on your mind, but never asked or answered?",
-                    "This is your chance to ask the questions that matter the most to you.",
-                ],
-            ],
-            [
-                'title' => 'Your career',
-                'image' => asset('/assets/images/man-carrying-his-bag-work.jpg'),
-                'paragraphs' => [
-                    'Make informed decisions about your path and speak with Aficionados who have been in your position.',
-                    "We’ve launched Questionpoint with law and medicine – more professions are on the way, and you can already register your interest!",
-                ],
-            ],
-            [
-                'title' => 'Applications, interviews and more',
-                'image' => asset('/assets/images/profession-slider-03.webp'),
-                'paragraphs' => [
-                    'Sometimes, preparation is more important than credentials.',
-                    'Learn how Aficionados approached their applications, interviews and career decisions — and what they’d do differently.',
-                    'It’s more than just knowing what to say — it’s knowing how to say it.',
-                ],
-            ],
-            [
-                'title' => 'Valuable knowledge',
-                'image' => asset('/assets/images/view-messy-office-workspace-with-laptop.jpg'),
-                'paragraphs' => [
-                    'Aficionados are empowered to earn through sharing their insight and experiences.',
-                    'Answer real questions, offer genuine support, and earn along the way — no commute or timesheets.',
-                    'It’s flexible, meaningful, and more rewarding than a typical part-time job.',
-                ],
-            ],
-            [
-                'title' => 'Stand out from the competition',
-                'image' => asset('/assets/images/profession-slider-05.webp'),
-                'paragraphs' => [
-                    'The Next Gen can move forward with clarity and confidence.',
-                    'You don’t have to figure it all out alone — gain an edge with tailored insight, not generic advice.',
-                ],
-            ],
-            [
-                'title' => 'What makes Questionpoint different?',
-                'image' => asset('/assets/images/top-view-businessman-feet-concrete-ground-with-different-arrows-direction-choice-solution-concept.jpg'),
-                'paragraphs' => [
-                    'We’re not just a platform — we’re a network of real people.',
-                    'No algorithms, no generic advice — just real stories, real paths, and real answers.',
-                    'This is not tutoring. This is human experience, shared.',
-                ],
-            ],
-        ];
+     $slides = [
+    [
+        'title' => 'Moments That Inspire Excellence',
+        'image' => asset('/assets/images/profession-slider-01.webp'),
+        'paragraphs' => [
+            'At Guiding Star International Schools and Academy, every event is a celebration of learning and growth.',
+            "Our students shine through academic, cultural, and co-curricular activities.",
+            "Each moment builds confidence, creativity, and character.",
+        ],
+    ],
+    [
+        'title' => 'Academic Competitions & Achievements',
+        'image' => asset('/assets/images/gsipicn9 (1).png'),
+        'paragraphs' => [
+            'We encourage students to challenge themselves through debates, quizzes, science fairs, and Olympiads.',
+            "Healthy competition nurtures critical thinking and leadership skills.",
+            "Our platform allows every learner to discover their true potential.",
+        ],
+    ],
+    [
+        'title' => 'Cultural & Creative Events',
+        'image' => asset('/assets/images/profession-slider-03.webp'),
+        'paragraphs' => [
+            'From annual functions to art exhibitions, creativity is celebrated at every level.',
+            'Students express their talents through performances, storytelling, and visual arts.',
+            'We believe creativity shapes confident and expressive individuals.',
+        ],
+    ],
+    [
+        'title' => 'Sports & Physical Development',
+        'image' => asset('/assets/images/view-messy-office-workspace-with-laptop.jpg'),
+        'paragraphs' => [
+            'Sports activities promote teamwork, discipline, and resilience.',
+            'Through tournaments and sports days, students learn the value of dedication and fair play.',
+            'Physical wellness is an essential part of holistic education.',
+        ],
+    ],
+    [
+        'title' => 'Leadership & Character Building',
+        'image' => asset('/assets/images/gsipic27 copy.png'),
+        'paragraphs' => [
+            'Our events develop responsibility, confidence, and communication skills.',
+            'Students take initiative, collaborate with peers, and grow as future leaders.',
+        ],
+    ],
+    [
+        'title' => 'Creating Lifelong Memories',
+        'image' => asset('/assets/images/top-view-businessman-feet-concrete-ground-with-different-arrows-direction-choice-solution-concept.jpg'),
+        'paragraphs' => [
+            'Every event at Guiding Star International Schools and Academy leaves a lasting impact.',
+            'We create meaningful experiences that students cherish for years to come.',
+            'Together, we build bright futures and unforgettable memories.',
+        ],
+    ],
+];
         return view('frontend.profession', compact(['slides']));
     }
 

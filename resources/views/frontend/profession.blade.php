@@ -54,7 +54,7 @@
 <profession-filter-sec></profession-filter-sec>
 
 <section class="how-it-work my-4">
-    <h2>How Questionpoint <span>works</span></h2>
+    <h2>How GSI School <span>works</span></h2>
     <how-we-work :slides="{{ json_encode($slides) }}" />
 </section>
 <section class="book-your-session">
@@ -63,7 +63,7 @@
         <div class="row">
             <div class="col-md-6 left">
                 <div class="img-container">
-                    <img class="man-with-headset-sits" src="./assets/images/man-with-headset-sits.webp"
+                    <img class="man-with-headset-sits" src="./assets/images/gsipic28.png"
                         alt="Man With Headset">
                     <div class="bys-bg-gradient-1"></div>
                     <div class="bys-bg-gradient-2"></div>
@@ -78,10 +78,9 @@
                 </div>
             </div>
             <div class="col-md-6 right position-relative">
-                <h3 class="inner-sub-heading">Book Your <span>Session</span></h3>
-                <p>The Questionpoint platform is simple and seamless to use!</p>
-                <p>Ask the right questions. Get the right guidance.
-                    Nothing beats personal interactions.
+                <h3 class="inner-sub-heading">Celebrate Every Achievement</h3>
+                <p>We create memorable experiences where learning meets fun, and every student gets the opportunity to grow beyond the classroom.</p>
+                <p>At Guiding Star International Schools and Academy, we believe every event is a step toward building confidence, creativity, and character. From academic competitions to cultural celebrations, our events inspire students to shine and showcase their talents.
                 </p>
                 <div class="mt-5 d-flex gap-3">
                     <a href="{{ route('frontend.register') }}">Register now</a>
