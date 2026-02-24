@@ -32,7 +32,7 @@ class FrontendController extends Controller
             ],
             [
                 'title' => ' Book Your Slot',
-                'image' => asset('/assets/images/booking.webp'),
+                'image' => asset('/assets/images/gsipicn2.png'),
                 'paragraphs' => [
                 
                     'Once registered, students can book their slot in the class of their choice. For selected grades, an entry test ensures that every child is placed at the right academic level, setting them up for success. This process helps us recognize the strengths, skills, and potential of each student.',
@@ -40,7 +40,7 @@ class FrontendController extends Controller
             ],
             [
                 'title' => ' Stay Connected',
-                'image' => asset('/assets/images/connec-with-us.webp'),
+                'image' => asset('/assets/images/gsipicn7.png'),
                 'paragraphs' => [
                     'Communication is key to student success. That’s why we keep parents updated through regular progress reports, parent–teacher meetings, and online support systems. Whether it’s academic results, attendance, or upcoming activities, families always stay informed and connected with the GSI community.
 ',
@@ -48,7 +48,7 @@ class FrontendController extends Controller
             ],
             [
                 'title' => ' Mutual Growth',
-                'image' => asset('/assets/images/fist-bump-partnership-hands-people-team-with-support-celebration-hello-success-solidarity-synergy-cooperation-trust-agreement-deal-with-handshake-wall-background.jpg'),
+                'image' => asset('/assets/images/gsipic18.png'),
                 'paragraphs' => [
                     
                     'At GSI, we believe education is a three-way partnership between teachers, parents, and students. Our teachers provide the right guidance, parents support learning at home, and students commit to discipline and hard work. Together, this teamwork builds character, confidence, and consistent progress.
@@ -57,7 +57,7 @@ class FrontendController extends Controller
             ],
             [
                 'title' => 'Our commitment',
-                'image' => asset('/assets/images/customer-satisfaction-survey-concept-users-rate-service-experiences-online-application-customers-can-evaluate-quality-service-leading-business-reputation-rating.jpg'),
+                'image' => asset('/assets/images/gsipicn11.png'),
                 'paragraphs' => [
                 
                     'At GSI Schools & Academy, we are committed to nurturing every child’s potential with care, dedication, and integrity. We provide a safe learning environment, modern teaching methods, and opportunities for both academic and personal growth. Our promise is to prepare students not just for exams, but for life — empowering them with knowledge, values, and confidence to succeed in the future.',
@@ -429,7 +429,7 @@ class FrontendController extends Controller
      $slides = [
     [
         'title' => 'Moments That Inspire Excellence',
-        'image' => asset('/assets/images/profession-slider-01.webp'),
+        'image' => asset('/assets/images/gsipic18.png'),
         'paragraphs' => [
             'At Guiding Star International Schools and Academy, every event is a celebration of learning and growth.',
             "Our students shine through academic, cultural, and co-curricular activities.",
@@ -438,7 +438,7 @@ class FrontendController extends Controller
     ],
     [
         'title' => 'Academic Competitions & Achievements',
-        'image' => asset('/assets/images/gsipicn9 (1).png'),
+        'image' => asset('/assets/images/gsipicn9copy.png'),
         'paragraphs' => [
             'We encourage students to challenge themselves through debates, quizzes, science fairs, and Olympiads.',
             "Healthy competition nurtures critical thinking and leadership skills.",
@@ -447,7 +447,7 @@ class FrontendController extends Controller
     ],
     [
         'title' => 'Cultural & Creative Events',
-        'image' => asset('/assets/images/profession-slider-03.webp'),
+        'image' => asset('/assets/images/gsipic32copy.png'),
         'paragraphs' => [
             'From annual functions to art exhibitions, creativity is celebrated at every level.',
             'Students express their talents through performances, storytelling, and visual arts.',
@@ -456,7 +456,7 @@ class FrontendController extends Controller
     ],
     [
         'title' => 'Sports & Physical Development',
-        'image' => asset('/assets/images/view-messy-office-workspace-with-laptop.jpg'),
+        'image' => asset('/assets/images/gsipicn2copy.png'),
         'paragraphs' => [
             'Sports activities promote teamwork, discipline, and resilience.',
             'Through tournaments and sports days, students learn the value of dedication and fair play.',
@@ -465,7 +465,7 @@ class FrontendController extends Controller
     ],
     [
         'title' => 'Leadership & Character Building',
-        'image' => asset('/assets/images/gsipic27 copy.png'),
+        'image' => asset('/assets/images/gsipic27copy.png'),
         'paragraphs' => [
             'Our events develop responsibility, confidence, and communication skills.',
             'Students take initiative, collaborate with peers, and grow as future leaders.',
@@ -473,7 +473,7 @@ class FrontendController extends Controller
     ],
     [
         'title' => 'Creating Lifelong Memories',
-        'image' => asset('/assets/images/top-view-businessman-feet-concrete-ground-with-different-arrows-direction-choice-solution-concept.jpg'),
+        'image' => asset('/assets/images/gsipicn7copy.png'),
         'paragraphs' => [
             'Every event at Guiding Star International Schools and Academy leaves a lasting impact.',
             'We create meaningful experiences that students cherish for years to come.',
@@ -489,7 +489,7 @@ class FrontendController extends Controller
         $slides = [
             [
                 'title' => 'Strong Foundation from the Start',
-                'image' => asset('/assets/images/registration-and-profile.webp'),
+                'image' => asset('/assets/images/gsipicn2about.png'),
                 'paragraphs' => [
                     'GSI Schools provide education from Mont Junior to Grade 10, ensuring that every child builds a strong academic and character-based foundation. Early learning, discipline, and values help students grow into confident individuals ready for the future.
 ',
@@ -498,7 +498,7 @@ class FrontendController extends Controller
             ],
             [
                 'title' => 'Coaching for Every Stream & Board',
-                'image' => asset('/assets/images/booking.webp'),
+                'image' => asset('/assets/images/gsipicn7about.png'),
                 'paragraphs' => [
                     'At GSI Academy, we offer expert coaching from Mont Junior to Grade 12, covering Ziauddin, Sindh, Balochistan and federal boards. Students get the right support in every subject, stream, and level — ensuring they achieve top results in their exams.
 ',
@@ -507,7 +507,7 @@ class FrontendController extends Controller
             ],
             [
                 'title' => 'Future-Ready Skills',
-                'image' => asset('/assets/images/connec-with-us.webp'),
+                'image' => asset('/assets/images/gsipic33about.png'),
                 'paragraphs' => [
                     'In today’s fast-changing world, academics alone aren’t enough. That’s why GSI Academy provides modern computer courses like AI, Cybersecurity, Web Development, and English Language Training, preparing students for careers of tomorrow.
 ',
@@ -516,7 +516,7 @@ class FrontendController extends Controller
             ],
             [
                 'title' => 'A Community of Growth',
-                'image' => asset('/assets/images/fist-bump-partnership-hands-people-team-with-support-celebration-hello-success-solidarity-synergy-cooperation-trust-agreement-deal-with-handshake-wall-background.jpg'),
+                'image' => asset('/assets/images/gsipic18about.png'),
                 'paragraphs' => [
             
                     'GSI is not just about classes — it’s about connection. Parents, teachers, and students work together to create a supportive learning community. With regular guidance, discipline, and co-curricular activities, we ensure holistic development for every learner.
@@ -525,7 +525,7 @@ class FrontendController extends Controller
             ],
             [
                 'title' => 'Standing Out from the Competition',
-                'image' => asset('/assets/images/customer-satisfaction-survey-concept-users-rate-service-experiences-online-application-customers-can-evaluate-quality-service-leading-business-reputation-rating.jpg'),
+                'image' => asset('/assets/images/gsipicn9about.png'),
                 'paragraphs' => [
                     'What makes GSI different is our complete approach — combining academics, coaching, skills training, and values under one roof. While others focus only on grades, we prepare students for life by nurturing confidence, creativity, and leadership. This balance is what sets GSI apart.',
        
@@ -533,7 +533,7 @@ class FrontendController extends Controller
             ],
             [
                 'title' => 'Our commitment',
-                'image' => asset('/assets/images/close-up-hands-with-pen-writing-notebook.jpg'),
+                'image' => asset('/assets/images/gsipicn12about.png'),
                 'paragraphs' => [
                     'A smooth, secure, and user-friendly experience — from booking to conversation. We handle the logistics so you can focus on what matters: the questions and the connection.',
                 ],

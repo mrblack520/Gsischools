@@ -91,7 +91,7 @@
                     <div class="swiper-slide">
                         <div class="slider">
                             <div class="slide"
-                                style="background-image: url('/assets/images/registration-and-profile.webp');">
+                                style="background-image: url('/assets/images/gsipicn2about.png');">
                                 <div class="content-box">
                                     <h3> Strong Foundation from the Start</h3>
                                     <p>GSI Schools offer quality education from Mont Junior to Grade 10, focusing not only
@@ -109,7 +109,7 @@
                     </div>
                     <div class="swiper-slide">
                         <div class="slider">
-                            <div class="slide" style="background-image: url('/assets/images/booking.webp');">
+                            <div class="slide" style="background-image: url('/assets/images/gsipicn7about.png');">
                                 <div class="content-box">
                                     <h3>Experiences and Insight</h3>
                                     <p>We’re not just a platform — we’re a network of real people.</p>
@@ -122,7 +122,7 @@
                     </div>
                     <div class="swiper-slide">
                         <div class="slider">
-                            <div class="slide" style="background-image: url('/assets/images/connec-with-us.webp');">
+                            <div class="slide" style="background-image: url('/assets/images/gsipic33about.png');">
                                 <div class="content-box">
                                     <h3>It’s all about the questions</h3>
                                     <p>What do you really want to know?</p>
@@ -135,7 +135,7 @@
                     <div class="swiper-slide">
                         <div class="slider">
                             <div class="slide"
-                                style="background-image: url('/assets/images/fist-bump-partnership-hands-people-team-with-support-celebration-hello-success-solidarity-synergy-cooperation-trust-agreement-deal-with-handshake-wall-background.jpg');">
+                                style="background-image: url('/assets/images/gsipic18about.png');">
                                 <div class="content-box">
                                     <h3>Mutual benefit </h3>
                                     <p>The Next Gen gain valuable insight and direction, while the Aficionado is
@@ -151,7 +151,7 @@
                     <div class="swiper-slide">
                         <div class="slider">
                             <div class="slide"
-                                style="background-image: url('/assets/images/customer-satisfaction-survey-concept-users-rate-service-experiences-online-application-customers-can-evaluate-quality-service-leading-business-reputation-rating.jpg');">
+                                style="background-image: url('/assets/images/gsipicn9about.png');">
                                 <div class="content-box">
                                     <h3>Stand out from the competition</h3>
                                     <p>The Next Gen can learn how Aficionados approached their personal statements,
@@ -166,7 +166,7 @@
                     <div class="swiper-slide">
                         <div class="slider">
                             <div class="slide"
-                                style="background-image: url('/assets/images/close-up-hands-with-pen-writing-notebook.jpg');">
+                                style="background-image: url('/assets/images/gsipicn12about.png');">
                                 <div class="content-box">
                                     <h3>Our commitment</h3>
                                     <p>A smooth, secure, and user-friendly experience — from booking to conversation. We
