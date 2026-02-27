@@ -359,7 +359,7 @@
             <div class="row">
                 <div class="col-md-6 left">
                     <div class="img-con">
-                        <img class="bg-effect" src="assets/images/images/girl-bg 3.svg" alt="GSI Schools Executive Head Office Background">
+                        <img class="bg-effect" src="assets/images/girl-bg 3.svg" alt="GSI Schools Executive Head Office Background">
                         <img class="front-img" src="/assets/images/gsipicn9.png" alt="GSI Schools Executive Head Office">
                         <div class="bg-object"></div>
                     </div>
