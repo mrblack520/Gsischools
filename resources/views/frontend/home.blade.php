@@ -56,25 +56,61 @@
 
                 </div>
 
-                <!-- ✅ ORIGINAL VIDEO BUTTON STRUCTURE SAME -->
-                <div class="vedio-btn mt-4 text-center text-md-start">
-                    <div class="video-img-layer-1">
-                        <div class="video-img-layer-2">
-                            <div class="video-img-layer-3">
-                                <img src="/assets/images/Play button arrowhead.svg" alt="GSI Schools play button arrow head" class="img-fluid">
-                            </div>
-                        </div>
-                    </div>
-                    <a class="uni-or-list-vedio d-block mt-2">Watch our video</a>
-                </div>
-
+<!-- Video Button -->
+<div class="vedio-btn mt-4 text-center text-md-start">
+    <div class="video-img-layer-1">
+        <div class="video-img-layer-2">
+            <div class="video-img-layer-3">
+                <img src="/assets/images/Play button arrowhead.svg" alt="GSI Schools play button arrow head" class="img-fluid">
             </div>
-
         </div>
     </div>
+    <a class="uni-or-list-vedio d-block mt-2 play-video-btn" style="cursor:pointer;">
+        Watch our video
+    </a>
+</div>
+</div>
+
 
 </section>
+<section>
+    <!-- Video Modal -->
+<div class="yt-modal-wrapper" style="display:none;">
+    <div class="yt-modal-overlay"></div>
+    <div class="yt-modal-content">
+        <span class="yt-modal-close">&times;</span>
 
+        <div class="yt-main-wrapper">
+            <!-- Video Player -->
+            <div class="yt-video-section">
+                <iframe id="yt_iframe" src="" allowfullscreen></iframe>
+            </div>
+
+            <!-- Playlist -->
+            <div class="yt-playlist-section">
+                <ol class="yt-playlist" id="yt_playlist">
+                    <li data-video="cOSEOYi9JS4">
+                        <img src="https://img.youtube.com/vi/cOSEOYi9JS4/default.jpg">
+                        <span>WeatherBeater™ Product Video</span>
+                    </li>
+                    <li data-video="9P7mEf4bilg">
+                        <img src="https://img.youtube.com/vi/9P7mEf4bilg/default.jpg">
+                        <span>X-act Contour® Product Video</span>
+                    </li>
+                    <li data-video="KHxNpXovl58">
+                        <img src="https://img.youtube.com/vi/KHxNpXovl58/default.jpg">
+                        <span>GearBox® Product Video</span>
+                    </li>
+                    <li data-video="D_a2UBGsePQ">
+                        <img src="https://img.youtube.com/vi/D_a2UBGsePQ/default.jpg">
+                        <span>Mud Guards Product Video</span>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
 <section class="university-area-content">
 
     <div class="container">

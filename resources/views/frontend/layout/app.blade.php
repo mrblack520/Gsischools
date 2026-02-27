@@ -284,7 +284,52 @@ document.addEventListener("DOMContentLoaded", function () {
         `;
     });
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const iframe = document.getElementById("yt_iframe");
+    const playlistItems = document.querySelectorAll(".yt-playlist li");
+    const playButton = document.querySelector(".play-video-btn");
+    const modalWrapper = document.querySelector(".yt-modal-wrapper");
+    const modalClose = document.querySelector(".yt-modal-close");
+    const modalOverlay = document.querySelector(".yt-modal-overlay");
 
+    // Open modal and autoplay first video
+    playButton.addEventListener("click", function () {
+        modalWrapper.style.display = "block";
+
+        // Get first video from playlist
+        const firstVideo = playlistItems[0];
+        const videoId = firstVideo.getAttribute("data-video");
+
+        // Set iframe src to first video with autoplay
+        iframe.src = "https://www.youtube.com/embed/" + videoId + "?autoplay=1&rel=0";
+
+        // Highlight first video as active
+        playlistItems.forEach(li => li.classList.remove("active"));
+        firstVideo.classList.add("active");
+    });
+
+    // Close modal and stop video
+    function closeModal() {
+        modalWrapper.style.display = "none";
+        iframe.src = ""; // Stops video playback
+    }
+
+    modalClose.addEventListener("click", closeModal);
+    modalOverlay.addEventListener("click", closeModal);
+
+    // Playlist click to switch videos
+    playlistItems.forEach(item => {
+        item.addEventListener("click", function () {
+            const videoId = this.getAttribute("data-video");
+            iframe.src = "https://www.youtube.com/embed/" + videoId + "?autoplay=1&rel=0";
+
+            playlistItems.forEach(li => li.classList.remove("active"));
+            this.classList.add("active");
+        });
+    });
+});
+            </script>
 </body>
 
 </html>
