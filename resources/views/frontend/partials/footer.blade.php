@@ -49,7 +49,7 @@
                         </div>
                         <div class="singup-img">
                             <a href="{{ route('frontend.questionnaire') }}">
-                                <img src="/assets/images/icon-image.svg" alt="">
+                                <img src="/assets/images/icon-image.svg" alt="GSI Schools document">
                             </a>
                         </div>
                     </div>

@@ -21,11 +21,11 @@
                             </div>
                         </div>
                         <div class="d-flex align-items-end mb-4 pb-2">
-                            <img src="./assets/images/uni-2.webp" alt="">
+                            <img src="./assets/images/uni-2.webp" alt="GSI Schools mobile using">
                         </div>
                     </div>
                     <div class="col-md-6 right">
-                        <img class="img" src="/assets/images/university-area-right-img.svg" alt="">
+                        <img class="img" src="/assets/images/university-area-right-img.svg" alt="GSI Schools purple fluid ">
                         <div class="div">
                             <h3>Aficionados</h3>
                             <p>Monetise your insight and experiences to answer the Next Gen’s questions on university
@@ -35,7 +35,7 @@
                             </div>
                         </div>
                         <div class="d-flex align-items-end">
-                            <img style="max-height: 300px;" src="./assets/images/png12.png" alt="">
+                            <img style="max-height: 300px;" src="./assets/images/png12.png" alt="GSI Schools girl carton">
                         </div>
                     </div>
 
@@ -84,7 +84,7 @@
     </section>
     <section class="blank-grid">
         <div class="container">
-            <img src="assets/images/girl-bg 4.png" alt="">
+            <img src="assets/images/girl-bg 4.png" alt="GSI Schools purple background">
             <div class="row gx-3">
                 <div class="col-md-12 ">
                     <div class="container-1 "></div>

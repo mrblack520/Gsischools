@@ -1148,8 +1148,8 @@
             <!-- Right Column -->
             <div class="col-12 col-md-6 d-flex justify-content-center justify-content-md-end">
                 <div class="cricle-expert text-center text-md-end">
-                    <div><img src="/assets/images/new-expert-bg.svg" alt="" class="img-fluid"></div>
-                    <img src="/assets/images/carton-image.webp" alt="" class="img-fluid mt-2">
+                    <div><img src="/assets/images/new-expert-bg.svg" alt="GSI Schools purple back circle" class="img-fluid"></div>
+                    <img src="/assets/images/carton-image.webp" alt="GSI Schools Carton" class="img-fluid mt-2">
                 </div>
             </div>
         </div>

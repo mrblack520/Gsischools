@@ -713,7 +713,7 @@
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <div class="copyright_text">
-                    <p> <img src="{{asset('public/landing/img/copyright.svg')}}" alt="#"> 2019-2020 InfixEdu - Ultimate Education ERP. All Rights
+                    <p> <img src="{{asset('public/landing/img/copyright.svg')}}" alt="GSI Schools copyright"> 2019-2020 InfixEdu - Ultimate Education ERP. All Rights
                         Reserved to <a href="#">Codetheme </a> .</p>
                 </div>
             </div>

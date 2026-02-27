@@ -224,7 +224,7 @@
                         <li class="scroll_notification_list">
                             <a class="pulse theme_color bell_notification_clicker show_notifications" href="#">
                                 <!-- bell   -->
-                                <img src="{{asset('public/backEnd/assets/img/icons/notification.svg')}}" alt="">
+                                <img src="{{asset('public/backEnd/assets/img/icons/notification.svg')}}" alt="GSI Schools Notification">
 
                                 <!--/ bell   -->
                                 <span
@@ -283,7 +283,7 @@
                         <div class="select_style d-flex">
                             @if (generalSetting()->website_btn == 1)
                                 <a target="_blank" class=" mr-10 tab_hide"
-                                    href="{{ url('/') }}"><img src="{{asset('public/backEnd/assets/img/icons/globe.svg')}}" alt=""></a>
+                                    href="{{ url('/') }}"><img src="{{asset('public/backEnd/assets/img/icons/globe.svg')}}" alt="globe"></a>
                             @endif
                             {{-- @if (generalSetting()->dashboard_btn == 1)
                                 @if (Auth::user()->role_id == $coltroller_role)
@@ -294,7 +294,7 @@
                             @if (generalSetting()->report_btn == 1)
                                 @if (Auth::user()->role_id == $coltroller_role)
                                     <a class="mr-10 tab_hide"
-                                        href="{{ route('student_report') }}"><img src="{{asset('public/backEnd/assets/img/icons/report.svg')}}" alt=""></a>
+                                        href="{{ route('student_report') }}"><img src="{{asset('public/backEnd/assets/img/icons/report.svg')}}" alt="GSI Schools report"></a>
                                 @endif
                             @endif
                             {{-- <div class="border_1px tab_hide"></div> --}}
@@ -335,13 +335,13 @@
                                 @endif
                                 @if (Auth::user()->role_id == '2' && Auth::user()->is_saas == 0)
                                     <a href="{{ route('student-profile') }}">
-                                        <img src="{{asset('public/backEnd/assets/img/icons/profile.svg')}}" class="mr-1" alt="">
+                                        <img src="{{asset('public/backEnd/assets/img/icons/profile.svg')}}" class="mr-1" alt="GSI Schools profile">
                                         @lang('common.view_profile')
                                         {{-- <span class="ti-user"></span> --}}
                                     </a>
                                 @elseif(Auth::user()->role_id != '3' && Auth::user()->is_saas == 0 && Auth::user()->staff)
                                     <a href="{{ route('viewStaff', Auth::user()->staff->id) }}">
-                                        <img src="{{asset('public/backEnd/assets/img/icons/profile.svg')}}" alt="">
+                                        <img src="{{asset('public/backEnd/assets/img/icons/profile.svg')}}" alt="GSI Schools profile">
                                         @lang('common.view_profile')
                                         {{-- <span class="ti-user"></span> --}}
                                     </a>
@@ -350,13 +350,13 @@
                                     @if (auth()->user()->staff && auth()->user()->staff->parent_id && auth()->user()->role_id == 3)
                                         <a href="{{ route('viewAsRole') }}">
 
-                                            <img src="{{asset('public/backEnd/assets/img/icons/key.svg')}}" alt="" class="mr-1">
+                                            <img src="{{asset('public/backEnd/assets/img/icons/key.svg')}}" alt="GSI Schools Key" class="mr-1">
                                             @lang('common.VIEW_AS_' . strtoupper(auth()->user()->staff->previousRole->name))
                                         </a>
                                     @elseif(auth()->user()->staff && auth()->user()->staff->parent_id)
                                         <a href="{{ route('viewAsParent') }}">
 
-                                            <img src="{{asset('public/backEnd/assets/img/icons/key.svg')}}" alt="" class="mr-1">
+                                            <img src="{{asset('public/backEnd/assets/img/icons/key.svg')}}" alt="GSI Schools Key" class="mr-1">
                                             @lang('common.VIEW_AS_PARENT')
                                         </a>
                                     @endif
@@ -367,7 +367,7 @@
                                         Auth::user()->is_saas == 0)
 
                                     <a href="{{ route('viewAsSuperadmin') }}">
-                                        <img src="{{asset('public/backEnd/assets/img/icons/key.svg')}}" alt="">
+                                        <img src="{{asset('public/backEnd/assets/img/icons/key.svg')}}" alt="GSI Schools Key">
 
                                         @if (Session::get('isSchoolAdmin') == true)
                                             @lang('common.view_as_saas_admin')
@@ -377,7 +377,7 @@
                                     </a>
                                 @endif
                                 <a href="{{ route('updatePassowrd') }}">
-                                    <img src="{{asset('public/backEnd/assets/img/icons/password.svg')}}" alt="">
+                                    <img src="{{asset('public/backEnd/assets/img/icons/password.svg')}}" alt="GSI Schools Password">
                                     @lang('common.password')
                                     {{-- <span style="margin-left: 3px;" class="ti-key"></span> --}}
                                 </a>
@@ -387,7 +387,7 @@
                                     onclick="event.preventDefault();
 
                                               document.getElementById('logout-form').submit();">
-                                    <img src="{{asset('public/backEnd/assets/img/icons/logout.svg')}}" alt="">
+                                    <img src="{{asset('public/backEnd/assets/img/icons/logout.svg')}}" alt="GSI Schools logout">
                                     @lang('common.logout')
                                     {{-- <span class="ti-unlock"></span> --}}
                                 </a>

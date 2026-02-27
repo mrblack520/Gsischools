@@ -22,11 +22,11 @@
                                             <div class="single_list d-flex align-items-center">
                                                 <div class="thumb">
                                                     @if($myRequest->requestTo->avatar)
-                                                        <a><img src="{{asset($myRequest->requestTo->avatar)}}" alt=""></a>
+                                                        <a><img src="{{asset($myRequest->requestTo->avatar)}}" alt="GSI Schools avtar"></a>
                                                     @elseif($myRequest->requestTo->avatar_url)
-                                                        <a><img src="{{ asset($myRequest->requestTo->avatar_url) }}" alt=""></a>
+                                                        <a><img src="{{ asset($myRequest->requestTo->avatar_url) }}" alt="GSI Schools avtar"></a>
                                                     @else
-                                                        <a><img src="{{asset('public/chat/images/spondon-icon.png')}}" alt=""></a>
+                                                        <a><img src="{{asset('public/chat/images/spondon-icon.png')}}" alt="GSI Schools spondon"></a>
                                                     @endif
                                                 </div>
                                                 <div class="list_name">
@@ -72,11 +72,11 @@
                                             <div class="single_list d-flex align-items-center">
                                                 <div class="thumb">
                                                     @if($request->requestFrom->avatar)
-                                                        <a><img src="{{asset($request->requestFrom->avatar)}}" alt=""></a>
+                                                        <a><img src="{{asset($request->requestFrom->avatar)}}" alt="GSI Schools avtar"></a>
                                                     @elseif($request->requestFrom->avatar_url)
-                                                        <a><img src="{{ asset($request->requestFrom->avatar_url) }}" alt=""></a>
+                                                        <a><img src="{{ asset($request->requestFrom->avatar_url) }}" alt="GSI Schools avtar"></a>
                                                     @else
-                                                        <a><img src="{{asset('public/chat/images/spondon-icon.png')}}" alt=""></a>
+                                                        <a><img src="{{asset('public/chat/images/spondon-icon.png')}}" alt="GSI Schools spondon"></a>
                                                     @endif
                                                 </div>
                                                 <div class="list_name w-50">
@@ -133,11 +133,11 @@
                                             <div class="single_list d-flex align-items-center">
                                                 <div class="thumb">
                                                     @if($request->avatar)
-                                                        <a><img src="{{asset($request->avatar)}}" alt=""></a>
+                                                        <a><img src="{{asset($request->avatar)}}" alt="GSI Schools avtar"></a>
                                                     @elseif($request->avatar_url)
-                                                        <a><img src="{{ asset($request->avatar_url) }}" alt=""></a>
+                                                        <a><img src="{{ asset($request->avatar_url) }}" alt="GSI Schools avtar"></a>
                                                     @else
-                                                        <a><img src="{{asset('public/chat/images/spondon-icon.png')}}" alt=""></a>
+                                                        <a><img src="{{asset('public/chat/images/spondon-icon.png')}}" alt="GSI Schools spondon"></a>
                                                     @endif
                                                 </div>
                                                 <div class="list_name w-50">

@@ -6,7 +6,7 @@
     <div class="tmp-faqwrap">
       <div class="tmp-faqtitlle">
         <h6>{{ $faq['question'] }}</h6>
-        <img src="{{ asset('demo/images/chevron-right.svg') }}" alt="">
+        <img src="{{ asset('demo/images/chevron-right.svg') }}" alt="GSI Schools Chevron">
       </div>
       <div class="tmp-faqcontent">
         <p>{!! $faq['answer'] !!}</p>

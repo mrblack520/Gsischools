@@ -10,7 +10,7 @@
 
            
             <div class="col-12 col-md-6 order-1 order-md-2 right-side-img text-center mb-4 mb-md-0">
-                <img src="/assets/images/heroimg1.webp" class="img-fluid test" alt="">
+                <img src="/assets/images/heroimg1.webp" class="img-fluid test" alt="GSI Schools Sir Azhar and Sir Zubair">
             </div>
 
             <!-- Text Column -->
@@ -29,7 +29,7 @@
                     <div class="uni-list">
                         <div class="uni-list-box">
                             <div class="icon-box-img">
-                                <img src="/assets/images/uni-icon-1.svg" alt="uni-icon" class="img-fluid">
+                                <img src="/assets/images/uni-icon-1.svg" alt="GSI Schools icon" class="img-fluid">
                             </div>
                             <div class="university-text">
                                 <h3>School</h3>
@@ -45,7 +45,7 @@
                     <div class="uni-list">
                         <div class="new-uni-list-box">
                             <div class="icon-box-img">
-                                <img src="/assets/images/pro-icon.svg" alt="uni-icon" class="img-fluid">
+                                <img src="/assets/images/pro-icon.svg" alt="GSI Schools icon" class="img-fluid">
                             </div>
                             <div class="university-text">
                                 <h3>Academy</h3>
@@ -61,7 +61,7 @@
                     <div class="video-img-layer-1">
                         <div class="video-img-layer-2">
                             <div class="video-img-layer-3">
-                                <img src="/assets/images/Play button arrowhead.svg" alt="" class="img-fluid">
+                                <img src="/assets/images/Play button arrowhead.svg" alt="GSI Schools play button arrow head" class="img-fluid">
                             </div>
                         </div>
                     </div>
@@ -84,19 +84,19 @@
             <!-- SCHOOL CARD -->
             <div class="col-12 col-lg-6 mb-4 mb-lg-0">
                 <div class="university-area-content-left-card text-center text-lg-start">
-                    <img class="img img-fluid mb-3" src="/assets/images/university-area-left-img.svg" alt="">
+                    <img class="img img-fluid mb-3" src="/assets/images/university-area-left-img.svg" alt="GSI Schools purple fluid">
                     <div class="left">
                         <div class="inner-top">
                             <h2>School</h2>
                             <p class="text-content">Anyone interested in or applying as: </p>
                             <ul class="list-unstyled">
                                 <li class="d-flex align-items-center justify-content-center justify-content-lg-start mb-1">
-                                    <img src="/assets/images/check-list.svg" alt="" style="width:24px;height:24px;margin-right:8px;">
+                                    <img src="/assets/images/check-list.svg" alt="GSI Schools check list" style="width:24px;height:24px;margin-right:8px;">
                                     <span class="text-content">Student</span>
                                 </li>
                                 <span class="d-block text-center text-lg-start" style="font-size: 18px; margin:8px 0;">or</span>
                                 <li class="d-flex align-items-center justify-content-center justify-content-lg-start">
-                                    <img src="/assets/images/check-list.svg" alt="" style="width:24px;height:24px;margin-right:8px;">
+                                    <img src="/assets/images/check-list.svg" alt="GSI Schools check list" style="width:24px;height:24px;margin-right:8px;">
                                     <span class="text-content">Faculty</span>
                                 </li>
                             </ul>
@@ -106,13 +106,13 @@
                         </div>
                     </div>
                     <div class="right mt-3">
-                        <img src="/assets/images/light-img.svg" alt="" class="img-fluid">
+                        <img src="/assets/images/light-img.svg" alt="GSI Schools light" class="img-fluid">
                     </div>
                 </div>
 
                 <!-- SCHOOL REGISTRATION STEPS -->
                 <div class="mt-4">
-                    <img src="/assets/images/dots-img.svg" class="d-block mx-auto" style="padding: 15px 0;" alt="">
+                    <img src="/assets/images/dots-img.svg" class="d-block mx-auto" style="padding: 15px 0;" alt="GSI Schools dots">
                     <div class="registration-card" data-aos="fade-up" data-aos-delay="100">
                         <div class="icon">
                             <img src="/assets/images/expert-img.svg" alt="Registration Icon" style="width:auto;height:auto;">
@@ -121,7 +121,7 @@
                             <h4>Registration</h4>
                         </div>
                     </div>
-                    <img src="/assets/images/arrow-down_svgrepo.svg" class="d-block mx-auto" style="padding:15px 0;" alt="">
+                    <img src="/assets/images/arrow-down_svgrepo.svg" class="d-block mx-auto" style="padding:15px 0;" alt="GSI Schools arrow down">
                     <div class="registration-card" data-aos="fade-up" data-aos-delay="150">
                         <div class="icon">
                             <img src="/assets/images/expert-img-2.svg" alt="Registration Icon" style="width:auto;height:auto;">
@@ -130,7 +130,7 @@
                             <p>Show your talent, prove your potential, and secure your seat among the brightest students.</p>
                         </div>
                     </div>
-                    <img src="/assets/images/arrow-down_svgrepo.svg" class="d-block mx-auto" style="padding:15px 0;" alt="">
+                    <img src="/assets/images/arrow-down_svgrepo.svg" class="d-block mx-auto" style="padding:15px 0;" alt="GSI Schools arrow down">
                     <div class="registration-card" data-aos="fade-up" data-aos-delay="200">
                         <div class="icon">
                             <img src="/assets/images/expert-3.svg" alt="Registration Icon" style="width:auto;height:auto;">
@@ -145,19 +145,19 @@
             <!-- ACADEMY CARD -->
             <div class="col-12 col-lg-6 mb-4 mb-lg-0">
                 <div class="university-area-content-right-card text-center text-lg-start">
-                    <img class="img mb-3" src="/assets/images/university-area-right-img.svg" alt="">
+                    <img class="img mb-3" src="/assets/images/university-area-right-img.svg" alt="GSI Schools purple fluid">
                     <div class="left">
                         <div class="inner-top">
                             <h2>Academy </h2>
                             <p class="text-content">Anyone interested in or applying as: </p>
                             <ul class="list-unstyled">
                                 <li class="d-flex align-items-center justify-content-center justify-content-lg-start mb-1">
-                                    <img src="/assets/images/check-list.svg" alt="" style="width:24px;height:24px;margin-right:8px;">
+                                    <img src="/assets/images/check-list.svg" alt="GSI Schools check list" style="width:24px;height:24px;margin-right:8px;">
                                     <span class="text-content">Student</span>
                                 </li>
                                 <span class="d-block text-center text-lg-start" style="font-size: 18px; margin:8px 0;">or</span>
                                 <li class="d-flex align-items-center justify-content-center justify-content-lg-start">
-                                    <img src="/assets/images/check-list.svg" alt="" style="width:24px;height:24px;margin-right:8px;">
+                                    <img src="/assets/images/check-list.svg" alt="GSI Schools check list" style="width:24px;height:24px;margin-right:8px;">
                                     <span class="text-content">Faculty</span>
                                 </li>
                             </ul>
@@ -167,13 +167,13 @@
                         </div>
                     </div>
                     <div class="right mt-3">
-                        <img src="/assets/images/aficionados-img.webp" alt="" class="img-fluid">
+                        <img src="/assets/images/aficionados-img.webp" alt="GSI Schools two carton" class="img-fluid">
                     </div>
                 </div>
 
                 <!-- ACADEMY REGISTRATION STEPS -->
                 <div class="mt-4">
-                    <img src="/assets/images/dots-img.svg" class="d-block mx-auto" style="padding: 15px 0;" alt="">
+                    <img src="/assets/images/dots-img.svg" class="d-block mx-auto" style="padding: 15px 0;" alt="GSI Schools dots">
                     <div class="registration-card" data-aos="fade-up" data-aos-delay="250">
                         <div class="icon">
                             <img src="/assets/images/expert-img.svg" alt="Registration Icon" style="width:auto;height:auto;">
@@ -182,7 +182,7 @@
                             <h4>Registration</h4>
                         </div>
                     </div>
-                    <img src="/assets/images/arrow-down_svgrepo.svg" class="d-block mx-auto" style="padding:15px 0;" alt="">
+                    <img src="/assets/images/arrow-down_svgrepo.svg" class="d-block mx-auto" style="padding:15px 0;" alt="GSI Schools arrow down">
                     <div class="registration-card" data-aos="fade-up" data-aos-delay="300">
                         <div class="icon">
                             <img src="/assets/images/expert-img-2.svg" alt="Registration Icon" style="width:auto;height:auto;">
@@ -191,7 +191,7 @@
                             <p>Show your talent, prove your potential, and secure your seat among the brightest students.</p>
                         </div>
                     </div>
-                    <img src="/assets/images/arrow-down_svgrepo.svg" class="d-block mx-auto" style="padding:15px 0;" alt="">
+                    <img src="/assets/images/arrow-down_svgrepo.svg" class="d-block mx-auto" style="padding:15px 0;" alt="GSI Schools arrow down">
                     <div class="registration-card" data-aos="fade-up" data-aos-delay="350">
                         <div class="icon">
                             <img src="/assets/images/expert-3.svg" alt="Registration Icon" style="width:auto;height:auto;">
@@ -214,7 +214,7 @@
             <!-- Left column (image) -->
             <div class="col-12 col-md-6 left" data-aos="fade-up" data-aos-delay="400" data-aos-duration="500">
                 <div class="bg-gradient"></div>
-                <img src="/assets/images/gsipic2.png" alt="" class="img-fluid">
+                <img src="/assets/images/gsipic2.png" alt="GSI Schools Official Golden Logo" class="img-fluid">
             </div>
 
             <!-- Right column (text) -->
@@ -245,8 +245,8 @@
             </div>
             <div class="col-12 col-md-6 right text-center">
                 <div class="cricle-expert">
-                    <div><img src="/assets/images/new-expert-bg.svg" alt="" class="img-fluid"></div>
-                    <img src="/assets/images/carton-image.webp" alt="" class="img-fluid mt-3">
+                    <div><img src="/assets/images/new-expert-bg.svg" alt="GSI Schools purple circle" class="img-fluid"></div>
+                    <img src="/assets/images/carton-image.webp" alt="GSI Schools cartoon" class="img-fluid mt-3">
                 </div>
             </div>
         </div>
@@ -259,7 +259,7 @@
         <div class="row">
             <div class="col-12 col-md-6 rightt" data-aos="fade-up" data-aos-delay="400" data-aos-duration="500">
                 <div class="bg-gradient"></div>
-                <img src="/assets/images/gsipic27.png" alt="" class="img-fluid">
+                <img src="/assets/images/gsipic27.png" alt="GSI Schools Modern Computer Lab" class="img-fluid">
             </div>
             <div class="col-12 col-md-6 ps-md-5 next-gen" data-aos="fade-up" data-aos-delay="500" data-aos-duration="500">
                 <h2>Building Brighter Futures <span> with GSI Schools</span></h2>
@@ -313,7 +313,7 @@
      data-aos="fade-up" data-aos-delay="500" data-aos-duration="500">
     <div class="position-relative w-100">
         <div class="bg-gradient position-absolute w-100 h-100"></div>
-        <img src="/assets/images/gsipic33.png" alt="" class="img-fluid">
+        <img src="/assets/images/gsipic33.png" alt="GSI Schools Academic English Lessons" class="img-fluid">
     </div>
 </div>
 
@@ -359,8 +359,8 @@
             <div class="row">
                 <div class="col-md-6 left">
                     <div class="img-con">
-                        <img class="bg-effect" src="assets/images/girl-bg 3.svg" alt="">
-                        <img class="front-img" src="/assets/images/gsipicn9.png" alt="">
+                        <img class="bg-effect" src="assets/images/images/girl-bg 3.svg" alt="GSI Schools Executive Head Office Background">
+                        <img class="front-img" src="/assets/images/gsipicn9.png" alt="GSI Schools Executive Head Office">
                         <div class="bg-object"></div>
                     </div>
                 </div>

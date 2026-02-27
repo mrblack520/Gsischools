@@ -20,7 +20,7 @@
                                     <a @click="openUserProfileModal('profileEditForm'+index)" href="#">
                                         <img v-if="user.avatar" :src="baseUrl+ user.avatar" alt="">
                                         <img v-else-if="user.avatar_url" :src="baseUrl+ user.avatar_url" alt="" height="50" width="50">
-                                        <img v-else :src="baseUrl + asset_type+'/chat/images/spondon-icon.png'" alt="">
+                                        <img v-else :src="baseUrl + asset_type+'/chat/images/spondon-icon.png'" alt="GSI Schools spondon">
                                     </a>
                                 </div>
                                 <div class="list_name">
@@ -46,7 +46,7 @@
                                                     <a href="#">
                                                         <img v-if="user.avatar" :src="baseUrl+ user.avatar" alt="" height="50" width="50">
                                                         <img v-else-if="user.avatar_url" :src="baseUrl+ user.avatar_url" alt="" height="50" width="50">
-                                                        <img v-else :src="baseUrl + asset_type+'/chat/images/spondon-icon.png'" alt="" height="50" width="50">
+                                                        <img v-else :src="baseUrl + asset_type+'/chat/images/spondon-icon.png'" alt="GSI Schools spondon" height="50" width="50">
                                                     </a>
                                                 </div>
                                                 {{ user.first_name }} {{ user.last_name }}
@@ -119,7 +119,7 @@
                             <div class="thumb">
                                 <a href="#">
                                     <img v-if="group.photo_url" :src="baseUrl+group.photo_url" alt="">
-                                    <img v-else :src="baseUrl + asset_type+'/chat/images/bw-spondon-icon.png'" alt="">
+                                    <img v-else :src="baseUrl + asset_type+'/chat/images/bw-spondon-icon.png'" alt="GSI Schools bw spondon">
                                 </a>
                             </div>
                             <div class="list_name ">

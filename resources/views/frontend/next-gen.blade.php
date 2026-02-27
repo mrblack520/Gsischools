@@ -19,11 +19,11 @@
                             </div>
                         </div>
                         <div class="d-flex align-items-end ">
-                            <img src="./assets/images/ng-1.webp" alt="">
+                            <img src="./assets/images/ng-1.webp" alt="GSI Schools scholer cartoon">
                         </div>
                     </div>
                     <div class="col-md-6 right pe-0">
-                        <img class="img" src="/assets/images/university-area-right-img.svg" alt="">
+                        <img class="img" src="/assets/images/university-area-right-img.svg" alt="GSI Schools purple fluid">
                         <div class="div">
                             <h3>Seeking to enter
                                 a <span>Profession</span> </h3>
@@ -32,7 +32,7 @@
                             </div>
                         </div>
                         <div class="d-flex align-items-end">
-                            <img src="./assets/images/ng-2.webp" alt="">
+                            <img src="./assets/images/ng-2.webp" alt="GSI Schools two cartoon">
                         </div>
                     </div>
 
@@ -50,8 +50,8 @@
                 </div>
                 <div class="col-md-6 right">
                     <div class="img-con">
-                        <img class="bg-effect" src="assets/images/girl-bg 3.png" alt="">
-                        <img class="front-img" src="/assets/images/join-qp.webp" alt="">
+                        <img class="bg-effect" src="assets/images/girl-bg 3.png" alt="GSI Schools Man Background">
+                        <img class="front-img" src="/assets/images/join-qp.webp" alt="GSI Schools man for joining">
                         <div class="bg-object"></div>
                     </div>
                 </div>
@@ -71,7 +71,7 @@
                 </div>
                 <div class="col-md-6 right">
                     <div class="img-con">
-                        <img class="front-img" src="/assets/images/using-laptop-teenage-boy.webp" alt="">
+                        <img class="front-img" src="/assets/images/using-laptop-teenage-boy.webp" alt="GSI Schools teen using laptop">
                         <div class="bg-object"></div>
                     </div>
                 </div>

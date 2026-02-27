@@ -69,7 +69,7 @@
                                     <a v-else-if="to_user.avatar_url" href="#"><img :src="baseUrl + to_user.avatar_url"
                                             alt=""></a>
                                     <a v-else href="#"><img
-                                            :src="baseUrl + asset_type + '/chat/images/spondon-icon.png'" alt=""></a>
+                                            :src="baseUrl + asset_type + '/chat/images/spondon-icon.png'" alt="GSI Schools spondon"></a>
                                 </div>
                                 <div class="chat_text_info_wraper d-flex align-items-center">
                                     <div class="chat_text_info">
@@ -104,9 +104,9 @@
                                                 <img class="border-radius-25 cursor-pointer"
                                                     @click="imageViewLargeScreen(baseUrl + conversation.forward_from.file_name)"
                                                     v-if="conversation.forward_from.file_name"
-                                                    :src="baseUrl + conversation.forward_from.file_name" alt="">
+                                                    :src="baseUrl + conversation.forward_from.file_name" alt="GSI Schools forword">
                                                 <img class="border-radius-25" v-else
-                                                    :src="baseUrl + asset_type + '/chat/images/msg_img.png'" alt="">
+                                                    :src="baseUrl + asset_type + '/chat/images/msg_img.png'" alt="GSI Schools msg">
                                             </div>
                                             <p class="reply_p"
                                                 v-else-if="conversation.message_type == 2 || conversation.message_type == 3">
@@ -140,7 +140,7 @@
                                                 v-if="conversation.file_name" :src="baseUrl + conversation.file_name"
                                                 alt="">
                                             <img class="border-radius-25" v-else
-                                                :src="baseUrl + asset_type + '/chat/images/msg_img.png'" alt="">
+                                                :src="baseUrl + asset_type + '/chat/images/msg_img.png'" alt="GSI Schools msg">
                                         </div>
                                         <p v-else-if="conversation.message_type == 2 || conversation.message_type == 3">
                                             <u><a style="color: white;"
@@ -232,9 +232,9 @@
                                                 <img class="border-radius-25 cursor-pointer"
                                                     @click="imageViewLargeScreen(baseUrl + conversation.forward_from.file_name)"
                                                     v-if="conversation.forward_from.file_name"
-                                                    :src="baseUrl + conversation.forward_from.file_name" alt="">
+                                                    :src="baseUrl + conversation.forward_from.file_name" alt="GSI Schools forward">
                                                 <img class="border-radius-25" v-else
-                                                    :src="baseUrl + asset_type + '/chat/images/msg_img.png'" alt="">
+                                                    :src="baseUrl + asset_type + '/chat/images/msg_img.png'" alt="GSI Schools msg">
                                             </div>
                                             <p class="sender_reply_p"
                                                 v-else-if="conversation.message_type == 2 || conversation.message_type == 3">
@@ -267,7 +267,7 @@
                                                 v-if="conversation.file_name" :src="baseUrl + conversation.file_name"
                                                 alt="">
                                             <img class="border-radius-25" v-else
-                                                :src="baseUrl + asset_type + '/chat/images/msg_img.png'" alt="">
+                                                :src="baseUrl + asset_type + '/chat/images/msg_img.png'" alt="GSI Schools msg">
                                         </div>
                                         <p v-else-if="conversation.message_type == 2 || conversation.message_type == 3">
                                             <u><a style="color: white;"
@@ -283,7 +283,7 @@
                                     <a v-else-if="from_user.avatar_url" href="#"><img
                                             :src="baseUrl + from_user.avatar_url" alt=""></a>
                                     <a v-else href="#"><img
-                                            :src="baseUrl + asset_type + '/chat/images/spondon-icon.png'" alt=""></a>
+                                            :src="baseUrl + asset_type + '/chat/images/spondon-icon.png'" alt="GSI Schools spondon"></a>
                                 </div>
                             </div>
                         </div>
@@ -304,7 +304,7 @@
                         <div class="input_thumb">
                             <img v-if="from_user.avatar" :src="'/' + from_user.avatar" alt="">
                             <img v-if="from_user.avatar_url" :src="baseUrl + from_user.avatar_url" alt="">
-                            <img v-else :src="baseUrl + asset_type + '/chat/images/spondon-icon.png'" alt="">
+                            <img v-else :src="baseUrl + asset_type + '/chat/images/spondon-icon.png'" alt="GSI Schools spondon">
                         </div>
                         <div class="input-group ">
                             <div v-if="preview_url" class="preview_imgs">
@@ -376,7 +376,7 @@
                 </div>
                 <div class="stop-button-padding">
                     <a href="#" @click="toggleRecording">
-                        <img :src="baseUrl + asset_type + '/chat/images/recording-stop.png'" alt=""
+                        <img :src="baseUrl + asset_type + '/chat/images/recording-stop.png'" alt="GSI Schools recording stop"
                             style="height: 35px; width: 35px;">
                     </a>
                 </div>
@@ -468,7 +468,7 @@
                                                     :src="baseUrl + list_user.avatar_url" alt="">
                                                 <img class="forward-image" v-else
                                                     :src="baseUrl + asset_type + '/chat/images/spondon-icon.png'"
-                                                    alt="">
+                                                    alt="GSI Schools spondon">
                                                 <h4>{{ list_user.first_name }}</h4>
                                             </a>
                                         </div>

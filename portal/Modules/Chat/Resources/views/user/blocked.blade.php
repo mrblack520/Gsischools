@@ -29,7 +29,7 @@
                                                 <a href="#" data-toggle="modal"
                                                     data-target="#profileEditForm{{ $index }}"><img
                                                         src="{{ file_exists(@$user->avatar) ? asset($user->avatar) : asset('public/chat/images/spondon-icon.png') }}"
-                                                        alt=""></a>
+                                                        alt="GSI Schools spondon"></a>
                                             </div>
                                             <div class="list_name">
                                                 <a href="#">
@@ -55,7 +55,7 @@
                                                         <div class="thumb" style="display: inline">
                                                             <a href="#"><img
                                                                     src="{{ file_exists(@$user->avatar) ? asset($user->avatar) : asset('public/chat/images/spondon-icon.png') }}"
-                                                                    height="50" width="50" alt=""></a>
+                                                                    height="50" width="50" alt="GSI Schools spondon"></a>
                                                         </div>
                                                         {{ $user->first_name }} {{ $user->last_name }}
                                                     </h4>

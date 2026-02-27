@@ -57,7 +57,7 @@
                 <div class="col-md-6 right">
                     <div class="img-con">
                         <div class="filter-bg-gradient"></div>
-                        <img src="../../../public/assets/images/young-woman-sits-cafe.webp" alt="">
+                        <img src="../../../public/assets/images/young-woman-sits-cafe.webp" alt=""GSI Schools Youg woman with cafe>
                     </div>
                 </div>
             </div>
@@ -108,7 +108,7 @@
                 <div class="col-md-6 right">
                     <div class="img-con">
                         <div class="filter-bg-gradient"></div>
-                        <img src="../../../public/assets/images/young-man-wearing-headphones.webp" alt="">
+                        <img src="../../../public/assets/images/young-man-wearing-headphones.webp" alt="GSI Schools young man with headphone">
                     </div>
                 </div>
             </div>

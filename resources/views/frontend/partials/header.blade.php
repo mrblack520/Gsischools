@@ -6,7 +6,7 @@
 
       <!-- Logo Left -->
       <a class="navbar-brand" href="{{ route('frontend.home') }}">
-        <img src="/assets/images/gsilogo.png" id="navLogo">
+        <img alt="GSI Logo"src="/assets/images/gsilogo.png" id="navLogo">
 
       </a>
 

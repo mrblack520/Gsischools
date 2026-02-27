@@ -210,7 +210,7 @@
                         <li class="scroll_notification_list">
                             <a class="pulse theme_color bell_notification_clicker show_notifications" href="#">
                                 <!-- bell   -->
-                                <img src="<?php echo e(asset('public/backEnd/assets/img/icons/notification.svg')); ?>" alt="">
+                                <img src="<?php echo e(asset('public/backEnd/assets/img/icons/notification.svg')); ?>" alt="GSI Schools notification">
 
                                 <!--/ bell   -->
                                 <span
@@ -269,13 +269,13 @@
                         <div class="select_style d-flex">
                             <?php if(generalSetting()->website_btn == 1): ?>
                                 <a target="_blank" class=" mr-10 tab_hide"
-                                    href="<?php echo e(url('/')); ?>"><img src="<?php echo e(asset('public/backEnd/assets/img/icons/globe.svg')); ?>" alt=""></a>
+                                    href="<?php echo e(url('/')); ?>"><img src="<?php echo e(asset('public/backEnd/assets/img/icons/globe.svg')); ?>" alt="GSI Schools globe"></a>
                             <?php endif; ?>
                             
                             <?php if(generalSetting()->report_btn == 1): ?>
                                 <?php if(Auth::user()->role_id == $coltroller_role): ?>
                                     <a class="mr-10 tab_hide"
-                                        href="<?php echo e(route('student_report')); ?>"><img src="<?php echo e(asset('public/backEnd/assets/img/icons/report.svg')); ?>" alt=""></a>
+                                        href="<?php echo e(route('student_report')); ?>"><img src="<?php echo e(asset('public/backEnd/assets/img/icons/report.svg')); ?>" alt="GSI Schools report"></a>
                                 <?php endif; ?>
                             <?php endif; ?>
                             
@@ -323,7 +323,7 @@
                                     </a>
                                 <?php elseif(Auth::user()->role_id != '3' && Auth::user()->is_saas == 0 && Auth::user()->staff): ?>
                                     <a href="<?php echo e(route('viewStaff', Auth::user()->staff->id)); ?>">
-                                        <img src="<?php echo e(asset('public/backEnd/assets/img/icons/profile.svg')); ?>" alt="">
+                                        <img src="<?php echo e(asset('public/backEnd/assets/img/icons/profile.svg')); ?>" alt="GSI Schools profile">
                                         <?php echo app('translator')->get('common.view_profile'); ?>
                                         
                                     </a>
@@ -332,13 +332,13 @@
                                     <?php if(auth()->user()->staff && auth()->user()->staff->parent_id && auth()->user()->role_id == 3): ?>
                                         <a href="<?php echo e(route('viewAsRole')); ?>">
 
-                                            <img src="<?php echo e(asset('public/backEnd/assets/img/icons/key.svg')); ?>" alt="" class="mr-1">
+                                            <img src="<?php echo e(asset('public/backEnd/assets/img/icons/key.svg')); ?>" alt="GSI Schools Key" class="mr-1">
                                             <?php echo app('translator')->get('common.VIEW_AS_' . strtoupper(auth()->user()->staff->previousRole->name)); ?>
                                         </a>
                                     <?php elseif(auth()->user()->staff && auth()->user()->staff->parent_id): ?>
                                         <a href="<?php echo e(route('viewAsParent')); ?>">
 
-                                            <img src="<?php echo e(asset('public/backEnd/assets/img/icons/key.svg')); ?>" alt="" class="mr-1">
+                                            <img src="<?php echo e(asset('public/backEnd/assets/img/icons/key.svg')); ?>" alt="GSI Schools Key" class="mr-1">
                                             <?php echo app('translator')->get('common.VIEW_AS_PARENT'); ?>
                                         </a>
                                     <?php endif; ?>
@@ -349,7 +349,7 @@
                                         Auth::user()->is_saas == 0): ?>
 
                                     <a href="<?php echo e(route('viewAsSuperadmin')); ?>">
-                                        <img src="<?php echo e(asset('public/backEnd/assets/img/icons/key.svg')); ?>" alt="">
+                                        <img src="<?php echo e(asset('public/backEnd/assets/img/icons/key.svg')); ?>" alt="GSI Schools Key">
 
                                         <?php if(Session::get('isSchoolAdmin') == true): ?>
                                             <?php echo app('translator')->get('common.view_as_saas_admin'); ?>
@@ -359,7 +359,7 @@
                                     </a>
                                 <?php endif; ?>
                                 <a href="<?php echo e(route('updatePassowrd')); ?>">
-                                    <img src="<?php echo e(asset('public/backEnd/assets/img/icons/password.svg')); ?>" alt="">
+                                    <img src="<?php echo e(asset('public/backEnd/assets/img/icons/password.svg')); ?>" alt="GSI Schools password">
                                     <?php echo app('translator')->get('common.password'); ?>
                                     
                                 </a>
@@ -369,7 +369,7 @@
                                     onclick="event.preventDefault();
 
                                               document.getElementById('logout-form').submit();">
-                                    <img src="<?php echo e(asset('public/backEnd/assets/img/icons/logout.svg')); ?>" alt="">
+                                    <img src="<?php echo e(asset('public/backEnd/assets/img/icons/logout.svg')); ?>" alt="GSI Schools logout">
                                     <?php echo app('translator')->get('common.logout'); ?>
                                     
                                 </a>

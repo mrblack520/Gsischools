@@ -17,7 +17,7 @@
             <div class="Notification_body">
                 <div v-for="unread in this.unreads" class="single_notify d-flex align-items-center">
                     <div class="notify_thumb">
-                        <a href="#"><img :src="asset_type + '/chat/images/spondon-icon.png'" alt=""></a>
+                        <a href="#"><img :src="asset_type + '/chat/images/spondon-icon.png'" alt="GSI Schools spondon"></a>
                     </div>
 
                     <div class="notify_content">

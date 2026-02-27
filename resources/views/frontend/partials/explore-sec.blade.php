@@ -1,5 +1,5 @@
 <section class="explore-sec position-relative" style="background: url('assets/images/faqs-bg.png') no-repeat center top; background-size: cover;">
-    <img class="position-absolute d-none d-md-block" src="assets/images/explore-4.png" alt="" style="top: 10; left: 220px;"> <!-- Only visible on desktop -->
+    <img class="position-absolute d-none d-md-block" src="assets/images/explore-4.png" alt="GSI Schools explore" style="top: 10; left: 220px;"> <!-- Only visible on desktop -->
 
     <div class="container">
         <div class="row justify-content-center gy-4">
@@ -9,7 +9,7 @@
                 <div class="bg-gradient-e"></div>
                 <div class="explore-main-con">
                     <div class="explore-con">
-                        <img src="assets/images/explore-2.png" alt="" class="img-fluid">
+                        <img src="assets/images/explore-2.png" alt="GSI Schools explore" class="img-fluid">
                         <p><span>Sign-up here!</span></p>
                     </div>
                 </div>
@@ -20,7 +20,7 @@
                 <div class="bg-gradient-e"></div>
                 <div class="explore-main-con">
                     <div class="explore-con">
-                        <img src="assets/images/explore-1.png" alt="" class="img-fluid">
+                        <img src="assets/images/explore-1.png" alt="GSI Schools explore" class="img-fluid">
                         <p>
                             <span>
                                 @if (Request::is('aficionado'))
@@ -39,7 +39,7 @@
                 <div class="bg-gradient-e"></div>
                 <div class="explore-main-con">
                     <div class="explore-con">
-                        <img src="assets/images/explore-3.png" alt="" class="img-fluid">
+                        <img src="assets/images/explore-3.png" alt="GSI Schools explore" class="img-fluid">
                         <p>Check out our <span>FAQs</span> and
                             <span>other pages</span> to learn more
                         </p>

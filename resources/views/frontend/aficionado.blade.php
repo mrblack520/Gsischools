@@ -21,11 +21,11 @@
                             </div>
                         </div>
                         <div class="d-flex align-items-end mb-3 pb-1">
-                            <img src="./assets/images/aficionado-img-2.webp" alt="">
+                            <img src="./assets/images/aficionado-img-2.webp" alt="GSI Schools Scholer">
                         </div>
                     </div>
                     <div class="col-md-6 right">
-                        <img class="img" src="/assets/images/university-area-right-img.svg" alt="">
+                        <img class="img" src="/assets/images/university-area-right-img.svg" alt="GSI Schools purple fluid">
                         <div class="div">
                             <h3>Experienced in a <span>Profession</span> </h3>
                             <!-- <p>Monetise your insight and experiences to answer the Next Gen’s questions on university
@@ -35,7 +35,7 @@
                             </div>
                         </div>
                         <div class="d-flex align-items-end">
-                            <img src="./assets/images/aficionado-img-1.webp " alt="">
+                            <img src="./assets/images/aficionado-img-1.webp " alt="GSI Schools man Carton">
                         </div>
                     </div>
 
@@ -161,7 +161,7 @@
                 <div class="col-md-6 right">
                     <div class="img-con">
                         <img class="bg-effect" src="assets/images/girl-bg 3.png" alt="">
-                        <img class="front-img" src="/assets/images/aficionado-img-3.webp" alt="">
+                        <img class="front-img" src="/assets/images/aficionado-img-3.webp" alt="GSI Schools man with headphones">
                         <div class="bg-object"></div>
                     </div>
                 </div>

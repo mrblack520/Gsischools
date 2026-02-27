@@ -26,11 +26,11 @@
                         </div>
                     </div>
                     <div class="d-flex align-items-end mb-4 pb-2">
-                        <img src="./assets/images/uni-2.webp" alt="">
+                        <img src="./assets/images/uni-2.webp" alt="GSI Schools using mobile">
                     </div>
                 </div>
                 <div class="col-md-6 right">
-                    <img class="img" src="/assets/images/university-area-right-img.svg" alt="">
+                    <img class="img" src="/assets/images/university-area-right-img.svg" alt="GSI Schools purple fluid">
                     <div class="div">
                         <h3>🏫 Academy</h3>
                         <p><strong> Enriching Academic Excellence</strong> <br>
@@ -64,7 +64,7 @@
             <div class="col-md-6 left">
                 <div class="img-container">
                     <img class="man-with-headset-sits" src="./assets/images/gsipic28.png"
-                        alt="Man With Headset">
+                        alt="GSI Schools Science Lab Station">
                     <div class="bys-bg-gradient-1"></div>
                     <div class="bys-bg-gradient-2"></div>
                     <div class="message-div">

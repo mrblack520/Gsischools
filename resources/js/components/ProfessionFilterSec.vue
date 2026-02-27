@@ -54,7 +54,7 @@
                 <div class="col-md-6 right">
                     <div class="img-con">
                         <div class="filter-bg-gradient"></div>
-                        <img src="../../../public/assets/images/gsipic18copy1.png" alt="">
+                        <img src="../../../public/assets/images/gsipic9copy1.png" alt="GSI Schools Students Creative Art">
                     </div>
                 </div>
             </div>
@@ -81,7 +81,7 @@
                 <div class="col-md-6 right">
                     <div class="img-con">
                         <div class="filter-bg-gradient"></div>
-                        <img src="../../../public/assets/images/gsipic11copy3.png" alt="">
+                        <img src="../../../public/assets/images/gsipic11copy3.png" alt="GSI Schools Students Group Discussion">
                     </div>
                 </div>
             </div>
@@ -109,7 +109,7 @@
                 <div class="col-md-6 right">
                     <div class="img-con">
                         <div class="filter-bg-gradient"></div>
-                        <img src="../../../public/assets/images/gsipic27copy2.png" alt="">
+                        <img src="../../../public/assets/images/gsipic27copy2.png" alt="GSI Schools Modern Computer Lab">
                     </div>
                 </div>
             </div>

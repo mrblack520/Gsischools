@@ -35,7 +35,7 @@
           <h3>{{ pagesetting('counter') }}</h3>
           <span>{{ pagesetting('counter-text') }} </span>
           <a href="" class="tmp-btn">{{ pagesetting('button-cta') }} <img src="{{ asset('demo/images/iconcart.svg') }}"
-              alt=""> </a>
+              alt="icon image"> </a>
         </div>
       </div>
     </div>
