@@ -75,41 +75,22 @@
 </section>
 <section>
     <!-- Video Modal -->
-<div class="yt-modal-wrapper" style="display:none;">
+
+<div class="yt-modal-wrapper" id="videoModal" style="display:none;">
     <div class="yt-modal-overlay"></div>
     <div class="yt-modal-content">
         <span class="yt-modal-close">&times;</span>
 
         <div class="yt-main-wrapper">
-            <!-- Video Player -->
             <div class="yt-video-section">
-                <iframe id="yt_iframe" src="" allowfullscreen></iframe>
-            </div>
-
-            <!-- Playlist -->
-            <div class="yt-playlist-section">
-                <ol class="yt-playlist" id="yt_playlist">
-                    <li data-video="cOSEOYi9JS4">
-                        <img src="https://img.youtube.com/vi/cOSEOYi9JS4/default.jpg">
-                        <span>WeatherBeater™ Product Video</span>
-                    </li>
-                    <li data-video="9P7mEf4bilg">
-                        <img src="https://img.youtube.com/vi/9P7mEf4bilg/default.jpg">
-                        <span>X-act Contour® Product Video</span>
-                    </li>
-                    <li data-video="KHxNpXovl58">
-                        <img src="https://img.youtube.com/vi/KHxNpXovl58/default.jpg">
-                        <span>GearBox® Product Video</span>
-                    </li>
-                    <li data-video="D_a2UBGsePQ">
-                        <img src="https://img.youtube.com/vi/D_a2UBGsePQ/default.jpg">
-                        <span>Mud Guards Product Video</span>
-                    </li>
-                </ol>
+                <video id="myVideo" class="custom-video" controls autoplay muted playsinline>
+                    <source src="assets/video/sir.mp4" type="video/mp4">
+                </video>
             </div>
         </div>
     </div>
 </div>
+
 </section>
 <section class="university-area-content">
 
