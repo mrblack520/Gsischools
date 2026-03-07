@@ -27,13 +27,13 @@
     "file": "assets/gsipic11copy3-BlkWyGS9.png",
     "src": "public/assets/images/gsipic11copy3.png"
   },
-  "public/assets/images/gsipic18copy1.png": {
-    "file": "assets/gsipic18copy1-CLWDhc2t.png",
-    "src": "public/assets/images/gsipic18copy1.png"
-  },
   "public/assets/images/gsipic27copy2.png": {
     "file": "assets/gsipic27copy2-C6MhgcTI.png",
     "src": "public/assets/images/gsipic27copy2.png"
+  },
+  "public/assets/images/gsipic9copy1.png": {
+    "file": "assets/gsipic9copy1-Br9oZC6D.png",
+    "src": "public/assets/images/gsipic9copy1.png"
   },
   "public/assets/images/handle-multi-tasks.png": {
     "file": "assets/handle-multi-tasks-CJw9PT5c.png",
@@ -61,7 +61,7 @@
     "isEntry": true
   },
   "resources/css/style.css": {
-    "file": "assets/style-BhJS3dpa.css",
+    "file": "assets/style-3kZVcoUn.css",
     "src": "resources/css/style.css",
     "isEntry": true
   },
@@ -122,7 +122,7 @@
     "src": "resources/images/tick-light.png"
   },
   "resources/js/app.js": {
-    "file": "assets/app-CeJpxjvB.js",
+    "file": "assets/app-CoZxYGHb.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
@@ -139,7 +139,7 @@
       "assets/dark-tick-BL4XH91W.png",
       "assets/handle-multi-tasks-CJw9PT5c.png",
       "assets/young-man-wearing-headphones-DQAMYnxl.webp",
-      "assets/gsipic18copy1-CLWDhc2t.png",
+      "assets/gsipic9copy1-Br9oZC6D.png",
       "assets/gsipic11copy3-BlkWyGS9.png",
       "assets/gsipic27copy2-C6MhgcTI.png",
       "assets/ng-3-CUBmKNDI.png"
