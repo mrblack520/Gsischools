@@ -56,12 +56,12 @@
     "src": "public/assets/images/young-woman-sits-cafe.webp"
   },
   "resources/css/app.css": {
-    "file": "assets/app-C90osX_R.css",
+    "file": "assets/app-BwTrn9-M.css",
     "src": "resources/css/app.css",
     "isEntry": true
   },
   "resources/css/style.css": {
-    "file": "assets/style-3kZVcoUn.css",
+    "file": "assets/style-CXMM6Dn1.css",
     "src": "resources/css/style.css",
     "isEntry": true
   },
@@ -122,12 +122,12 @@
     "src": "resources/images/tick-light.png"
   },
   "resources/js/app.js": {
-    "file": "assets/app-CoZxYGHb.js",
+    "file": "assets/app-DAdLms1E.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
     "css": [
-      "assets/app-DMrXgt0y.css"
+      "assets/app-sBcgT9Uo.css"
     ],
     "assets": [
       "assets/chat-BY_7Kwb5.png",
