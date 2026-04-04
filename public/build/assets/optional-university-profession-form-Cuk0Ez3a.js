@@ -1,4 +1,0 @@
-document.addEventListener("DOMContentLoaded",()=>{document.getElementById("op-profession-submit-btn").addEventListener("click",()=>{Swal.fire({title:"Thank you for registering!",html:`
-                    <p>We’ll be in touch via email to guide you through the onboarding process.</p>
-                    <p>Keep an eye on your inbox, and if you have any questions in the meantime, don’t hesitate to contact us.</p>
-                    `,icon:"success",confirmButtonText:"OK",confirmButtonColor:"#503A8E",allowOutsideClick:!1,allowEscapeKey:!1}).then(()=>{window.location.href=route("frontend.register")})}),document.getElementById("op-profession-save-btn").addEventListener("click",()=>{Swal.fire({title:"Saved!",text:"Your progress has been saved. You can continue later.",icon:"info",confirmButtonColor:"#503A8E",confirmButtonText:"Ok",allowOutsideClick:!1,allowEscapeKey:!1})})});

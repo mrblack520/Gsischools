@@ -55,13 +55,41 @@
     "file": "assets/young-woman-sits-cafe-C4R22q6Q.webp",
     "src": "public/assets/images/young-woman-sits-cafe.webp"
   },
+  "resources/css/app-legacy.css": {
+    "file": "assets/app-legacy-Dmg6cvwf.js",
+    "name": "app",
+    "src": "resources/css/app-legacy.css",
+    "isEntry": true
+  },
   "resources/css/app.css": {
-    "file": "assets/app-BwTrn9-M.css",
+    "file": "assets/app-CpwTsHKO.css",
     "src": "resources/css/app.css",
     "isEntry": true
   },
+  "resources/css/style-legacy.css": {
+    "file": "assets/style-legacy-D817yQIK.js",
+    "name": "style",
+    "src": "resources/css/style-legacy.css",
+    "isEntry": true,
+    "assets": [
+      "assets/dots-vertical-CFC8kQYx.png",
+      "assets/rectangle-img-DQV2SKs4.png",
+      "assets/rectangle-image-CbNh7LXf.png",
+      "assets/slider-bg-BjkjIylY.png",
+      "assets/expert-work-DZVwi5Bk.png",
+      "assets/faqs-bg-BlOw2P9w.png",
+      "assets/footer-bg-BPKXAE92.png",
+      "assets/after-efect-img-D7FBpLZ8.png",
+      "assets/arrow-up-9tTFANlt.png",
+      "assets/tick-light-DorUqsIK.png",
+      "assets/plus-DH-DoNCd.png",
+      "assets/minus-DMCZXzPn.png",
+      "assets/login-side-img-CVpSnAPd.png",
+      "assets/arrow-right-dark-D5tkU5lk.png"
+    ]
+  },
   "resources/css/style.css": {
-    "file": "assets/style-CXMM6Dn1.css",
+    "file": "assets/style-2Y2o90Ka.css",
     "src": "resources/css/style.css",
     "isEntry": true
   },
@@ -121,13 +149,34 @@
     "file": "assets/tick-light-DorUqsIK.png",
     "src": "resources/images/tick-light.png"
   },
+  "resources/js/app-legacy.js": {
+    "file": "assets/app-legacy-rNdXKx7X.js",
+    "name": "app",
+    "src": "resources/js/app-legacy.js",
+    "isEntry": true,
+    "assets": [
+      "assets/chat-BY_7Kwb5.png",
+      "assets/filter-oCvLfBeq.png",
+      "assets/chain-9ROSMcj4.png",
+      "assets/video-chat-img-C49wlAQ1.webp",
+      "assets/dark-bullets-Ck83vl3w.svg",
+      "assets/young-woman-sits-cafe-C4R22q6Q.webp",
+      "assets/dark-tick-BL4XH91W.png",
+      "assets/handle-multi-tasks-CJw9PT5c.png",
+      "assets/young-man-wearing-headphones-DQAMYnxl.webp",
+      "assets/gsipic9copy1-Br9oZC6D.png",
+      "assets/gsipic11copy3-BlkWyGS9.png",
+      "assets/gsipic27copy2-C6MhgcTI.png",
+      "assets/ng-3-CUBmKNDI.png"
+    ]
+  },
   "resources/js/app.js": {
-    "file": "assets/app-DAdLms1E.js",
+    "file": "assets/app-vIud2zlO.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
     "css": [
-      "assets/app-sBcgT9Uo.css"
+      "assets/app-BqT9aUAF.css"
     ],
     "assets": [
       "assets/chat-BY_7Kwb5.png",
@@ -145,52 +194,106 @@
       "assets/ng-3-CUBmKNDI.png"
     ]
   },
+  "resources/js/partials/optional-profession-form-legacy.js": {
+    "file": "assets/optional-profession-form-legacy-B3QwkcXv.js",
+    "name": "optional-profession-form",
+    "src": "resources/js/partials/optional-profession-form-legacy.js",
+    "isEntry": true
+  },
   "resources/js/partials/optional-profession-form.js": {
-    "file": "assets/optional-profession-form-Cuk0Ez3a.js",
+    "file": "assets/optional-profession-form-Br9k0I93.js",
     "name": "optional-profession-form",
     "src": "resources/js/partials/optional-profession-form.js",
     "isEntry": true
   },
+  "resources/js/partials/optional-university-form-legacy.js": {
+    "file": "assets/optional-university-form-legacy-BWdou6W9.js",
+    "name": "optional-university-form",
+    "src": "resources/js/partials/optional-university-form-legacy.js",
+    "isEntry": true
+  },
   "resources/js/partials/optional-university-form.js": {
-    "file": "assets/optional-university-form-D7Fl9Bni.js",
+    "file": "assets/optional-university-form-JbkCQZ0P.js",
     "name": "optional-university-form",
     "src": "resources/js/partials/optional-university-form.js",
     "isEntry": true
   },
+  "resources/js/partials/optional-university-profession-form-legacy.js": {
+    "file": "assets/optional-university-profession-form-legacy-B3QwkcXv.js",
+    "name": "optional-university-profession-form",
+    "src": "resources/js/partials/optional-university-profession-form-legacy.js",
+    "isEntry": true
+  },
   "resources/js/partials/optional-university-profession-form.js": {
-    "file": "assets/optional-university-profession-form-Cuk0Ez3a.js",
+    "file": "assets/optional-university-profession-form-Br9k0I93.js",
     "name": "optional-university-profession-form",
     "src": "resources/js/partials/optional-university-profession-form.js",
     "isEntry": true
   },
+  "resources/js/partials/profession-form-legacy.js": {
+    "file": "assets/profession-form-legacy-C9Inetlt.js",
+    "name": "profession-form",
+    "src": "resources/js/partials/profession-form-legacy.js",
+    "isEntry": true
+  },
   "resources/js/partials/profession-form.js": {
-    "file": "assets/profession-form-9Xv2VwFd.js",
+    "file": "assets/profession-form-5Ps6ta-I.js",
     "name": "profession-form",
     "src": "resources/js/partials/profession-form.js",
     "isEntry": true
   },
+  "resources/js/partials/register-script-legacy.js": {
+    "file": "assets/register-script-legacy-8reLrfk9.js",
+    "name": "register-script",
+    "src": "resources/js/partials/register-script-legacy.js",
+    "isEntry": true
+  },
   "resources/js/partials/register-script.js": {
-    "file": "assets/register-script-DZIvFv1H.js",
+    "file": "assets/register-script-C4iB7YmT.js",
     "name": "register-script",
     "src": "resources/js/partials/register-script.js",
     "isEntry": true
   },
+  "resources/js/partials/university-form-legacy.js": {
+    "file": "assets/university-form-legacy-2_3Zkfvz.js",
+    "name": "university-form",
+    "src": "resources/js/partials/university-form-legacy.js",
+    "isEntry": true
+  },
   "resources/js/partials/university-form.js": {
-    "file": "assets/university-form-BhE7U6RC.js",
+    "file": "assets/university-form-BJ--n0ix.js",
     "name": "university-form",
     "src": "resources/js/partials/university-form.js",
     "isEntry": true
   },
+  "resources/js/partials/university-profession-form-legacy.js": {
+    "file": "assets/university-profession-form-legacy-B_gY8lam.js",
+    "name": "university-profession-form",
+    "src": "resources/js/partials/university-profession-form-legacy.js",
+    "isEntry": true
+  },
   "resources/js/partials/university-profession-form.js": {
-    "file": "assets/university-profession-form-DMMhdC4Q.js",
+    "file": "assets/university-profession-form-Cex5AqPt.js",
     "name": "university-profession-form",
     "src": "resources/js/partials/university-profession-form.js",
     "isEntry": true
   },
+  "resources/js/script-legacy.js": {
+    "file": "assets/script-legacy-CDky1t-l.js",
+    "name": "script",
+    "src": "resources/js/script-legacy.js",
+    "isEntry": true
+  },
   "resources/js/script.js": {
-    "file": "assets/script-Dw2yi-dQ.js",
+    "file": "assets/script-CrPP8cX6.js",
     "name": "script",
     "src": "resources/js/script.js",
+    "isEntry": true
+  },
+  "vite/legacy-polyfills-legacy": {
+    "file": "assets/polyfills-legacy-DHwrfU-q.js",
+    "name": "polyfills",
+    "src": "vite/legacy-polyfills-legacy",
     "isEntry": true
   }
 }

@@ -1,4 +1,5 @@
 import { defineConfig } from 'vite';
+import legacy from '@vitejs/plugin-legacy';
 import laravel from 'laravel-vite-plugin';
 import vue from '@vitejs/plugin-vue';
 import path from 'path';
@@ -28,5 +29,8 @@ export default defineConfig({
             refresh: true,
         }),
         vue(),
+         legacy({
+        targets: ['defaults', 'not IE 11'],
+    }),
     ],
 });
