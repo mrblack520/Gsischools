@@ -150,24 +150,48 @@
     "src": "resources/images/tick-light.png"
   },
   "resources/js/app-legacy.js": {
-    "file": "assets/app-legacy-BabTB0zV.js",
+    "file": "assets/app-legacy-BwxFHSb-.js",
     "name": "app",
     "src": "resources/js/app-legacy.js",
     "isEntry": true,
     "assets": [
-      "assets/dark-bullets-Ck83vl3w.svg"
+      "assets/chat-BY_7Kwb5.png",
+      "assets/filter-oCvLfBeq.png",
+      "assets/chain-9ROSMcj4.png",
+      "assets/video-chat-img-C49wlAQ1.webp",
+      "assets/dark-bullets-Ck83vl3w.svg",
+      "assets/young-woman-sits-cafe-C4R22q6Q.webp",
+      "assets/dark-tick-BL4XH91W.png",
+      "assets/handle-multi-tasks-CJw9PT5c.png",
+      "assets/young-man-wearing-headphones-DQAMYnxl.webp",
+      "assets/gsipic9copy1-Br9oZC6D.png",
+      "assets/gsipic11copy3-BlkWyGS9.png",
+      "assets/gsipic27copy2-C6MhgcTI.png",
+      "assets/ng-3-CUBmKNDI.png"
     ]
   },
   "resources/js/app.js": {
-    "file": "assets/app-CJJavaQG.js",
+    "file": "assets/app-BsBzW7ab.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
     "css": [
-      "assets/app-CCUE9vwY.css"
+      "assets/app-BqT9aUAF.css"
     ],
     "assets": [
-      "assets/dark-bullets-Ck83vl3w.svg"
+      "assets/chat-BY_7Kwb5.png",
+      "assets/filter-oCvLfBeq.png",
+      "assets/chain-9ROSMcj4.png",
+      "assets/video-chat-img-C49wlAQ1.webp",
+      "assets/dark-bullets-Ck83vl3w.svg",
+      "assets/young-woman-sits-cafe-C4R22q6Q.webp",
+      "assets/dark-tick-BL4XH91W.png",
+      "assets/handle-multi-tasks-CJw9PT5c.png",
+      "assets/young-man-wearing-headphones-DQAMYnxl.webp",
+      "assets/gsipic9copy1-Br9oZC6D.png",
+      "assets/gsipic11copy3-BlkWyGS9.png",
+      "assets/gsipic27copy2-C6MhgcTI.png",
+      "assets/ng-3-CUBmKNDI.png"
     ]
   },
   "resources/js/partials/optional-profession-form-legacy.js": {
