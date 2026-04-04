@@ -27,23 +27,26 @@
     </div>
 
     <div class="read-more-btn-div d-flex justify-content-center mt-4">
-        <a href="{{ route('frontend.faqs') }}" style="padding: 11px 32px 9px 29px;" class="read-more-btn"
+        <a :href="props.faqsUrl" style="padding: 11px 32px 9px 29px;" class="read-more-btn"
             id="view-all-faqs">View all FAQs</a>
     </div>
 </template>
 
 
 <script setup>
-import { ref } from 'vue';
+import { ref  } from 'vue';
 
 
-const selectedFaq = ref('general');
+
+const selectedFaq = ref('School');
 const selectedFaqItem = ref(0);
 
 const updateItem = ind => {
     selectedFaqItem.value = (selectedFaqItem.value === ind) ? null : ind;
 }
-
+  const props = defineProps({
+    faqsUrl: String
+});
 const faqsData = [
     {
         category: 'School',

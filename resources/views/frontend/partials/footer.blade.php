@@ -48,7 +48,7 @@
                             <p>Register now to become a part of the GSI learning community.</p>
                         </div>
                         <div class="singup-img">
-                            <a href="{{ route('frontend.questionnaire') }}">
+                            <a href="{{ route('frontend.contact-us') }}">
                                 <img src="/assets/images/icon-image.svg" alt="GSI Schools document">
                             </a>
                         </div>

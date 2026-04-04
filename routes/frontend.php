@@ -4,6 +4,8 @@ use App\Http\Controllers\FrontendController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [FrontendController::class, 'home'])->name('frontend.home');
+Route::get('/schools', [FrontendController::class,'schools'])->name('schools');
+Route::get('/Academy', [FrontendController::class,'Academy'])->name('Academy');
 Route::get('/next-gen', [FrontendController::class, 'nextGen'])->name('frontend.next-gen');
 Route::get('/aficionado', [FrontendController::class, 'aficionado'])->name('frontend.aficionado');
 Route::get('/university', [FrontendController::class, 'university'])->name('frontend.university');

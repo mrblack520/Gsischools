@@ -17,66 +17,57 @@ use Illuminate\Http\Request;
 
 class FrontendController extends Controller
 {
+    
+     public function Academy(){
+        
+        return view('frontend.Academy');
+    }
+     public function schools(){
+        
+        return view('frontend.School');
+    }
     public function home()
     {
 
         $slides = [
-            [
-                'title' => ' Easy Registration',
-                'image' => asset('/assets/images/gsipicn12.png'),
-                'alt' => asset('GSI Schools Library'),
-                'paragraphs' => [
-                    
-                    "We make admissions simple and stress-free for both parents and students. With a clear admission process, families can smoothly enroll their child in the right class without unnecessary delays. From Play Group to Grade 10, every step is designed to be transparent and supportive.
-",
-                ],
-            ],
-            [
-                'title' => ' Book Your Slot',
-                'image' => asset('/assets/images/gsipicn2.png'),
-                'alt' => asset('GSI Schools Students'),
-                'paragraphs' => [
-                
-                    'Once registered, students can book their slot in the class of their choice. For selected grades, an entry test ensures that every child is placed at the right academic level, setting them up for success. This process helps us recognize the strengths, skills, and potential of each student.',
-                ],
-            ],
-            [
-                'title' => ' Stay Connected',
-                'image' => asset('/assets/images/gsipicn7.png'),
-                'alt' => asset('GSI Schools Class'),
-                'paragraphs' => [
-                    'Communication is key to student success. That’s why we keep parents updated through regular progress reports, parent–teacher meetings, and online support systems. Whether it’s academic results, attendance, or upcoming activities, families always stay informed and connected with the GSI community.
-',
-                ],
-            ],
-            [
-                'title' => ' Mutual Growth',
-                'image' => asset('/assets/images/gsipic18.png'),
-                'alt' => asset('Guiding Star International'),
-                'paragraphs' => [
-                    
-                    'At GSI, we believe education is a three-way partnership between teachers, parents, and students. Our teachers provide the right guidance, parents support learning at home, and students commit to discipline and hard work. Together, this teamwork builds character, confidence, and consistent progress.
-',
-                ],
-            ],
-            [
-                'title' => 'Our commitment',
-                'image' => asset('/assets/images/gsipicn11.png'),
-                'alt' => asset('GSI Schools Shelves & Chair '),
-                'paragraphs' => [
-                
-                    'At GSI Schools & Academy, we are committed to nurturing every child’s potential with care, dedication, and integrity. We provide a safe learning environment, modern teaching methods, and opportunities for both academic and personal growth. Our promise is to prepare students not just for exams, but for life — empowering them with knowledge, values, and confidence to succeed in the future.',
-                ],
-            ],
-        ];
+    [
+        'title' => 'Easy Registration',
+        'image' => asset('/assets/images/gsipicn12.png'),
+        'alt' => 'GSI Schools Library',
+        'paragraphs' => ['We make admissions simple and stress-free for both parents and students. From Play Group to Grade 10, every step is transparent and supportive.']
+    ],
+    [
+        'title' => 'Book Your Slot',
+        'image' => asset('/assets/images/gsipicn2.png'),
+        'alt' => 'GSI Schools Students',
+        'paragraphs' => ['Students can book their slot and get placed at the right academic level to ensure success.']
+    ],
+    [
+        'title' => 'Stay Connected',
+        'image' => asset('/assets/images/gsipicn7.png'),
+        'alt' => 'GSI Schools Class',
+        'paragraphs' => ['We keep parents updated through progress reports, meetings, and online systems.']
+    ],
+    [
+        'title' => 'Mutual Growth',
+        'image' => asset('/assets/images/gsipic18.png'),
+        'alt' => 'Guiding Star International',
+        'paragraphs' => ['Teachers, parents, and students work together to build confidence and growth.']
+    ],
+    [
+        'title' => 'Our Commitment',
+        'image' => asset('/assets/images/gsipicn11.png'),
+        'alt' => 'GSI Schools Shelves & Chair',
+        'paragraphs' => ['We provide a safe learning environment and prepare students for life, not just exams.']
+    ],
+];
 
+return view('frontend.home', compact('slides'));}
+   
 
-        return view('frontend.home', compact(['slides']));
-    }
-
-    public function nextGen()
+        public function nextGen()
     {
-        $slides = [
+    $slides = [
             [
                 'paragraphs' => [
                     'Applications, interviews, research … stepping into a world of unknowns and assumptions can feel overwhelming.'

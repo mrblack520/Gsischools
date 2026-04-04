@@ -1,6 +1,108 @@
 @extends('frontend.layout.app')
 
 
+@section('title', 'GSI Schools & Academy – Student Life & Excellence')
+
+@section('GSI Schools & Academy! Celebrate student life with events, workshops, competitions, career guidance & skill development. Discover your potential today!')
+
+
+@section('meta')
+<!-- Open Graph / Facebook -->
+<meta property="og:title" content="GSI International Schools & Academy – Our Vision & Story" />
+<meta property="og:description" content="GSI Schools & Academy! From Mont Junior to Grade 12, we nurture curiosity, build confidence, discipline & future-ready skills like AI, Cybersecurity & Web Development. Discover our story and vision today!" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://gsischools.com/about" />
+<meta property="og:site_name" content="GSI International Schools & Academy" />
+
+<!-- Recommended OG Image (1200x630) -->
+<meta property="og:image" content="https://gsischools.com/assets/images/about-02.png" />  
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="GSI International Schools & Academy students learning with curiosity and confidence in a modern classroom" />
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="GSI International Schools & Academy – Our Vision & Story" />
+<meta name="twitter:description" content="From Mont Junior to Grade 12 — curiosity, confidence, and future skills like AI & Cybersecurity. Discover our story!" />
+<meta name="twitter:image" content="https://gsischools.com/assets/images/about-02.png" />
+
+<!-- Fallback meta -->
+<meta name="description" content="GSI Schools & Academy! From Mont Junior to Grade 12, we nurture curiosity, build confidence, discipline & future-ready skills like AI, Cybersecurity & Web Development. Discover our story and vision today!" />
+
+
+
+@endsection
+
+@section('schema')
+@verbatim
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  "@id": "https://gsischools.com/about#organization",
+  "name": "GSI International Schools & Academy",
+  "alternateName": "GSI Schools & Academy",
+  "url": "https://gsischools.com/about",
+  "logo": "https://gsischools.com/assets/images/about-02.png",
+  "description": "Visual representation of Guiding Star International Schools Academy, highlighting a star motif that signifies academic excellence.",
+  "slogan": "Where Success Begins",
+  "foundingDate": "2024",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Plot 7, Sector 2, Street 5, Hub River Road, Naval Colony, Baldia Town",
+    "addressLocality": "Karachi",
+    "addressRegion": "Sindh",
+    "postalCode": "75760",
+    "addressCountry": "PK"
+  },
+  "areaServed": [
+    {
+      "@type": "Country",
+      "name": "Pakistan"
+    }
+  ],
+  "sameAs": [
+    "https://www.facebook.com/people/Guiding-Star-International-School/61568131737424/",
+    "https://www.instagram.com/guidingstarschools",
+    "https://www.tiktok.com/@guiding.star.scho"
+  ],
+  "knowsAbout": [
+    "Artificial Intelligence",
+    "Robotics",
+    "Cybersecurity",
+    "Web Development",
+    "Php/Laravel",
+    "English Language Education"
+  ],
+  "offers": {
+    "@type": "OfferCatalog",
+    "name": "Educational Programs",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "EducationalOccupationalProgram",
+          "name": "School Program (Mont Junior to Grade 10)",
+          "description": "Holistic education focusing on curiosity, confidence, discipline, creativity, and character building."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "EducationalOccupationalProgram",
+          "name": "Academy Coaching (up to Grade 12)",
+          "description": "Board exam support with specialized training in AI, Cybersecurity, Web Development, and future-ready skills."
+        }
+      }
+    ]
+  }
+}
+</script>
+
+
+
+@endverbatim
+@endsection
 @section('content')
 <section class="uni-sub-banner">
     <div class="top-space"></div>
@@ -21,9 +123,9 @@
 
                     
                         </p>
-                        <div>
+                        <!-- <div>
                             <a href="{{ route('frontend.register') }}">Visit the Next Gen page</a>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="d-flex align-items-end mb-4 pb-2">
                         <img src="./assets/images/uni-2.webp" alt="GSI Schools using mobile">
@@ -37,9 +139,9 @@
 
                         Our academy events focus on workshops, competitions, career guidance, and skill development programs. These experiences prepare students for academic success and future opportunities.
                     </p>
-                        <div>
+                       <!-- <div>
                             <a href="{{ route('frontend.aficionado') }}">Visit the Aficionado page</a>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="d-flex align-items-end">
                         <img style="width: 170px;" src="./assets/images/PNg-131.png" alt="">
@@ -84,7 +186,7 @@
                 </p>
                 <div class="mt-5 d-flex gap-3">
                     <a href="{{ route('frontend.register') }}">Register now</a>
-                    <a href="{{ route('frontend.aficionado') }}">Browse Aficionados</a>
+                    <!-- <a href="{{ route('frontend.aficionado') }}">Browse Aficionados</a> -->
                 </div>
             </div>
         </div>

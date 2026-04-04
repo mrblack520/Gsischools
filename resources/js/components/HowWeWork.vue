@@ -3,7 +3,7 @@
     <div class="swiper-button-prev"></div>
     <div class="swiper-button-next"></div>
 
-    <Swiper :modules="modules" :slides-per-view="1.4" :centered-slides="true" :loop="true" :space-between="70"
+    <Swiper :modules="modules" :slides-per-view="1.4" :centered-slides="true" :loop="true" :space-between="100"
       :navigation="{
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev'
@@ -52,4 +52,5 @@ const props = defineProps([
 .swiper-button-prev {
   color: #000;
 }
+
 </style>

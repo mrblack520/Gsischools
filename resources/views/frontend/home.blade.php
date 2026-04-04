@@ -25,7 +25,7 @@
 
                 <!-- School / Academy -->
                 <div class="d-flex flex-column flex-sm-row gap-3 align-items-center align-items-sm-start justify-content-center justify-content-md-start">
-                    
+                <a href="{{Route('schools')}}">    
                     <div class="uni-list">
                         <div class="uni-list-box">
                             <div class="icon-box-img">
@@ -37,11 +37,11 @@
                             </div>
                         </div>
                     </div>
-
+                </a>
                     <div class="uni-list">
                         <p class="uni-or-list m-0">Or</p>
                     </div>
-
+                <a href="{{Route('Academy')}}">
                     <div class="uni-list">
                         <div class="new-uni-list-box">
                             <div class="icon-box-img">
@@ -53,7 +53,7 @@
                             </div>
                         </div>
                     </div>
-
+                </a>
                 </div>
 
 <!-- Video Button -->
@@ -453,7 +453,7 @@
 <section class="faqs-sec home-faqs-sec">
     <div class="container">
         <h2>Frequently Asked <strong>Questions</strong></h2>
-        <home-faqs />
+      <home-faqs faqs-url="{{ route('frontend.faqs') }}"></home-faqs>
     </div>
 </section>
 

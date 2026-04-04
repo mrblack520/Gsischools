@@ -24,68 +24,47 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-         function changeTab(tabName) {
-            // Hide all sections
-            let selectedFaq = document.getElementById(tabName);
-            document.querySelectorAll('.faq-section').forEach(section => {
-                section.style.display = 'none';
-                selectedFaq.classList.remove("active")
-            });
+    document.addEventListener("DOMContentLoaded", function () {
 
-            // Show the selected tab's section
-            selectedFaq.style.display = 'block';
-            setTimeout(() => {
-                selectedFaq.classList.add("active")
-            }, 300)
+    const navbar = document.getElementById("mainNavbar");
 
-            document.getElementById('view-all-faqs').style.display = "block";
-            if (tabName === 'all') {
-                document.getElementById('view-all-faqs').style.display = "none";
-            }
+    let lastScrollY = window.scrollY;
+    let offset = 0;
 
+    function handleScroll() {
+        if (window.innerWidth < 992) {
 
+            let navHeight = navbar.offsetHeight;
+            let currentScrollY = window.scrollY;
+            let diff = currentScrollY - lastScrollY;
 
-            // Update active tab
-            document.querySelectorAll('.tab').forEach(tab => {
-                tab.classList.remove('active');
-            });
+            offset -= diff;
 
-            event.target.classList.add('active');
+            if (offset < -navHeight) offset = -navHeight;
+            if (offset > 0) offset = 0;
+
+            navbar.style.transform = `translate3d(0, ${offset}px, 0)`;
+
+            lastScrollY = currentScrollY;
+
+        } else {
+            // ✅ Reset when switching to desktop
+            navbar.style.transform = "translate3d(0, 0, 0)";
+            offset = 0;
         }
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    @yield('script')
+    }
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
-            const navbar = document.getElementById("mainNavbar");
+    // ✅ ALSO fix when resizing screen
+    window.addEventListener("resize", function () {
+        if (window.innerWidth >= 992) {
+            navbar.style.transform = "translate3d(0, 0, 0)";
+            offset = 0;
+        }
+    });
 
-            let lastScrollY = window.scrollY;
-            let offset = 0;
-
-            window.addEventListener("scroll", function () {
-
-                if (window.innerWidth < 992) {
-
-                    let navHeight = navbar.offsetHeight;
-                    let currentScrollY = window.scrollY;
-                    let diff = currentScrollY - lastScrollY;
-
-                    offset -= diff;
-
-                    if (offset < -navHeight) offset = -navHeight;
-                    if (offset > 0) offset = 0;
-
-                    navbar.style.transform = `translate3d(0, ${offset}px, 0)`;
-
-                    lastScrollY = currentScrollY;
-                }
-
-            }, { passive: true });
-
-        });
-    </script>
+});</script>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
