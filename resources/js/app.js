@@ -26,7 +26,7 @@ import ForgotPasswordForm from './components/auth/ForgotPasswordForm.vue';
 import ResetPasswordForm from './components/auth/ResetPasswordForm.vue';
 
 window.Alpine = Alpine;
-const app = createApp();
+const app = createApp({});
 const pinia = createPinia();
 app.use(pinia);
 

@@ -150,7 +150,7 @@
     "src": "resources/images/tick-light.png"
   },
   "resources/js/app-legacy.js": {
-    "file": "assets/app-legacy-rNdXKx7X.js",
+    "file": "assets/app-legacy-BwxFHSb-.js",
     "name": "app",
     "src": "resources/js/app-legacy.js",
     "isEntry": true,
@@ -171,7 +171,7 @@
     ]
   },
   "resources/js/app.js": {
-    "file": "assets/app-vIud2zlO.js",
+    "file": "assets/app-BsBzW7ab.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
