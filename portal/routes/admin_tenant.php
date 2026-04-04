@@ -1109,8 +1109,8 @@ Route::group(['middleware' => ['XSS', 'subscriptionAccessUrl']], function () {
 
         Route::get('/ajaxIdCard', 'Admin\AdminSection\SmStudentIdCardController@ajaxIdCard');
         // student store
-        Route::post('student-store', ['as' => 'student_store', 'uses' => 'Admin\StudentInfo\SmStudentAdmissionController@store'])->middleware('userRolePermission:student_store');
-
+        Route::post('student-store', ['as' => 'student_store', 'uses' => 'Admin\StudentInfo\SmStudentAdmissionController@store']);
+// ->middleware('userRolePermission:student_store')
         // Student details document
 
         Route::get('delete-document/{id}', ['as' => 'delete_document', 'uses' => 'SmStudentAdmissionController@deleteDocument'])->middleware('userRolePermission:delete_document');

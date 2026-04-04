@@ -7863,3 +7863,39 @@ video::-webkit-media-controls-time-remaining-display {
 
 
 /* Ibrahim css end */
+/* Make all inputs same style */
+.input-wrapper input,
+.input-wrapper select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;   /* outer border only */
+    border-radius: 8px;
+    background: #fff;
+}
+
+/* Remove ugly default styles */
+.custom-input {
+    border: none !important;
+    outline: none;
+    background: transparent;
+    width: 100%;
+}
+
+/* Add border only to wrapper (like your first inputs) */
+.input-wrapper {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 5px 10px;
+}
+
+/* Focus effect */
+.input-wrapper:focus-within {
+    border-color: #007bff;
+}
+.asd{
+    width: 50%;
+}
+
+.fgh{
+    width: 50%;
+}
