@@ -30,21 +30,21 @@ const app = createApp({});
 const pinia = createPinia();
 app.use(pinia);
 
-app.component('how-we-work', HowWeWork);
-app.component('home-faqs', HomeFaqs);
-app.component('section-faq', SectionFaq);
-app.component('explore-learn-connect', ExploreLearnConnect)
-app.component('next-gen-filter-sec', NextGenFilterSec)
-app.component('university-filter-sec', UniversityFilterSec)
-app.component('profession-filter-sec', ProfessionFilterSec)
-app.component('aficionado-filter-sec', AficionadoFilterSec)
-app.component('user-info', UserInfo)
-app.component('register-form', RegisterForm)
-app.component('university-form', UniversityForm)
-app.component('side-nav', SideNav)
-app.component('login-form', LoginForm)
-app.component('forgot-password-form', ForgotPasswordForm)
-app.component('reset-password-form', ResetPasswordForm)
+// app.component('how-we-work', HowWeWork);
+// app.component('home-faqs', HomeFaqs);
+// app.component('section-faq', SectionFaq);
+// app.component('explore-learn-connect', ExploreLearnConnect)
+// app.component('next-gen-filter-sec', NextGenFilterSec)
+// app.component('university-filter-sec', UniversityFilterSec)
+// app.component('profession-filter-sec', ProfessionFilterSec)
+// app.component('aficionado-filter-sec', AficionadoFilterSec)
+// app.component('user-info', UserInfo)
+// app.component('register-form', RegisterForm)
+// app.component('university-form', UniversityForm)
+// app.component('side-nav', SideNav)
+// app.component('login-form', LoginForm)
+// app.component('forgot-password-form', ForgotPasswordForm)
+// app.component('reset-password-form', ResetPasswordForm)
 
 app.mount('#app');
 Aos.init();
