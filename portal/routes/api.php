@@ -4,26 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/token-login', function (Request $request) {
-    dd($request);
-    $token = $request->token;
 
-    // remove Bearer
-    $token = str_replace('Bearer ', '', $token);
-
-    // Passport token check
-    $accessToken = \Laravel\Passport\Token::where('id', explode('|', $token)[0] ?? null)->first();
-
-    if ($accessToken) {
-        $user = $accessToken->user;
-
-        Auth::login($user);
-
-        return redirect('/portal/admin-dashboard');
-    }
-
-    return redirect('/portal/login');
-});
 // admin section visitor
 Route::any('login', 'SmApiController@mobileLogin');
 Route::get('user-demo', 'SmApiController@DemoUser');

@@ -9,7 +9,14 @@ use App\Http\Controllers\HomeController;
 if (config('app.app_sync')) {
     Route::get('/', 'LandingController@index')->name('/');
 }
+use Illuminate\Http\Request;
 
+
+Route::get('/token-login', function (Request $request) {
+
+    dd('HIT'); // test
+
+});
 
 if (moduleStatusCheck('Saas')) {
     Route::group(['middleware' => ['subdomain'], 'domain' => '{subdomain}.' . config('app.short_url')], function ($routes) {
