@@ -221,8 +221,8 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
 
     let email = document.getElementById('email').value;
     let password = document.getElementById('password').value;
-
-    fetch('/portal/api/login', {
+    console.log(password);
+    fetch('/api/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
