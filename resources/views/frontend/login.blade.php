@@ -57,7 +57,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (data.status || data.success) {
                 // 🔥 LOGIN SUCCESS
-                window.location.href = '/portal/dashboard';
+                console.log(data)
+                // window.location.href = '/portal/dashboard';
             } else {
                 alert('Invalid login');
             }
