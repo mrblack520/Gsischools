@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (data.status || data.success) {
                 // 🔥 LOGIN SUCCESS
                 console.log(data)
-           window.location.href = '/token-login?token=' + data.token;
+        //    window.location.href = '/token-login?token=' + data.token;
             } else {
                 alert('Invalid login');
             }
