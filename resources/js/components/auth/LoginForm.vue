@@ -1,10 +1,10 @@
 <template>
     <form @submit.prevent="submitForm">
         <div class="form-group first">
-            <label for="username">Email</label>
-            <input type="text" v-model="form.username" @input="validateField('username')" class="form-control"
+            <label for="email">Email</label>
+            <input type="text" v-model="form.email" @input="validateField('email')" class="form-control"
                 placeholder="Enter your email" id="username">
-            <span class="error" v-if="errors.username">{{ errors.username }}</span>
+            <span class="error" v-if="errors.email">{{ errors.email }}</span>
         </div>
 
         <div class="form-group last mb-2">
@@ -41,7 +41,7 @@ const auth = useAuthStore();
 import { route } from 'ziggy-js'
 
 const form = ref({
-    username: '',
+    email: '',
     password: ''
 });
 
@@ -50,8 +50,8 @@ const formLoading = ref(false);
 
 function validateField(field) {
     switch (field) {
-        case 'username':
-            errors.value.username = form.value.username ? '' : '* Username is required';
+        case 'email':
+            errors.value.email = form.value.email ? '' : '* Email; is required';
             break;
         case 'password':
             errors.value.password = form.value.password ? '' : '* Password is required';
@@ -60,7 +60,7 @@ function validateField(field) {
 }
 
 function validateForm() {
-    validateField('username');
+    validateField('email');
     validateField('password');
     return Object.keys(errors.value).every(key => !errors.value[key]);
 }
@@ -68,39 +68,25 @@ function validateForm() {
 const backendError = ref('');
 const submitForm = async () => {
     backendError.value = '';
+
     if (!validateForm()) return;
 
-    const formData = new FormData();
-    for (const key in form.value) {
-        formData.append(key, form.value[key]);
-    }
-
     formLoading.value = true;
-    await axios.get('/sanctum/csrf-cookie');
 
-    await axios.post('/api/login', formData).then(function (response) {
-        axios.defaults.headers.common["Authorization"] = "Bearer " + response.data.token;
-        localStorage.setItem('token', response.data.data.token)
-        console.log('token', response.data.data)
-
-        auth.login(response.data.data)
-
-        fetch('/token-to-session', {
-            headers: {
-                'Authorization': 'Bearer ' + response.data.data.token
-            }
-        }).then(() => {
-            formLoading.value = false;
-            window.location.href = '/';
-        });
+    axios.post('/portal/login', {
+        email: form.value.email,
+        password: form.value.password
     })
-        .catch(function (error) {
-            formLoading.value = false;
-            if (error.response && error.response.data.message) {
-                backendError.value = error.response.data.message;
-            }
-            console.log(error);
-        });
+    .then(() => {
+        window.location.href = '/portal/dashboard';
+    })
+    .catch((error) => {
+        formLoading.value = false;
+
+        if (error.response && error.response.data.message) {
+            backendError.value = error.response.data.message;
+        }
+    });
 }
 </script>
 
