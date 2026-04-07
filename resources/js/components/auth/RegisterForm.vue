@@ -1,10 +1,10 @@
 <template>
 
-  <div class="container">
-    <form class="registeration-form" @submit.prevent="submitForm">
+  <div class="container ">
+    <form class="registeration-form " @submit.prevent="submitForm">
       <div class="row">
         <!-- First Name -->
-        <div class="col-md-6">
+        <div class="col-md-6 col-12">
           <div class="form-wrapper">
             <label for="first_name">First name*</label>
             <div class="input-wrapper">
@@ -19,7 +19,7 @@
           </div>
         </div>
         <!-- Last Name -->
-        <div class="col-md-6">
+        <div class="col-md-6 col-12">
           <div class="form-wrapper">
             <label for="lastname">Last name*</label>
             <div class="input-wrapper">
@@ -34,7 +34,7 @@
           </div>
         </div>
          <!-- Date of Birth -->
-        <div class="col-md-12">
+        <div class="col-md-12 col-12">
           <div class="form-wrapper">
             <label for="dob">Date of birth*</label>
             <div class="input-wrapper">
@@ -44,7 +44,7 @@
           </div>
         </div>
                 <!-- Gender -->
-        <div class="col-md-12">
+        <div class="col-md-12 col-12">
           <div class="form-wrapper">
             <label>Gender*</label>
             <div class="input-wrapper checkbox-wrapper interested-in-wrapper">
@@ -70,7 +70,7 @@
           </div>
         </div>
           <!-- Contact Numbers -->
-        <div class="col-md-6">
+        <div class="col-md-6 col-12">
           <div class="form-wrapper">
             <label for="locations">Contact Number*</label>
             <div class="input-wrapper">
@@ -81,7 +81,7 @@
           </div>
         </div>
 
-        <div class="col-md-6">
+        <div class="col-md-6 col-12">
           <div class="form-wrapper">
             <label for="locations">Emergency Contact Number*</label>
             <div class="input-wrapper">
@@ -92,7 +92,7 @@
           </div>
         </div>
         <!-- National ID -->
-        <div class="col-md-12">
+        <div class="col-md-12 col-12">
           <div class="form-wrapper">
             <label>National Id No*</label>
             <div class="input-wrapper">
@@ -107,7 +107,7 @@
           </div>
         </div>
                 <!-- Emails -->
-        <div class="col-md-12">
+        <div class="col-md-12 col-12">
           <div class="form-wrapper">
             <label for="email">Email Address*</label>
             <div class="input-wrapper">
@@ -130,7 +130,7 @@
           <span class="error" v-if="errors.address">{{ errors.address }}</span>
         </div>
         <!-- Religion -->
-        <div class="col-md-6">
+        <div class="col-md-6 col-12">
           <div class="form-wrapper">
             <label>Religion*</label>
             <div class="input-wrapper">
@@ -147,7 +147,7 @@
           </div>
         </div>
         <!-- Image Upload -->
-        <div class="col-md-6">
+        <div class="col-md-6 col-12">
           <div class="form-wrapper">
             <label>Upload Image*</label>
             <div class="input-wrapper">
@@ -169,7 +169,7 @@
           <span class="error" v-if="errors.guardian_name">{{ errors.guardian_name }}</span>
         </div>
         <!-- Relation with Guardian -->
-        <div class="col-md-12">
+        <div class="col-md-12 col-12">
           <div class="form-wrapper">
             <label>Relation With Guardian*</label>
             <div class="input-wrapper checkbox-wrapper interested-in-wrapper">
@@ -196,7 +196,7 @@
           </div>
         </div>
                 <!-- Guardian Email -->
-        <div class="col-md-6">
+        <div class="col-md-6 col-12">
           <div class="form-wrapper">
             <label for="guardian_email">Guardian's Email*</label>
             <div class="input-wrapper">
@@ -211,7 +211,7 @@
           </div>
         </div>
         <!-- Guardian Phone -->
-        <div class="col-md-6">
+        <div class="col-md-6 col-12">
           <div class="form-wrapper">
             <label for="guardian_phone">Guardian's Phone Number*</label>
             <div class="input-wrapper">
@@ -226,7 +226,7 @@
           </div>
         </div>
          <!-- Guardian's Address -->
-        <div class="col-md-12">
+        <div class="col-md-12 col-12">
           <div class="form-wrapper">
             <label for="email">Guardian's Address*</label>
             <div class="input-wrapper">
@@ -243,7 +243,7 @@
         </div>
         
         <!-- Join us for (School/Academy/Courses) -->
-        <div class="col-md-12">
+        <div class="col-md-12 col-12">
   <div class="form-wrapper">
     <label>Join us for*</label>
     <div class="input-wrapper checkbox-wrapper interested-in-wrapper">
@@ -274,7 +274,7 @@
   </div>
 </div>
 <!-- Group -->
-        <div class="col-md-6">
+        <div class="col-md-6 col-12">
           <div class="form-wrapper">
             <label>GROUP*</label>
             <div class="input-wrapper">
@@ -289,7 +289,7 @@
           </div>
         </div>
         <!-- If Courses -->
-        <div class="col-md-12 position-relative">
+        <div class="col-md-12 position-relative col-12">
           <div class="form-wrapper">
             <label>If Courses*</label>
             <div class="input-wrapper checkbox-wrapper goals-wrapper">
@@ -315,9 +315,9 @@
           </div>
         </div>
         <!-- Previous School -->
-        <div class="col-md-12">
+        <div class="col-md-12 col-12">
           <div class="form-wrapper">
-            <label for="email">Previous School*</label>
+            <label for="text">Previous School*</label>
             <div class="input-wrapper">
               <input type="email" id="email" placeholder="Previous School" v-model="form.previous_school" @input="validateField('previous_school')">
             </div>
@@ -325,9 +325,9 @@
           </div>
         </div>
          <!-- Previous Class -->
-        <div class="col-md-6">
+        <div class="col-md-6 col-12">
           <div class="form-wrapper">
-            <label for="email">Previous Class*</label>
+            <label for="text">Previous Class*</label>
             <div class="input-wrapper">
               <input type="email" id="email" placeholder="Previous class" v-model="form.previous_class" @input="validateField('previous_class')">
             </div>
@@ -335,9 +335,9 @@
           </div>
         </div>
           <!-- Class Applying for -->
-        <div class="col-md-6">
+        <div class="col-md-6 col-12">
           <div class="form-wrapper">
-            <label for="email">Class Applying for*</label>
+            <label for="text">Class Applying for*</label>
             <div class="input-wrapper">
               <input type="email" id="email" placeholder="Class Applying for" v-model="form.class_applying_for" @input="validateField('class_applying_for')">
             </div>
@@ -345,7 +345,7 @@
           </div>
         </div>
         <!-- Class -->
-                <div class="col-md-6">
+                <div class="col-md-6 col-12">
           <div class="form-wrapper">
             <label>CLASS*</label>
             <div class="input-wrapper">
@@ -372,7 +372,7 @@
           </div>
         </div>
         <!-- Section -->
-                <div class="col-md-6">
+                <div class="col-md-6 col-12">
           <div class="form-wrapper">
             <label>SECTION*</label>
             <div class="input-wrapper">
@@ -386,7 +386,7 @@
           </div>
         </div>
         <!-- Admission Date -->
-        <div class="col-md-12">
+        <div class="col-md-12 col-12">
           <div class="form-wrapper">
             <label for="dob">ADMISSION DATE*</label>
             <div class="input-wrapper">
@@ -396,7 +396,7 @@
           </div>
         </div>
         <!-- Academic Year -->
-        <div class="col-md-6">
+        <div class="col-md-6 col-12">
           <div class="form-wrapper">
             <label>ACADEMIC YEAR*</label>
             <div class="input-wrapper">
@@ -410,7 +410,7 @@
         </div>
 
 <!-- CATEGORY -->
-               <div class="col-md-6">
+               <div class="col-md-6 col-12">
           <div class="form-wrapper">
             <label>CATEGORY*</label>
             <div class="input-wrapper">
@@ -425,7 +425,7 @@
         </div>
 
         <!-- ROLL -->
-        <div class="form-wrapper">
+        <div class="form-wrapper col-12">
           <label for="surname">ROLL*</label>
           <div class="input-wrapper">
             <input
@@ -439,7 +439,7 @@
          
           
         <!-- Terms and Submit -->
-        <div class="col-md-12">
+        <div class="col-md-12 col-12">
           <div class="accept-terms">
             <div class="form-wrapper mt-3">
               <label class="custom-checkbox mb-4 align-items-start">
