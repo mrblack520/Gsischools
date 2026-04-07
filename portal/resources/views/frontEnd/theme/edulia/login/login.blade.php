@@ -123,21 +123,41 @@
                         alt=""></div>
                 <div class="login_wrapper_content">
                     <h4>@lang('auth.login_details')</h4>
-                  <form id="loginForm">
-    @csrf
-
-    <div class="form-group">
-        <label>Email</label>
-        <input type="text" id="email" class="form-control" placeholder="Enter your email">
-    </div>
-
-    <div class="form-group">
-        <label>Password</label>
-        <input type="password" id="password" class="form-control" placeholder="Enter your password">
-    </div>
-
-    <button type="submit" class="btn">Login</button>
-</form>
+                    <form action="{{ route('login') }}" method='POST'>
+                        @csrf
+                        <input type="hidden" name="username" id="username-hidden">
+                        <div class="input-control">
+                            <label for="#" class="input-control-icon"><i class="fal fa-envelope"></i></label>
+                            <input type="text" name="email" class="input-control-input"
+                                placeholder="@lang('auth.enter_email_address')" value="{{ old('email') }}">
+                        </div>
+                        @if ($errors->has('email'))
+                            <span class="text-danger text-left mb-15" role="alert">
+                                {{ $errors->first('email') }}
+                            </span>
+                        @endif
+                        <div class="input-control">
+                            <label for="#" class="input-control-icon"><i class="fal fa-lock-alt"></i></label>
+                            <input type="password" name='password' class="input-control-input"
+                                placeholder='@lang('auth.enter_password')'>
+                        </div>
+                        @if ($errors->has('password'))
+                            <span class="text-danger text-left mb-15" role="alert">
+                                {{ $errors->first('password') }}
+                            </span>
+                        @endif
+                        <div class="input-control d-flex flex-wrap row_gap_24">
+                            <label for="#" class="checkbox">
+                                <input type="checkbox" class="checkbox-input" name="remember" id="rememberMe"
+                                    {{ old('remember') ? 'checked' : '' }}>
+                                <span class="checkbox-title">@lang('auth.remember_me')</span>
+                            </label>
+                            <a href="{{ route('recoveryPassord') }}" id='forget'>@lang('auth.forget_password')?</a>
+                        </div>
+                        <div class="input-control">
+                            <input type="submit" class='input-control-input' value="Sign In">
+                        </div>
+                    </form>
                 </div>
             </div>
 
@@ -215,44 +235,8 @@
     <!-- Main Script JS -->
     <script src="{{ asset('public/theme/edulia/js/script.js') }}"></script>
     <script src="{{ asset('public/backEnd/') }}/js/login.js"></script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
 
-    document.getElementById('loginForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-
-        let email = document.getElementById('email').value;
-        let password = document.getElementById('password').value;
-
-        console.log("JS WORKING 🔥");
-
-        fetch('/api/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                email: email,
-                password: password
-            })
-        })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-
-            if (data.success || data.status) {
-                window.location.href = '/portal/dashboard';
-            } else {
-                alert('Login failed');
-            }
-        })
-        .catch(err => console.log(err));
-    });
-
-});
-</script>
     <script type="text/javascript">
-        
         $(document).ready(function() {
             $("#email-address").keyup(function() {
                 $("#username-hidden").val($(this).val());

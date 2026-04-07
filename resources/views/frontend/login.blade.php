@@ -12,41 +12,59 @@
                     <div class="text-center mb-5">
                         <h3>Login to <strong>GSI</strong></h3>
                     </div>
-                    <form action="{{ url('/portal/login') }}" method="POST">
-                        @csrf
-                        <div class="form-group">
-                            <label>Email</label>
-                            <input type="email" name="email" class="form-control input-control-input" 
-                                   placeholder="Enter your email" value="{{ old('email') }}">
-                            @error('email')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
-                        </div>
+                    <form id="loginForm">
+    <div class="form-group">
+        <label>Email</label>
+        <input type="email" id="email" class="form-control input-control-input" placeholder="Enter your email">
+    </div>
 
-                        <div class="form-group">
-                            <label>Password</label>
-                            <input type="password" name="password" class="form-control input-control-input" 
-                                   placeholder="Enter your password">
-                            @error('password')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
-                        </div>
+    <div class="form-group">
+        <label>Password</label>
+        <input type="password" id="password" class="form-control input-control-input" placeholder="Enter your password">
+    </div>
 
-                        <div class="input-control d-flex flex-wrap row_gap_24">
-                            <label class="checkbox">
-                                <input type="checkbox" name="remember">
-                                <span class="checkbox-title">Remember Me</span>
-                            </label>
-                            <a href="" id='forget'>Forgot Password?</a>
-                        </div>
-
-                        <div class="input-control mt-3">
-                            <input type="submit" class="btn input-control-input" value="Sign In">
-                        </div>
-                    </form>
+    <div class="input-control mt-3">
+        <button type="submit" class="btn input-control-input">Sign In</button>
+    </div>
+</form>
                 </div>
             </div>
         </div>
     </div>
 </section>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        let email = document.getElementById('email').value;
+        let password = document.getElementById('password').value;
+
+        fetch('/api/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                email: email,
+                password: password
+            })
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+
+            if (data.status || data.success) {
+                // 🔥 LOGIN SUCCESS
+                window.location.href = '/portal/dashboard';
+            } else {
+                alert('Invalid login');
+            }
+        })
+        .catch(err => console.log(err));
+    });
+
+});
+</script>
 @endsection
