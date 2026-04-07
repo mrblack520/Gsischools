@@ -19,10 +19,10 @@ Route::get('/token-login', function (Request $request) {
     try {
         $payload = explode('.', $token)[1] ?? null;
         $data = json_decode(base64_decode($payload));
-        dd($data);
-
+        
         $user = \App\Models\User::find($data->sub ?? null);
-
+        dd($user);
+        
         if ($user) {
             Auth::login($user);
             return redirect('/portal/admin-dashboard');
