@@ -3,16 +3,24 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-Route::get('db-correction', 'SmApiController@dbCorrections');
-Route::post('deviceInfo', 'api\ApiSmStudentAttendanceController@deviceInfo');
-// Route::post('system-disable', 'SmApiController@systemDisbale');
-Route::get('/token-login', function () {
-    $token = request('token');
+use Illuminate\Support\Facades\Auth;
+use Laravel\Passport\Token;
 
-    $user = \App\Models\User::where('api_token', $token)->first();
+Route::get('/token-login', function (Request $request) {
 
-    if ($user) {
+    $token = $request->token;
+
+    // remove Bearer
+    $token = str_replace('Bearer ', '', $token);
+
+    // Passport token check
+    $accessToken = \Laravel\Passport\Token::where('id', explode('|', $token)[0] ?? null)->first();
+
+    if ($accessToken) {
+        $user = $accessToken->user;
+
         Auth::login($user);
+
         return redirect('/portal/dashboard');
     }
 
