@@ -244,49 +244,28 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    /* =========================
-       YOUTUBE MODAL
-    ========================== */
-    const iframe = document.getElementById("yt_iframe");
-    const playlistItems = document.querySelectorAll(".yt-playlist li");
-    const playButton = document.querySelector(".play-video-btn");
-    const modalWrapper = document.querySelector(".yt-modal-wrapper");
-    const modalClose = document.querySelector(".yt-modal-close");
-    const modalOverlay = document.querySelector(".yt-modal-overlay");
+const playButton = document.querySelector(".play-video-btn");
+const modalWrapper = document.querySelector(".yt-modal-wrapper");
+const modalClose = document.querySelector(".yt-modal-close");
+const modalOverlay = document.querySelector(".yt-modal-overlay");
+const video = document.getElementById("myVideo");
 
-    if (iframe && playlistItems.length && playButton && modalWrapper) {
+if (playButton && modalWrapper && video) {
 
-        playButton.addEventListener("click", function () {
+    playButton.addEventListener("click", function () {
+        modalWrapper.style.display = "flex";
+        video.play();
+    });
 
-            modalWrapper.style.display = "block";
-
-            const firstVideo = playlistItems[0];
-            const videoId = firstVideo.getAttribute("data-video");
-
-            iframe.src = "https://www.youtube.com/embed/" + videoId + "?autoplay=1&rel=0";
-
-            playlistItems.forEach(li => li.classList.remove("active"));
-            firstVideo.classList.add("active");
-        });
-
-        function closeModal() {
-            modalWrapper.style.display = "none";
-            iframe.src = "";
-        }
-
-        if (modalClose) modalClose.addEventListener("click", closeModal);
-        if (modalOverlay) modalOverlay.addEventListener("click", closeModal);
-
-        playlistItems.forEach(item => {
-            item.addEventListener("click", function () {
-                const videoId = this.getAttribute("data-video");
-                iframe.src = "https://www.youtube.com/embed/" + videoId + "?autoplay=1&rel=0";
-
-                playlistItems.forEach(li => li.classList.remove("active"));
-                this.classList.add("active");
-            });
-        });
+    function closeModal() {
+        modalWrapper.style.display = "none";
+        video.pause();
+        video.currentTime = 0;
     }
+
+    if (modalClose) modalClose.addEventListener("click", closeModal);
+    if (modalOverlay) modalOverlay.addEventListener("click", closeModal);
+}
 
 });
 </script>

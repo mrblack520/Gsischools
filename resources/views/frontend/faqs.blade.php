@@ -1266,8 +1266,5 @@
         <a href="{{ route('frontend.contact-us') }}">Contact us</a>
     </div>
 </div>
-<section>
-
-</section>
 
 @endsection
