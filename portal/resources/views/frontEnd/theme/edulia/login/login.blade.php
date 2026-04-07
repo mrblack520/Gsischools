@@ -216,34 +216,39 @@
     <script src="{{ asset('public/theme/edulia/js/script.js') }}"></script>
     <script src="{{ asset('public/backEnd/') }}/js/login.js"></script>
 <script>
-document.getElementById('loginForm').addEventListener('submit', function(e) {
-    e.preventDefault();
+document.addEventListener("DOMContentLoaded", function () {
 
-    let email = document.getElementById('email').value;
-    let password = document.getElementById('password').value;
-    console.log(password);
-    fetch('/api/login', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            email: email,
-            password: password
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        let email = document.getElementById('email').value;
+        let password = document.getElementById('password').value;
+
+        console.log("JS WORKING 🔥");
+
+        fetch('/api/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                email: email,
+                password: password
+            })
         })
-    })
-    .then(res => res.json())
-    .then(data => {
-        if (data.success || data.status) {
-            // login success
-            window.location.href = '/portal/dashboard';
-        } else {
-            alert('Login failed');
-        }
-    })
-    .catch(err => {
-        console.log(err);
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+
+            if (data.success || data.status) {
+                window.location.href = '/portal/dashboard';
+            } else {
+                alert('Login failed');
+            }
+        })
+        .catch(err => console.log(err));
     });
+
 });
 </script>
     <script type="text/javascript">
