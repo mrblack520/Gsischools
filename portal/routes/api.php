@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/token-login', function (Request $request) {
-
+    dd($request);
     $token = $request->token;
 
     // remove Bearer
