@@ -16,7 +16,7 @@ Route::get('/token-login', function (Request $request) {
 
     $token = $request->token;
     $token = str_replace('Bearer ', '', $token);
-
+    dd($token);
     try {
         $payload = explode('.', $token)[1] ?? null;
         $data = json_decode(base64_decode($payload));
