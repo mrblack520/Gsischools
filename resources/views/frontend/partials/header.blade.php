@@ -20,31 +20,44 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto align-items-lg-center">
 
-          <li class="nav-item mx-lg-1">
+          <li class="nav-item mx-lg-1 d-flex justify-content-center justify-content-lg-start gap-2">
             <a class="nav-link fw-semibold" href="{{ route('frontend.home') }}">Home</a>
           </li>
 
-          <li class="nav-item mx-lg-1">
+          <li class="nav-item mx-lg-1 d-flex justify-content-center justify-content-lg-start gap-2">
             <a class="nav-link fw-semibold" href="{{ route('frontend.profession') }}">Events</a>
           </li>
 
-          <li class="nav-item mx-lg-1">
+          <li class="nav-item mx-lg-1 d-flex justify-content-center justify-content-lg-start gap-2">
             <a class="nav-link fw-semibold" href="{{ route('frontend.about') }}">About</a>
           </li>
 
-          <li class="nav-item mx-lg-1">
+          <li class="nav-item mx-lg-1 d-flex justify-content-center justify-content-lg-start gap-2">
             <a class="nav-link fw-semibold" href="{{ route('frontend.faqs') }}">FAQs</a>
           </li>
 
-          <li class="nav-item mx-lg-1">
+          <li class="nav-item mx-lg-1 d-flex justify-content-center justify-content-lg-start gap-2">
             <a class="nav-link fw-semibold" href="{{ route('frontend.privacy-policy') }}">Policies</a>
           </li>
 
-          <li class="nav-item ms-lg-2">
-            <a class="btn btn-outline-dark rounded-pill px-3 fw-bold admission-btn nav-button" href="{{ route('frontend.register') }}">
-              Online Admission
-            </a>
+           <li class="nav-item mx-lg-1 d-flex justify-content-center justify-content-lg-start gap-2 
+           ">
+            <a class="nav-link fw-semibold" href="{{ route('frontend.contact-us') }}">Contact Us</a>
           </li>
+
+       <div class="nav-item d-flex gap-2 gap-lg-0 nav-item d-flex justify-content-center justify-content-lg-start gap-2">   
+      <li class="nav-item mt-4 mt-lg-0 ms-lg-4">
+  <a class="btn btn-outline-dark rounded-pill px-3 fw-bold admission-btn nav-button " href="{{ route('login') }}">
+    Log In
+  </a>
+</li>
+
+<li class="nav-item mt-4 mt-lg-0 ms-lg-4">
+  <a class="btn btn-outline-dark rounded-pill px-3 fw-bold admission-btn nav-button " href="{{ route('frontend.register') }}">
+    Online Admission
+  </a>
+</li>
+</div>
 
         </ul>
 
