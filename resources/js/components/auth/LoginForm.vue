@@ -61,7 +61,7 @@ const errors = ref({})
 
 // ✅ CSRF token
 const csrf = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-
+console.log(csrf)
 function validateField(field) {
     switch (field) {
         case 'email':
