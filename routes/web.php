@@ -2,7 +2,29 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+use Laravel\Passport\Token;
 
+Route::get('/token-login', function (Request $request) {
+
+    $token = $request->token;
+
+    // remove Bearer
+    $token = str_replace('Bearer ', '', $token);
+
+    // Passport token check
+    $accessToken = \Laravel\Passport\Token::where('id', explode('|', $token)[0] ?? null)->first();
+
+    if ($accessToken) {
+        $user = $accessToken->user;
+
+        Auth::login($user);
+
+        return redirect('/portal/admin-dashboard');
+    }
+
+    return redirect('/portal/login');
+});
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
