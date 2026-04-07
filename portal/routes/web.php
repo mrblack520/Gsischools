@@ -14,8 +14,23 @@ use Illuminate\Http\Request;
 
 Route::get('/token-login', function (Request $request) {
 
-    dd('HIT'); // test
+    $token = $request->token;
+    $token = str_replace('Bearer ', '', $token);
 
+    try {
+        $payload = explode('.', $token)[1] ?? null;
+        $data = json_decode(base64_decode($payload));
+
+        $user = \App\Models\User::find($data->sub ?? null);
+
+        if ($user) {
+            Auth::login($user);
+            return redirect('/portal/admin-dashboard');
+        }
+
+    } catch (\Exception $e) {}
+
+    return redirect('/portal/login');
 });
 
 if (moduleStatusCheck('Saas')) {
