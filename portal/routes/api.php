@@ -6,7 +6,18 @@ use Illuminate\Support\Facades\Route;
 Route::get('db-correction', 'SmApiController@dbCorrections');
 Route::post('deviceInfo', 'api\ApiSmStudentAttendanceController@deviceInfo');
 // Route::post('system-disable', 'SmApiController@systemDisbale');
+Route::get('/token-login', function () {
+    $token = request('token');
 
+    $user = \App\Models\User::where('api_token', $token)->first();
+
+    if ($user) {
+        Auth::login($user);
+        return redirect('/portal/dashboard');
+    }
+
+    return redirect('/portal/login');
+});
 // admin section visitor
 Route::any('login', 'SmApiController@mobileLogin');
 Route::get('user-demo', 'SmApiController@DemoUser');

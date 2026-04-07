@@ -53,12 +53,12 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data);
+            // console.log(data);
 
             if (data.status || data.success) {
                 // 🔥 LOGIN SUCCESS
                 console.log(data)
-                // window.location.href = '/portal/dashboard';
+           window.location.href = '/token-login?token=' + data.token;
             } else {
                 alert('Invalid login');
             }
