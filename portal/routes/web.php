@@ -12,26 +12,33 @@ if (config('app.app_sync')) {
 use Illuminate\Http\Request;
 
 
-Route::get('/token-login', function (Request $request) {
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Laravel\Passport\Token;
+
+Route::get('/portal/token-login', function (Request $request) {
 
     $token = $request->token;
     $token = str_replace('Bearer ', '', $token);
-    try {
-        $payload = explode('.', $token)[1] ?? null;
-        $data = json_decode(base64_decode($payload));
-        
-        $user = \App\Models\User::find($data->sub ?? null);
 
-        dd($user);
-        
+    // id nikal kar dekho
+    $tokenId = explode('|', $token)[0] ?? null;
+
+    // database se token fetch karo
+    $accessToken = Token::find($tokenId);
+
+    if ($accessToken) {
+        $user = $accessToken->user;
+
+        dd($user); // check karo user aa raha hai ya nahi
+
         if ($user) {
             Auth::login($user);
             return redirect('/portal/admin-dashboard');
         }
+    }
 
-    } catch (\Exception $e) {}
-    return dd("test");
-    // return redirect('/portal/login');
+    return redirect('/portal/login');
 });
 
 if (moduleStatusCheck('Saas')) {
