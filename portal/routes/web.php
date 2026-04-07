@@ -12,7 +12,6 @@ if (config('app.app_sync')) {
 use Illuminate\Http\Request;
 
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Passport\Token;
 
