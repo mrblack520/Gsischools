@@ -21,6 +21,7 @@ Route::get('/token-login', function (Request $request) {
         $data = json_decode(base64_decode($payload));
         
         $user = \App\Models\User::find($data->sub ?? null);
+
         dd($user);
         
         if ($user) {
@@ -29,8 +30,8 @@ Route::get('/token-login', function (Request $request) {
         }
 
     } catch (\Exception $e) {}
-
-    return redirect('/portal/login');
+    return dd("test");
+    // return redirect('/portal/login');
 });
 
 if (moduleStatusCheck('Saas')) {
