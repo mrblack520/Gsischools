@@ -27,6 +27,7 @@ Route::get('/token-login', function(Request $request) {
     $response = Http::withHeaders([
         'Authorization' => $token
     ])->get(config('app.api_url').'/me');
+    dd($response->json());
 
     if ($response->failed()) {
         return redirect('/portal/login')->withErrors(['msg' => 'Invalid Token']);
