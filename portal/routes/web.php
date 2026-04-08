@@ -10,24 +10,27 @@ if (config('app.app_sync')) {
     Route::get('/', 'LandingController@index')->name('/');
 }
 use Illuminate\Http\Request;
-
-
 use Laravel\Passport\Token;
-
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 
 Route::get('/token-login', function(Request $request) {
 
-    $token = $request->token; // API se mile token
-   
-       
-        $response = Http::withHeaders([
-            'Authorization' => $token
-            ])->get(config('app.api_url').'/me'); // ya tumhara endpoint jahan user data milta
-           
-                dd($response->failed());
+    $token = $request->token;
+
+    if (!$token) {
+        return redirect('/portal/login')->withErrors(['msg' => 'Token missing']);
+    }
+
+    // API se user data lana
+    $response = Http::withHeaders([
+        'Authorization' => $token
+    ])->get(config('app.api_url').'/me');
+
+    if ($response->failed()) {
+        return redirect('/portal/login')->withErrors(['msg' => 'Invalid Token']);
+    }
 
     $userData = $response->json()['user'] ?? null;
 
@@ -35,15 +38,18 @@ Route::get('/token-login', function(Request $request) {
         return redirect('/portal/login')->withErrors(['msg' => 'User not found']);
     }
 
-    // 2️⃣ Find user in portal DB by email
+    // Portal DB me user check
     $user = User::where('email', $userData['email'])->first();
 
-      // 3️⃣ Login user
+    if (!$user) {
+        return redirect('/portal/login')->withErrors(['msg' => 'Portal user not found']);
+    }
+
+    // User ko login karna
     Auth::login($user);
 
-    // 4️⃣ Redirect to portal dashboard
-    return redirect('/portal/admin-dashboard');
-
+    // Redirect to Dashboard (FORCE REDIRECT)
+    return redirect()->intended('/portal/admin-dashboard');
 });
 if (moduleStatusCheck('Saas')) {
     Route::group(['middleware' => ['subdomain'], 'domain' => '{subdomain}.' . config('app.short_url')], function ($routes) {
