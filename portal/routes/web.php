@@ -21,18 +21,13 @@ use Illuminate\Support\Facades\Redirect;
 Route::get('/token-login', function(Request $request) {
 
     $token = $request->token; // API se mile token
-    if (!$token) {
-        return redirect('/portal/login')->withErrors(['msg' => 'Token missing']);
-        }
-        
-        // 1️⃣ API call karo to verify token & get user email/password
+   
+       
         $response = Http::withHeaders([
             'Authorization' => $token
             ])->get(config('app.api_url').'/me'); // ya tumhara endpoint jahan user data milta
-            dd($response);
-    if ($response->failed()) {
-        return redirect('/portal/login')->withErrors(['msg' => 'Invalid token']);
-    }
+           
+                dd($response->failed());
 
     $userData = $response->json()['user'] ?? null;
 
