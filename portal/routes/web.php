@@ -17,30 +17,39 @@ use Illuminate\Support\Facades\Redirect;
 
 Route::get('/token-login', function(Request $request) {
 
-    $token = $request->token; // API se mile token
-   
-       
-        $response = Http::withHeaders([
-            'Authorization' => $token
-            ])->get(config('app.api_url').'/me'); // ya tumhara endpoint jahan user data milta
-           
-                dd($response->failed());
+    $token = $request->token;
+
+    if (!$token) {
+        return redirect('/portal/login')->withErrors(['msg' => 'Token missing']);
+    }
+
+    // FIX #2 - Correct Authorization header
+    $response = Http::withHeaders([
+        'Authorization' => 'Bearer ' . $token
+    ])->get(config('app.api_url').'/me');
+
+    // FIX #1 - Remove dd(), use proper check
+    if ($response->failed()) {
+        return redirect('/portal/login')->withErrors(['msg' => 'Invalid or expired token']);
+    }
 
     $userData = $response->json()['user'] ?? null;
 
     if (!$userData) {
-        return redirect('/portal/login')->withErrors(['msg' => 'User not found']);
+        return redirect('/portal/login')->withErrors(['msg' => 'User not found in API']);
     }
 
-    // 2️⃣ Find user in portal DB by email
+    // Portal database user search
     $user = User::where('email', $userData['email'])->first();
 
-      // 3️⃣ Login user
+    // FIX #3 - User null check
+    if (!$user) {
+        return redirect('/portal/login')->withErrors(['msg' => 'User not found in portal DB']);
+    }
+
     Auth::login($user);
 
-    // 4️⃣ Redirect to portal dashboard
     return redirect('/portal/admin-dashboard');
-
 });
 if (moduleStatusCheck('Saas')) {
     Route::group(['middleware' => ['subdomain'], 'domain' => '{subdomain}.' . config('app.short_url')], function ($routes) {
