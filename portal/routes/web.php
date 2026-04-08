@@ -18,7 +18,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 
-Route::get('/portal/token-login', function(Request $request) {
+Route::get('/token-login', function(Request $request) {
 
     $token = $request->token; // API se mile token
     dd($token);
