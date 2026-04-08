@@ -23,7 +23,7 @@ Route::get('/token-login', function(Request $request) {
         $response = Http::withHeaders([
             'Authorization' => $token
             ])->get(config('app.api_url').'/me'); // ya tumhara endpoint jahan user data milta
-            dd($response->json());
+           
                 dd($response->failed());
 
     $userData = $response->json()['user'] ?? null;
