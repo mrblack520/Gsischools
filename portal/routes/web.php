@@ -29,7 +29,7 @@ Route::get('/portal/token-login', function(Request $request) {
     $response = Http::withHeaders([
         'Authorization' => $token
     ])->get(config('app.api_url').'/me'); // ya tumhara endpoint jahan user data milta
-
+    dd($response);
     if ($response->failed()) {
         return redirect('/portal/login')->withErrors(['msg' => 'Invalid token']);
     }
