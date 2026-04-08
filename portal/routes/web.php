@@ -17,21 +17,16 @@ use Illuminate\Support\Facades\Redirect;
 
 Route::get('/token-login', function(Request $request) {
 
-    $token = $request->token;
-
-    if (!$token) {
-        return redirect('/portal/login')->withErrors(['msg' => 'Token missing']);
-    }
-
-    // API se user data lana
-    $response = Http::withHeaders([
-        'Authorization' => $token
-    ])->get(config('app.api_url').'/me');
-    dd($response->json());
-
-    if ($response->failed()) {
-        return redirect('/portal/login')->withErrors(['msg' => 'Invalid Token']);
-    }
+    $token = $request->token; // API se mile token
+   
+       
+        $response = Http::withHeaders([
+            'Authorization' => 'Bearer ' . $token
+            ])->get(config('app.api_url').'/me'); // ya tumhara endpoint jahan user data milta
+           
+            if ($response->failed()) {
+    return redirect('/portal/login')->withErrors(['msg' => 'Invalid or expired token']);
+}
 
     $userData = $response->json()['user'] ?? null;
 
@@ -39,18 +34,19 @@ Route::get('/token-login', function(Request $request) {
         return redirect('/portal/login')->withErrors(['msg' => 'User not found']);
     }
 
-    // Portal DB me user check
+    // 2️⃣ Find user in portal DB by email
     $user = User::where('email', $userData['email'])->first();
 
+      // 3️⃣ Login user
     if (!$user) {
-        return redirect('/portal/login')->withErrors(['msg' => 'Portal user not found']);
-    }
+    return redirect('/portal/login')->withErrors(['msg' => 'User not found in portal DB']);
+}
 
-    // User ko login karna
-    Auth::login($user);
+Auth::login($user);
 
-    // Redirect to Dashboard (FORCE REDIRECT)
-    return redirect()->intended('/portal/admin-dashboard');
+    // 4️⃣ Redirect to portal dashboard
+    return redirect('/portal/admin-dashboard');
+
 });
 if (moduleStatusCheck('Saas')) {
     Route::group(['middleware' => ['subdomain'], 'domain' => '{subdomain}.' . config('app.short_url')], function ($routes) {
