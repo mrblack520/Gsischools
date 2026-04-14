@@ -22,8 +22,7 @@ Route::get('/token-login', function(Request $request) {
     $response = Http::withHeaders([
         'Authorization' => 'Bearer ' . $token
         ])->get(config('app.api_url').'/me'); // ya tumhara endpoint jahan user data milta
-        dd($response);
-           
+      
                 
 
     $user = User::where('email', $userData['email'])->first();
