@@ -20,14 +20,13 @@ Route::get('/token-login', function(Request $request) {
     
     
     $response = Http::withHeaders([
-        'Authorization' => $token
+        'Authorization' => 'Bearer ' . $token
         ])->get(config('app.api_url').'/me'); // ya tumhara endpoint jahan user data milta
         dd($response);
            
                 
 
-    $userData = $response->json()['user'] ?? null;
-
+    $user = User::where('email', $userData['email'])->first();
     if (!$userData) {
         return redirect('/portal/login')->withErrors(['msg' => 'User not found']);
     }
@@ -35,8 +34,7 @@ Route::get('/token-login', function(Request $request) {
     // 2️⃣ Find user in portal DB by email
     $user = User::where('email', $userData['email'])->first();
 
-      // 3️⃣ Login user
-    Auth::login($user);
+     Auth::login($user, true); // remember me
 
     // 4️⃣ Redirect to portal dashboard
     return redirect('/portal/admin-dashboard');
