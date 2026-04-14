@@ -18,13 +18,16 @@ use Illuminate\Support\Facades\Redirect;
 
 Route::middleware(['web'])->get('/token-login', function(Request $request) {
     $token = $request->token; // API se mile token
-    dd($request);
     
     $response = Http::withHeaders([
         'Authorization' =>  $token
         ])->get(config('app.api_url').'/me'); // ya tumhara endpoint jahan user data milta
-        dd(config('app.api_url'));
-                
+        
+    dd('before api call');
+
+$response = Http::timeout(5)->get('https://google.com');
+
+dd('after api call'); 
 
     $user = User::where('email', $userData['email'])->first();
     if (!$userData) {
