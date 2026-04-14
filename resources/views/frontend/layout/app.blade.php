@@ -23,7 +23,53 @@
         @include('frontend.partials.footer')
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
+  
+     <!-- Slick JS -->
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js"></script>
+        <script>
+        function changeTab(tabName) {
+            // Hide all sections
+            let selectedFaq = document.getElementById(tabName);
+            document.querySelectorAll('.faq-section').forEach(section => {
+                section.style.display = 'none';
+                selectedFaq.classList.remove("active")
+            });
+
+            // Show the selected tab's section
+            selectedFaq.style.display = 'block';
+            setTimeout(() => {
+                selectedFaq.classList.add("active")
+            }, 300)
+
+            document.getElementById('view-all-faqs').style.display = "block";
+            if (tabName === 'all') {
+                document.getElementById('view-all-faqs').style.display = "none";
+            }
+
+
+
+            // Update active tab
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            event.target.classList.add('active');
+        }
+
+        function toggleFaq(faqHeader) {
+            let faqItem = faqHeader.parentElement;
+            let isActive = faqItem.classList.contains('active');
+
+            // Close all FAQ items
+            document.querySelectorAll('.faq').forEach(faq => faq.classList.remove('active'));
+
+            // Toggle the clicked one
+            if (!isActive) {
+                faqItem.classList.add('active');
+            }
+        }
+        </script>
+        <script>
 document.addEventListener("DOMContentLoaded", function () {
 
     /* =========================

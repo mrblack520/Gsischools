@@ -362,7 +362,9 @@
                                     </div>
                                 </div>
                             </div>
+                            
                             <div class="faq-con">
+                                
                                 <div class="col-md-12 mb-4">
                                     <div class="accordion__item">
                                         <div class="accordion__header" data-toggle="#ffaq2">
@@ -489,6 +491,8 @@
                                 </div>
                             </div>
                         </div>
+
+
                     </div>
                 </div>
             </div>
@@ -797,6 +801,25 @@
             </div>
         </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
         <div id="profession" class="faq-section">
             <div class="row">
                 <div class="col-md-3">
@@ -1225,7 +1248,6 @@
     </div>
 </section>
 
-
 <section class="expert-area">
     <div class="container">
         <div class="row align-items-center">
@@ -1266,5 +1288,45 @@
         <a href="{{ route('frontend.contact-us') }}">Contact us</a>
     </div>
 </div>
+<style>
+    
+.accordion__content {
+    display: none;
+}
+}
 
+.accordion__header {
+    cursor: pointer;
+}
+</style>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const contents = document.querySelectorAll(".accordion__content");
+
+    // 🔴 Force all  on load
+    contents.forEach(item => {
+        item.style.display = "none";
+    });
+
+    const headers = document.querySelectorAll(".accordion__header");
+
+    headers.forEach(header => {
+        header.addEventListener("click", function () {
+
+            const targetId = this.getAttribute("data-toggle");
+            const content = document.querySelector(targetId);
+
+            // Close all
+            contents.forEach(item => {
+                item.style.display = "none";
+            });
+
+            // Open clicked one
+            content.style.display = "block";
+        });
+    });
+
+});
+</script>
 @endsection
