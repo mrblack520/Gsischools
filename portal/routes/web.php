@@ -17,12 +17,12 @@ use Illuminate\Support\Facades\Redirect;
 
 Route::get('/token-login', function(Request $request) {
     $token = $request->token; // API se mile token
-    dd($token);
-   
-       
-        $response = Http::withHeaders([
-            'Authorization' => $token
-            ])->get(config('app.api_url').'/me'); // ya tumhara endpoint jahan user data milta
+    
+    
+    $response = Http::withHeaders([
+        'Authorization' => $token
+        ])->get(config('app.api_url').'/me'); // ya tumhara endpoint jahan user data milta
+        dd($response);
            
                 
 
