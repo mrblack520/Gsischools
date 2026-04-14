@@ -34,7 +34,7 @@ Route::middleware(['web'])->get('/token-login', function(Request $request) {
     $user = User::where('email', $userData['email'])->first();
 
      Auth::login($user, true); // remember me
-
+    $request->session()->regenerate();
     // 4️⃣ Redirect to portal dashboard
     return redirect('/portal/admin-dashboard');
 
