@@ -15,11 +15,9 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 
-Route::get('/token-login', function() {
-    dd('route working');
-});
 
 Route::middleware(['web'])->get('/token-login', function(Request $request) {
+    dd('route working');
     $token = $request->token; // API se mile token
     
     
