@@ -15,12 +15,12 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 
-Route::get('/token-login', function(Request $request) {
+Route::middleware(['web'])->get('/token-login', function(Request $request) {
     $token = $request->token; // API se mile token
     
     
     $response = Http::withHeaders([
-        'Authorization' => 'Bearer ' . $token
+        'Authorization' =>  $token
         ])->get(config('app.api_url').'/me'); // ya tumhara endpoint jahan user data milta
       
                 
