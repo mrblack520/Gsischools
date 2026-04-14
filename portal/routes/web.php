@@ -17,9 +17,8 @@ use Illuminate\Support\Facades\Redirect;
 
 
 Route::middleware(['web'])->get('/token-login', function(Request $request) {
-    dd('route working');
     $token = $request->token; // API se mile token
-    
+    dd($request);
     
     $response = Http::withHeaders([
         'Authorization' =>  $token
