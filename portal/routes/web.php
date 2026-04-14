@@ -16,8 +16,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 
 Route::get('/token-login', function(Request $request) {
-dd($request);
     $token = $request->token; // API se mile token
+    dd($token);
    
        
         $response = Http::withHeaders([
