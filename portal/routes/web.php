@@ -17,26 +17,54 @@ use Illuminate\Support\Facades\Redirect;
 
 
 Route::middleware(['web'])->get('/token-login', function(Request $request) {
-    $token = $request->token; // API se mile token
-    
-    $response = Http::withHeaders([
-        'Authorization' =>  $token
-        ])->get(config('app.api_url').'/me'); // ya tumhara endpoint jahan user data milta
-        dd(config('app.api_url').'/me');
 
-    $user = User::where('email', $userData['email'])->first();
-    if (!$userData) {
-        return redirect('/portal/login')->withErrors(['msg' => 'User not found']);
+    $token = $request->token;
+
+    // ❗ Token check
+    if (!$token) {
+        return redirect('/portal/login')->withErrors(['msg' => 'Token missing']);
     }
 
-    // 2️⃣ Find user in portal DB by email
-    $user = User::where('email', $userData['email'])->first();
+    try {
+        // ✅ API call with proper header
+        $response = Http::timeout(5)
+            ->withoutVerifying()
+            ->withHeaders([
+                'Authorization' => 'Bearer ' . $token
+            ])
+            ->get(config('app.api_url') . '/me');
 
-     Auth::login($user, true); // remember me
-    $request->session()->regenerate();
-    dd(Auth::check());
-    // 4️⃣ Redirect to portal dashboard
-    return redirect('/portal/admin-dashboard');
+        // ❗ Response check
+        if (!$response->successful()) {
+            return redirect('/portal/login')->withErrors(['msg' => 'API not responding']);
+        }
+
+        // ✅ Get user data
+        $userData = $response->json()['user'] ?? null;
+
+        if (!$userData) {
+            return redirect('/portal/login')->withErrors(['msg' => 'User not found from API']);
+        }
+
+        // ✅ Find user in DB
+        $user = User::where('email', $userData['email'])->first();
+
+        if (!$user) {
+            return redirect('/portal/login')->withErrors(['msg' => 'User not found in portal DB']);
+        }
+
+        // ✅ Login user
+        Auth::login($user, true);
+
+        // ✅ Regenerate session
+        $request->session()->regenerate();
+
+        // ✅ FINAL redirect
+        return redirect('/portal/admin-dashboard');
+
+    } catch (\Exception $e) {
+        return redirect('/portal/login')->withErrors(['msg' => $e->getMessage()]);
+    }
 
 });
 if (moduleStatusCheck('Saas')) {
