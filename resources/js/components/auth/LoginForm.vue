@@ -1,16 +1,32 @@
 <template>
-    <form @submit.prevent="submitForm">
+    <form action="/portal/login" method="POST">
+        
+        <!-- CSRF TOKEN -->
+        <input type="hidden" name="_token" :value="csrf">
+
         <div class="form-group first">
-            <label for="username">Email</label>
-            <input type="text" v-model="form.username" @input="validateField('username')" class="form-control"
-                placeholder="Enter your email" id="username">
-            <span class="error" v-if="errors.username">{{ errors.username }}</span>
+            <label>Email</label>
+            <input 
+                type="text" 
+                name="email"
+                v-model="form.email" 
+                @input="validateField('email')" 
+                class="form-control"
+                placeholder="Enter your email">
+            
+            <span class="error" v-if="errors.email">{{ errors.email }}</span>
         </div>
 
         <div class="form-group last mb-2">
-            <label for="password">Password</label>
-            <input type="password" v-model="form.password" @input="validateField('password')" class="form-control"
-                placeholder="Enter your password" id="password">
+            <label>Password</label>
+            <input 
+                type="password" 
+                name="password"
+                v-model="form.password" 
+                @input="validateField('password')" 
+                class="form-control"
+                placeholder="Enter your password">
+            
             <span class="error" v-if="errors.password">{{ errors.password }}</span>
         </div>
 
@@ -21,86 +37,40 @@
         </div>
 
         <div>
-            <div v-if="backendError" class="text-muted text-center">
-                {{ backendError }}
-            </div>
-            <input type="submit" :value="formLoading ? 'Please wait...' : 'Log In'" class="btn">
+            <input type="submit" value="Log In" class="btn">
         </div>
 
         <div class="d-flex justify-content-center mt-4">
-            <span>Don't have an account? <a :href="route('frontend.register')">Register</a></span>
+            <span>Don't have an account? 
+                <a :href="route('frontend.register')">Register</a>
+            </span>
         </div>
     </form>
 </template>
 
 <script setup>
-import axios from 'axios';
 import { ref } from 'vue';
-import { useAuthStore } from '../../stores/auth';
-const auth = useAuthStore();
 import { route } from 'ziggy-js'
 
 const form = ref({
-    username: '',
+    email: '',
     password: ''
 });
 
 const errors = ref({})
-const formLoading = ref(false);
 
+// ✅ CSRF token
+const csrf = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+console.log(csrf)
 function validateField(field) {
     switch (field) {
-        case 'username':
-            errors.value.username = form.value.username ? '' : '* Username is required';
+        case 'email':
+            errors.value.email = form.value.email ? '' : '* Email is required';
             break;
         case 'password':
             errors.value.password = form.value.password ? '' : '* Password is required';
             break;
     }
-}
-
-function validateForm() {
-    validateField('username');
-    validateField('password');
-    return Object.keys(errors.value).every(key => !errors.value[key]);
-}
-
-const backendError = ref('');
-const submitForm = async () => {
-    backendError.value = '';
-    if (!validateForm()) return;
-
-    const formData = new FormData();
-    for (const key in form.value) {
-        formData.append(key, form.value[key]);
-    }
-
-    formLoading.value = true;
-    await axios.get('/sanctum/csrf-cookie');
-
-    await axios.post('/api/login', formData).then(function (response) {
-        axios.defaults.headers.common["Authorization"] = "Bearer " + response.data.token;
-        localStorage.setItem('token', response.data.data.token)
-        console.log('token', response.data.data)
-
-        auth.login(response.data.data)
-
-        fetch('/token-to-session', {
-            headers: {
-                'Authorization': 'Bearer ' + response.data.data.token
-            }
-        }).then(() => {
-            formLoading.value = false;
-            window.location.href = '/';
-        });
-    })
-        .catch(function (error) {
-            formLoading.value = false;
-            if (error.response && error.response.data.message) {
-                backendError.value = error.response.data.message;
-            }
-            console.log(error);
-        });
 }
 </script>
 

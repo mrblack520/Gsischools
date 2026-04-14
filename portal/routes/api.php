@@ -3,9 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-Route::get('db-correction', 'SmApiController@dbCorrections');
-Route::post('deviceInfo', 'api\ApiSmStudentAttendanceController@deviceInfo');
-// Route::post('system-disable', 'SmApiController@systemDisbale');
+
 
 // admin section visitor
 Route::any('login', 'SmApiController@mobileLogin');

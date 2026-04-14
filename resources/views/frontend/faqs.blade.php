@@ -1153,9 +1153,6 @@
                                 Faculty can teach school subjects (Grade Playgroup–10), board exam preparation, English
                                 language, and computer courses.
                             </p>
-
-
-
                         </div>
 
                     </div>
