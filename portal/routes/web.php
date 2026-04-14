@@ -19,10 +19,9 @@ Route::middleware(['web'])->get('/token-login', function(Request $request) {
     $token = $request->token; // API se mile token
     
     
-    $response = Http::withHeaders([
-        'Authorization' =>  $token
-        ])->get(config('app.api_url').'/me'); // ya tumhara endpoint jahan user data milta
-        dd(config('app.api_url'));
+    $response = Http::timeout(5)->withHeaders([
+    'Authorization' => $token
+])->get(config('app.api_url').'/me');
                 
 
     $user = User::where('email', $userData['email'])->first();
