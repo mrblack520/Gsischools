@@ -13,6 +13,7 @@
                         <h3>Login to <strong>GSI</strong></h3>
                     </div>
                     <form id="loginForm">
+                        @csrf
                         <div class="form-group">
                             <label>Email</label>
                             <input type="email" id="email" class="form-control input-control-input" placeholder="Enter your email">
@@ -34,35 +35,37 @@
 </section>
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-let token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-   fetch('/portal/api/logingsi', {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-        email: email,
-        password: password
-    })
-})
-.then(async res => {
-    const text = await res.text();
 
-    try {
-        return JSON.parse(text); // try parsing JSON
-    } catch (e) {
-        console.error("Not JSON:", text);
-        throw new Error("Server did not return JSON");
-    }
-})
-.then(data => {
-    if (data.status || data.success) {
-        window.location.href = 'portal/token-login?token=' + data.data.accessToken;
-    } else {
-        alert('Invalid login');
-    }
-})
-.catch(err => console.error(err));
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        let email = document.getElementById('email').value;
+        let password = document.getElementById('password').value;
+
+        fetch('/portal/api/logingsi', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                email: email,
+                password: password
+            })
+        })
+        .then(res => res.json())
+        .then(data => {
+            // console.log(data);
+
+            if (data.status || data.success) {
+                // 🔥 LOGIN SUCCESS
+                console.log(data)
+          window.location.href = 'portal/token-login?token=' + data.data.accessToken;
+            } else {
+                alert('Invalid login');
+            }
+        })
+        .catch(err => console.log(err));
+    });
 
 });
 </script>

@@ -10,7 +10,7 @@ Route::any('login', 'SmApiController@mobileLogin');
 Route::get('user-demo', 'SmApiController@DemoUser');
 Route::any('saas-login', 'SmApiController@saasLogin');
 Route::get('school/{school_id}/user-demo', 'SmApiController@SaasDemoUser');
-Route::post('logingsi', 'Auth\LoginController@login');
+Route::post('/api/logingsi', 'Auth\LoginController@login');
 Route::any('login', 'SmApiController@mobileLogin');
 
 Route::get('user-permission/{role_id}/{school_id}/{is_saas}', 'SmApiController@userPermission');
