@@ -40,32 +40,32 @@ document.addEventListener("DOMContentLoaded", function () {
 
         let email = document.getElementById('email').value;
         let password = document.getElementById('password').value;
-console.log(email, password);
+
+        console.log(email, password);
+
         fetch('https://gsischools.com/portal/api/loginapi', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Accept': 'application/json' // 🔥 important
+                'Accept': 'application/json'
             },
             body: JSON.stringify({
                 email: email,
                 password: password
             })
         })
-       .then(res => {
-    console.log(res.status);
-    return res.text();
-})
+        .then(res => {
+            console.log(res.status);
+            return res.json(); // ✅ FIX HERE
+        })
         .then(data => {
 
             console.log(data);
 
             if (data.status) {
 
-                // ✅ Token save kar lo (important)
                 localStorage.setItem('token', data.token);
 
-                // ✅ Redirect
                 window.location.href = '/portal/dashboard';
 
             } else {
