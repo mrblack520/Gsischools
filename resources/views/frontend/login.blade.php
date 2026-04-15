@@ -33,7 +33,9 @@
     </div>
 </section>
 <script>
-fetch('/portal/api/logingsi', {
+document.addEventListener("DOMContentLoaded", function () {
+
+   fetch('/portal/api/logingsi', {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json'
@@ -61,5 +63,7 @@ fetch('/portal/api/logingsi', {
     }
 })
 .catch(err => console.error(err));
+
+});
 </script>
 @endsection
