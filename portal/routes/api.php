@@ -10,7 +10,10 @@ Route::any('login', 'SmApiController@mobileLogin');
 Route::get('user-demo', 'SmApiController@DemoUser');
 Route::any('saas-login', 'SmApiController@saasLogin');
 Route::get('school/{school_id}/user-demo', 'SmApiController@SaasDemoUser');
-Route::post('/loginapi', [AuthController::class, 'apiLogin']);
+// Route::post('/loginapi', [AuthController::class, 'apiLogin']);
+Route::post('/loginapi',function(){
+    return "asd";
+});
 Route::any('login', 'SmApiController@mobileLogin');
 
 Route::get('user-permission/{role_id}/{school_id}/{is_saas}', 'SmApiController@userPermission');
