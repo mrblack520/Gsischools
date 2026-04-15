@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
         let email = document.getElementById('email').value;
         let password = document.getElementById('password').value;
 
-        fetch('/portal/api/login-gsi', {
+        fetch('/portal/api/logingsi', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
