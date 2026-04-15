@@ -41,38 +41,48 @@ document.addEventListener("DOMContentLoaded", function () {
     form.addEventListener('submit', async function(e) {
         e.preventDefault();
 
-        const email = document.getElementById('email').value;
-        const password = document.getElementById('password').value;
+        const email = document.getElementById('email').value.trim();
+        const password = document.getElementById('password').value.trim();
 
         console.log("Login Attempt:", email);
+
+        // ✅ Use FormData (fixes your issue)
+        const formData = new FormData();
+        formData.append('email', email);
+        formData.append('password', password);
 
         try {
             const response = await fetch('https://gsischools.com/portal/api/loginapi', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
+                    'Accept': 'application/json' // ❗ only this header needed
                 },
-                body: JSON.stringify({ email, password })
+                body: formData
             });
 
-            const data = await response.json();
+            // ✅ Handle non-JSON errors (important)
+            let data;
+            try {
+                data = await response.json();
+            } catch (err) {
+                throw new Error("Invalid JSON response");
+            }
 
             console.log("Server Response:", data);
 
-            if (data.status) {
-                alert("Login Successful");
+            if (response.ok && data.status) {
+                alert("Login Successful ✅");
 
                 if (data.redirect_url) {
                     window.location.href = data.redirect_url;
                 }
             } else {
-                alert(data.message);
+                alert(data.message || "Login failed");
             }
 
         } catch (error) {
             console.error("Error:", error);
-            alert("Something went wrong");
+            alert("Something went wrong ❌");
         }
     });
 
