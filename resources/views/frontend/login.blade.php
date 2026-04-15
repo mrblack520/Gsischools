@@ -52,7 +52,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 password: password
             })
         })
-        .then(res => res.json())
+       .then(res => {
+    console.log(res.status);
+    return res.text();
+})
         .then(data => {
 
             console.log(data);
