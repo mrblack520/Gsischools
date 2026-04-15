@@ -563,11 +563,11 @@ class LoginController extends Controller
 
 public function apiLogin(Request $request)
 {
- 
-    // =========================
-    // CASE 3: INVALID
-    // =========================
-    return response()->json("test");
+    return response()->json([
+        'status' => true,
+        'message' => 'API is working',
+        'time' => now()
+    ]);
 }
     /**
      * Get the login username to be used by the controller.
