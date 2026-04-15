@@ -15,12 +15,13 @@
                     <form id="loginForm">
     <div class="form-group">
         <label>Email</label>
-        <input type="email" id="email" class="form-control input-control-input" placeholder="Enter your email">
+      
+        <input type="email" id="email" class="form-control input-control-input" autocomplete="off" placeholder="Enter your email">
     </div>
 
     <div class="form-group">
         <label>Password</label>
-        <input type="password" id="password" class="form-control input-control-input" placeholder="Enter your password">
+        <input type="password" id="password" autocomplete="off" class="form-control input-control-input" placeholder="Enter your password">
     </div>
 
     <div class="input-control mt-3">
