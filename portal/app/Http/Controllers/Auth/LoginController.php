@@ -565,7 +565,7 @@ class LoginController extends Controller
 
 public function loginapi(Request $request)
 {
-     dd($request->email);
+     dd($request->all());
     // 1. Validate request
     $request->validate([
         'email' => 'required|email',

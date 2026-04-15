@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
     form.addEventListener('submit', async function(e) {
         e.preventDefault();
 
-        const email = document.getElementById('email').value.trim();
+        const email = document.g    etElementById('email').value.trim();
         const password = document.getElementById('password').value.trim();
 
         console.log("Login Attempt:", email);
