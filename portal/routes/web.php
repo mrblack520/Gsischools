@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Redirect;
 
 
 Route::middleware(['web'])->get('/token-login', function(Request $request) {
-
+    dd($request);
     $token = $request->token;
 
     // ❗ Token check
