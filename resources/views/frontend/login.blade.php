@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
         let email = document.getElementById('email').value;
         let password = document.getElementById('password').value;
 
-        fetch('/portal/api/loginapi', {
+        fetch('/api/loginapi', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
