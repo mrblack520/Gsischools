@@ -33,12 +33,9 @@
     </div>
 </section>
 <script>
-
 document.addEventListener("DOMContentLoaded", function () {
 
     const form = document.getElementById('loginForm');
-
-    if (!form) return;
 
     form.addEventListener('submit', async function(e) {
         e.preventDefault();
@@ -47,18 +44,35 @@ document.addEventListener("DOMContentLoaded", function () {
         const password = document.getElementById('password').value;
 
         console.log("Login Attempt:", email);
-        fetch('https://gsischools.com/portal/api/loginapi', {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-    },
-    body: JSON.stringify({
-        email,
-        password
-    })
-});
-    
+
+        try {
+            const response = await fetch('https://gsischools.com/portal/api/loginapi', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({ email, password })
+            });
+
+            const data = await response.json();
+
+            console.log("Server Response:", data);
+
+            if (data.status) {
+                alert("Login Successful");
+
+                if (data.redirect_url) {
+                    window.location.href = data.redirect_url;
+                }
+            } else {
+                alert(data.message);
+            }
+
+        } catch (error) {
+            console.error("Error:", error);
+            alert("Something went wrong");
+        }
     });
 
 });
