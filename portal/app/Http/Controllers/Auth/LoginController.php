@@ -570,7 +570,7 @@ public function loginapi(Request $request)
         'email' => 'required|email',
         'password' => 'required'
     ]);
-
+dd($request->email);
     // 2. Find user
     $user = User::with('school')
         ->where('email', $request->email)
