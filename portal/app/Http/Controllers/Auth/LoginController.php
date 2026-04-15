@@ -564,11 +564,11 @@ class LoginController extends Controller
 public function apiLogin(Request $request)
 {
     // Validation
-    $request->validate([
+   $data = $request->validate([
         'email' => 'required',
         'password' => 'required'
     ]);
-
+    dd($data);
     $credentials = $request->only('email', 'password');
 
     $users = User::where('email', $request->email)
