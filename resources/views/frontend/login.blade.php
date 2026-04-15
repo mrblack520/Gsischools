@@ -34,7 +34,7 @@
 </section>
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-
+let token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
    fetch('/portal/api/logingsi', {
     method: 'POST',
     headers: {
