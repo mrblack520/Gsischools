@@ -33,39 +33,33 @@
     </div>
 </section>
 <script>
-document.addEventListener("DOMContentLoaded", function () {
+fetch('/portal/api/logingsi', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+        email: email,
+        password: password
+    })
+})
+.then(async res => {
+    const text = await res.text();
 
-    document.getElementById('loginForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-
-        let email = document.getElementById('email').value;
-        let password = document.getElementById('password').value;
-
-        fetch('/portal/api/logingsi', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                email: email,
-                password: password
-            })
-        })
-        .then(res => res.json())
-        .then(data => {
-            // console.log(data);
-
-            if (data.status || data.success) {
-                // 🔥 LOGIN SUCCESS
-                console.log(data)
-          window.location.href = 'portal/token-login?token=' + data.data.accessToken;
-            } else {
-                alert('Invalid login');
-            }
-        })
-        .catch(err => console.log(err));
-    });
-
-});
+    try {
+        return JSON.parse(text); // try parsing JSON
+    } catch (e) {
+        console.error("Not JSON:", text);
+        throw new Error("Server did not return JSON");
+    }
+})
+.then(data => {
+    if (data.status || data.success) {
+        window.location.href = 'portal/token-login?token=' + data.data.accessToken;
+    } else {
+        alert('Invalid login');
+    }
+})
+.catch(err => console.error(err));
 </script>
 @endsection
