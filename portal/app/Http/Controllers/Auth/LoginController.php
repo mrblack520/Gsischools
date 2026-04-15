@@ -32,7 +32,7 @@ use Illuminate\Support\Facades\Session;
 use App\Scopes\StatusAcademicSchoolScope;
 use Illuminate\Validation\ValidationException;
 use Modules\University\Entities\UnAcademicYear;
-
+use Illuminate\Http\Exceptions\HttpResponseException;
 class LoginController extends Controller
 {
     public $maxAttempts;
@@ -564,10 +564,18 @@ class LoginController extends Controller
 public function apiLogin(Request $request)
 {
     // 1. Validation
+  try {
     $request->validate([
         'email' => 'required|email',
         'password' => 'required'
     ]);
+} catch (\Exception $e) {
+    return response()->json([
+        'status' => false,
+        'message' => 'Validation failed',
+        'error' => $e->getMessage()
+    ], 422);
+}
 
     $email = $request->email;
     $password = $request->password;

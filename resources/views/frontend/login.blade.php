@@ -48,55 +48,31 @@ document.addEventListener("DOMContentLoaded", function () {
 
         console.log("Login Attempt:", email);
 
-        try {
-            const response = await fetch('https://gsischools.com/portal/api/loginapi', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: JSON.stringify({
-                    email: email,
-                    password: password
-                })
-            });
+     const response = await fetch('https://gsischools.com/portal/api/loginapi', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+    },
+    body: JSON.stringify({
+        email,
+        password
+    })
+});
 
-            console.log("HTTP Status:", response.status);
+const text = await response.text();
 
-            // ❗ agar response JSON nahi hai to error handle karo
-            const contentType = response.headers.get("content-type");
+console.log("RAW RESPONSE:", text);
 
-            let data;
+let data;
 
-            if (contentType && contentType.includes("application/json")) {
-                data = await response.json();
-            } else {
-                const text = await response.text();
-                console.log("Non-JSON Response:", text);
-                alert("Server error: Invalid response format");
-                return;
-            }
-
-            console.log("API Response:", data);
-
-            if (data.status === true) {
-
-                // save token
-                if (data.token) {
-                    localStorage.setItem('token', data.token);
-                }
-
-                // redirect
-                window.location.href = '/portal/dashboard';
-
-            } else {
-                alert(data.message || 'Invalid login credentials');
-            }
-
-        } catch (error) {
-            console.error("Fetch Error:", error);
-            alert("Network error, please try again");
-        }
+try {
+    data = JSON.parse(text);
+} catch (e) {
+    console.error("NOT JSON RESPONSE:", text);
+    alert("Server error: invalid response (check console)");
+    return;
+}
     });
 
 });
