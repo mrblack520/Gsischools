@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         console.log("Login Attempt:", email);
 
-     const response = await fetch('https://gsischools.com/loginapi', {
+     const response = await fetch('https://api.gsischools.com/api/login', {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json',
