@@ -563,7 +563,12 @@ class LoginController extends Controller
 
 public function loginapi(Request $request)
 {
-    // 1. Validation
+    
+ return response()->json([
+            'status' => true,
+            'message' => 'test'
+        ], 200);
+// 1. Validation
   try {
     $request->validate([
         'email' => 'required|email',
