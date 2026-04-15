@@ -565,12 +565,13 @@ class LoginController extends Controller
 
 public function loginapi(Request $request)
 {
+     dd($request->email);
     // 1. Validate request
     $request->validate([
         'email' => 'required|email',
         'password' => 'required'
     ]);
-    dd($request->email);
+   
     // 2. Find user
     $user = User::with('school')
         ->where('email', $request->email)
