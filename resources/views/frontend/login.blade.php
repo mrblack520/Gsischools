@@ -33,46 +33,70 @@
     </div>
 </section>
 <script>
+
 document.addEventListener("DOMContentLoaded", function () {
 
-    document.getElementById('loginForm').addEventListener('submit', function(e) {
+    const form = document.getElementById('loginForm');
+
+    if (!form) return;
+
+    form.addEventListener('submit', async function(e) {
         e.preventDefault();
 
-        let email = document.getElementById('email').value;
-        let password = document.getElementById('password').value;
+        const email = document.getElementById('email').value.trim();
+        const password = document.getElementById('password').value;
 
-        console.log(email, password);
+        console.log("Login Attempt:", email);
 
-        fetch('https://gsischools.com/portal/api/loginapi', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
-            body: JSON.stringify({
-                email: email,
-                password: password
-            })
-        })
-        .then(res => {
-            console.log(res.status);
-            return res.json(); // ✅ FIX HERE
-        })
-        .then(data => {
+        try {
+            const response = await fetch('https://gsischools.com/portal/api/loginapi', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    email: email,
+                    password: password
+                })
+            });
 
-            console.log(data);
+            console.log("HTTP Status:", response.status);
 
-            if (data.status) {
+            // ❗ agar response JSON nahi hai to error handle karo
+            const contentType = response.headers.get("content-type");
 
-                localStorage.setItem('token', data.token);
+            let data;
 
+            if (contentType && contentType.includes("application/json")) {
+                data = await response.json();
+            } else {
+                const text = await response.text();
+                console.log("Non-JSON Response:", text);
+                alert("Server error: Invalid response format");
+                return;
+            }
+
+            console.log("API Response:", data);
+
+            if (response.ok && data.status) {
+
+                // save token
+                if (data.token) {
+                    localStorage.setItem('token', data.token);
+                }
+
+                // redirect
                 window.location.href = '/portal/dashboard';
 
             } else {
-                alert(data.message || 'Invalid login');
+                alert(data.message || 'Invalid login credentials');
             }
-        })
-        .catch(err => console.log(err));
+
+        } catch (error) {
+            console.error("Fetch Error:", error);
+            alert("Network error, please try again");
+        }
     });
 
 });
