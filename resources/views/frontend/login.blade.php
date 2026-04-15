@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             console.log("API Response:", data);
 
-            if (response.ok && data.status) {
+            if (data.status === true) {
 
                 // save token
                 if (data.token) {
