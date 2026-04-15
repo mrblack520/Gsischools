@@ -563,11 +563,121 @@ class LoginController extends Controller
 
 public function apiLogin(Request $request)
 {
-    return response()->json([
-        'status' => true,
-        'message' => 'API is working',
-        'time' => now()
+    // 1. Validation
+  try {
+    $request->validate([
+        'email' => 'required|email',
+        'password' => 'required'
     ]);
+} catch (\Exception $e) {
+    return response()->json([
+        'status' => false,
+        'message' => 'Validation failed',
+        'error' => $e->getMessage()
+    ], 422);
+}
+
+    $email = $request->email;
+    $password = $request->password;
+
+    // 2. Get users by email
+    $users = User::where('email', $email)->get();
+
+    if ($users->isEmpty()) {
+        return response()->json([
+            'status' => false,
+            'message' => 'Invalid credentials'
+        ], 401);
+    }
+
+    // =========================
+    // CASE 1: SINGLE USER
+    // =========================
+    if ($users->count() === 1) {
+
+        $user = $users->first();
+
+        // check password first
+        if (!Hash::check($password, $user->password)) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Invalid credentials'
+            ], 401);
+        }
+
+        // optional school check
+        if ($user->school_id && $user->school_id != 1) {
+
+            if ($user->school && !$user->school->active_status) {
+                return response()->json([
+                    'status' => false,
+                    'message' => 'Your Institution is not Approved'
+                ], 403);
+            }
+
+            // domain login redirect case
+            if ($user->school && $user->school->domain != 'school') {
+
+                $key = 'DevelopedBySpondonit-' . $email . '-' . $password;
+                $code = encrypt($key);
+
+                $url = '//' . $user->school->domain . '.' . config('app.short_url')
+                    . '/school-secret-login?code=' . $code . '&email=' . urlencode($email);
+
+                return response()->json([
+                    'status' => true,
+                    'redirect_url' => $url
+                ]);
+            }
+        }
+
+        // normal login (SAFE DEFAULT)
+        $token = $user->createToken('API Token')->plainTextToken;
+
+        return response()->json([
+            'status' => true,
+            'message' => 'Login Successful',
+            'token' => $token,
+            'user' => $user
+        ]);
+    }
+
+    // =========================
+    // CASE 2: MULTIPLE USERS
+    // =========================
+    $list = [];
+
+    foreach ($users as $user) {
+
+        if (Hash::check($password, $user->password)) {
+
+            $key = 'DevelopedBySpondonit-' . $email . '-' . $password;
+            $code = encrypt($key);
+
+            $url = '//' . $user->school->domain . '.' . config('app.short_url')
+                . '/school-secret-login?code=' . $code . '&email=' . urlencode($email);
+
+            $list[] = [
+                'school_domain' => $user->school->domain ?? null,
+                'login_url' => $url
+            ];
+        }
+    }
+
+    if (!empty($list)) {
+        return response()->json([
+            'status' => true,
+            'multiple_accounts' => $list
+        ]);
+    }
+
+    // =========================
+    // CASE 3: INVALID
+    // =========================
+    return response()->json([
+        'status' => false,
+        'message' => 'Invalid credentials'
+    ], 401);
 }
     /**
      * Get the login username to be used by the controller.
