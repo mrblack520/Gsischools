@@ -561,7 +561,7 @@ class LoginController extends Controller
     }
 
 
-public function apiLogin(Request $request)
+public function loginapi(Request $request)
 {
     // 1. Validation
   try {
