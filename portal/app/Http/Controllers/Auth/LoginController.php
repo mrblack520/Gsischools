@@ -32,7 +32,7 @@ use Illuminate\Support\Facades\Session;
 use App\Scopes\StatusAcademicSchoolScope;
 use Illuminate\Validation\ValidationException;
 use Modules\University\Entities\UnAcademicYear;
-use Illuminate\Http\Exceptions\HttpResponseException;
+
 class LoginController extends Controller
 {
     public $maxAttempts;
@@ -563,80 +563,119 @@ class LoginController extends Controller
 
 public function loginapi(Request $request)
 {
-    
- return response()->json([
-            'status' => true,
-            'message' => 'test'
-        ], 200);
-// 1. Validation
-  try {
-    $request->validate([
-        'email' => 'required|email',
+    // Validation
+   $data = $request->validate([
+        'email' => 'required',
         'password' => 'required'
     ]);
-} catch (\Exception $e) {
-    return response()->json([
-        'status' => false,
-        'message' => 'Validation failed',
-        'error' => $e->getMessage()
-    ], 422);
-}
+    dd($data);
+    $credentials = $request->only('email', 'password');
 
-    $email = $request->email;
-    $password = $request->password;
+    $users = User::where('email', $request->email)
+        ->get(['id', 'email', 'password', 'role_id', 'school_id']);
 
-    // 2. Get users by email
-    $users = User::where('email', $email)->get();
+    // ================= SINGLE USER =================
+  if ($users->count() == 1) {
 
-    if ($users->isEmpty()) {
-        return response()->json([
-            'status' => false,
-            'message' => 'Invalid credentials'
-        ], 401);
-    }
+    $user = $users->first();
 
-    // =========================
-    // CASE 1: SINGLE USER
-    // =========================
-    if ($users->count() === 1) {
+    if ($user->school_id && $user->school_id != 1) {
 
-        $user = $users->first();
-
-        // check password first
-        if (!Hash::check($password, $user->password)) {
+        if (!$user->school->active_status) {
             return response()->json([
                 'status' => false,
-                'message' => 'Invalid credentials'
-            ], 401);
+                'message' => 'Your Institution is not Approved'
+            ], 403);
         }
 
-        // optional school check
-        if ($user->school_id && $user->school_id != 1) {
+        if (Hash::check($request->password, $user->password)) {
 
-            if ($user->school && !$user->school->active_status) {
-                return response()->json([
-                    'status' => false,
-                    'message' => 'Your Institution is not Approved'
-                ], 403);
+                // Domain redirect logic (convert to response)
+                if ($user->school->domain != 'school') {
+
+                    $key = 'DevelopedBySpondonit-' . $request->email . '-' . $request->password;
+                    $code = encrypt($key);
+
+                    $url = '//' . $user->school->domain . '.' . config('app.short_url')
+                        . '/school-secret-login?code=' . $code . '&email=' . urlencode($request->email);
+
+                    return response()->json([
+                        'status' => true,
+                        'redirect_url' => $url
+                    ]);
+                }
             }
 
-            // domain login redirect case
-            if ($user->school && $user->school->domain != 'school') {
+            // Normal login
+            if (Auth::attempt($credentials)) {
 
-                $key = 'DevelopedBySpondonit-' . $email . '-' . $password;
-                $code = encrypt($key);
+                if (Auth::user()->active_status == 0) {
+                    Auth::logout();
+                    return response()->json([
+                        'status' => false,
+                        'message' => 'User not active'
+                    ], 403);
+                }
 
-                $url = '//' . $user->school->domain . '.' . config('app.short_url')
-                    . '/school-secret-login?code=' . $code . '&email=' . urlencode($email);
+                // Token generate (IMPORTANT for API)
+                $token = Auth::user()->createToken('API Token')->plainTextToken;
 
                 return response()->json([
                     'status' => true,
-                    'redirect_url' => $url
+                    'message' => 'Login Successful',
+                    'token' => $token,
+                    'user' => Auth::user()
                 ]);
             }
         }
+         // ✅ ADD THIS FALLBACK
+    if (Hash::check($request->password, $user->password)) {
+        $token = $user->createToken('API Token')->plainTextToken;
 
-        // normal login (SAFE DEFAULT)
+        return response()->json([
+            'status' => true,
+            'message' => 'Login Successful',
+            'token' => $token,
+            'user' => $user
+        ]);
+    }
+}
+    
+    
+
+    // ================= MULTIPLE USERS =================
+    if ($users->count() > 1) {
+
+        $list = [];
+
+        foreach ($users as $user) {
+
+            if ($user->school_id && Hash::check($request->password, $user->password)) {
+
+                $key = 'DevelopedBySpondonit-' . $request->email . '-' . $request->password;
+                $code = encrypt($key);
+
+                $url = '//' . $user->school->domain . '.' . config('app.short_url')
+                    . '/school-secret-login?code=' . $code . '&email=' . urlencode($request->email);
+
+                $list[] = [
+                    'school_domain' => $user->school->domain,
+                    'login_url' => $url
+                ];
+            }
+        }
+
+        return response()->json([
+            'status' => true,
+            'multiple_accounts' => $list
+        ]);
+    }
+
+    // ================= FALLBACK LOGIN =================
+    $user = User::where('email', $request->email)->first();
+
+    if ($user && Hash::check($request->password, $user->password)) {
+
         $token = $user->createToken('API Token')->plainTextToken;
 
         return response()->json([
@@ -647,38 +686,7 @@ public function loginapi(Request $request)
         ]);
     }
 
-    // =========================
-    // CASE 2: MULTIPLE USERS
-    // =========================
-    $list = [];
-
-    foreach ($users as $user) {
-
-        if (Hash::check($password, $user->password)) {
-
-            $key = 'DevelopedBySpondonit-' . $email . '-' . $password;
-            $code = encrypt($key);
-
-            $url = '//' . $user->school->domain . '.' . config('app.short_url')
-                . '/school-secret-login?code=' . $code . '&email=' . urlencode($email);
-
-            $list[] = [
-                'school_domain' => $user->school->domain ?? null,
-                'login_url' => $url
-            ];
-        }
-    }
-
-    if (!empty($list)) {
-        return response()->json([
-            'status' => true,
-            'multiple_accounts' => $list
-        ]);
-    }
-
-    // =========================
-    // CASE 3: INVALID
-    // =========================
+    // ================= FAILED =================
     return response()->json([
         'status' => false,
         'message' => 'Invalid credentials'
