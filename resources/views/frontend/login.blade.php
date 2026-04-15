@@ -47,8 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const password = document.getElementById('password').value;
 
         console.log("Login Attempt:", email);
-
-     const response = await fetch('https://api.gsischools.com/api/login', {
+        fetch('https://gsischools.com/portal/api/loginapi', {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json',
@@ -59,20 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
         password
     })
 });
-
-const text = await response.text();
-
-console.log("RAW RESPONSE:", text);
-
-let data;
- 
-try {
-    data = JSON.parse(text);
-} catch (e) {
-    console.error("NOT JSON RESPONSE:", text);
-    alert("Server error: invalid response (check console)");
-    return;
-}
+    
     });
 
 });
