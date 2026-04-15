@@ -41,10 +41,11 @@ document.addEventListener("DOMContentLoaded", function () {
         let email = document.getElementById('email').value;
         let password = document.getElementById('password').value;
 
-        fetch('/portal/api/login', {
+        fetch('/portal/api/loginapi', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Accept': 'application/json' // 🔥 important
             },
             body: JSON.stringify({
                 email: email,
@@ -53,14 +54,19 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         .then(res => res.json())
         .then(data => {
-            // console.log(data);
 
-            if (data.status || data.success) {
-                // 🔥 LOGIN SUCCESS
-                console.log(data)
-          window.location.href = 'portal/token-login?token=' + data.data.accessToken;
+            console.log(data);
+
+            if (data.status) {
+
+                // ✅ Token save kar lo (important)
+                localStorage.setItem('token', data.token);
+
+                // ✅ Redirect
+                window.location.href = '/portal/dashboard';
+
             } else {
-                alert('Invalid login');
+                alert(data.message || 'Invalid login');
             }
         })
         .catch(err => console.log(err));

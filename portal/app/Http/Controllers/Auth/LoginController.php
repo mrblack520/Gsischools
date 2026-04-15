@@ -560,6 +560,128 @@ class LoginController extends Controller
         return $this->sendFailedLoginResponse($request);
     }
 
+
+public function apiLogin(Request $request)
+{
+    // Validation
+    $request->validate([
+        'email' => 'required',
+        'password' => 'required'
+    ]);
+
+    $credentials = $request->only('email', 'password');
+
+    $users = User::where('email', $request->email)
+        ->get(['id', 'email', 'password', 'role_id', 'school_id']);
+
+    // ================= SINGLE USER =================
+    if ($users->count() == 1) {
+
+        $user = $users->first();
+        $school = $user->school_id;
+
+        if ($user && $user->school_id && $user->school_id != 1) {
+
+            // School inactive
+            if (!$user->school->active_status) {
+                return response()->json([
+                    'status' => false,
+                    'message' => 'Your Institution is not Approved'
+                ], 403);
+            }
+
+            // Password check
+            if (Hash::check($request->password, $user->password)) {
+
+                // Domain redirect logic (convert to response)
+                if ($user->school->domain != 'school') {
+
+                    $key = 'DevelopedBySpondonit-' . $request->email . '-' . $request->password;
+                    $code = encrypt($key);
+
+                    $url = '//' . $user->school->domain . '.' . config('app.short_url')
+                        . '/school-secret-login?code=' . $code . '&email=' . urlencode($request->email);
+
+                    return response()->json([
+                        'status' => true,
+                        'redirect_url' => $url
+                    ]);
+                }
+            }
+
+            // Normal login
+            if (Auth::attempt($credentials)) {
+
+                if (Auth::user()->active_status == 0) {
+                    Auth::logout();
+                    return response()->json([
+                        'status' => false,
+                        'message' => 'User not active'
+                    ], 403);
+                }
+
+                // Token generate (IMPORTANT for API)
+                $token = Auth::user()->createToken('API Token')->plainTextToken;
+
+                return response()->json([
+                    'status' => true,
+                    'message' => 'Login Successful',
+                    'token' => $token,
+                    'user' => Auth::user()
+                ]);
+            }
+        }
+    }
+
+    // ================= MULTIPLE USERS =================
+    if ($users->count() > 1) {
+
+        $list = [];
+
+        foreach ($users as $user) {
+
+            if ($user->school_id && Hash::check($request->password, $user->password)) {
+
+                $key = 'DevelopedBySpondonit-' . $request->email . '-' . $request->password;
+                $code = encrypt($key);
+
+                $url = '//' . $user->school->domain . '.' . config('app.short_url')
+                    . '/school-secret-login?code=' . $code . '&email=' . urlencode($request->email);
+
+                $list[] = [
+                    'school_domain' => $user->school->domain,
+                    'login_url' => $url
+                ];
+            }
+        }
+
+        return response()->json([
+            'status' => true,
+            'multiple_accounts' => $list
+        ]);
+    }
+
+    // ================= FALLBACK LOGIN =================
+    $user = User::where('email', $request->email)->first();
+
+    if ($user && Hash::check($request->password, $user->password)) {
+
+        $token = $user->createToken('API Token')->plainTextToken;
+
+        return response()->json([
+            'status' => true,
+            'message' => 'Login Successful',
+            'token' => $token,
+            'user' => $user
+        ]);
+    }
+
+    // ================= FAILED =================
+    return response()->json([
+        'status' => false,
+        'message' => 'Invalid credentials'
+    ], 401);
+}
     /**
      * Get the login username to be used by the controller.
      */
