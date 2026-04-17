@@ -10,6 +10,7 @@ Route::any('login', 'SmApiController@mobileLogin');
 Route::get('user-demo', 'SmApiController@DemoUser');
 Route::any('saas-login', 'SmApiController@saasLogin');
 Route::get('school/{school_id}/user-demo', 'SmApiController@SaasDemoUser');
+
 Route::post('loginapi', 'Auth\LoginController@loginapi');
 
 Route::any('login', 'SmApiController@mobileLogin');

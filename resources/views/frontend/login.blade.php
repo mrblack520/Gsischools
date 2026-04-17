@@ -53,6 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         try {
             const response = await fetch('https://gsischools.com/portal/api/loginapi', {
+                dd(response);
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json' // ❗ only this header needed
