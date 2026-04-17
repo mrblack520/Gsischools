@@ -752,12 +752,12 @@ if (count($users) > 1) {
     //     return redirect()->to($scl[1]['url']);
     // }
 
-    if ($isApi) {
-        return response()->json([
-            'status' => false,
-            'message' => 'Multiple accounts found'
-        ]);
-    }
+    // if ($isApi) {
+    //     return response()->json([
+    //         'status' => false,
+    //         'message' => 'Multiple accounts found'
+    //     ]);
+    // }
 
     return redirect()->route('login');
 }
