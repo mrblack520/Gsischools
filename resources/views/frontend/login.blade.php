@@ -56,7 +56,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 headers: {
                     'Accept': 'application/json' // ❗ only this header needed
                 },
-                body: formData
+                body: formData,
+                credentials: 'include'
             });
 
             // ✅ Handle non-JSON errors (important)
