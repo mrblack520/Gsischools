@@ -408,7 +408,7 @@ class LoginController extends Controller
 
             if (! $user) {
                 $user = User::where('email', $request->email)->where('school_id', $school->id)->first();
-                dd($user);
+               
             }
 
             if ($user) {
@@ -573,71 +573,253 @@ public function loginapi(Request $request)
     //     'password' => 'required'
     // ]);
     
-    // 2. Find user
-    $user = User::with('school')
-        ->where('email', "info@gsischools.com")
-        ->first();
-    dd($user);
-    // 3. Check user exists
-    if (!$user) {
-        return response()->json([
-            'status' => false,
-            'message' => 'Invalid credentials'
-        ], 401);
-    }
+    // // 2. Find user
+    // $user = User::with('school')
+    //     ->where('email', "info@gsischools.com")
+    //     ->first();
+    // dd($user);
+    // // 3. Check user exists
+    // if (!$user) {
+    //     return response()->json([
+    //         'status' => false,
+    //         'message' => 'Invalid credentials'
+    //     ], 401);
+    // }
 
-    // 4. Check password
-    if (!Hash::check($request->password, $user->password)) {
-        return response()->json([
-            'status' => false,
-            'message' => 'Invalid credentials'
-        ], 401);
-    }
+    // // 4. Check password
+    // if (!Hash::check($request->password, $user->password)) {
+    //     return response()->json([
+    //         'status' => false,
+    //         'message' => 'Invalid credentials'
+    //     ], 401);
+    // }
 
-    // 5. Check user active status
-    if ($user->active_status == 0) {
-        return response()->json([
-            'status' => false,
-            'message' => 'User not active'
-        ], 403);
-    }
+    // // 5. Check user active status
+    // if ($user->active_status == 0) {
+    //     return response()->json([
+    //         'status' => false,
+    //         'message' => 'User not active'
+    //     ], 403);
+    // }
 
-    // 6. School check (if exists)
-    if ($user->school_id && $user->school_id != 1) {
+    // // 6. School check (if exists)
+    // if ($user->school_id && $user->school_id != 1) {
 
-        if (!$user->school || !$user->school->active_status) {
-            return response()->json([
-                'status' => false,
-                'message' => 'Your Institution is not Approved'
-            ], 403);
+    //     if (!$user->school || !$user->school->active_status) {
+    //         return response()->json([
+    //             'status' => false,
+    //             'message' => 'Your Institution is not Approved'
+    //         ], 403);
+    //     }
+
+    //     // Optional: domain redirect logic
+    //     if ($user->school->domain != 'school') {
+
+    //         $key = 'DevelopedBySpondonit-' . $request->email . '-' . $request->password;
+    //         $code = encrypt($key);
+
+    //         $url = '//' . $user->school->domain . '.' . config('app.short_url')
+    //             . '/school-secret-login?code=' . $code . '&email=' . urlencode($request->email);
+
+    //         return response()->json([
+    //             'status' => true,
+    //             'redirect_url' => $url
+    //         ]);
+    //     }
+    // }
+
+    // // 7. Create token (Sanctum)
+    // $token = $user->createToken('API Token')->plainTextToken;
+
+    // // 8. Success response
+    // return response()->json([
+    //     'status' => true,
+    //     'message' => 'Login successful',
+    //     'token' => $token,
+    //     'user' => $user
+    // ]);
+
+    $isApi = $request->expectsJson();
+
+$credentials = $request->only('email', 'password');
+
+$users = User::where('email', $request->email)
+    ->get(['id', 'email', 'password', 'role_id', 'school_id']);
+
+/* ===================== SINGLE USER ===================== */
+
+if (count($users) > 0 && count($users) == 1) {
+
+    $user = $users->first();
+    $school = $user->school_id;
+
+    if ($user && $user->school_id && $user->school_id != 1) {
+
+        if (! $user->school->active_status) {
+            $this->guard()->logout();
+
+            if ($isApi) {
+                return response()->json([
+                    'status' => false,
+                    'message' => 'Your Institution is not Approved'
+                ], 403);
+            }
+
+            return redirect()->route('login');
         }
 
-        // Optional: domain redirect logic
-        if ($user->school->domain != 'school') {
+        if (Hash::check($request->password, $user->password)) {
 
-            $key = 'DevelopedBySpondonit-' . $request->email . '-' . $request->password;
-            $code = encrypt($key);
+            if (!config('app.app_sync') && !$request->auto_login && Auth::attempt($credentials)) {
 
-            $url = '//' . $user->school->domain . '.' . config('app.short_url')
-                . '/school-secret-login?code=' . $code . '&email=' . urlencode($request->email);
+                if (Auth::check() && Auth::user()->active_status == 0) {
+                    $this->guard()->logout();
 
+                    if ($isApi) {
+                        return response()->json([
+                            'status' => false,
+                            'message' => 'You are not allowed'
+                        ], 403);
+                    }
+
+                    return redirect()->route('login');
+                }
+
+                if ($isApi) {
+                    return response()->json([
+                        'status' => true,
+                        'message' => 'Login successful',
+                        'user' => Auth::user()
+                    ]);
+                }
+
+            }
+        }
+    }
+}
+
+/* ===================== MULTIPLE USER ===================== */
+
+if (count($users) > 1) {
+
+    $count = 0;
+    $url = explode('//', url()->to('/'));
+
+    foreach ($users as $user) {
+
+        if ($user->school_id) {
+
+            if (! $user->school->active_status) {
+
+                $this->guard()->logout();
+
+                if ($isApi) {
+                    return response()->json([
+                        'status' => false,
+                        'message' => 'Institution not approved'
+                    ], 403);
+                }
+
+                return redirect()->route('login');
+            }
+
+            if (Hash::check($request->password, $user->password)) {
+
+                $count++;
+
+                $key = 'DevelopedBySpondonit-'.$request->email.'-'.$request->password;
+
+                $code = encrypt($key);
+
+                $scl[$count] = [
+                    'domain' => $user->school->domain,
+                    'url' => $url[0].'//'.$user->school->domain.'.'.config('app.short_url').'/school-secret-login?code='.$code.'&email='.urlencode($request->email)
+                ];
+            }
+        }
+    }
+
+    if ($count == 1) {
+
+        if ($isApi) {
             return response()->json([
                 'status' => true,
-                'redirect_url' => $url
+                'message' => 'Multiple school login found',
+                'data' => $scl[1]
             ]);
         }
+
+        return redirect()->to($scl[1]['url']);
     }
 
-    // 7. Create token (Sanctum)
-    $token = $user->createToken('API Token')->plainTextToken;
+    if ($isApi) {
+        return response()->json([
+            'status' => false,
+            'message' => 'Multiple accounts found'
+        ]);
+    }
 
-    // 8. Success response
+    return redirect()->route('login');
+}
+
+/* ===================== DEFAULT LOGIN ===================== */
+
+$school = app('school');
+$request->merge(['school_id' => $school->id]);
+
+$logged_in = false;
+
+if (config('app.app_sync') && $request->auto_login) {
+
+    $user = User::where('email', $request->email)->first();
+
+    if ($user) {
+        $this->guard()->login($user);
+        $logged_in = Auth::check();
+    }
+
+} else {
+
+    $user = User::where('email', $request->email)
+        ->where('school_id', $school->id)
+        ->first();
+
+    if ($user && Hash::check($request->password, $user->password)) {
+        $this->guard()->login($user);
+        $logged_in = Auth::check();
+    } else {
+        $logged_in = $this->attemptLogin($request);
+    }
+}
+
+/* ===================== LOGIN SUCCESS ===================== */
+
+if ($logged_in) {
+
+    if ($isApi) {
+        return response()->json([
+            'status' => true,
+            'message' => 'Login successful',
+            'user' => Auth::user(),
+            'school_id' => Auth::user()->school_id
+        ]);
+    }
+
+    return $this->sendLoginResponse($request);
+}
+
+/* ===================== LOGIN FAILED ===================== */
+
+$this->incrementLoginAttempts($request);
+
+if ($isApi) {
     return response()->json([
-        'status' => true,
-        'message' => 'Login successful',
-        'token' => $token,
-        'user' => $user
-    ]);
+        'status' => false,
+        'message' => 'Invalid credentials'
+    ], 401);
+}
+
+return $this->sendFailedLoginResponse($request);
 }
     /**
      * Get the login username to be used by the controller.
