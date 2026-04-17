@@ -739,18 +739,18 @@ if (count($users) > 1) {
         }
     }
 
-    if ($count == 1) {
+    // if ($count == 1) {
 
-        if ($isApi) {
-            return response()->json([
-                'status' => true,
-                'message' => 'Multiple school login found',
-                'data' => $scl[1]
-            ]);
-        }
+    //     if ($isApi) {
+    //         return response()->json([
+    //             'status' => true,
+    //             'message' => 'Multiple school login found',
+    //             'data' => $scl[1]
+    //         ]);
+    //     }
 
-        return redirect()->to($scl[1]['url']);
-    }
+    //     return redirect()->to($scl[1]['url']);
+    // }
 
     if ($isApi) {
         return response()->json([
