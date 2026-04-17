@@ -12,10 +12,9 @@
                     <div class="text-center mb-5">
                         <h3>Login to <strong>GSI</strong></h3>
                     </div>
-                    <form id="loginForm">
+<form id="loginForm">
     <div class="form-group">
         <label>Email</label>
-      
         <input type="email" id="email" class="form-control input-control-input" autocomplete="off" placeholder="Enter your email">
     </div>
 
@@ -41,14 +40,14 @@ document.addEventListener("DOMContentLoaded", function () {
     form.addEventListener('submit', async function(e) {
         e.preventDefault();
 
-        const email = document.getElementById('email').value.trim();
+        // const email = document.getElementById('email').value.trim();
         const password = document.getElementById('password').value.trim();
 
         console.log("Login Attempt:", email);
 
         // ✅ Use FormData (fixes your issue)
         const formData = new FormData();
-        formData.append('email', email);
+        // formData.append('email', email);
         formData.append('password', password);
 
         try {
