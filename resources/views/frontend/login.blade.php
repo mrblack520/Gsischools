@@ -40,14 +40,14 @@ document.addEventListener("DOMContentLoaded", function () {
     form.addEventListener('submit', async function(e) {
         e.preventDefault();
 
-        // const email = document.getElementById('email').value.t   rim();
+        const email = document.getElementById('email').value.trim();
         const password = document.getElementById('password').value.trim();
 
         console.log("Login Attempt:", email);
 
         // ✅ Use FormData (fixes your issue)
         const formData = new FormData();
-        // formData.append('email', email);
+        formData.append('email', email);
         formData.append('password', password);
 
         try {
