@@ -408,6 +408,7 @@ class LoginController extends Controller
 
             if (! $user) {
                 $user = User::where('email', $request->email)->where('school_id', $school->id)->first();
+                dd($user);
             }
 
             if ($user) {
