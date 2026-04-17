@@ -576,7 +576,7 @@ public function loginapi(Request $request)
     $user = User::with('school')
         ->where('email', "info@gsischools.com")
         ->first();
-
+    dd($user);
     // 3. Check user exists
     if (!$user) {
         return response()->json([
