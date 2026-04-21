@@ -51,24 +51,28 @@ document.addEventListener("DOMContentLoaded", function () {
         formData.append('password', password);
 
         try {
-            // const response = await fetch('https://gsischools.com/portal/api/loginapi', {
-            //     method: 'POST',
-            //     headers: {
-            //         'Accept': 'application/json' // ❗ only this header needed
-            //     },
-            //     body: formData,
-            //     credentials: 'include'
-            // });
-
             const response = await fetch('https://gsischools.com/portal/api/loginapi', {
                 method: 'POST',
                 headers: {
-                    'Accept': 'application/json',
+                    'Accept': 'application/json' // ❗ only this header needed
                     'Content-Type': 'application/json'
                 },
                 body: formData,
                 credentials: 'include'
             });
+            
+            // const response = await fetch('https://gsischools.com/portal/api/loginapi', {
+            //     method: 'POST',
+            //     headers: {
+            //         'Accept': 'application/json',
+            //         'Content-Type': 'application/json'
+            //     },
+            //     body: JSON.stringify({
+            //         email: email,
+            //         password: password
+            //     }),
+            //     credentials: 'include'
+            // });
 
             // ✅ Handle non-JSON errors (important)
             let data;
