@@ -33,59 +33,71 @@
     </div>
 </section>
 <script>
-document.addEventListener("DOMContentLoaded", function () {
+// document.addEventListener("DOMContentLoaded", function () {
 
-    const form = document.getElementById('loginForm');
+//     const form = document.getElementById('loginForm');
 
-    form.addEventListener('submit', async function(e) {
-        e.preventDefault();
+//     form.addEventListener('submit', async function(e) {
+//         e.preventDefault();
 
-        const email = document.getElementById('email').value.trim();
-        const password = document.getElementById('password').value.trim();
+//         const email = document.getElementById('email').value.trim();
+//         const password = document.getElementById('password').value.trim();
 
-        console.log("Login Attempt:", email);
+//         console.log("Login Attempt:", email);
 
-        // ✅ Use FormData (fixes your issue)
-        const formData = new FormData();
-        formData.append('email', email);
-        formData.append('password', password);
+//         // ✅ Use FormData (fixes your issue)
+//         const formData = new FormData();
+//         formData.append('email', email);
+//         formData.append('password', password);
 
-        try {
-            const response = await fetch('https://gsischools.com/portal/api/loginapi', {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json' // ❗ only this header needed
-                },
-                body: formData,
-                credentials: 'include'
-            });
+//         try {
+//             const response = await fetch('https://gsischools.com/portal/api/loginapi', {
+//                 method: 'POST',
+//                 headers: {
+//                     'Accept': 'application/json' // ❗ only this header needed
+//                 },
+//                 body: formData,
+//                 credentials: 'include'
+//             });
 
-            // ✅ Handle non-JSON errors (important)
-            let data;
-            try {
-                data = await response.json();
-            } catch (err) {
-                throw new Error("Invalid JSON response");
-            }
+//             // ✅ Handle non-JSON errors (important)
+//             let data;
+//             try {
+//                 data = await response.json();
+//             } catch (err) {
+//                 throw new Error("Invalid JSON response");
+//             }
 
-            console.log("Server Response:", data);
+//             console.log("Server Response:", data);
 
-            if (response.ok && data.status) {
-                alert("Login Successful ✅");
+//             if (response.ok && data.status) {
+//                 alert("Login Successful ✅");
 
-                if (data.redirect_url) {
-                    window.location.href = data.redirect_url;
-                }
-            } else {
-                alert(data.message || "Login failed");
-            }
+//                 if (data.redirect_url) {
+//                     window.location.href = data.redirect_url;
+//                 }
+//             } else {
+//                 alert(data.message || "Login failed");
+//             }
 
-        } catch (error) {
-            console.error("Error:", error);
-            alert("Something went wrong ❌");
-        }
-    });
+//         } catch (error) {
+//             console.error("Error:", error);
+//             alert("Something went wrong ❌");
+//         }
+//     });
 
+// });
+
+const response = await fetch('https://gsischools.com/portal/api/loginapi', {
+    method: 'POST',
+    headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+        email: email,
+        password: password
+    })
 });
 </script>
 @endsection
