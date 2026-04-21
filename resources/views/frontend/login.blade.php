@@ -87,7 +87,6 @@
 //     });
 
 // });
-
 const response = await fetch('https://gsischools.com/portal/api/loginapi', {
     method: 'POST',
     headers: {
@@ -97,7 +96,8 @@ const response = await fetch('https://gsischools.com/portal/api/loginapi', {
     body: JSON.stringify({
         email: email,
         password: password
-    })
+    }),
+    credentials: 'include'
 });
 </script>
 @endsection
