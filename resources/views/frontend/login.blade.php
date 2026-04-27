@@ -147,7 +147,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (data.status) {
 
                 // ✅ Login successful - portal dashboard pe redirect
-                window.location.href = 'https://gsischools.com/portal/dashboard';
+                window.location.href = 'https://gsischools.com/portal/admin_dashboard';
 
             } else {
                 alert(data.message || 'Login failed!');
