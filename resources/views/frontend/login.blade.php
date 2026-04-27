@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
         btn.textContent = 'Logging in...';
 
         try {
-            // Step 1 - Pehle verify karo credentials
+            // Step 1 - Credentials verify karo
             const response = await fetch('https://gsischools.com/portal/api/loginapi', {
                 method: 'POST',
                 headers: {
@@ -69,17 +69,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (data.status) {
 
-                // Step 2 - CSRF token lo portal se
+                // Step 2 - CSRF token lo
                 const csrfResponse = await fetch('https://gsischools.com/portal/api/get-csrf', {
                     credentials: 'include'
                 });
                 const csrfData = await csrfResponse.json();
-                console.log('CSRF:', csrfData);
 
-                // Step 3 - Hidden form banao aur submit karo
-                const hiddenForm = document.createElement('form');
-                hiddenForm.method = 'POST';
-                hiddenForm.action = 'https://gsischools.com/portal/login';
+                // Step 3 - Hidden form banao portal/login pe submit karo
+                const hiddenForm    = document.createElement('form');
+                hiddenForm.method   = 'POST';
+                hiddenForm.action   = 'https://gsischools.com/portal/login';
 
                 const fields = {
                     '_token'  : csrfData.token,
@@ -96,10 +95,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 });
 
                 document.body.appendChild(hiddenForm);
-                hiddenForm.submit(); // ✅ Portal session set hogi aur dashboard pe jayega
+                hiddenForm.submit(); // ✅ Session set hogi aur dashboard pe jayega
 
             } else {
-                alert(data.message || 'Login failed!');
+                alert(data.message || 'Invalid credentials!');
                 btn.disabled    = false;
                 btn.textContent = 'Sign In';
             }
