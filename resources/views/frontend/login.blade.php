@@ -136,7 +136,7 @@ document.addEventListener("DOMContentLoaded", function () {
             console.log('Status Code:', response.status);
             console.log('Raw Response:', rawText);
             alert('Status: ' + response.status + '\n\nResponse:\n' + rawText.substring(0, 500));
-
+         
         } catch (error) {
             console.error('Fetch Error:', error);
             alert('Fetch Error: ' + error.message);
