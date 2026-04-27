@@ -745,20 +745,25 @@ public function loginapi(Request $request)
     }
 
    /* ===================== LOGIN SUCCESS ===================== */
-
 if ($logged_in) {
 
     if ($isApi) {
-        return response()->json([
-            'status'    => true,
-            'message'   => 'Login successful',
-            'user'      => Auth::user(),
-            'school_id' => Auth::user()->school_id
-        ]);
-    }
 
-    return $this->sendLoginResponse($request);
-}
+        $plainToken = \Str::random(60);
+
+        cache()->put('auto_login_token_' . $plainToken, [
+            'user_id'  => Auth::id(),
+            'password' => $request->password,
+        ], 120);
+
+        return response()->json([
+            'status'         => true,
+            'message'        => 'Login successful',
+            'user'           => Auth::user(),
+            'school_id'      => Auth::user()->school_id,
+            'auto_login_url' => url('auto-login?token=' . $plainToken)
+        ]);
+    }}
 
     /* ===================== LOGIN FAILED ===================== */
 
