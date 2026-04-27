@@ -120,6 +120,15 @@ document.addEventListener("DOMContentLoaded", function () {
         const email    = document.getElementById('email').value.trim();
         const password = document.getElementById('password').value.trim();
 
+        if (!email || !password) {
+            alert('Email aur Password dono bharo!');
+            return;
+        }
+
+        const btn = form.querySelector('button[type="submit"]');
+        btn.disabled    = true;
+        btn.textContent = 'Logging in...';
+
         try {
             const response = await fetch('https://gsischools.com/portal/api/loginapi', {
                 method: 'POST',
@@ -131,16 +140,27 @@ document.addEventListener("DOMContentLoaded", function () {
                 credentials: 'include'
             });
 
-            // ✅ Pehle raw text dekho
-            const rawText = await response.text();
-            console.log('Status Code:', response.status);
-            console.log('Raw Response:', rawText);
-            alert('Status: ' + response.status + '\n\nResponse:\n' + rawText.substring(0, 500));
-         
+            const data = await response.json();
+
+            console.log('Response:', data);
+
+            if (data.status) {
+
+                // ✅ Login successful - portal dashboard pe redirect
+                window.location.href = 'https://gsischools.com/portal/dashboard';
+
+            } else {
+                alert(data.message || 'Login failed!');
+                btn.disabled    = false;
+                btn.textContent = 'Sign In';
+            }
+
         } catch (error) {
-            console.error('Fetch Error:', error);
-            alert('Fetch Error: ' + error.message);
-        }  
+            console.error('Error:', error);
+            alert('Something went wrong!');
+            btn.disabled    = false;
+            btn.textContent = 'Sign In';
+        }
     });
 
 });
