@@ -23,9 +23,6 @@ class Kernel extends HttpKernel
         Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
         Middleware\TrustProxies::class,
-         \Fruitcake\Cors\HandleCors::class,  // Laravel 8 and below
-    // or
-    \Illuminate\Http\Middleware\HandleCors::class,  // Laravel 9+
         // \RenatoMarinho\LaravelPageSpeed\Middleware\InlineCss::class,
         // \RenatoMarinho\LaravelPageSpeed\Middleware\RemoveComments::class,
         // \RenatoMarinho\LaravelPageSpeed\Middleware\CollapseWhitespace::class,
