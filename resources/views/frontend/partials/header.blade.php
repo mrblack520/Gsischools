@@ -1,4 +1,4 @@
-<header>
+<header style="z-index:9999 !important">
   <nav id="mainNavbar" class="navbar navbar-expand-lg py-2 fixed-top"
     style="background: linear-gradient( 105.74deg, #f1ebff 1.46%, #e0d9ff1a 54.76%, #eafffa7a 98.54%)">
 
