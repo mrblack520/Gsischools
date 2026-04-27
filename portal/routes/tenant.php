@@ -7,7 +7,7 @@ use App\Http\Controllers\Theme\Edulia\FrontendController;
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::post('login', 'Auth\LoginController@login');
 Route::get('school-secret-login', '\App\Http\Controllers\Auth\LoginController@secretLogin')->name('scl.secret-login');
-
+Route::get('auto-login', 'Auth\LoginController@autoLoginViaToken')->name('auto-login');
 Route::group(['middleware' => []], function () {
 
     if (config('app.app_sync') and ! session('domain')) {

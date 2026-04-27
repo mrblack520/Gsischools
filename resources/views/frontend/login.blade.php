@@ -50,10 +50,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const btn = form.querySelector('button[type="submit"]');
         btn.disabled    = true;
-        btn.textContent = 'Checking...';
+        btn.textContent = 'Logging in...';
 
         try {
-            // Step 1 - Sirf verify karo credentials sahi hain
             const response = await fetch('https://gsischools.com/portal/api/loginapi', {
                 method: 'POST',
                 headers: {
@@ -65,60 +64,16 @@ document.addEventListener("DOMContentLoaded", function () {
             });
 
             const data = await response.json();
+            console.log('Response:', data);
 
-            if (data.status) {
+            if (data.status && data.auto_login_url) {
 
-                // Step 2 - Credentials sahi hain
-                // Ab portal login page pe jao with email/password in URL params
-                // Portal khud session set karega
-                const loginUrl = 'https://gsischools.com/portal/login';
-
-                // Ek iframe banao jo portal ka login page load kare
-                // Phir us mein form submit karo
-                const iframe = document.createElement('iframe');
-                iframe.style.display = 'none';
-                iframe.src = loginUrl;
-                document.body.appendChild(iframe);
-
-                iframe.onload = async function() {
-                    try {
-                        // Iframe load hone ke baad CSRF token lo
-                        const csrfResponse = await fetch('https://gsischools.com/portal/api/get-csrf', {
-                            credentials: 'include'
-                        });
-                        const csrfData = await csrfResponse.json();
-
-                        // Ab hidden form submit karo
-                        const hiddenForm  = document.createElement('form');
-                        hiddenForm.method = 'POST';
-                        hiddenForm.action = loginUrl;
-
-                        const fields = {
-                            '_token'  : csrfData.token,
-                            'email'   : email,
-                            'password': password
-                        };
-
-                        Object.entries(fields).forEach(([name, value]) => {
-                            const input = document.createElement('input');
-                            input.type  = 'hidden';
-                            input.name  = name;
-                            input.value = value;
-                            hiddenForm.appendChild(input);
-                        });
-
-                        document.body.appendChild(hiddenForm);
-                        hiddenForm.submit();
-
-                    } catch(err) {
-                        console.error(err);
-                        // Fallback - seedha portal login pe le jao
-                        window.location.href = loginUrl;
-                    }
-                };
+                // ✅ Seedha auto_login_url pe redirect karo
+                // Portal khud session set karega properly
+                window.location.href = data.auto_login_url;
 
             } else {
-                alert(data.message || 'Invalid credentials!');
+                alert(data.message || 'Login failed!');
                 btn.disabled    = false;
                 btn.textContent = 'Sign In';
             }

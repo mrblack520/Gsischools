@@ -561,7 +561,41 @@ class LoginController extends Controller
         return $this->sendFailedLoginResponse($request);
     }
 
-
+public function autoLoginViaToken(Request $request)
+{
+    $token = $request->token;
+    
+    if (!$token) {
+        return redirect()->route('login');
+    }
+    
+    // Cache se user id lo
+    $stored = cache()->get('auto_login_token_' . $token);
+    
+    if (!$stored) {
+        return redirect()->route('login');
+    }
+    
+    $user = User::find($stored['user_id']);
+    
+    if (!$user) {
+        return redirect()->route('login');
+    }
+    
+    // Cache delete karo - ek baar hi use hoga
+    cache()->forget('auto_login_token_' . $token);
+    
+    // Fake request banao login ke liye
+    $fakeRequest = Request::create('/login', 'POST', [
+        'email'     => $user->email,
+        'password'  => $stored['password'],
+        'school_id' => $user->school_id,
+    ]);
+    
+    $fakeRequest->setSession(session()->driver());
+    
+    return $this->login($fakeRequest);
+}
 
 public function loginapi(Request $request)
 {
@@ -710,21 +744,21 @@ public function loginapi(Request $request)
         }
     }
 
-    /* ===================== LOGIN SUCCESS ===================== */
+   /* ===================== LOGIN SUCCESS ===================== */
 
-    if ($logged_in) {
+if ($logged_in) {
 
-        if ($isApi) {
-            return response()->json([
-                'status'    => true,
-                'message'   => 'Login successful',
-                'user'      => Auth::user(),
-                'school_id' => Auth::user()->school_id
-            ]);
-        }
-
-        return $this->sendLoginResponse($request);
+    if ($isApi) {
+        return response()->json([
+            'status'    => true,
+            'message'   => 'Login successful',
+            'user'      => Auth::user(),
+            'school_id' => Auth::user()->school_id
+        ]);
     }
+
+    return $this->sendLoginResponse($request);
+}
 
     /* ===================== LOGIN FAILED ===================== */
 
