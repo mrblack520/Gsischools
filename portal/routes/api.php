@@ -3,7 +3,11 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
- 
+ Route::get('get-csrf', function() {
+    return response()->json([
+        'token' => csrf_token()
+    ]);
+});
 // admin section visitor
 Route::any('login', 'SmApiController@mobileLogin');
 Route::get('user-demo', 'SmApiController@DemoUser');
