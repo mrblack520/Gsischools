@@ -561,41 +561,40 @@ class LoginController extends Controller
         return $this->sendFailedLoginResponse($request);
     }
 
-public function autoLoginViaToken(Request $request)
-{
-    $token = $request->token;
-    
-    if (!$token) {
-        return redirect()->route('login');
+    public function autoLoginViaToken(Request $request)
+    {
+        $token = $request->token;
+
+        if (!$token) {
+            return redirect()->route('login');
+        }
+
+        // cache ki jagah session
+        $stored = session('auto_login_token_' . $token);
+
+        if (!$stored) {
+            return redirect()->route('login');
+        }
+
+        $user = User::find($stored['user_id']);
+
+        if (!$user) {
+            return redirect()->route('login');
+        }
+
+        // session delete karo
+        session()->forget('auto_login_token_' . $token);
+
+        $fakeRequest = Request::create('/login', 'POST', [
+            'email'     => $user->email,
+            'password'  => $stored['password'],
+            'school_id' => $user->school_id,
+        ]);
+
+        $fakeRequest->setSession(session()->driver());
+
+        return $this->login($fakeRequest);
     }
-    
-    // Cache se user id lo
-    $stored = cache()->get('auto_login_token_' . $token);
-    
-    if (!$stored) {
-        return redirect()->route('login');
-    }
-    
-    $user = User::find($stored['user_id']);
-    
-    if (!$user) {
-        return redirect()->route('login');
-    }
-    
-    // Cache delete karo - ek baar hi use hoga
-    cache()->forget('auto_login_token_' . $token);
-    
-    // Fake request banao login ke liye
-    $fakeRequest = Request::create('/login', 'POST', [
-        'email'     => $user->email,
-        'password'  => $stored['password'],
-        'school_id' => $user->school_id,
-    ]);
-    
-    $fakeRequest->setSession(session()->driver());
-    
-    return $this->login($fakeRequest);
-}
 
 public function loginapi(Request $request)
 {
@@ -745,16 +744,15 @@ public function loginapi(Request $request)
     }
 
    /* ===================== LOGIN SUCCESS ===================== */
-if ($logged_in) {
-
     if ($isApi) {
 
         $plainToken = \Str::random(60);
 
-        cache()->put('auto_login_token_' . $plainToken, [
+        // cache ki jagah session
+        session(['auto_login_token_' . $plainToken => [
             'user_id'  => Auth::id(),
             'password' => $request->password,
-        ], 120);
+        ]]);
 
         return response()->json([
             'status'         => true,
@@ -763,7 +761,7 @@ if ($logged_in) {
             'school_id'      => Auth::user()->school_id,
             'auto_login_url' => url('auto-login?token=' . $plainToken)
         ]);
-    }}
+    }
 
     /* ===================== LOGIN FAILED ===================== */
 
