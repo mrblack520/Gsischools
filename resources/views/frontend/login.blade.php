@@ -12,116 +12,91 @@
                     <div class="text-center mb-5">
                         <h3>Login to <strong>GSI</strong></h3>
                     </div>
+<form id="loginForm">
+    <div class="form-group">
+        <label>Email</label>
+        <input type="email" id="email" class="form-control input-control-input" autocomplete="off" placeholder="Enter your email">
+    </div>
 
-                    {{-- Error message box --}}
-                    <div id="error-box" style="display:none; color:red; margin-bottom:10px; font-size:14px;"></div>
+    <div class="form-group">
+        <label>Password</label>
+        <input type="password" id="password" autocomplete="off" class="form-control input-control-input" placeholder="Enter your password">
+    </div>
 
-                    <form id="loginForm">
-                        <div class="form-group">
-                            <label>Email</label>
-                            <input type="email" id="email" class="form-control input-control-input"
-                                autocomplete="off" placeholder="Enter your email">
-                        </div>
-
-                        <div class="form-group">
-                            <label>Password</label>
-                            <input type="password" id="password" autocomplete="off"
-                                class="form-control input-control-input" placeholder="Enter your password">
-                        </div>
-
-                        <div class="input-control mt-3">
-                            <button type="submit" class="btn input-control-input">Sign In</button>
-                        </div>
-                    </form>
+    <div class="input-control mt-3">
+        <button type="submit" class="btn input-control-input">Sign In</button>
+    </div>
+</form>
                 </div>
             </div>
         </div>
     </div>
 </section>
-
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 
-    const form     = document.getElementById('loginForm');
-    const errorBox = document.getElementById('error-box');
+    const form = document.getElementById('loginForm');
 
-    function showError(msg) {
-        errorBox.style.display = 'block';
-        errorBox.textContent   = msg;
-    }
-
-    function hideError() {
-        errorBox.style.display = 'none';
-        errorBox.textContent   = '';
-    }
-
-    form.addEventListener('submit', async function (e) {
+    form.addEventListener('submit', async function(e) {
         e.preventDefault();
-        hideError();
 
         const email    = document.getElementById('email').value.trim();
         const password = document.getElementById('password').value.trim();
 
         if (!email || !password) {
-            showError('Enter Email & Password ');
+            alert('Email aur Password dono bharo!');
             return;
         }
 
-        const btn       = form.querySelector('button[type="submit"]');
+        const btn = form.querySelector('button[type="submit"]');
         btn.disabled    = true;
         btn.textContent = 'Logging in...';
 
         try {
+            // Step 1 - Login karo aur token lo
             const response = await fetch('https://gsischools.com/portal/api/loginapi', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Accept'      : 'application/json',
+                    'Accept':       'application/json',
                 },
-                body       : JSON.stringify({ email, password }),
+                body: JSON.stringify({ email, password }),
                 credentials: 'include'
             });
 
-            // ---- Pehle raw text lo, phir parse karo ----
-            const rawText = await response.text();
+            const data = await response.json();
 
-            let data;
-            try {
-                data = JSON.parse(rawText);
-            } catch (parseErr) {
-                // Server ne JSON nahi bheja (HTML error page)
-                console.error('Server response (not JSON):', rawText);
-                showError('Server error! Please try again later.');
-                btn.disabled    = false;
-                btn.textContent = 'Sign In';
-                return;
-            }
-
-            // ---- Ab data check karo ----
             if (data.status && data.auto_login_url) {
 
                 btn.textContent = 'Please wait...';
 
+                // Step 2 - Token confirm hone tak wait karo
+                // 3 baar check karo 1 second gap se
                 let redirected = false;
 
                 for (let i = 0; i < 5; i++) {
+
+                    // 1 second wait
                     await new Promise(resolve => setTimeout(resolve, 1000));
 
                     try {
+                        // Token check karo portal se
                         const checkResponse = await fetch(data.auto_login_url, {
-                            method     : 'GET',
-                            redirect   : 'manual',
+                            method: 'GET',
+                            redirect: 'manual', // redirect follow mat karo
                             credentials: 'include'
                         });
 
+                        // Agar 302 aaya matlab token mil gaya
                         if (checkResponse.status === 302 || checkResponse.type === 'opaqueredirect') {
-                            redirected             = true;
-                            window.location.href   = data.auto_login_url;
+                            redirected = true;
+                            window.location.href = data.auto_login_url;
                             break;
                         }
 
-                    } catch (err) {
-                        redirected           = true;
+                    } catch(err) {
+                        // CORS error aayega - matlab page load ho raha hai - redirect karo
+                        redirected = true;
                         window.location.href = data.auto_login_url;
                         break;
                     }
@@ -132,15 +107,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
 
             } else {
-                // ---- Invalid credentials ----
-                showError(data.message || 'Invalid credentials!');
+                alert(data.message || 'Invalid credentials!');
                 btn.disabled    = false;
                 btn.textContent = 'Sign In';
             }
 
         } catch (error) {
-            console.error('Fetch Error:', error);
-            showError('Email or Password is incorrect.');
+            console.error('Error:', error);
+            alert('Something went wrong!');
             btn.disabled    = false;
             btn.textContent = 'Sign In';
         }
