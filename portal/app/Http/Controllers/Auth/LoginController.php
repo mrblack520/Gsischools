@@ -619,8 +619,8 @@ class LoginController extends Controller
     session()->put('active_style', $active_style);
     session()->put('text_direction', $gs->ttl_rtl ?? 2);
     session()->put('school_config', $gs);
-
-    return redirect('/dashboard');
+return redirect('/after-login');
+    // return redirect('/dashboard');
 }
 
 public function loginapi(Request $request)
