@@ -560,48 +560,69 @@ class LoginController extends Controller
 
         return $this->sendFailedLoginResponse($request);
     }
-
- public function autoLoginViaToken(Request $request)
+public function autoLoginViaToken(Request $request)
 {
     $token = $request->token;
 
     if (!$token) {
+        dd('❌ Step 1 FAIL - Token nahi aaya');
         return redirect()->route('login');
     }
+    dd('✅ Step 1 OK - Token: ' . $token);
 
-    // Database se lo
     $stored = \DB::table('auto_login_tokens')
         ->where('token', $token)
         ->where('expires_at', '>', now())
         ->first();
 
     if (!$stored) {
+        dd('❌ Step 2 FAIL - Token DB mein nahi mila ya expire ho gaya', [
+            'token'      => $token,
+            'db_result'  => \DB::table('auto_login_tokens')->where('token', $token)->first(),
+            'now'        => now()->toDateTimeString(),
+        ]);
         return redirect()->route('login');
     }
+    dd('✅ Step 2 OK - Stored: ', $stored);
 
     $user = User::find($stored->user_id);
 
     if (!$user) {
+        dd('❌ Step 3 FAIL - User nahi mila', ['user_id' => $stored->user_id]);
         return redirect()->route('login');
     }
+    dd('✅ Step 3 OK - User: ' . $user->email);
 
-    // Token delete karo
     \DB::table('auto_login_tokens')->where('token', $token)->delete();
+    dd('✅ Step 4 OK - Token deleted');
 
-    // Direct login
     Auth::login($user);
 
     if (!Auth::check()) {
+        dd('❌ Step 5 FAIL - Auth::login fail ho gaya');
         return redirect()->route('login');
     }
+    dd('✅ Step 5 OK - Auth login successful, User ID: ' . Auth::id());
 
-    // Session setup
     $school = app('school');
+
+    if (!$school) {
+        dd('❌ Step 6 FAIL - School nahi mili');
+        return redirect()->route('login');
+    }
+    dd('✅ Step 6 OK - School: ' . $school->id);
+
     $gs = \App\Models\SmGeneralSettings::where('school_id', $school->id)->first();
-    
+
+    if (!$gs) {
+        dd('❌ Step 7 FAIL - General Settings nahi mili');
+        return redirect()->route('login');
+    }
+    dd('✅ Step 7 OK - General Settings mili');
+
     session()->forget('generalSetting');
     session()->put('generalSetting', $gs);
-    session(['role_id' => Auth::user()->role_id]);
+    session(['role_id'   => Auth::user()->role_id]);
     session(['school_id' => Auth::user()->school_id]);
 
     $session_id = $gs->session_id ?? null;
@@ -619,8 +640,10 @@ class LoginController extends Controller
     session()->put('active_style', $active_style);
     session()->put('text_direction', $gs->ttl_rtl ?? 2);
     session()->put('school_config', $gs);
-return redirect('/after-login');
-    // return redirect('/dashboard');
+
+    dd('✅ Step 8 OK - Session set, dashboard pe redirect hone wale hain');
+
+    return redirect('/dashboard');
 }
 
 public function loginapi(Request $request)
