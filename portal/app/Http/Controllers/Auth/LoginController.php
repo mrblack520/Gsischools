@@ -599,7 +599,7 @@ public function autoLoginViaToken(Request $request)
         dd('❌ Step 5 FAIL - Auth::login fail ho gaya');
         return redirect()->route('login');
     }
-    dd('✅ Step 5 OK - Auth login successful, User ID: ' . Auth::id());
+   
 
     $school = app('school');
 
