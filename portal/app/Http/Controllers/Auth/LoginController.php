@@ -593,9 +593,7 @@ public function autoLoginViaToken(Request $request)
   
 
     \DB::table('auto_login_tokens')->where('token', $token)->delete();
-    dd('✅ Step 4 OK - Token deleted');
-
-    Auth::login($user);
+       Auth::login($user);
 
     if (!Auth::check()) {
         dd('❌ Step 5 FAIL - Auth::login fail ho gaya');
