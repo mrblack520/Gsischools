@@ -561,61 +561,49 @@ class LoginController extends Controller
         return $this->sendFailedLoginResponse($request);
     }
 
-    public function autoLoginViaToken(Request $request)
+ public function autoLoginViaToken(Request $request)
 {
     $token = $request->token;
-
-      dd([
-        'token'       => $token,
-        'stored'      => session('auto_login_token_' . $token),
-        'all_session' => session()->all(),
-    ]);
 
     if (!$token) {
         return redirect()->route('login');
     }
 
-    $stored = session('auto_login_token_' . $token);
+    // Database se lo
+    $stored = \DB::table('auto_login_tokens')
+        ->where('token', $token)
+        ->where('expires_at', '>', now())
+        ->first();
 
     if (!$stored) {
         return redirect()->route('login');
     }
 
-    $user = User::find($stored['user_id']);
+    $user = User::find($stored->user_id);
 
     if (!$user) {
         return redirect()->route('login');
     }
 
-    session()->forget('auto_login_token_' . $token);
+    // Token delete karo
+    \DB::table('auto_login_tokens')->where('token', $token)->delete();
 
-    // ✅ Direct login karo - fakeRequest nahi
+    // Direct login
     Auth::login($user);
 
     if (!Auth::check()) {
         return redirect()->route('login');
     }
 
-    // ✅ Poori session setup karo - login() function wali
+    // Session setup
     $school = app('school');
+    $gs = \App\Models\SmGeneralSettings::where('school_id', $school->id)->first();
     
+    session()->forget('generalSetting');
+    session()->put('generalSetting', $gs);
     session(['role_id' => Auth::user()->role_id]);
     session(['school_id' => Auth::user()->school_id]);
 
-    // General settings
-    $gs = \App\Models\SmGeneralSettings::where('school_id', $school->id)->first();
-    session()->forget('generalSetting');
-    session()->put('generalSetting', $gs);
-
-    // Date format
-    $date_format_id = $gs->date_format_id ?? null;
-    $system_date_format = 'jS M, Y';
-    if ($date_format_id) {
-        $system_date_format = \App\Models\SmDateFormat::where('id', $date_format_id)->first(['format'])->format ?? 'jS M, Y';
-    }
-    session()->put('system_date_format', $system_date_format);
-
-    // Academic session
     $session_id = $gs->session_id ?? null;
     $session = \App\Models\SmAcademicYear::find($session_id);
     if (!$session) {
@@ -626,43 +614,12 @@ class LoginController extends Controller
         session()->put('session', $session);
     }
 
-    // Style
-    $active_style = \App\Models\SmStyle::where('school_id', Auth::user()->school_id)->where('is_active', 1)->first();
+    $active_style = \App\Models\SmStyle::where('school_id', Auth::user()->school_id)
+        ->where('is_active', 1)->first();
     session()->put('active_style', $active_style);
-
-    // Text direction
     session()->put('text_direction', $gs->ttl_rtl ?? 2);
-
-    // School config
     session()->put('school_config', $gs);
 
-    // Profile
-    if (Auth::user()->role_id == 2) {
-        $profile = \App\Models\SmStudent::where('user_id', Auth::id())->first();
-        session()->put('profile', @$profile->student_photo);
-    } else {
-        $profile = \App\Models\SmStaff::where('user_id', Auth::id())->first();
-        if ($profile) {
-            session()->put('profile', $profile->staff_photo);
-        }
-    }
-
-    // User log
-    try {
-        $agent = new \Jenssegers\Agent\Agent();
-        $smUserLog = new \App\Models\SmUserLog();
-        $smUserLog->user_id   = Auth::user()->id;
-        $smUserLog->role_id   = Auth::user()->role_id;
-        $smUserLog->school_id = Auth::user()->school_id;
-        $smUserLog->ip_address = $request->ip();
-        $smUserLog->academic_id = $session->id ?? 1;
-        $smUserLog->user_agent = $agent->browser().', '.$agent->platform();
-        $smUserLog->save();
-    } catch (\Exception $e) {
-        // log error ignore karo
-    }
-
-    // ✅ Dashboard pe redirect karo
     return redirect('/dashboard');
 }
 
@@ -814,24 +771,27 @@ public function loginapi(Request $request)
     }
 
    /* ===================== LOGIN SUCCESS ===================== */
-    if ($isApi) {
+   if ($isApi) {
 
-        $plainToken = \Str::random(60);
+    $plainToken = \Str::random(60);
 
-        // cache ki jagah session
-        session(['auto_login_token_' . $plainToken => [
-            'user_id'  => Auth::id(),
-            'password' => $request->password,
-        ]]);
+    // Database mein save karo
+    \DB::table('auto_login_tokens')->insert([
+        'token'      => $plainToken,
+        'user_id'    => Auth::id(),
+        'password'   => encrypt($request->password),
+        'created_at' => now(),
+        'expires_at' => now()->addMinutes(5),
+    ]);
 
-        return response()->json([
-            'status'         => true,
-            'message'        => 'Login successful',
-            'user'           => Auth::user(),
-            'school_id'      => Auth::user()->school_id,
-            'auto_login_url' => url('auto-login?token=' . $plainToken)
-        ]);
-    }
+    return response()->json([
+        'status'         => true,
+        'message'        => 'Login successful',
+        'user'           => Auth::user(),
+        'school_id'      => Auth::user()->school_id,
+        'auto_login_url' => url('auto-login?token=' . $plainToken)
+    ]);
+}
 
     /* ===================== LOGIN FAILED ===================== */
 
