@@ -773,18 +773,30 @@ public function loginapi(Request $request)
     }
 
    /* ===================== LOGIN SUCCESS ===================== */
-   if ($isApi) {
+ if ($isApi) {
 
     $plainToken = \Str::random(60);
 
-    // Database mein save karo
-   \DB::table('auto_login_tokens')->insert([
-    'token'      => $plainToken,
-    'user_id'    => Auth::id(),
-    'password'   => encrypt($request->password),
-    'created_at' => \Carbon\Carbon::now('UTC'),
-    'expires_at' => \Carbon\Carbon::now('UTC')->addMinutes(30),
-]);
+    // Insert karo
+    \DB::table('auto_login_tokens')->insert([
+        'token'      => $plainToken,
+        'user_id'    => Auth::id(),
+        'password'   => encrypt($request->password),
+        'created_at' => \Carbon\Carbon::now('UTC'),
+        'expires_at' => \Carbon\Carbon::now('UTC')->addMinutes(30),
+    ]);
+
+    // ✅ Confirm karo insert hua
+    $confirm = \DB::table('auto_login_tokens')
+        ->where('token', $plainToken)
+        ->exists();
+
+    if (!$confirm) {
+        return response()->json([
+            'status'  => false,
+            'message' => 'Token save nahi hua, dobara try karo'
+        ]);
+    }
 
     return response()->json([
         'status'         => true,

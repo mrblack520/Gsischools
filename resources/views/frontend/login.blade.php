@@ -53,6 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
         btn.textContent = 'Logging in...';
 
         try {
+            // Step 1 - Login karo aur token lo
             const response = await fetch('https://gsischools.com/portal/api/loginapi', {
                 method: 'POST',
                 headers: {
@@ -67,12 +68,43 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (data.status && data.auto_login_url) {
 
-                btn.textContent = 'Redirecting...';
+                btn.textContent = 'Please wait...';
 
-                // ✅ 1.5 second wait - token DB mein properly save ho jaye
-                setTimeout(function() {
+                // Step 2 - Token confirm hone tak wait karo
+                // 3 baar check karo 1 second gap se
+                let redirected = false;
+
+                for (let i = 0; i < 5; i++) {
+
+                    // 1 second wait
+                    await new Promise(resolve => setTimeout(resolve, 1000));
+
+                    try {
+                        // Token check karo portal se
+                        const checkResponse = await fetch(data.auto_login_url, {
+                            method: 'GET',
+                            redirect: 'manual', // redirect follow mat karo
+                            credentials: 'include'
+                        });
+
+                        // Agar 302 aaya matlab token mil gaya
+                        if (checkResponse.status === 302 || checkResponse.type === 'opaqueredirect') {
+                            redirected = true;
+                            window.location.href = data.auto_login_url;
+                            break;
+                        }
+
+                    } catch(err) {
+                        // CORS error aayega - matlab page load ho raha hai - redirect karo
+                        redirected = true;
+                        window.location.href = data.auto_login_url;
+                        break;
+                    }
+                }
+
+                if (!redirected) {
                     window.location.href = data.auto_login_url;
-                }, 1500);
+                }
 
             } else {
                 alert(data.message || 'Invalid credentials!');
