@@ -607,15 +607,15 @@ public function autoLoginViaToken(Request $request)
         dd('❌ Step 6 FAIL - School nahi mili');
         return redirect()->route('login');
     }
-    dd('✅ Step 6 OK - School: ' . $school->id);
-
+   
+ 
     $gs = \App\Models\SmGeneralSettings::where('school_id', $school->id)->first();
 
     if (!$gs) {
         dd('❌ Step 7 FAIL - General Settings nahi mili');
         return redirect()->route('login');
     }
-    dd('✅ Step 7 OK - General Settings mili');
+    dd('✅ Step 7 OK -  General Settings mili');
 
     session()->forget('generalSetting');
     session()->put('generalSetting', $gs);
