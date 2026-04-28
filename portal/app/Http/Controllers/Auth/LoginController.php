@@ -568,7 +568,7 @@ public function autoLoginViaToken(Request $request)
         dd('❌ Step 1 FAIL - Token nahi aaya');
         return redirect()->route('login');
     }
-    dd('✅ Step 1 OK - Token: ' . $token);
+  
 
     $stored = \DB::table('auto_login_tokens')
         ->where('token', $token)
@@ -583,7 +583,7 @@ public function autoLoginViaToken(Request $request)
         ]);
         return redirect()->route('login');
     }
-    dd('✅ Step 2 OK - Stored: ', $stored);
+    
 
     $user = User::find($stored->user_id);
 
