@@ -565,6 +565,12 @@ class LoginController extends Controller
 {
     $token = $request->token;
 
+      dd([
+        'token'       => $token,
+        'stored'      => session('auto_login_token_' . $token),
+        'all_session' => session()->all(),
+    ]);
+
     if (!$token) {
         return redirect()->route('login');
     }
