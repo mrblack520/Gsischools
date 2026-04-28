@@ -167,7 +167,7 @@
     @if (moduleStatusCheck('Saas') && session('domain') == 'school')
         @if (pagesetting('header-school-is-show-menu') == 1)
             <li class='has-submenu'>
-                <a href="{{ route('institution-register-new') }}"> {{ pagesetting('header-school-menu-label') }} </a>
+                <a href="{{ route('institution-register') }}"> {{ pagesetting('header-school-menu-label') }} </a>
             </li>
         @endif
     @endif

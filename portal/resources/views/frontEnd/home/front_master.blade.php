@@ -223,7 +223,7 @@
                             @endforeach
                         @if (moduleStatusCheck('Saas') and session('domain') == 'school')
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ url('/institution-register-new') }}"
+                                <a class="nav-link" href="{{ url('/institution-register) }}"
                                     target="_blank">@lang('common.school_signup')</a>
                             </li>
                         @endif

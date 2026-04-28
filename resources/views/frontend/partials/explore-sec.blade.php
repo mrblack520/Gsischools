@@ -58,9 +58,6 @@
         </div>
         
         <!-- Buttons -->
-        <div class="explore-btns text-center mt-4">
-            <!-- <a href="{{ route('frontend.university') }}" class="btn me-2 mb-2">Learn more about university</a>
-            <a href="{{ route('frontend.profession') }}" class="btn mb-2">Learn more about professions</a> -->
-        </div>
+      
     </div>
 </section>

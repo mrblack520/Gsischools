@@ -116,7 +116,7 @@
                         <div class="div">
                             <h3>Applying to <span>SCHOOL </span></h3>
                             <div>
-                                <a href="{{ route('frontend.university') }}">Enroll in GSI</a>
+                                <a href="{{ Route('frontend.register') }}">Enroll in GSI</a>
                             </div>
                         </div>
                         <div class="d-flex align-items-end ">

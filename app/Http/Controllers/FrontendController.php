@@ -65,151 +65,6 @@ class FrontendController extends Controller
 return view('frontend.home', compact('slides'));}
    
 
-        public function nextGen()
-    {
-    $slides = [
-            [
-                'paragraphs' => [
-                    'Applications, interviews, research … stepping into a world of unknowns and assumptions can feel overwhelming.'
-                ]
-            ],
-            [
-                'paragraphs' => [
-                    'Don’t waste time figuring it out alone — book a session with an Aficionado to ask the questions that matter most to you and gain real first-hand insight.'
-                ]
-            ],
-            [
-                'paragraphs' => [
-                    'Use filters to find Aficionados based on your desired criteria — whether you’re exploring universities or preparing to enter a profession.'
-                ]
-            ],
-            [
-                'paragraphs' => [
-                    'As our network continues to expand, we’re committed to onboarding more Aficionados to cover more universities, more courses and more professions!'
-                ]
-            ],
-        ];
-
-        $faq_how_it_work = [
-            [
-                'title' => 'Registration',
-                'content' => '<ul>
-                        <li><span>Complete
-                                the registration form available
-                                <strong><span><a
-                                            href="' . route('frontend.register') . '">here.</a></span></strong></span>
-                        </li>
-                    </ul>'
-            ],
-            [
-                'title' => 'Book a session',
-                'content' => '<ul>
-                        <li><span>Filter
-                                available
-                                Aficionados, check their availability and book a one-to-one video chat.
-                            </span></li>
-                        <li><span>Sessions
-                                can be booked in 15 minute increments’
-                            </span></li>
-                    </ul>'
-            ],
-            [
-                'title' => 'Sessions',
-                'content' => '<ul>
-                        <li><span>During the
-                                session, we encourage the Next Gen to lead the conversation
-                                and
-                                ask their most important questions relevant to their goals. </span></li>
-
-                        <li><span>Clearly
-                                communicate your goals and objectives to make the most of each
-                                session!</span></li>
-                    </ul>'
-            ],
-            [
-                'title' => 'Questions',
-                'content' => '<ul>
-                        <li><span>It is all
-                                about the questions! Arrive prepared with thoughtful
-                                questions to gain valuable insight!</span></li>
-                        <li><span>Ask your
-                                burning questions — no question is “silly” or “basic”. Learn
-                                from genuine and real-life experiences without any institutional or
-                                corporate pressures. </span></li>
-                        <li><span>Don’t feel
-                                limited to work-related topics. Expand the conversation to
-                                include social dynamics, work-life balance and managing the pressures
-                                that come with universities and professions.</span></li>
-                    </ul>'
-            ]
-        ];
-
-        $faq_next_gen_signup = [
-            [
-                'title' => 'Who can be a Next Gen?',
-                'content' =>
-                '
-                <p>The following can register as a Next Gen — anyone interested in:</p>
-                <ul>
-                                <li><span class="mb-0">applying to <strong>university,</strong> or</span></li>
-                                <li><span class="mb-0">pursuing a career in a <strong>profession,</strong> or</span></li>
-                                <li>Don’t quite fit the description above? That’s okay — as long as you’re keen to ask questions, you’re welcome to join.</li>
-                              </ul>'
-            ],
-            [
-                'title' => 'Convenient video chats',
-                'content' => '<ul>
-                                <li><span>Connect with Aficionados through flexible, one-to-one video chats — scheduled at a time that works for you.</span></li>
-                                <li><span>The video chat will be organised and held on Questionpoint.</span></li>
-                                <li><span>Lead the conversation by asking the questions that matter most to you.</span></li>
-                              </ul>'
-            ],
-            [
-                'title' => 'Who are Aficionados?',
-                'content' => '
-                <p>Aficionados are:</p>
-                <ul>
-                                        <li>university
-                                            students or alumni from your desired university and course, or</li>
-                                        <li><span>experienced
-                                                professionals in your desired profession. </span></li>
-                                                </ul>
-                                                <p>Aficionados have registered to have video chat sessions with the Next
-                                                        Gen and answer their questions.</p>
-                                                <p>Get real, first-hand insight from them on your video chats.</p>
-                                                '
-            ],
-            [
-                'title' => 'What Aficionados can help you with',
-                'content' => '
-                <p>Aficionados may answer your questions on:</p>
-                <ul>
-                                        <li>Application
-                                            processes
-                                            and tips</li>
-                                        <li>Interview
-                                            preparation
-                                        </li>
-                                        <li>Choosing the
-                                            right
-                                            institution</li>
-                                        <li>University and
-                                            industry
-                                            specific questions</li>
-                                        <li>Social and
-                                            work-life
-                                            balance</li>
-                                        <li>and much more!
-                                        </li>
-                                    </ul>
-                                    <i>Aficionados have discretion on the scope of questions permitted and may set this
-                                        out in their bios. </i>'
-            ]
-        ];
-
-        return view('frontend.next-gen', compact(['slides', 'faq_how_it_work', 'faq_next_gen_signup']));
-    }
-
     public function aficionado()
     {
         $slides = [
@@ -362,69 +217,7 @@ return view('frontend.home', compact('slides'));}
         return view('frontend.aficionado', compact(['slides', 'signup_faq', 'how_it_work_faq']));
     }
 
-    public function university()
-    {
-        $slides = [
-            [
-                'title' => 'Ask away – it’s all about the questions',
-                'image' => asset('/assets/images/uni-slider-01.webp'),
-                'alt' => asset('GSI Schools Slider'),
-                'paragraphs' => [
-                    'What do you really want to know?',
-                    "What’s been on your mind, but never asked or answered?",
-                    "This is your chance to ask the questions that matter the most to you.",
-                ],
-            ],
-            [
-                'title' => 'Universities and Courses',
-                'image' => asset('/assets/images/close-up-hands-with-pen-writing-notebook.jpg'),
-                'alt'=> asset('GSI Schools close writing shot'),
-                'paragraphs' => [
-                    'Make informed decisions about your path and speak with Aficionados who have been in your position.',
-                    'We’ve launched Questionpoint with law and medicine – more courses are on the way, and you can already register your interest!',
-                ],
-            ],
-            [
-                'title' => 'Applications, interviews and more',
-                'image' => asset('/assets/images/young-businessman-with-paper-communicating-with-female-laptop-screen.jpg'),
-                'alt'=> asset('GSI Schools business meeting'),
-                'paragraphs' => [
-                    'Learn how Aficionados approached their personal statements, interviews, and admissions — and what they’d do differently.',
-                    'It’s more than just knowing what to say — it’s knowing how to say it.',
-                ],
-            ],
-            [
-                'title' => 'Reshaping student work for Aficionados',
-                'image' => asset('/assets/images/uni-slider-04.webp'),
-                'alt'=> asset('GSI Schools Reshaping work slider'),
-                'paragraphs' => [
-                    'Students and graduates are empowered to monetise their experiences and insight.',
-                    'Answer real questions, offer genuine support, and earn along the way — no commute or timesheets.',
-                    'It’s flexible, meaningful, and more rewarding than a typical part-time job.',
-                ],
-            ],
-            [
-                'title' => 'Stand out from the competition',
-                'image' => asset('/assets/images/131.jpg'),
-                'alt' => asset('GSI Schools small paper boats'),
-                'paragraphs' => [
-                    'The Next Gen can move forward with clarity and confidence.',
-                    'You don’t have to figure it all out alone — gain an edge with tailored insight, not generic advice.',
-                ],
-            ],
-            [
-                'title' => 'What makes Questionpoint different?',
-                'image' => asset('/assets/images/uni-slider-06.webp'),
-                'alt'=> asset('GSI Schools Slider with so peoples'),
-                'paragraphs' => [
-                    'We’re not just a platform — we’re a network of real people.',
-                    'No algorithms, no generic advice — just real stories, real paths, and real answers.',
-                    'This is not tutoring. This is human experience, shared.',
-                ],
-            ],
-        ];
-        return view('frontend.university', compact(['slides']));
-    }
+  
 
     public function profession()
     {
@@ -633,15 +426,6 @@ Along with school and coaching, students also have access to advanced courses in
         return view('frontend.about', compact(['slides', 'about_faq']));
     }
 
-    public function curiosityHub()
-    {
-        return view('frontend.curiosity-hub');
-    }
-
-    public function exampleQuestion()
-    {
-        return view('frontend.example-question');
-    }
 
     public function faqs()
     {
@@ -668,100 +452,12 @@ Along with school and coaching, students also have access to advanced courses in
         return view('frontend.forgot-password');
     }
 
-    public function questionnaire()
-    {
-        return view('frontend.questionnaire');
-    }
 
-    public function register_new()
-    {
-        $status = CareerStage::where('is_active', true)->get();
-        $interested_fields = Profession::where('is_active', true)->get();
-        $goals = CareerGoal::where('is_active', true)->get();
-        $locations = Country::where('is_active', true)->get();
-        $languages = Language::where('is_active', true)->get();
-
-        $data = compact([
-            'status',
-            'interested_fields',
-            'goals',
-            'locations',
-            'languages'
-        ]);
-
-        return view('frontend.register-new', $data);
-    }
 
     public function register()
     {
         return view('frontend.register');
     }
 
-    public function requestForm()
-    {
-        return view('frontend.request-form');
-    }
-
-    public function articleDetail()
-    {
-        return view('frontend.article-detail');
-    }
-
-    public function optionalProfessionForm()
-    {
-        return view('frontend.optional-profession-form');
-    }
-
-    public function optionalUniversityForm()
-    {
-        return view('frontend.optional-university-form');
-    }
-
-    public function optionalUniversityProfessionForm()
-    {
-        return view('frontend.optional-university-profession-form');
-    }
-
-    public function professionForm()
-    {
-        return view('frontend.profession-form');
-    }
-
-    public function readMore()
-    {
-        return view('frontend.read-more');
-    }
-
-    public function universityForm()
-    {
-        $universities = University::where('is_active', true)->get();
-        $courses = Course::where('is_active', true)->get();
-        $accommodation_experiences = AccommodationExperience::where('is_active', true)->get();
-
-        $professions = Profession::with('practiceAreas')->where('is_active', true)->get();
-
-        $practice_areas = PracticeArea::where('is_active', true)->get();
-
-        $job_titles = JobTitle::where('is_active', true)->get();
-        $institutions = Institution::where('is_active', true)->get();
-
-        $countries = Country::where('is_active', true)->get();
-
-        $data = compact([
-            'universities',
-            'courses',
-            'accommodation_experiences',
-            'professions',
-            'practice_areas',
-            'job_titles',
-            'institutions',
-            'countries'
-        ]);
-        return view('frontend.university-form', $data);
-    }
-
-    public function universityProfessionForm()
-    {
-        return view('frontend.university-profession-form');
-    }
+   
 }

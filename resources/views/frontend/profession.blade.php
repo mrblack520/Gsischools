@@ -139,9 +139,7 @@
 
                         Our academy events focus on workshops, competitions, career guidance, and skill development programs. These experiences prepare students for academic success and future opportunities.
                     </p>
-                       <!-- <div>
-                            <a href="{{ route('frontend.aficionado') }}">Visit the Aficionado page</a>
-                        </div> -->
+                     
                     </div>
                     <div class="d-flex align-items-end">
                         <img style="width: 170px;" src="./assets/images/PNg-131.png" alt="">
@@ -186,7 +184,7 @@
                 </p>
                 <div class="mt-5 d-flex gap-3">
                     <a href="{{ route('frontend.register') }}">Register now</a>
-                    <!-- <a href="{{ route('frontend.aficionado') }}">Browse Aficionados</a> -->
+                  
                 </div>
             </div>
         </div>

@@ -115,9 +115,7 @@
                         <img class="img" src="/assets/images/uni-3.png" alt="">
                         <div class="div">
                             <h3>Applying to <span>Academy </span></h3>
-                            <div>
-                                <a href="{{ route('frontend.university') }}">Visit the Academy page</a>
-                            </div>
+                           
                         </div>
                         <div class="d-flex align-items-end ">
                             <img src="./assets/images/ng-1.webp" alt="GSI Schools scholer cartoon">
@@ -128,10 +126,7 @@
                         <div class="div">
                             <h3>Seeking to enter
                                 a <span>Teachers</span> </h3>
-                            <div>
-                                <a href="{{ route('frontend.profession') }}">Visit the  page</a>
-                            </div>
-                        </div>
+                                                   </div>
                         <div class="d-flex align-items-end">
                             <img src="./assets/images/ng-2.webp" alt="GSI Schools two cartoon">
                         </div>

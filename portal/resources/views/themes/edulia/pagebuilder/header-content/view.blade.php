@@ -75,7 +75,7 @@
                             @if (moduleStatusCheck('Saas') && session('domain') == 'school')
                                 @if (pagesetting('header-school-is-show-menu') == 1)
                                     <li>
-                                        <a href="{{ route('institution-register-new') }}" target="{{ pagesetting('header-school-redirect-menu') == '1' ? '_self' : '_blank' }}">
+                                        <a href="{{ route('institution-register') }}" target="{{ pagesetting('header-school-redirect-menu') == '1' ? '_self' : '_blank' }}">
                                             <i class="{{pagesetting('header-school-menu-icon-class')}}"></i>
                                             {{ pagesetting('header-school-menu-label') }}
                                         </a>

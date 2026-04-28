@@ -12,12 +12,6 @@ class UniversityAficionadoProfile extends Model
         'course_details'
     ];
 
-    public function universities()
-    {
-        return $this->belongsToMany(University::class, 'attended_universities')
-                    ->withPivot('course_id', 'status', 'other_status')
-                    ->withTimestamps();
-    }
 
     public function accommodationExperiences()
     {

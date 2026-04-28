@@ -103,10 +103,7 @@ class User extends Authenticatable
         return $this->belongsToMany(Language::class, 'user_language');
     }
 
-    public function university_aficionado_profile()
-    {
-        return $this->hasOne(UniversityAficionadoProfile::class);
-    }
+ 
 
     public function profession_aficionado_profile()
     {

@@ -14,9 +14,4 @@ class AccommodationExperience extends Model
         'is_active' => 'boolean'
     ];
 
-    public function universityAficionadoProfiles()
-    {
-        return $this->belongsToMany(UniversityAficionadoProfile::class, 'aficionado_accommodation_experience')
-                    ->withTimestamps();
-    }
 }
