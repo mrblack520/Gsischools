@@ -565,51 +565,42 @@ public function autoLoginViaToken(Request $request)
     $token = $request->token;
 
     if (!$token) {
-     
         return redirect()->route('login');
     }
-  
 
+    // Retry logic
     $stored = \DB::table('auto_login_tokens')
-    ->where('token', $token)
-    ->first();
+        ->where('token', $token)
+        ->first();
 
     if (!$stored) {
-      
+        sleep(1);
+        $stored = \DB::table('auto_login_tokens')
+            ->where('token', $token)
+            ->first();
+    }
+
+    if (!$stored) {
         return redirect()->route('login');
     }
-    
 
     $user = User::find($stored->user_id);
 
     if (!$user) {
-   
         return redirect()->route('login');
     }
-  
 
     \DB::table('auto_login_tokens')->where('token', $token)->delete();
-       Auth::login($user);
+
+    Auth::login($user);
 
     if (!Auth::check()) {
-     
         return redirect()->route('login');
     }
-   
 
     $school = app('school');
-
-    if (!$school) {
-    
-        return redirect()->route('login');
-    }
     $gs = \App\Models\SmGeneralSettings::where('school_id', $school->id)->first();
 
-    if (!$gs) {
-       
-        return redirect()->route('login');
-    }
-    
     session()->forget('generalSetting');
     session()->put('generalSetting', $gs);
     session(['role_id'   => Auth::user()->role_id]);
@@ -631,7 +622,6 @@ public function autoLoginViaToken(Request $request)
     session()->put('text_direction', $gs->ttl_rtl ?? 2);
     session()->put('school_config', $gs);
 
-   
     return redirect('/dashboard');
 }
 

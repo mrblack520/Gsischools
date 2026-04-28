@@ -64,16 +64,18 @@ document.addEventListener("DOMContentLoaded", function () {
             });
 
             const data = await response.json();
-            console.log('Response:', data);
 
             if (data.status && data.auto_login_url) {
 
-                // ✅ Seedha auto_login_url pe redirect karo
-                // Portal khud session set karega properly
-                window.location.href = data.auto_login_url;
+                btn.textContent = 'Redirecting...';
+
+                // ✅ 1.5 second wait - token DB mein properly save ho jaye
+                setTimeout(function() {
+                    window.location.href = data.auto_login_url;
+                }, 1500);
 
             } else {
-                alert(data.message || 'Login failed!');
+                alert(data.message || 'Invalid credentials!');
                 btn.disabled    = false;
                 btn.textContent = 'Sign In';
             }
