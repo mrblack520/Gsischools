@@ -562,39 +562,103 @@ class LoginController extends Controller
     }
 
     public function autoLoginViaToken(Request $request)
-    {
-        $token = $request->token;
+{
+    $token = $request->token;
 
-        if (!$token) {
-            return redirect()->route('login');
-        }
-
-        // cache ki jagah session
-        $stored = session('auto_login_token_' . $token);
-
-        if (!$stored) {
-            return redirect()->route('login');
-        }
-
-        $user = User::find($stored['user_id']);
-
-        if (!$user) {
-            return redirect()->route('login');
-        }
-
-        // session delete karo
-        session()->forget('auto_login_token_' . $token);
-
-        $fakeRequest = Request::create('/login', 'POST', [
-            'email'     => $user->email,
-            'password'  => $stored['password'],
-            'school_id' => $user->school_id,
-        ]);
-
-        $fakeRequest->setSession(session()->driver());
-
-        return $this->login($fakeRequest);
+    if (!$token) {
+        return redirect()->route('login');
     }
+
+    $stored = session('auto_login_token_' . $token);
+
+    if (!$stored) {
+        return redirect()->route('login');
+    }
+
+    $user = User::find($stored['user_id']);
+
+    if (!$user) {
+        return redirect()->route('login');
+    }
+
+    session()->forget('auto_login_token_' . $token);
+
+    // ✅ Direct login karo - fakeRequest nahi
+    Auth::login($user);
+
+    if (!Auth::check()) {
+        return redirect()->route('login');
+    }
+
+    // ✅ Poori session setup karo - login() function wali
+    $school = app('school');
+    
+    session(['role_id' => Auth::user()->role_id]);
+    session(['school_id' => Auth::user()->school_id]);
+
+    // General settings
+    $gs = \App\Models\SmGeneralSettings::where('school_id', $school->id)->first();
+    session()->forget('generalSetting');
+    session()->put('generalSetting', $gs);
+
+    // Date format
+    $date_format_id = $gs->date_format_id ?? null;
+    $system_date_format = 'jS M, Y';
+    if ($date_format_id) {
+        $system_date_format = \App\Models\SmDateFormat::where('id', $date_format_id)->first(['format'])->format ?? 'jS M, Y';
+    }
+    session()->put('system_date_format', $system_date_format);
+
+    // Academic session
+    $session_id = $gs->session_id ?? null;
+    $session = \App\Models\SmAcademicYear::find($session_id);
+    if (!$session) {
+        $session = \App\Models\SmAcademicYear::where('school_id', Auth::user()->school_id)->first();
+    }
+    if ($session) {
+        session()->put('sessionId', $session->id);
+        session()->put('session', $session);
+    }
+
+    // Style
+    $active_style = \App\Models\SmStyle::where('school_id', Auth::user()->school_id)->where('is_active', 1)->first();
+    session()->put('active_style', $active_style);
+
+    // Text direction
+    session()->put('text_direction', $gs->ttl_rtl ?? 2);
+
+    // School config
+    session()->put('school_config', $gs);
+
+    // Profile
+    if (Auth::user()->role_id == 2) {
+        $profile = \App\Models\SmStudent::where('user_id', Auth::id())->first();
+        session()->put('profile', @$profile->student_photo);
+    } else {
+        $profile = \App\Models\SmStaff::where('user_id', Auth::id())->first();
+        if ($profile) {
+            session()->put('profile', $profile->staff_photo);
+        }
+    }
+
+    // User log
+    try {
+        $agent = new \Jenssegers\Agent\Agent();
+        $smUserLog = new \App\Models\SmUserLog();
+        $smUserLog->user_id   = Auth::user()->id;
+        $smUserLog->role_id   = Auth::user()->role_id;
+        $smUserLog->school_id = Auth::user()->school_id;
+        $smUserLog->ip_address = $request->ip();
+        $smUserLog->academic_id = $session->id ?? 1;
+        $smUserLog->user_agent = $agent->browser().', '.$agent->platform();
+        $smUserLog->save();
+    } catch (\Exception $e) {
+        // log error ignore karo
+    }
+
+    // ✅ Dashboard pe redirect karo
+    return redirect('/dashboard');
+}
 
 public function loginapi(Request $request)
 {
