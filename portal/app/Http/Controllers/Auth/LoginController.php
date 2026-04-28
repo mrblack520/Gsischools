@@ -571,9 +571,8 @@ public function autoLoginViaToken(Request $request)
   
 
     $stored = \DB::table('auto_login_tokens')
-        ->where('token', $token)
-        ->where('expires_at', '>', now())
-        ->first();
+    ->where('token', $token)
+    ->first();
 
     if (!$stored) {
         dd('❌ Step 2 FAIL - Token DB mein nahi mila ya expire ho gaya', [
@@ -799,13 +798,13 @@ public function loginapi(Request $request)
     $plainToken = \Str::random(60);
 
     // Database mein save karo
-    \DB::table('auto_login_tokens')->insert([
-        'token'      => $plainToken,
-        'user_id'    => Auth::id(),
-        'password'   => encrypt($request->password),
-        'created_at' => now(),
-        'expires_at' => now()->addMinutes(5),
-    ]);
+   \DB::table('auto_login_tokens')->insert([
+    'token'      => $plainToken,
+    'user_id'    => Auth::id(),
+    'password'   => encrypt($request->password),
+    'created_at' => \Carbon\Carbon::now('UTC'),
+    'expires_at' => \Carbon\Carbon::now('UTC')->addMinutes(30),
+]);
 
     return response()->json([
         'status'         => true,
