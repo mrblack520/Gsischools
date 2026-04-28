@@ -590,7 +590,7 @@ public function autoLoginViaToken(Request $request)
         dd('❌ Step 3 FAIL - User nahi mila', ['user_id' => $stored->user_id]);
         return redirect()->route('login');
     }
-    dd('✅ Step 3 OK - User: ' . $user->email);
+  
 
     \DB::table('auto_login_tokens')->where('token', $token)->delete();
     dd('✅ Step 4 OK - Token deleted');
