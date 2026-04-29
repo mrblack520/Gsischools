@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const password = document.getElementById('password').value.trim();
 
         if (!email || !password) {
-            showError('Email aur Password dono bharo!');
+            showError('Please Enter Email & Password!');
             return;
         }
 
@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function () {
             try {
                 data = JSON.parse(responseText);
             } catch(e) {
-                throw new Error('Please try again.');
+               throw new Error(responseText);
             }
 
             if (data.status && data.auto_login_url) {
