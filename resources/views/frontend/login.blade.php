@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function () {
             try {
                 data = JSON.parse(responseText);
             } catch(e) {
-                throw new Error('Server ne galat response diya. Please try again.');
+                throw new Error('Please try again.');
             }
 
             if (data.status && data.auto_login_url) {
