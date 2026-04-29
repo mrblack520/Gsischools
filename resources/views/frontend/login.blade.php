@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
         btn.textContent = 'Logging in...';
 
         try {
-            // Step 1 - Credentials verify karo
+            // Step 1 - Login karo aur token lo
             const response = await fetch('https://gsischools.com/portal/api/loginapi', {
                 method: 'POST',
                 headers: {
@@ -65,37 +65,46 @@ document.addEventListener("DOMContentLoaded", function () {
             });
 
             const data = await response.json();
-            console.log('Login Response:', data);
 
-            if (data.status) {
+            if (data.status && data.auto_login_url) {
 
-                // Step 2 - CSRF token lo
-                const csrfResponse = await fetch('https://gsischools.com/portal/api/get-csrf', {
-                    credentials: 'include'
-                });
-                const csrfData = await csrfResponse.json();
+                btn.textContent = 'Please wait...';
 
-                // Step 3 - Hidden form banao portal/login pe submit karo
-                const hiddenForm    = document.createElement('form');
-                hiddenForm.method   = 'POST';
-                hiddenForm.action   = 'https://gsischools.com/portal/login';
+                // Step 2 - Token confirm hone tak wait karo
+                // 3 baar check karo 1 second gap se
+                let redirected = false;
 
-                const fields = {
-                    '_token'  : csrfData.token,
-                    'email'   : email,
-                    'password': password
-                };
+                for (let i = 0; i < 5; i++) {
 
-                Object.entries(fields).forEach(([name, value]) => {
-                    const input = document.createElement('input');
-                    input.type  = 'hidden';
-                    input.name  = name;
-                    input.value = value;
-                    hiddenForm.appendChild(input);
-                });
+                    // 1 second wait
+                    await new Promise(resolve => setTimeout(resolve, 1000));
 
-                document.body.appendChild(hiddenForm);
-                hiddenForm.submit(); // ✅ Session set hogi aur dashboard pe jayega
+                    try {
+                        // Token check karo portal se
+                        const checkResponse = await fetch(data.auto_login_url, {
+                            method: 'GET',
+                            redirect: 'manual', // redirect follow mat karo
+                            credentials: 'include'
+                        });
+
+                        // Agar 302 aaya matlab token mil gaya
+                        if (checkResponse.status === 302 || checkResponse.type === 'opaqueredirect') {
+                            redirected = true;
+                            window.location.href = data.auto_login_url;
+                            break;
+                        }
+
+                    } catch(err) {
+                        // CORS error aayega - matlab page load ho raha hai - redirect karo
+                        redirected = true;
+                        window.location.href = data.auto_login_url;
+                        break;
+                    }
+                }
+
+                if (!redirected) {
+                    window.location.href = data.auto_login_url;
+                }
 
             } else {
                 alert(data.message || 'Invalid credentials!');
