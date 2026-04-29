@@ -6,15 +6,9 @@
         <!-- First Name -->
         <div class="col-md-6 col-12">
           <div class="form-wrapper">
-            <label for="first_name">First name*</label>
+            <label>First name*</label>
             <div class="input-wrapper">
-              <input
-                type="text"
-                name="first_name"
-                v-model="form.first_name"
-                placeholder="Your first name"
-                @input="validateField('first_name')"
-              >
+              <input type="text" name="first_name" v-model="form.first_name" placeholder="Your first name" @input="validateField('first_name')">
             </div>
             <span class="error" v-if="errors.first_name">{{ errors.first_name }}</span>
           </div>
@@ -23,15 +17,9 @@
         <!-- Last Name -->
         <div class="col-md-6 col-12">
           <div class="form-wrapper">
-            <label for="last_name">Last name*</label>
+            <label>Last name*</label>
             <div class="input-wrapper">
-              <input
-                type="text"
-                name="last_name"
-                v-model="form.last_name"
-                placeholder="Your Last name"
-                @input="validateField('last_name')"
-              >
+              <input type="text" name="last_name" v-model="form.last_name" placeholder="Your Last name" @input="validateField('last_name')">
             </div>
             <span class="error" v-if="errors.last_name">{{ errors.last_name }}</span>
           </div>
@@ -40,14 +28,9 @@
         <!-- Date of Birth -->
         <div class="col-md-12 col-12">
           <div class="form-wrapper">
-            <label for="date_of_birth">Date of birth*</label>
+            <label>Date of birth*</label>
             <div class="input-wrapper">
-              <input
-                type="date"
-                name="date_of_birth"
-                v-model="form.date_of_birth"
-                @input="validateField('date_of_birth')"
-              >
+              <input type="date" name="date_of_birth" v-model="form.date_of_birth" @input="validateField('date_of_birth')">
             </div>
             <span class="error" v-if="errors.date_of_birth">{{ errors.date_of_birth }}</span>
           </div>
@@ -83,15 +66,9 @@
         <!-- Contact Number -->
         <div class="col-md-6 col-12">
           <div class="form-wrapper">
-            <label for="contact_number">Contact Number*</label>
+            <label>Contact Number*</label>
             <div class="input-wrapper">
-              <input
-                type="text"
-                name="contact_number"
-                v-model="form.contact_number"
-                placeholder="Your Contact Number"
-                @input="validateField('contact_number')"
-              >
+              <input type="text" name="contact_number" v-model="form.contact_number" placeholder="Your Contact Number" @input="validateField('contact_number')">
             </div>
             <span class="error" v-if="errors.contact_number">{{ errors.contact_number }}</span>
           </div>
@@ -100,15 +77,9 @@
         <!-- Emergency Contact Number -->
         <div class="col-md-6 col-12">
           <div class="form-wrapper">
-            <label for="emergency_contact_number">Emergency Contact Number*</label>
+            <label>Emergency Contact Number*</label>
             <div class="input-wrapper">
-              <input
-                type="text"
-                name="emergency_contact_number"
-                v-model="form.emergency_contact_number"
-                placeholder="Emergency Contact Number"
-                @input="validateField('emergency_contact_number')"
-              >
+              <input type="text" name="emergency_contact_number" v-model="form.emergency_contact_number" placeholder="Emergency Contact Number" @input="validateField('emergency_contact_number')">
             </div>
             <span class="error" v-if="errors.emergency_contact_number">{{ errors.emergency_contact_number }}</span>
           </div>
@@ -117,15 +88,9 @@
         <!-- National ID -->
         <div class="col-md-12 col-12">
           <div class="form-wrapper">
-            <label for="national_id_no">National Id No*</label>
+            <label>National Id No*</label>
             <div class="input-wrapper">
-              <input
-                type="text"
-                name="national_id_no"
-                v-model="form.national_id_no"
-                placeholder="CNIC Num"
-                @input="validateField('national_id_no')"
-              >
+              <input type="text" name="national_id_no" v-model="form.national_id_no" placeholder="CNIC Num" @input="validateField('national_id_no')">
             </div>
             <span class="error" v-if="errors.national_id_no">{{ errors.national_id_no }}</span>
           </div>
@@ -134,16 +99,9 @@
         <!-- Email -->
         <div class="col-md-12 col-12">
           <div class="form-wrapper">
-            <label for="email">Email Address*</label>
+            <label>Email Address*</label>
             <div class="input-wrapper">
-              <input
-                type="email"
-                name="email"
-                id="email"
-                placeholder="Email"
-                v-model="form.email"
-                @input="validateField('email')"
-              >
+              <input type="email" name="email" v-model="form.email" placeholder="Email" @input="validateField('email')">
             </div>
             <span class="error" v-if="errors.email">{{ errors.email }}</span>
           </div>
@@ -152,15 +110,9 @@
         <!-- Home Address -->
         <div class="col-md-12 col-12">
           <div class="form-wrapper">
-            <label for="address">Home Address*</label>
+            <label>Home Address*</label>
             <div class="input-wrapper">
-              <input
-                type="text"
-                name="address"
-                v-model="form.address"
-                placeholder="Address"
-                @input="validateField('address')"
-              >
+              <input type="text" name="address" v-model="form.address" placeholder="Address" @input="validateField('address')">
             </div>
             <span class="error" v-if="errors.address">{{ errors.address }}</span>
           </div>
@@ -169,7 +121,7 @@
         <!-- Religion -->
         <div class="col-md-6 col-12">
           <div class="form-wrapper">
-            <label for="religion">Religion*</label>
+            <label>Religion*</label>
             <div class="input-wrapper">
               <select name="religion" v-model="form.religion" class="custom-input">
                 <option value="" disabled selected>Select Religion</option>
@@ -186,9 +138,8 @@
         <!-- Upload Image -->
         <div class="col-md-6 col-12">
           <div class="form-wrapper">
-            <label for="photo">Upload Image*</label>
+            <label>Upload Image*</label>
             <div class="input-wrapper">
-              <!-- ✅ Fix: handleImage function add kiya -->
               <input type="file" name="photo" class="custom-input" @change="handleImage" accept="image/*">
             </div>
           </div>
@@ -197,22 +148,15 @@
         <!-- Guardian Name -->
         <div class="col-md-12 col-12">
           <div class="form-wrapper">
-            <label for="guardian_name">Guardian's Name*</label>
+            <label>Guardian's Name*</label>
             <div class="input-wrapper">
-              <input
-                type="text"
-                name="guardian_name"
-                v-model="form.guardian_name"
-                placeholder="Guardian's Name"
-                @input="validateField('guardian_name')"
-              >
+              <input type="text" name="guardian_name" v-model="form.guardian_name" placeholder="Guardian's Name" @input="validateField('guardian_name')">
             </div>
             <span class="error" v-if="errors.guardian_name">{{ errors.guardian_name }}</span>
           </div>
         </div>
 
-        <!-- Relation With Guardian -->
-        <!-- ✅ Fix: alag v-model "guardian_relation" use kiya, joinned_as se alag -->
+        <!-- Relation With Guardian — v-model="form.guardian_relation" -->
         <div class="col-md-12 col-12">
           <div class="form-wrapper">
             <label>Relation With Guardian*</label>
@@ -242,15 +186,9 @@
         <!-- Guardian Email -->
         <div class="col-md-6 col-12">
           <div class="form-wrapper">
-            <label for="guardian_email">Guardian's Email*</label>
+            <label>Guardian's Email*</label>
             <div class="input-wrapper">
-              <input
-                type="email"
-                name="guardian_email"
-                v-model="form.guardian_email"
-                placeholder="Guardian's email"
-                @input="validateField('guardian_email')"
-              >
+              <input type="email" name="guardian_email" v-model="form.guardian_email" placeholder="Guardian's email" @input="validateField('guardian_email')">
             </div>
             <span class="error" v-if="errors.guardian_email">{{ errors.guardian_email }}</span>
           </div>
@@ -259,41 +197,26 @@
         <!-- Guardian Phone -->
         <div class="col-md-6 col-12">
           <div class="form-wrapper">
-            <label for="guardian_phone">Guardian's Phone Number*</label>
+            <label>Guardian's Phone Number*</label>
             <div class="input-wrapper">
-              <input
-                type="text"
-                name="guardian_phone"
-                v-model="form.guardian_phone"
-                placeholder="Guardian's phone number"
-                @input="validateField('guardian_phone')"
-              >
+              <input type="text" name="guardian_phone" v-model="form.guardian_phone" placeholder="Guardian's phone number" @input="validateField('guardian_phone')">
             </div>
             <span class="error" v-if="errors.guardian_phone">{{ errors.guardian_phone }}</span>
           </div>
         </div>
 
-        <!-- Guardian Address -->
-        <!-- ✅ Fix: v-model="form.text" ki jagah v-model="form.guardian_address" -->
+        <!-- Guardian Address — v-model="form.guardian_address" -->
         <div class="col-md-12 col-12">
           <div class="form-wrapper">
-            <label for="guardian_address">Guardian's Address*</label>
+            <label>Guardian's Address*</label>
             <div class="input-wrapper">
-              <input
-                type="text"
-                name="guardian_address"
-                id="guardian_address"
-                placeholder="Guardian's Address"
-                v-model="form.guardian_address"
-                @input="validateField('guardian_address')"
-              >
+              <input type="text" name="guardian_address" v-model="form.guardian_address" placeholder="Guardian's Address" @input="validateField('guardian_address')">
             </div>
             <span class="error" v-if="errors.guardian_address">{{ errors.guardian_address }}</span>
           </div>
         </div>
 
-        <!-- Join us for -->
-        <!-- ✅ Fix: alag v-model "joined_for" use kiya -->
+        <!-- Join us for — v-model="form.joined_for" -->
         <div class="col-md-12 col-12">
           <div class="form-wrapper">
             <label>Join us for*</label>
@@ -323,7 +246,7 @@
         <!-- Group -->
         <div class="col-md-6 col-12">
           <div class="form-wrapper">
-            <label for="group">GROUP*</label>
+            <label>GROUP*</label>
             <div class="input-wrapper">
               <select name="group" v-model="form.group" class="custom-input">
                 <option value="" selected>Select Group</option>
@@ -336,7 +259,7 @@
           </div>
         </div>
 
-        <!-- If Courses -->
+        <!-- If Courses — value="other" aur v-if bhi "other" check karta hai -->
         <div class="col-md-12 col-12">
           <div class="form-wrapper">
             <label>If Courses*</label>
@@ -366,16 +289,9 @@
         <!-- Previous School -->
         <div class="col-md-12 col-12">
           <div class="form-wrapper">
-            <label for="previous_school">Previous School*</label>
+            <label>Previous School*</label>
             <div class="input-wrapper">
-              <!-- ✅ Fix: type="email" ki jagah type="text" -->
-              <input
-                type="text"
-                name="previous_school"
-                placeholder="Previous School"
-                v-model="form.previous_school"
-                @input="validateField('previous_school')"
-              >
+              <input type="text" name="previous_school" v-model="form.previous_school" placeholder="Previous School" @input="validateField('previous_school')">
             </div>
             <span class="error" v-if="errors.previous_school">{{ errors.previous_school }}</span>
           </div>
@@ -384,16 +300,9 @@
         <!-- Previous Class -->
         <div class="col-md-6 col-12">
           <div class="form-wrapper">
-            <label for="previous_class">Previous Class*</label>
+            <label>Previous Class*</label>
             <div class="input-wrapper">
-              <!-- ✅ Fix: type="email" ki jagah type="text", aur errors.previous_class fix -->
-              <input
-                type="text"
-                name="previous_class"
-                placeholder="Previous class"
-                v-model="form.previous_class"
-                @input="validateField('previous_class')"
-              >
+              <input type="text" name="previous_class" v-model="form.previous_class" placeholder="Previous class" @input="validateField('previous_class')">
             </div>
             <span class="error" v-if="errors.previous_class">{{ errors.previous_class }}</span>
           </div>
@@ -402,16 +311,9 @@
         <!-- Class Applying For -->
         <div class="col-md-6 col-12">
           <div class="form-wrapper">
-            <label for="class_applying_for">Class Applying for*</label>
+            <label>Class Applying for*</label>
             <div class="input-wrapper">
-              <!-- ✅ Fix: type="email" ki jagah type="text" -->
-              <input
-                type="text"
-                name="class_applying_for"
-                placeholder="Class Applying for"
-                v-model="form.class_applying_for"
-                @input="validateField('class_applying_for')"
-              >
+              <input type="text" name="class_applying_for" v-model="form.class_applying_for" placeholder="Class Applying for" @input="validateField('class_applying_for')">
             </div>
             <span class="error" v-if="errors.class_applying_for">{{ errors.class_applying_for }}</span>
           </div>
@@ -420,7 +322,7 @@
         <!-- Class -->
         <div class="col-md-6 col-12">
           <div class="form-wrapper">
-            <label for="class">CLASS*</label>
+            <label>CLASS*</label>
             <div class="input-wrapper">
               <select name="class" v-model="form.class" class="custom-input">
                 <option value="" selected>Select Class</option>
@@ -448,7 +350,7 @@
         <!-- Section -->
         <div class="col-md-6 col-12">
           <div class="form-wrapper">
-            <label for="section">SECTION*</label>
+            <label>SECTION*</label>
             <div class="input-wrapper">
               <select name="section" v-model="form.section" class="custom-input">
                 <option value="" selected>Select Section</option>
@@ -463,14 +365,9 @@
         <!-- Admission Date -->
         <div class="col-md-12 col-12">
           <div class="form-wrapper">
-            <label for="admission_date">ADMISSION DATE*</label>
+            <label>ADMISSION DATE*</label>
             <div class="input-wrapper">
-              <input
-                type="date"
-                name="admission_date"
-                v-model="form.admission_date"
-                @input="validateField('admission_date')"
-              >
+              <input type="date" name="admission_date" v-model="form.admission_date" @input="validateField('admission_date')">
             </div>
             <span class="error" v-if="errors.admission_date">{{ errors.admission_date }}</span>
           </div>
@@ -479,7 +376,7 @@
         <!-- Academic Year -->
         <div class="col-md-6 col-12">
           <div class="form-wrapper">
-            <label for="academicyear">ACADEMIC YEAR*</label>
+            <label>ACADEMIC YEAR*</label>
             <div class="input-wrapper">
               <select name="academicyear" v-model="form.academicyear" class="custom-input">
                 <option value="" selected>Select Academic Year</option>
@@ -490,11 +387,10 @@
           </div>
         </div>
 
-        <!-- Category -->
-        <!-- ✅ Fix: "CATECORY" typo fix → "category" -->
+        <!-- Category — v-model="form.category" -->
         <div class="col-md-6 col-12">
           <div class="form-wrapper">
-            <label for="category">CATEGORY*</label>
+            <label>CATEGORY*</label>
             <div class="input-wrapper">
               <select name="category" v-model="form.category" class="custom-input">
                 <option value="" selected>Select Category</option>
@@ -509,15 +405,9 @@
         <!-- Roll -->
         <div class="col-md-12 col-12">
           <div class="form-wrapper">
-            <label for="roll">ROLL*</label>
+            <label>ROLL*</label>
             <div class="input-wrapper">
-              <input
-                type="text"
-                name="roll"
-                v-model="form.roll"
-                placeholder="Your roll"
-                @input="validateField('roll')"
-              >
+              <input type="text" name="roll" v-model="form.roll" placeholder="Your roll" @input="validateField('roll')">
             </div>
             <span class="error" v-if="errors.roll">{{ errors.roll }}</span>
           </div>
@@ -555,58 +445,46 @@
 import { ref } from 'vue';
 import axios from 'axios';
 
-// ✅ Sirf goals prop chahiye
 const props = defineProps(['goals']);
 
 const formLoading = ref(false);
 
-// ✅ Form mein saari fields sahi naam ke saath
+// ✅ Har woh field jo HTML mein v-model se bind hai — sab yahan defined hain
 const form = ref({
-  // Personal Info
-  first_name: '',
-  last_name: '',
-  date_of_birth: '',
-  gender: '0',
-
-  // Contact
-  contact_number: '',
+  first_name:               '',
+  last_name:                '',
+  date_of_birth:            '',
+  gender:                   '0',
+  contact_number:           '',
   emergency_contact_number: '',
-  national_id_no: '',
-  email: '',
-  address: '',
-
-  // Religion & Photo
-  religion: '',
-  photo: null,
-
-  // Guardian Info
-  guardian_name: '',
-  guardian_relation: 'father',   // ✅ Fix: joinned_as se alag field
-  guardian_email: '',
-  guardian_phone: '',
-  guardian_address: '',          // ✅ Fix: pehle form.text tha
-
-  // Enrollment
-  joined_for: 'school',          // ✅ Fix: joinned_as se alag field
-  goals: [],
-  other_goals: '',
-  group: '',
-  previous_school: '',
-  previous_class: '',
-  class_applying_for: '',
-  class: '',
-  section: '',
-  admission_date: '',
-  academicyear: '',
-  category: '',                  // ✅ Fix: pehle CATECORY tha
-
-  roll: '',
-  terms_accepted: false,
+  national_id_no:           '',
+  email:                    '',
+  address:                  '',
+  religion:                 '',
+  photo:                    null,
+  guardian_name:            '',
+  guardian_relation:        'father',
+  guardian_email:           '',
+  guardian_phone:           '',
+  guardian_address:         '',
+  joined_for:               'school',
+  goals:                    [],
+  other_goals:              '',
+  group:                    '',
+  previous_school:          '',
+  previous_class:           '',
+  class_applying_for:       '',
+  class:                    '',
+  section:                  '',
+  admission_date:           '',
+  academicyear:             '',
+  category:                 '',
+  roll:                     '',
+  terms_accepted:           false,
 });
 
 const errors = ref({});
 
-// ✅ Clean validateField — sirf actual form fields
 function validateField(field) {
   errors.value[field] = '';
 
@@ -686,7 +564,6 @@ function validateField(field) {
   }
 }
 
-// ✅ validateForm — sirf un fields ko validate karo jo form mein hain
 function validateForm() {
   validateField('first_name');
   validateField('last_name');
@@ -706,17 +583,17 @@ function validateForm() {
   validateField('admission_date');
   validateField('roll');
 
-  // Terms check
   if (!form.value.terms_accepted) {
     errors.value.terms_accepted = '* Please accept the terms and conditions';
     return false;
+  } else {
+    errors.value.terms_accepted = '';
   }
 
-  // ✅ Sahi tarika: koi bhi error message non-empty ho to false return karo
+  // ✅ Koi bhi error non-empty hai to false — yahi asli fix hai
   return !Object.values(errors.value).some(msg => msg !== '');
 }
 
-// ✅ handleImage — pehle missing tha
 function handleImage(event) {
   form.value.photo = event.target.files[0] || null;
 }
@@ -738,11 +615,11 @@ function submitForm() {
   formData.append('address',             form.value.address);
   formData.append('religion',            form.value.religion);
   formData.append('guardian_name',        form.value.guardian_name);
-  formData.append('guardian_relation',    form.value.guardian_relation);  // ✅
+  formData.append('guardian_relation',    form.value.guardian_relation);
   formData.append('guardian_email',       form.value.guardian_email);
   formData.append('guardian_phone',       form.value.guardian_phone);
-  formData.append('guardian_address',     form.value.guardian_address);   // ✅
-  formData.append('joined_for',           form.value.joined_for);         // ✅
+  formData.append('guardian_address',     form.value.guardian_address);
+  formData.append('joined_for',           form.value.joined_for);
   formData.append('goals',               JSON.stringify(form.value.goals));
   formData.append('other_goals',          form.value.other_goals);
   formData.append('group',               form.value.group);
@@ -753,7 +630,7 @@ function submitForm() {
   formData.append('section',             form.value.section);
   formData.append('admission_date',       form.value.admission_date);
   formData.append('academicyear',         form.value.academicyear);
-  formData.append('category',             form.value.category);           // ✅
+  formData.append('category',             form.value.category);
   formData.append('roll',                form.value.roll);
 
   if (form.value.photo) {
@@ -761,9 +638,7 @@ function submitForm() {
   }
 
   axios.post('https://gsischools.com/portal/api/student-register', formData, {
-    headers: {
-      'Accept': 'application/json',
-    }
+    headers: { 'Accept': 'application/json' }
   })
   .then(function (response) {
     formLoading.value = false;
@@ -771,7 +646,7 @@ function submitForm() {
       alert('Registration Successful! ✅');
       window.location.href = '/';
     } else {
-      alert('Registration failed. Please try again.');
+      alert('Server ne registration reject kar diya. Dobara try karein.');
     }
   })
   .catch(function (error) {
@@ -781,8 +656,10 @@ function submitForm() {
       for (const field in serverErrors) {
         errors.value[field] = serverErrors[field][0];
       }
+    } else if (error.response) {
+      alert('Server Error: ' + error.response.status);
     } else {
-      alert('Something went wrong! ❌ Please check your connection.');
+      alert('Network error! Internet connection check karein. ❌');
     }
   });
 }
