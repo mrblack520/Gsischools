@@ -464,40 +464,57 @@
 
 <script setup>
 
-import Choices from 'choices.js';
 import { ref, defineProps, onMounted, onBeforeUnmount } from 'vue';
 import axios from 'axios';
 
-import { useAuthStore } from '../../stores/auth';
-const auth = useAuthStore();
-
 const props = defineProps([
-    'status',
-    'interested_fields',
     'goals',
-    'locations',
-    'languages'
 ]);
+
 const formLoading = ref(false);
+
 const form = ref({
+    // Personal Info
     first_name: '',
     last_name: '',
-    status: [],
-    other_status: '',
-    interested_field: '1',
-    other_interested_field: '',
-    joinned_as: '1',
+    date_of_birth: '',
+    gender: '0',
+
+    // Contact
+    contact_number: '',
+    emergency_contact_number: '',
+    national_id_no: '',
+    email: '',
+    address: '',
+
+    // Religion & Photo
+    religion: '',
+    photo: null,
+
+    // Guardian Info
+    guardian_name: '',
+    guardian_relation: '1',   // ✅ Fix #1: alag field (pehle joinned_as se clash tha)
+    guardian_email: '',
+    guardian_phone: '',
+    guardian_address: '',     // ✅ Fix #2: "form.text" ki jagah sahi naam
+
+    // Enrollment
+    joined_for: '1',          // ✅ Fix #3: alag field School/Academy/Courses ke liye
     goals: [],
     other_goals: '',
-    location: '',
-    gender: '0',
-    date_of_birth: '',
-    languages: [],
-    email: '',
-    password: '',
-    password_confirmation: '',
+    group: '',
+    previous_school: '',
+    previous_class: '',
+    class_applying_for: '',
+    class: '',
+    section: '',
+    admission_date: '',
+    academicyear: '',
+    category: '',             // ✅ Fix #4: "CATECORY" typo fix
+    roll: '',
+
+    // Terms
     terms_accepted: false,
-    community_updates: false
 });
 
 const errors = ref({});
@@ -505,37 +522,56 @@ const errors = ref({});
 function validateField(field, value = null) {
     errors.value[field] = '';
 
+    const required = (val, msg) => val ? '' : (value || msg);
+
     switch (field) {
         case 'first_name':
-            errors.value.first_name = form.value.first_name ? '' : (value || '* First name is required')
+            errors.value.first_name = required(form.value.first_name, '* First name is required');
             break;
         case 'last_name':
-            errors.value.last_name = form.value.last_name ? '' : (value || '* Surname is required')
+            errors.value.last_name = required(form.value.last_name, '* Last name is required');
             break;
         case 'email':
-            errors.value.email = form.value.email ? '' : (value || '* Email is required')
-            break;
-        case 'password':
-            errors.value.password = form.value.password ? '' : (value || '* Password is required')
-            break;
-        case 'password_confirmation':
-            errors.value.password_confirmation = form.value.password_confirmation === form.value.password
-                ? '' : (value || '* Passwords do not match')
+            errors.value.email = required(form.value.email, '* Email is required');
             break;
         case 'date_of_birth':
-            errors.value.date_of_birth = form.value.date_of_birth ? '' : (value || '* Date of birth is required')
+            errors.value.date_of_birth = required(form.value.date_of_birth, '* Date of birth is required');
             break;
-        case 'location':
-            errors.value.location = form.value.location ? '' : (value || '* Location is required')
+        case 'contact_number':
+            errors.value.contact_number = required(form.value.contact_number, '* Contact number is required');
             break;
-        case 'status':
-            errors.value.status = form.value.status.length ? '' : (value || '* Status is required')
+        case 'emergency_contact_number':
+            errors.value.emergency_contact_number = required(form.value.emergency_contact_number, '* Emergency contact is required');
+            break;
+        case 'national_id_no':
+            errors.value.national_id_no = required(form.value.national_id_no, '* National ID is required');
+            break;
+        case 'address':
+            errors.value.address = required(form.value.address, '* Address is required');
+            break;
+        case 'guardian_name':
+            errors.value.guardian_name = required(form.value.guardian_name, '* Guardian name is required');
+            break;
+        case 'guardian_email':
+            errors.value.guardian_email = required(form.value.guardian_email, '* Guardian email is required');
+            break;
+        case 'guardian_phone':
+            errors.value.guardian_phone = required(form.value.guardian_phone, '* Guardian phone is required');
+            break;
+        case 'guardian_address':
+            errors.value.guardian_address = required(form.value.guardian_address, '* Guardian address is required');
+            break;
+        case 'previous_school':
+            errors.value.previous_school = required(form.value.previous_school, '* Previous school is required');
+            break;
+        case 'class_applying_for':
+            errors.value.class_applying_for = required(form.value.class_applying_for, '* Class applying for is required');
+            break;
+        case 'admission_date':
+            errors.value.admission_date = required(form.value.admission_date, '* Admission date is required');
             break;
         case 'goals':
-            errors.value.goals = form.value.goals.length ? '' : (value || '* Foals is required')
-            break;
-        case 'languages':
-            errors.value.languages = form.value.languages.length ? '' : (value || '* Language is required')
+            errors.value.goals = form.value.goals.length ? '' : (value || '* Please select at least one course');
             break;
     }
 }
@@ -544,15 +580,31 @@ function validateForm() {
     validateField('first_name');
     validateField('last_name');
     validateField('email');
-    validateField('password');
-    validateField('password_confirmation');
     validateField('date_of_birth');
-    validateField('status');
-    validateField('goals');
-    validateField('location');
-    validateField('languages');
+    validateField('contact_number');
+    validateField('emergency_contact_number');
+    validateField('national_id_no');
+    validateField('address');
+    validateField('guardian_name');
+    validateField('guardian_email');
+    validateField('guardian_phone');
+    validateField('guardian_address');
+    validateField('previous_school');
+    validateField('class_applying_for');
+    validateField('admission_date');
+
+    // ✅ Fix #5: Terms check
+    if (!form.value.terms_accepted) {
+        alert('Please accept the terms and conditions.');
+        return false;
+    }
 
     return Object.keys(errors.value).every(key => !errors.value[key]);
+}
+
+// ✅ Fix #6: handleImage function jo pehle missing thi
+function handleImage(event) {
+    form.value.photo = event.target.files[0];
 }
 
 function submitForm() {
@@ -561,33 +613,36 @@ function submitForm() {
     formLoading.value = true;
 
     const formData = new FormData();
-    
-    // Sab fields map karo
-    formData.append('first_name',         form.value.first_name);
-    formData.append('last_name',          form.value.last_name);
-    formData.append('date_of_birth',      form.value.date_of_birth);
-    formData.append('gender',             form.value.gender);
-    formData.append('contact_number',     form.value.contact_number);
-    formData.append('emergency_contact',  form.value.emergency_contact_number);
-    formData.append('national_id_no',     form.value.national_id_no);
-    formData.append('email',              form.value.email);
-    formData.append('address',            form.value.address);
-    formData.append('religion',           form.value.religion);
-    formData.append('guardian_name',      form.value.guardian_name);
-    formData.append('guardian_email',     form.value.guardian_email);
-    formData.append('guardian_phone',     form.value.guardian_phone);
-    formData.append('guardian_address',   form.value.text);
-    formData.append('joinned_as',         form.value.joinned_as);
-    formData.append('admission_date',     form.value.admission_date);
-    formData.append('previous_school',    form.value.previous_school);
-    formData.append('previous_class',     form.value.previous_class);
-    formData.append('class_applying_for', form.value.class_applying_for);
-    formData.append('roll',               form.value.roll);
-    formData.append('group',              form.value.group);
-    formData.append('section',            form.value.section);
-    formData.append('academicyear',       form.value.academicyear);
 
-    // Photo
+    formData.append('first_name',           form.value.first_name);
+    formData.append('last_name',            form.value.last_name);
+    formData.append('date_of_birth',        form.value.date_of_birth);
+    formData.append('gender',               form.value.gender);
+    formData.append('contact_number',       form.value.contact_number);
+    formData.append('emergency_contact',    form.value.emergency_contact_number);
+    formData.append('national_id_no',       form.value.national_id_no);
+    formData.append('email',                form.value.email);
+    formData.append('address',              form.value.address);
+    formData.append('religion',             form.value.religion);
+    formData.append('guardian_name',        form.value.guardian_name);
+    formData.append('guardian_relation',    form.value.guardian_relation);  // ✅ Fix #1
+    formData.append('guardian_email',       form.value.guardian_email);
+    formData.append('guardian_phone',       form.value.guardian_phone);
+    formData.append('guardian_address',     form.value.guardian_address);   // ✅ Fix #2
+    formData.append('joined_for',           form.value.joined_for);         // ✅ Fix #3
+    formData.append('goals',               JSON.stringify(form.value.goals));
+    formData.append('other_goals',          form.value.other_goals);
+    formData.append('group',               form.value.group);
+    formData.append('previous_school',      form.value.previous_school);
+    formData.append('previous_class',       form.value.previous_class);
+    formData.append('class_applying_for',   form.value.class_applying_for);
+    formData.append('class',               form.value.class);
+    formData.append('section',             form.value.section);
+    formData.append('admission_date',       form.value.admission_date);
+    formData.append('academicyear',         form.value.academicyear);
+    formData.append('category',             form.value.category);           // ✅ Fix #4
+    formData.append('roll',                form.value.roll);
+
     if (form.value.photo) {
         formData.append('photo', form.value.photo);
     }
@@ -596,13 +651,13 @@ function submitForm() {
         headers: {
             'Accept': 'application/json',
         }
-    }).then(function(response) {
+    }).then(function (response) {
         formLoading.value = false;
         if (response.data.status) {
             alert('Registration Successful! ✅');
-            window.location.href = '/'; // ya koi thanks page
+            window.location.href = '/';
         }
-    }).catch(function(error) {
+    }).catch(function (error) {
         formLoading.value = false;
         if (error.response && error.response.data && error.response.data.errors) {
             const serverErrors = error.response.data.errors;
@@ -614,50 +669,6 @@ function submitForm() {
         }
     });
 }
-
-const selectLangEl = ref(null);
-const selectLocEl = ref(null);
-
-let LangchoicesInstance = null;
-let LochoicesInstance = null;
-
-onMounted(() => {
-    if (props.locations.length && !form.value.location) {
-        form.value.location = props.locations[0].id;
-    }
-
-    if (props.interested_fields.length && !form.value.interested_field) {
-        form.value.interested_field = props.interested_fields[0].id;
-    }
-
-    LangchoicesInstance = new Choices(selectLangEl.value, {
-        removeItemButton: true,
-        placeholder: true,
-        placeholderValue: 'Select languages',
-    });
-
-    LochoicesInstance = new Choices(selectLocEl.value, {
-        removeItemButton: true,
-        placeholder: true,
-        placeholderValue: 'Select location',
-    });
-});
-
-onBeforeUnmount(() => {
-    if (LangchoicesInstance) {
-        LangchoicesInstance.destroy();
-        LangchoicesInstance = null;
-    }
-    if (LochoicesInstance) {
-        LochoicesInstance.destroy();
-        LochoicesInstance = null;
-    }
-});
-
-
-import { useCounterStore } from '../../stores/counter';
-const counter = useCounterStore();
-
 
 </script>
 
