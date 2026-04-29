@@ -81,11 +81,16 @@ document.addEventListener("DOMContentLoaded", function () {
                 credentials: 'include'
             });
 
-            if (!response.ok) {
-                throw new Error(`Server error: ${response.status} ${response.statusText}`);
-            }
+            // Pehle text lo
+            const responseText = await response.text();
 
-            const data = await response.json();
+            // Phir safely JSON parse karo
+            let data;
+            try {
+                data = JSON.parse(responseText);
+            } catch(e) {
+                throw new Error('Server ne galat response diya. Please try again.');
+            }
 
             if (data.status && data.auto_login_url) {
 
@@ -122,6 +127,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
 
             } else {
+                // Wrong email/password
                 showError(data.message || 'Invalid email or password!');
                 btn.disabled    = false;
                 btn.textContent = 'Sign In';
@@ -129,7 +135,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         } catch (error) {
             console.error('Error:', error);
-            showError('Something went wrong: ' + error.message);
+            showError(error.message);
             btn.disabled    = false;
             btn.textContent = 'Sign In';
         }
