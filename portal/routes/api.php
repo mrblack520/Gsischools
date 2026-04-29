@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Route;
         'token' => csrf_token()
     ]);
 });
+// Middleware ke BAHAR add karo - public route hai
+Route::post('student-register', 'Api\StudentRegistrationController@store');
 // admin section visitor
 Route::any('login', 'SmApiController@mobileLogin');
 Route::get('user-demo', 'SmApiController@DemoUser');

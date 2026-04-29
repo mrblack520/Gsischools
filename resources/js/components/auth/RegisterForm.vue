@@ -558,49 +558,61 @@ function validateForm() {
 function submitForm() {
     if (!validateForm()) return;
 
-    const formData = new FormData();
-    for (const key in form.value) {
-        formData.append(key, form.value[key]);
-    }
     formLoading.value = true;
-    axios.get('/sanctum/csrf-cookie');
-    axios.post('/api/register', formData).then(function (response) {
 
-        axios.defaults.headers.common["Authorization"] = "Bearer " + response.data.access_token.plainTextToken;
-        console.log('token', response.data.access_token.plainTextToken)
+    const formData = new FormData();
+    
+    // Sab fields map karo
+    formData.append('first_name',         form.value.first_name);
+    formData.append('last_name',          form.value.last_name);
+    formData.append('date_of_birth',      form.value.date_of_birth);
+    formData.append('gender',             form.value.gender);
+    formData.append('contact_number',     form.value.contact_number);
+    formData.append('emergency_contact',  form.value.emergency_contact_number);
+    formData.append('national_id_no',     form.value.national_id_no);
+    formData.append('email',              form.value.email);
+    formData.append('address',            form.value.address);
+    formData.append('religion',           form.value.religion);
+    formData.append('guardian_name',      form.value.guardian_name);
+    formData.append('guardian_email',     form.value.guardian_email);
+    formData.append('guardian_phone',     form.value.guardian_phone);
+    formData.append('guardian_address',   form.value.text);
+    formData.append('joinned_as',         form.value.joinned_as);
+    formData.append('admission_date',     form.value.admission_date);
+    formData.append('previous_school',    form.value.previous_school);
+    formData.append('previous_class',     form.value.previous_class);
+    formData.append('class_applying_for', form.value.class_applying_for);
+    formData.append('roll',               form.value.roll);
+    formData.append('group',              form.value.group);
+    formData.append('section',            form.value.section);
+    formData.append('academicyear',       form.value.academicyear);
 
-        localStorage.setItem('token', response.data.access_token.plainTextToken)
+    // Photo
+    if (form.value.photo) {
+        formData.append('photo', form.value.photo);
+    }
 
-        auth.login(response.data.user)
-
-        fetch('/token-to-session', {
-            headers: {
-                'Authorization': 'Bearer ' + response.data.access_token.plainTextToken
-            }
-        }).then(() => {
-
-            formLoading.value = false;
-            console.log(form)
-            console.log(form.value)
-            console.log(form.value.joinned_as)
-            if (form.value.joinned_as == 1 || form.value.joinned_as == '1') {
-                window.location.href = '/';
-            } else {
-                window.location.href = '/university-form';
-            }
-        });
-    }).catch(function (error) {
+    axios.post('https://gsischools.com/portal/api/student-register', formData, {
+        headers: {
+            'Accept': 'application/json',
+        }
+    }).then(function(response) {
         formLoading.value = false;
-
+        if (response.data.status) {
+            alert('Registration Successful! ✅');
+            window.location.href = '/'; // ya koi thanks page
+        }
+    }).catch(function(error) {
+        formLoading.value = false;
         if (error.response && error.response.data && error.response.data.errors) {
             const serverErrors = error.response.data.errors;
             for (const field in serverErrors) {
-                if (Object.hasOwn(serverErrors, field)) {
-                    errors.value[field] = serverErrors[field][0];
-                }
+                errors.value[field] = serverErrors[field][0];
             }
+        } else {
+            alert('Something went wrong! ❌');
         }
-    })
+    });
 }
 
 const selectLangEl = ref(null);
