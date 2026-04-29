@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function () {
             try {
                 data = JSON.parse(responseText);
             } catch(e) {
-               throw new Error(responseText);
+              throw new Error('Invalid email or password!');
             }
 
             if (data.status && data.auto_login_url) {
