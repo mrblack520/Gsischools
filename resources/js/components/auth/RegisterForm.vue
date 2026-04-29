@@ -637,29 +637,40 @@ function submitForm() {
     formData.append('photo', form.value.photo);
   }
 
-  axios.post('https://gsischools.com/portal/api/student-register', formData, {
-    headers: { 'Accept': 'application/json' }
+ axios.post('https://gsischools.com/portal/api/student-register', formData, {
+    headers: {
+      'Accept': 'application/json',
+      'X-Requested-With': 'XMLHttpRequest',  // ✅ Laravel ko batao yeh AJAX request hai
+    },
+    maxRedirects: 0,  // ✅ Redirect follow mat karo
   })
   .then(function (response) {
     formLoading.value = false;
+    console.log('Response:', response.data);  // ✅ Dekho kya aa raha hai
+
     if (response.data.status) {
       alert('Registration Successful! ✅');
       window.location.href = '/';
     } else {
-      alert('Server ne registration reject kar diya. Dobara try karein.');
+      // ✅ Server ka actual message dikhao
+      alert('Failed: ' + (response.data.message || JSON.stringify(response.data)));
     }
   })
   .catch(function (error) {
     formLoading.value = false;
-    if (error.response && error.response.data && error.response.data.errors) {
+    console.log('Full error:', error);
+    console.log('Response data:', error.response?.data);
+    console.log('Status:', error.response?.status);
+
+    if (error.response?.status === 302) {
+      alert('Redirect error — API authentication check karein');
+    } else if (error.response?.data?.errors) {
       const serverErrors = error.response.data.errors;
       for (const field in serverErrors) {
         errors.value[field] = serverErrors[field][0];
       }
-    } else if (error.response) {
-      alert('Server Error: ' + error.response.status);
     } else {
-      alert('Network error! Internet connection check karein. ❌');
+      alert('Error: ' + (error.response?.data?.message || error.message));
     }
   });
 }
