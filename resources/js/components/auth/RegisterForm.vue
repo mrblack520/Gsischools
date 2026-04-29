@@ -603,6 +603,9 @@ function submitForm() {
 
   formLoading.value = true;
 
+  // ✅ CSRF token page se lo
+  const csrfToken = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
+
   const formData = new FormData();
   formData.append('first_name',           form.value.first_name);
   formData.append('last_name',            form.value.last_name);
@@ -637,40 +640,34 @@ function submitForm() {
     formData.append('photo', form.value.photo);
   }
 
- axios.post('https://gsischools.com/portal/api/student-register', formData, {
+  axios.post('https://gsischools.com/portal/api/student-register', formData, {
     headers: {
       'Accept': 'application/json',
-      'X-Requested-With': 'XMLHttpRequest',  // ✅ Laravel ko batao yeh AJAX request hai
-    },
-    maxRedirects: 0,  // ✅ Redirect follow mat karo
+      'X-Requested-With': 'XMLHttpRequest',
+      'X-CSRF-TOKEN': csrfToken,          // ✅ Yahi fix hai
+    }
   })
   .then(function (response) {
     formLoading.value = false;
-    console.log('Response:', response.data);  // ✅ Dekho kya aa raha hai
-
+    console.log('Server response:', response.data);
     if (response.data.status) {
       alert('Registration Successful! ✅');
       window.location.href = '/';
     } else {
-      // ✅ Server ka actual message dikhao
-      alert('Failed: ' + (response.data.message || JSON.stringify(response.data)));
+      alert('Failed: ' + (response.data.message || 'Unknown error'));
     }
   })
   .catch(function (error) {
     formLoading.value = false;
-    console.log('Full error:', error);
-    console.log('Response data:', error.response?.data);
-    console.log('Status:', error.response?.status);
-
-    if (error.response?.status === 302) {
-      alert('Redirect error — API authentication check karein');
-    } else if (error.response?.data?.errors) {
+    console.log('Error status:', error.response?.status);
+    console.log('Error data:', error.response?.data);
+    if (error.response?.data?.errors) {
       const serverErrors = error.response.data.errors;
       for (const field in serverErrors) {
         errors.value[field] = serverErrors[field][0];
       }
     } else {
-      alert('Error: ' + (error.response?.data?.message || error.message));
+      alert('Error ' + error.response?.status + ': ' + JSON.stringify(error.response?.data));
     }
   });
 }
