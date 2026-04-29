@@ -53,6 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
         btn.textContent = 'Logging in...';
 
         try {
+            // Step 1 - Credentials verify karo
             const response = await fetch('https://gsischools.com/portal/api/loginapi', {
                 method: 'POST',
                 headers: {
@@ -64,15 +65,37 @@ document.addEventListener("DOMContentLoaded", function () {
             });
 
             const data = await response.json();
+            console.log('Login Response:', data);
 
-            if (data.status && data.auto_login_url) {
+            if (data.status) {
 
-                btn.textContent = 'Redirecting...';
+                // Step 2 - CSRF token lo
+                const csrfResponse = await fetch('https://gsischools.com/portal/api/get-csrf', {
+                    credentials: 'include'
+                });
+                const csrfData = await csrfResponse.json();
 
-                // ✅ 1.5 second wait - token DB mein properly save ho jaye
-                setTimeout(function() {
-                    window.location.href = data.auto_login_url;
-                }, 1500);
+                // Step 3 - Hidden form banao portal/login pe submit karo
+                const hiddenForm    = document.createElement('form');
+                hiddenForm.method   = 'POST';
+                hiddenForm.action   = 'https://gsischools.com/portal/login';
+
+                const fields = {
+                    '_token'  : csrfData.token,
+                    'email'   : email,
+                    'password': password
+                };
+
+                Object.entries(fields).forEach(([name, value]) => {
+                    const input = document.createElement('input');
+                    input.type  = 'hidden';
+                    input.name  = name;
+                    input.value = value;
+                    hiddenForm.appendChild(input);
+                });
+
+                document.body.appendChild(hiddenForm);
+                hiddenForm.submit(); // ✅ Session set hogi aur dashboard pe jayega
 
             } else {
                 alert(data.message || 'Invalid credentials!');
