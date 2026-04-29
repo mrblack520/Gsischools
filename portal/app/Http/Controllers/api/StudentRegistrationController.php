@@ -38,7 +38,7 @@ class StudentRegistrationController extends Controller
         try {
 
             // School ID — portal ka default school
-            $school_id = 1; // apna school_id daalo
+            $school_id = 2; // apna school_id daalo
 
             // Academic Year
             $academic_year = SmAcademicYear::where('school_id', $school_id)

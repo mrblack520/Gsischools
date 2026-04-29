@@ -150,7 +150,7 @@
     "src": "resources/images/tick-light.png"
   },
   "resources/js/app-legacy.js": {
-    "file": "assets/app-legacy-BsrAYyeh.js",
+    "file": "assets/app-legacy-BORa82tx.js",
     "name": "app",
     "src": "resources/js/app-legacy.js",
     "isEntry": true,
@@ -171,12 +171,12 @@
     ]
   },
   "resources/js/app.js": {
-    "file": "assets/app-C139tDKQ.js",
+    "file": "assets/app-DvxC-q5b.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
     "css": [
-      "assets/app-ChvTX0V_.css"
+      "assets/app-C5CalS03.css"
     ],
     "assets": [
       "assets/chat-BY_7Kwb5.png",
