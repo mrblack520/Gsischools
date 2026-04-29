@@ -603,71 +603,70 @@ function submitForm() {
 
   formLoading.value = true;
 
-  // ✅ CSRF token page se lo
-  const csrfToken = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
+  const payload = {
+  // ✅ Backend validate karta hai — required
+  first_name:       form.value.first_name,
+  last_name:        form.value.last_name,
+  date_of_birth:    form.value.date_of_birth,
+  gender:           form.value.gender,
+  contact_number:   form.value.contact_number,
+  email:            form.value.email,
+  address:          form.value.address,
+  religion:         form.value.religion,
+  national_id_no:   form.value.national_id_no,
+  guardian_name:    form.value.guardian_name,
+  guardian_email:   form.value.guardian_email,
+  guardian_phone:   form.value.guardian_phone,
+  admission_date:   form.value.admission_date,
 
-  const formData = new FormData();
-  formData.append('first_name',           form.value.first_name);
-  formData.append('last_name',            form.value.last_name);
-  formData.append('date_of_birth',        form.value.date_of_birth);
-  formData.append('gender',               form.value.gender);
-  formData.append('contact_number',       form.value.contact_number);
-  formData.append('emergency_contact',    form.value.emergency_contact_number);
-  formData.append('national_id_no',       form.value.national_id_no);
-  formData.append('email',               form.value.email);
-  formData.append('address',             form.value.address);
-  formData.append('religion',            form.value.religion);
-  formData.append('guardian_name',        form.value.guardian_name);
-  formData.append('guardian_relation',    form.value.guardian_relation);
-  formData.append('guardian_email',       form.value.guardian_email);
-  formData.append('guardian_phone',       form.value.guardian_phone);
-  formData.append('guardian_address',     form.value.guardian_address);
-  formData.append('joined_for',           form.value.joined_for);
-  formData.append('goals',               JSON.stringify(form.value.goals));
-  formData.append('other_goals',          form.value.other_goals);
-  formData.append('group',               form.value.group);
-  formData.append('previous_school',      form.value.previous_school);
-  formData.append('previous_class',       form.value.previous_class);
-  formData.append('class_applying_for',   form.value.class_applying_for);
-  formData.append('class',               form.value.class);
-  formData.append('section',             form.value.section);
-  formData.append('admission_date',       form.value.admission_date);
-  formData.append('academicyear',         form.value.academicyear);
-  formData.append('category',             form.value.category);
-  formData.append('roll',                form.value.roll);
+  // ✅ Backend use karta hai — optional
+  guardian_address: form.value.guardian_address,
+  joinned_as:       form.value.guardian_relation,
+  previous_school:  form.value.previous_school,
+  class_id:         form.value.class,
+  section_id:       form.value.section,
 
-  if (form.value.photo) {
-    formData.append('photo', form.value.photo);
-  }
+  // ⚠️ Yeh fields backend mein handle NAHI hoti — backend developer ko add karni hongi
+  // emergency_contact_number — backend missing
+  // previous_class           — backend missing
+  // class_applying_for       — backend missing
+  // academicyear             — backend sirf active year leta hai automatically
+  // category                 — backend missing
+  // roll                     — backend mein roll_number hai
+  // joined_for               — backend missing
+  // group                    — backend missing
+  // goals                    — backend missing
+};
 
-  axios.post('https://gsischools.com/portal/api/student-register', formData, {
+  axios.post('https://gsischools.com/portal/api/student-register', payload, {
     headers: {
-      'Accept': 'application/json',
-      'X-Requested-With': 'XMLHttpRequest',
-      'X-CSRF-TOKEN': csrfToken,          // ✅ Yahi fix hai
+      'Content-Type': 'application/json',
+      'Accept':       'application/json',
     }
   })
   .then(function (response) {
     formLoading.value = false;
-    console.log('Server response:', response.data);
+    console.log('Response:', response.data);
+
     if (response.data.status) {
-      alert('Registration Successful! ✅');
+      alert('Registration Successful! ✅\nStudent: ' + response.data.student.full_name);
       window.location.href = '/';
     } else {
-      alert('Failed: ' + (response.data.message || 'Unknown error'));
+      alert('Failed: ' + response.data.message);
     }
   })
   .catch(function (error) {
     formLoading.value = false;
-    console.log('Error status:', error.response?.status);
-    console.log('Error data:', error.response?.data);
+    console.log('Error:', error.response?.data);
+
     if (error.response?.data?.errors) {
+      // Laravel validation errors — form mein show karo
       const serverErrors = error.response.data.errors;
       for (const field in serverErrors) {
         errors.value[field] = serverErrors[field][0];
       }
     } else {
-      alert('Error ' + error.response?.status + ': ' + JSON.stringify(error.response?.data));
+      alert('Error: ' + (error.response?.data?.message || error.message));
     }
   });
 }
