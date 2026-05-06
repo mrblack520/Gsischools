@@ -7996,3 +7996,90 @@ video::-webkit-media-controls-time-remaining-display {
 .imggsi{
     border-radius: 15px;
 }
+.conreg {
+            background: #ffffff;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .conreg .panel {
+            padding: 15px;
+        }
+
+        .conreg .card-box {
+            background: #fff;
+            border-radius: 14px;
+            padding: 35px;
+            height: 100%;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+        .conreg .section-title {
+            font-weight: 600;
+            color: #3f51b5;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+        }
+        .conreg .aa{
+            padding-top: 30px;
+
+        }
+        .conreg .form-control,
+        .conreg .form-select {
+            height: 52px;
+            border-radius: 10px;
+            font-size: 15px;
+        }
+        .conreg .form-label {
+            font-weight: 500;
+            color: #555;
+        }
+        .conreg .btn-purple {
+            background: linear-gradient(45deg, #6c3cf0, #8e5cff);
+            border: none;
+            color: #fff;
+            height: 52px;
+            border-radius: 10px;
+            font-weight: 500;
+        }
+
+        .conreg .btn-purple:hover {
+            opacity: 0.9;
+        }
+
+        .conreg .gap-row {
+            row-gap: 25px;
+        }
+
+        .conreg .upload-box {
+            height: 80px;
+            width: 100%;
+            border: 2px dashed #999;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            font-family: sans-serif;
+            color: #555;
+        }
+
+        .conreg .upload-box input {
+            display: none;
+        }
+
+        .conreg .upload-box:hover {
+            border-color: #4CAF50;
+            color: #4CAF50;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .conreg .card-box {
+                padding: 20px;
+            }
+
+            .conreg .form-control,
+            .conreg .form-select {
+                height: 45px;
+            }
+        }
