@@ -1,108 +1,344 @@
 @extends('frontend.layout.app')
 
+@section('head')
+    <title>GSI Schools & Academy – FAQs</title>
+    <meta name="description" content="GSI Schools & Academy! Clear answers about admissions, curriculum, fees, academy coaching, faculty & more. Find everything you need to know in one place">
+    <link rel="canonical" href="https://gsischools.com/faqs" />
+    @verbatim
+        <!-- 1. WebPage Schema ( for page context) -->
 
-@section('title', 'GSI International Schools & Academy – FAQs')
-
-@section('meta_description', 'GSI Schools & Academy! Clear answers about admissions, curriculum, fees, academy coaching, faculty & more. Find everything you need to know in one place')
-
-
-@section('meta')
-<!-- Open Graph / Facebook -->
-<meta property="og:title" content="GSI International Schools & Academy – Our Vision & Story" />
-<meta property="og:description" content="GSI Schools & Academy! From Mont Junior to Grade 12, we nurture curiosity, build confidence, discipline & future-ready skills like AI, Cybersecurity & Web Development. Discover our story and vision today!" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://gsischools.com/about" />
-<meta property="og:site_name" content="GSI International Schools & Academy" />
-
-<!-- Recommended OG Image (1200x630) -->
-<meta property="og:image" content="https://gsischools.com/assets/images/about-02.png" />  
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
-<meta property="og:image:alt" content="GSI International Schools & Academy students learning with curiosity and confidence in a modern classroom" />
-
-<!-- Twitter Cards -->
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="GSI International Schools & Academy – Our Vision & Story" />
-<meta name="twitter:description" content="From Mont Junior to Grade 12 — curiosity, confidence, and future skills like AI & Cybersecurity. Discover our story!" />
-<meta name="twitter:image" content="https://gsischools.com/assets/images/about-02.png" />
-
-<!-- Fallback meta -->
-<meta name="description" content="GSI Schools & Academy! From Mont Junior to Grade 12, we nurture curiosity, build confidence, discipline & future-ready skills like AI, Cybersecurity & Web Development. Discover our story and vision today!" />
-
-
-
-@endsection
-
-@section('schema')
-@verbatim
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "EducationalOrganization",
-  "@id": "https://gsischools.com/about#organization",
-  "name": "GSI International Schools & Academy",
-  "alternateName": "GSI Schools & Academy",
-  "url": "https://gsischools.com/about",
-  "logo": "https://gsischools.com/assets/images/about-02.png",
-  "description": "Visual representation of Guiding Star International Schools Academy, highlighting a star motif that signifies academic excellence.",
-  "slogan": "Where Success Begins",
-  "foundingDate": "2024",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Plot 7, Sector 2, Street 5, Hub River Road, Naval Colony, Baldia Town",
-    "addressLocality": "Karachi",
-    "addressRegion": "Sindh",
-    "postalCode": "75760",
-    "addressCountry": "PK"
-  },
-  "areaServed": [
-    {
-      "@type": "Country",
-      "name": "Pakistan"
-    }
-  ],
-  "sameAs": [
-    "https://www.facebook.com/people/Guiding-Star-International-School/61568131737424/",
-    "https://www.instagram.com/guidingstarschools",
-    "https://www.tiktok.com/@guiding.star.scho"
-  ],
-  "knowsAbout": [
-    "Artificial Intelligence",
-    "Robotics",
-    "Cybersecurity",
-    "Web Development",
-    "Php/Laravel",
-    "English Language Education"
-  ],
-  "offers": {
-    "@type": "OfferCatalog",
-    "name": "Educational Programs",
-    "itemListElement": [
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "EducationalOccupationalProgram",
-          "name": "School Program (Mont Junior to Grade 10)",
-          "description": "Holistic education focusing on curiosity, confidence, discipline, creativity, and character building."
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "EducationalOccupationalProgram",
-          "name": "Academy Coaching (up to Grade 12)",
-          "description": "Board exam support with specialized training in AI, Cybersecurity, Web Development, and future-ready skills."
-        }
-      }
-    ]
-  }
+  "@type": "WebPage",
+  "name": "GSI Schools & Academy – FAQs",
+  "url": "https://gsischools.com/faqs",
+  "description": "Clear answers about admissions, curriculum from Montessori to Grade 12, AI & skill courses, academy coaching, fees and more at GSI Schools & Academy."
 }
 </script>
 
+<!-- 2. FAQPage Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
 
+    {
+      "@type": "Question",
+      "name": "What is the admission process at Guiding Star International?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Parents must fill out the admission form and submit required documents including the child’s birth certificate, previous school records (if applicable), and recent photographs. The student may appear for an assessment test or interview depending on the grade. After evaluation and approval, parents complete fee submission and enrollment formalities."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which classes or grades are currently open for admission?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Admissions are open from Pre-Primary (Mont Junior, Mont Senior, Mont Advance) up to Grade 10 (Matriculation depending on the stream chosen). Seat availability may vary for each class."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there any admission test or interview?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The school conducts a short written assessment suitable for the student's age and grade followed by an interview with the student and parents."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can students transfer from another school mid-session?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, transfers are allowed depending on seat availability and submission of the school leaving certificate along with the latest report card."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which curriculum does Guiding Star International follow?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Guiding Star International follows a structured curriculum that combines national educational standards with modern teaching approaches."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What subjects are taught at primary, middle, and secondary levels?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Primary: English, Urdu, Mathematics, General Science, Social Studies, Islamic Studies, Computer, Arts, and Physical Education. Middle: The same subjects with advanced concepts. Secondary: English, Urdu, Mathematics, Physics, Chemistry, Biology or Computer Science, Pakistan Studies, and Islamic Studies."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you offer Pre-Medical, Pre-Engineering, or Computer Science at higher levels?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. At the intermediate level students can choose Pre-Medical (Physics, Chemistry, Biology), Pre-Engineering (Physics, Chemistry, Mathematics), or Computer Science (Physics, Mathematics, Computer Science)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you assess student performance?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Student performance is evaluated through written exams, class tests, quizzes, projects, research work, presentations, teacher observations, and activity participation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the school timings?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The school operates from 7:45 AM to 12:00 PM for all sections."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the school provide transportation facilities?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Currently the school does not provide pick and drop facilities. Parents or guardians manage student transportation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What extracurricular activities are offered?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Students participate in sports, debates, speech competitions, annual functions, and science and IT exhibitions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you have a library, science labs, and computer labs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The school has a library, science laboratories for physics, chemistry and biology, and a modern computer lab with internet access."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the fee structure for different classes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The fee structure varies according to grade level. Parents can contact the school office for detailed class-wise fee information."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are there any admission or registration charges?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. A one-time admission or registration fee is charged at the time of enrollment."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How can parents pay the fee?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Fees are payable monthly at the school office during working hours."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the school offer scholarships or sibling discounts?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The school offers special concessions for families with multiple children enrolled."
+      }
+    },
 
-@endverbatim
+    {
+      "@type": "Question",
+      "name": "What classes does GSI Academy cover?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "GSI Academy provides coaching from Mont Junior to Grade 10 as well as preparation for Matric and Intermediate students."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you prepare students for entry tests?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Specialized preparation is provided for school, college, and university entry tests."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which education boards do you cover?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Coaching is available for Sindh Board, Balochistan Board, Ziauddin Board, Federal Board, Matric, and Intermediate programs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are extra classes available before exams?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Revision sessions and crash courses are arranged before exams for better preparation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you offer English language courses?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. English language programs focus on grammar, fluency, and communication confidence."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are computer and skill-based courses available?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Courses include AI, cybersecurity, web development, and office productivity tools."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can adults join skill-based programs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Language and computer courses are open for both students and professionals."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can students from other schools join the academy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Students from different schools can enroll in academy coaching and skill programs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do parents stay updated about student progress?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Parents receive updates through meetings, WhatsApp groups, and official communication channels."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does GSI provide online support?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Resources and updates are shared online to support continuous learning."
+      }
+    },
+
+    {
+      "@type": "Question",
+      "name": "Which sports are offered at GSI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sports include cricket, football, badminton, athletics, and other physical fitness activities."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do students participate in competitions?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Students participate in annual sports week and inter-school competitions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What creative activities are available?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Creative programs include drawing, painting, and craft activities."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does GSI arrange field trips?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Educational trips and study tours are arranged for practical exposure."
+      }
+    },
+
+    {
+      "@type": "Question",
+      "name": "How can I apply to join GSI as faculty?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Applicants can apply through the website faculty registration form or submit their CV directly to the administration office."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What qualifications are required for teaching at GSI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A bachelor’s degree in the relevant subject is required. For senior classes a master’s degree or higher is preferred."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is teaching experience necessary?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Experience is preferred but fresh graduates with strong subject knowledge and communication skills are also encouraged to apply."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does the hiring process take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The hiring process typically takes one to two weeks including document review, demo lecture, and interview."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the salary structure for faculty?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Salary depends on qualifications, teaching experience, and subjects taught. Details are shared after the interview."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do faculty receive performance bonuses?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Outstanding teachers are recognized with incentives and awards."
+      }
+    }
+  ]
+}
+</script>
+    @endverbatim
+    <!-- Open Graph / Facebook -->
+<meta property="og:title" content="GSI Schools & Academy – FAQs" />
+<meta property="og:description" content="GSI Schools & Academy! Clear answers about admissions, Montessori to Grade 12 curriculum, AI, robotics, cybersecurity, PHP skills, fees, academy coaching & more. Find everything you need to know!" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://gsischools.com/faqs" />
+<meta property="og:site_name" content="GSI Schools & Academy" />
+
+<!-- Your chosen OG Image -->
+<meta property="og:image" content="https://gsischools.com/assets/images/gsipic9.jpeg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="GSI Schools & Academy – Frequently Asked Questions and Answers" />
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="GSI Schools & Academy – FAQs" />
+<meta name="twitter:description" content="Answers to all your questions on admissions, AI skills, curriculum, fees & more from Montessori to Grade 12!" />
+<meta name="twitter:image" content="https://gsischools.com/assets/images/gsipic9.jpeg" />
 @endsection
+
 @section('content')
 
 

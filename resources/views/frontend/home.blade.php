@@ -1,5 +1,43 @@
 @extends('frontend.layout.app')
+@section('head')
+<title>GSI Schools & Academy – Where Success Begins</title>
+<meta name="description" content="GSI Schools & Academy! From Montessori right through to 12th. Where academics meet practical skills in AI, robotics, cybersecurity, PHP, and more. Join now!">
+<link rel="canonical" href="https://gsischools.com/" />
 
+@verbatim
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  "@id": "https://gsischools.com/#organization",
+  "name": "GSI Schools & Academy",
+  ...
+}
+</script>
+@endverbatim
+
+
+
+<meta property="og:title" content="GSI Schools & Academy – Where Success Begins" />
+<meta property="og:description" content="GSI Schools & Academy! From Montessori right through to 12th. Where academics meet practical skills in AI, robotics, cybersecurity, PHP, and more. Join now!" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://gsischools.com/" />
+<meta property="og:site_name" content="GSI Schools & Academy" />
+
+<meta property="og:image" content="https://gsischools.com/assets/images/gsipic10.jpeg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="GSI Schools & Academy – Little kids studying together at a table in a cheerful and interactive classroom atmosphere." />
+
+<!-- Twitter Cards (for better X/Twitter sharing) -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="GSI Schools & Academy – Where Success Begins" />
+<meta name="twitter:description" content="Complete education from Montessori to Grade 12 with hands-on AI, robotics, cybersecurity, PHP, and more. Where success begins!" />
+<meta name="twitter:image" content="https://gsischools.com/assets/images/gsipic10.jpeg" />  <!-- Same image as OG -->
+
+<!-- Optional: Fallback for older platforms / general sharing -->
+<meta name="description" content="GSI Schools & Academy! From Montessori right through to 12th. Where academics meet practical skills in AI, robotics, cybersecurity, PHP, and more. Join now!" />
+@endsection
 
 @section('content')
 
@@ -184,7 +222,7 @@
                         </div>
                     </div>
                     <div class="right mt-3">
-                        <img src="/assets/images/aficionados-img.webp" alt="GSI Schools two carton" class="img-fluid">
+                        <img src="/assets/images/aficionados-img.webp" alt="GSI Schools two carton" class="imggsi img-fluid">
                     </div>
                 </div>
 
@@ -276,7 +314,7 @@
         <div class="row">
             <div class="col-12 col-md-6 rightt" data-aos="fade-up" data-aos-delay="400" data-aos-duration="500">
                 <div class="bg-gradient"></div>
-                <img src="/assets/images/gsipic27.png" alt="GSI Schools Modern Computer Lab" class="img-fluid">
+                <img src="/assets/images/gsipic27.webp" alt="GSI Schools Modern Computer Lab" class="img-fluid">
             </div>
             <div class="col-12 col-md-6 ps-md-5 next-gen" data-aos="fade-up" data-aos-delay="500" data-aos-duration="500">
                 <h2>Building Brighter Futures <span> with GSI Schools</span></h2>
@@ -330,7 +368,7 @@
      data-aos="fade-up" data-aos-delay="500" data-aos-duration="500">
     <div class="position-relative w-100">
         <div class="bg-gradient position-absolute w-100 h-100"></div>
-        <img src="/assets/images/gsipic33.png" alt="GSI Schools Academic English Lessons" class="img-fluid">
+        <img src="/assets/images/gsipic33.webp" alt="GSI Schools Academic English Lessons" class="img-fluid">
     </div>
 </div>
 
@@ -344,19 +382,19 @@
 
     <div class="container">
         <!-- <div class="slider">
-                <div class="slide" style="background-image: url('/assets/images/img-2.png');">
+                <div class="slide" style="background-image: url('/assets/images/img-2.webp');">
                     <div class="content-box">
                         <h3>Connect</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
                     </div>
                 </div>
-                <div class="slide" style="background-image: url('/assets/images/img-2.png');">
+                <div class="slide" style="background-image: url('/assets/images/img-2.webp');">
                     <div class="content-box">
                         <h3>Connect</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
                     </div>
                 </div>
-                <div class="slide" style="background-image: url('/assets/images/img-2.png');">
+                <div class="slide" style="background-image: url('/assets/images/img-2.webp');">
                     <div class="content-box">
                         <h3>Connect</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
@@ -406,14 +444,14 @@
                             because when students succeed, families and society succeed too.
                         </p>
                         <!-- <ul>
-                        <li><img src="/assets/images/who-are-icon-1.png" alt=""></li>
+                        <li><img src="/assets/images/who-are-icon-1.webp" alt=""></li>
                     </ul> -->
                         <div class="d-flex flex-wrap align-items-center" style="margin-top: 2.4rem;">
                             <!-- <div class="content-box-who">
                                     <div class="who-are-icon">
                                         <img src="/assets/images/connect.svg" alt="">
                                         <br>
-                                        <img src="/assets/images/line-image.png" alt="" class="line-image">
+                                        <img src="/assets/images/line-image.webp" alt="" class="line-image">
                                     </div>
                                     <div class="who-are-content">
                                         <h4>Connect</h4>
@@ -424,7 +462,7 @@
                                     <div class="who-are-icon">
                                         <img src="/assets/images/progress.svg" alt="">
                                         <br>
-                                        <img src="/assets/images/line-image.png" alt="" class="line-image">
+                                        <img src="/assets/images/line-image.webp" alt="" class="line-image">
                                     </div>
                                     <div class="who-are-content">
                                         <h4>Progress</h4>

@@ -446,7 +446,7 @@
                 <input type="checkbox" v-model="form.terms_accepted">
                 <div><span class="checkmark mt-2"></span></div>
                 <p>
-                  I hereby apply for registration at Guiding Star International Schools & Academy. All the information provided above is true and complete to the best of my knowledge
+                  I herebly apply for registration at Guiding Star International Schools & Academy. All the information provided above is true and complete to the best of my knowledge
                 </p>
               </label>
               <div class="mt-4 save-or-submit">

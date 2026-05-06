@@ -15,7 +15,7 @@
     <meta property="og:site_name" content="GSI International Schools & Academy" />
 
     <!-- Recommended OG Image (replace with your actual hero/banner or school photo URL) -->
-    <meta property="og:image" content="https://gsischools.com/assets/images/gsipic10.jpeg" />  <!-- Use a high-quality 1200x630 image of students/school/skills in action -->
+    <meta property="og:image" content="https://gsischools.com/assets/images/gsipic10.webp" />  <!-- Use a high-quality 1200x630 image of students/school/skills in action -->
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="GSI International Schools & Academy – Little kids studying together at a table in a cheerful and interactive classroom atmosphere." />
@@ -24,7 +24,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="GSI International Schools & Academy – Where Success Begins" />
     <meta name="twitter:description" content="Complete education from Montessori to Grade 12 with hands-on AI, robotics, cybersecurity, PHP, and more. Where success begins!" />
-    <meta name="twitter:image" content="https://gsischools.com/assets/images/gsipic10.jpeg" />  <!-- Same image as OG -->
+    <meta name="twitter:image" content="https://gsischools.com/assets/images/gsipic10.webp" />  <!-- Same image as OG -->
 
     <!-- Optional: Fallback for older platforms / general sharing -->
     <meta name="description" content="GSI Schools & Academy! From Montessori right through to 12th. Where academics meet practical skills in AI, robotics, cybersecurity, PHP, and more. Join now!" />
@@ -42,7 +42,7 @@
     "name": "GSI International Schools & Academy",
     "alternateName": "GSI Schools & Academy",
     "url": "https://gsischools.com/",
-    "logo": "https://gsischools.com/assets/images/gsilogo.png",
+    "logo": "https://gsischools.com/assets/images/gsilogo.webp",
     "description": "GSI International Schools & Academy provides complete education from Montessori/Playgroup through Grade 12, combining strong academics with practical, future-ready skills in Artificial Intelligence, Robotics, Cybersecurity, Web Development, PHP/Laravel, and English Language Education to build confident and capable students.",
     "slogan": "Where Success Begins",
     "foundingDate": "2024",
@@ -112,7 +112,7 @@
                 </div>
                 <div class="inner-uni-area">
                     <div class="col-md-6 left">
-                        <img class="img" src="/assets/images/uni-3.png" alt="">
+                        <img class="img" src="/assets/images/uni-3.webp" alt="">
                         <div class="div">
                             <h3>Applying to <span>SCHOOL </span></h3>
                             <div>
@@ -153,7 +153,7 @@
                    </div> -->
                 <div class="col-md-6 right">
                     <div class="img-con">
-                        <img class="bg-effect" src="assets/images/girl-bg 3.png" alt="GSI Schools Man Background">
+                        <img class="bg-effect" src="assets/images/girl-bg 3.webp" alt="GSI Schools Man Background">
                         <img class="front-img" src="/assets/images/join-qp.webp" alt="GSI Schools man for joining">
                         <div class="bg-object"></div>
                     </div>
@@ -165,7 +165,7 @@
     <next-gen-filter-sec></next-gen-filter-sec>
 
     <section class="join-question-point how-does-it-work-sec">
-        <img class="outer-gradient" src="assets/images/Rectangle 30233.png" alt="Gradient">
+        <img class="outer-gradient" src="assets/images/Rectangle 30233.webp" alt="Gradient">
         <div class="container">
             <div class="row">
                 <div class="col-md-6 left">

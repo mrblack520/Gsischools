@@ -2,16 +2,16 @@
     <div class="container">
         <div class="row">
             <div class="mt-4 col-md-4">
-                <img src="/assets/images/gsilogo.png" alt=" footer-logo" class="footer-logo img-fluid">
+                <img src="/assets/images/gsilogo.webp" alt=" footer-logo" class="footer-logo img-fluid">
                 <p class="footer-text">Your journey to success
                 </p>
                 <h4>Follow Us</h4>
                 <ul class="footer-icon-list">
                     <li>  <a href="https://www.instagram.com/guidingstarschools?igsh=dmV2aXp4dXR4anBo"> <img src="/assets/images/insta-icon.svg" alt="insta-icon" class="img-fluid"></a></li>
-                    <!-- <li><img src="/assets/images/twitter-icom.png" alt="twitter-icon" class="img-fluid"></li> -->
-                     <li><a href="https://www.facebook.com/share/1GcavBCrar/">  <img src="/assets/images/facebook-icon.png" alt="facebook-icon" class="img-fluid"></a></li>
+                    <!-- <li><img src="/assets/images/twitter-icom.webp" alt="twitter-icon" class="img-fluid"></li> -->
+                     <li><a href="https://www.facebook.com/share/1GcavBCrar/">  <img src="/assets/images/facebook-icon.webp" alt="facebook-icon" class="img-fluid"></a></li>
                     {{-- <li><img src="/assets/images/linkedin-icon.svg" alt="linkedin-icon"></li> --}}
-                    <li><a href="https://www.tiktok.com/@guiding.star.scho?_t=ZS-8zHZvexgSIc&_r=1"> <img src="/assets/images/tiktok-icon.png" alt="tiktok-icon"></a> </li>
+                    <li><a href="https://www.tiktok.com/@guiding.star.scho?_t=ZS-8zHZvexgSIc&_r=1"> <img src="/assets/images/tiktok-icon.webp" alt="tiktok-icon"></a> </li>
 
                 </ul>
             </div>

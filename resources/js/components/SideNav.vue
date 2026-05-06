@@ -8,7 +8,7 @@
         <div v-show="isMenuOpen" class="side-nav" id="side-nav">
             <ul class="list-inline">
                 <li class="d-flex justify-content-start align-items-center text-decoration-none side-nav-profile">
-                    <img src="../../../public/assets/images/ng-3.png" alt="Profile Picture"
+                    <img src="../../../public/assets/images/ng-3.webp" alt="Profile Picture"
                         class="profile-picture position-relative" />
                     <p class="login-txt-mobile login-text-cts">{{ auth.user.first_name }} {{ auth.user.last_name }}</p>
                 </li>

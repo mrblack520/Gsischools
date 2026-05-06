@@ -1,108 +1,47 @@
 @extends('frontend.layout.app')
 
-
-@section('title', 'GSI Schools & Academy – Student Life & Excellence')
-
-@section('GSI Schools & Academy! Celebrate student life with events, workshops, competitions, career guidance & skill development. Discover your potential today!')
-
-
-@section('meta')
-<!-- Open Graph / Facebook -->
-<meta property="og:title" content="GSI International Schools & Academy – Our Vision & Story" />
-<meta property="og:description" content="GSI Schools & Academy! From Mont Junior to Grade 12, we nurture curiosity, build confidence, discipline & future-ready skills like AI, Cybersecurity & Web Development. Discover our story and vision today!" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://gsischools.com/about" />
-<meta property="og:site_name" content="GSI International Schools & Academy" />
-
-<!-- Recommended OG Image (1200x630) -->
-<meta property="og:image" content="https://gsischools.com/assets/images/about-02.png" />  
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
-<meta property="og:image:alt" content="GSI International Schools & Academy students learning with curiosity and confidence in a modern classroom" />
-
-<!-- Twitter Cards -->
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="GSI International Schools & Academy – Our Vision & Story" />
-<meta name="twitter:description" content="From Mont Junior to Grade 12 — curiosity, confidence, and future skills like AI & Cybersecurity. Discover our story!" />
-<meta name="twitter:image" content="https://gsischools.com/assets/images/about-02.png" />
-
-<!-- Fallback meta -->
-<meta name="description" content="GSI Schools & Academy! From Mont Junior to Grade 12, we nurture curiosity, build confidence, discipline & future-ready skills like AI, Cybersecurity & Web Development. Discover our story and vision today!" />
-
-
-
-@endsection
-
-@section('schema')
-@verbatim
-<script type="application/ld+json">
+@section('head')
+    <title>GSI Schools & Academy – Student Life & Excellence</title>
+    <meta name="description" content="GSI Schools & Academy! Celebrate student life with events, workshops, competitions, career guidance & skill development. Discover your potential today!">
+    <link rel="canonical" href="https://gsischools.com/profession" />
+    @verbatim
+        <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "EducationalOrganization",
-  "@id": "https://gsischools.com/about#organization",
-  "name": "GSI International Schools & Academy",
-  "alternateName": "GSI Schools & Academy",
-  "url": "https://gsischools.com/about",
-  "logo": "https://gsischools.com/assets/images/about-02.png",
-  "description": "Visual representation of Guiding Star International Schools Academy, highlighting a star motif that signifies academic excellence.",
-  "slogan": "Where Success Begins",
-  "foundingDate": "2024",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Plot 7, Sector 2, Street 5, Hub River Road, Naval Colony, Baldia Town",
-    "addressLocality": "Karachi",
-    "addressRegion": "Sindh",
-    "postalCode": "75760",
-    "addressCountry": "PK"
-  },
-  "areaServed": [
-    {
-      "@type": "Country",
-      "name": "Pakistan"
-    }
-  ],
-  "sameAs": [
-    "https://www.facebook.com/people/Guiding-Star-International-School/61568131737424/",
-    "https://www.instagram.com/guidingstarschools",
-    "https://www.tiktok.com/@guiding.star.scho"
-  ],
-  "knowsAbout": [
-    "Artificial Intelligence",
-    "Robotics",
-    "Cybersecurity",
-    "Web Development",
-    "Php/Laravel",
-    "English Language Education"
-  ],
-  "offers": {
-    "@type": "OfferCatalog",
-    "name": "Educational Programs",
-    "itemListElement": [
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "EducationalOccupationalProgram",
-          "name": "School Program (Mont Junior to Grade 10)",
-          "description": "Holistic education focusing on curiosity, confidence, discipline, creativity, and character building."
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "EducationalOccupationalProgram",
-          "name": "Academy Coaching (up to Grade 12)",
-          "description": "Board exam support with specialized training in AI, Cybersecurity, Web Development, and future-ready skills."
-        }
-      }
-    ]
+  "@type": "WebPage",
+  "name": "GSI Schools & Academy – Student Life & Excellence",
+  "url": "https://gsischools.com/profession",
+  "description": "GSI Schools & Academy! Celebrate student life with events, workshops, competitions, career guidance & skill development. Discover your potential today!",
+  "isPartOf": {
+    "@type": "EducationalOrganization",
+    "@id": "https://gsischools.com/#organization"
   }
 }
 </script>
+    @endverbatim
+    <!-- Open Graph / Facebook -->
+<meta property="og:title" content="GSI Schools & Academy – Student Life & Excellence" />
+<meta property="og:description" content="GSI Schools & Academy! Celebrate student life with exciting events, workshops, competitions, career guidance & skill development. From school fun to academy excellence!" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://gsischools.com/profession" />
+<meta property="og:site_name" content="GSI Schools & Academy" />
 
+<!-- Your chosen OG Image -->
+<meta property="og:image" content="https://gsischools.com/assets/images/gsipic28.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="A group of children sitting at a table, surrounded by colorful flowers, enjoying a shared moment." />
 
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="GSI Schools & Academy – Student Life & Excellence" />
+<meta name="twitter:description" content="Student life, workshops, competitions & skill development at GSI – where guidance meets excellence!" />
+<meta name="twitter:image" content="https://gsischools.com/assets/images/gsipic28.png" />
 
-@endverbatim
+<!-- Fallback meta -->
+<meta name="description" content="GSI Schools & Academy! Celebrate student life with exciting events, workshops, competitions, career guidance & skill development. From school fun to academy excellence!" />
 @endsection
+
 @section('content')
 <section class="uni-sub-banner">
     <div class="top-space"></div>
@@ -113,7 +52,7 @@
             </div>
             <div class="inner-uni-area">
                 <div class="col-md-6 left">
-                    <img class="img" src="/assets/images/uni-3.png" alt="">
+                    <img class="img" src="/assets/images/uni-3.webp" alt="">
                     <div class="div">
                         <h3>🎓 School</h3>
                         <p> <strong>Celebrating Student Life
@@ -142,7 +81,7 @@
                      
                     </div>
                     <div class="d-flex align-items-end">
-                        <img style="width: 170px;" src="./assets/images/PNg-131.png" alt="">
+                        <img style="width: 170px;" src="./assets/images/PNg-131.webp" alt="">
                     </div>
                 </div>
 
@@ -158,12 +97,12 @@
     <how-we-work :slides="{{ json_encode($slides) }}" />
 </section>
 <section class="book-your-session">
-    <img class="gradient" src="./assets/images/Rectangle 30247.png" alt="Gradient">
+    <img class="gradient" src="./assets/images/Rectangle 30247.webp" alt="Gradient">
     <div class="container">
         <div class="row">
             <div class="col-md-6 left">
                 <div class="img-container">
-                    <img class="man-with-headset-sits" src="./assets/images/gsipic28.png"
+                    <img class="man-with-headset-sits" src="./assets/images/gsipic28.jpg"
                         alt="GSI Schools Science Lab Station">
                     <div class="bys-bg-gradient-1"></div>
                     <div class="bys-bg-gradient-2"></div>
@@ -171,8 +110,8 @@
                         <div class="position-relative">
                             <img class="img" src="assets/images/person.webp" alt="Man With Headset">
                             <span class="msg-blur">Michael Patterson</span>
-                            <div class="chat-div"><img src="./assets/images/call.png" alt="Call"></div>
-                            <div class="call-div"><img src="./assets/images/chat-light.png" alt="Chat"></div>
+                            <div class="chat-div"><img src="./assets/images/call.webp" alt="Call"></div>
+                            <div class="call-div"><img src="./assets/images/chat-light.webp" alt="Chat"></div>
                         </div>
                     </div>
                 </div>

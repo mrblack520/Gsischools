@@ -9,7 +9,7 @@
                     <div class="img-con">
                         <div class="layer1">
                             <div class="layer2">
-                                <img src="../../../public/assets/images/chain.png" alt="Connect">
+                                <img src="../../../public/assets/images/chain.webp" alt="Connect">
                             </div>
                         </div>
                     </div>
@@ -19,7 +19,7 @@
                     <div class="img-con">
                         <div class="layer1">
                             <div class="layer2">
-                                <img src="../../../public/assets/images/filter.png" alt="Explore Events by Category">
+                                <img src="../../../public/assets/images/filter.webp" alt="Explore Events by Category">
                             </div>
                         </div>
                     </div>
@@ -29,7 +29,7 @@
                     <div class="img-con">
                         <div class="layer1">
                             <div class="layer2">
-                                <img src="../../../public/assets/images/chat.png" alt="Upcoming School Events">
+                                <img src="../../../public/assets/images/chat.webp" alt="Upcoming School Events">
                             </div>
                         </div>
                     </div>
@@ -54,7 +54,7 @@
                 <div class="col-md-6 right">
                     <div class="img-con">
                         <div class="filter-bg-gradient"></div>
-                        <img src="../../../public/assets/images/gsipic9copy1.png" alt="GSI Schools Students Creative Art">
+                        <img src="../../../public/assets/images/gsipic9copy1.webp" alt="GSI Schools Students Creative Art">
                     </div>
                 </div>
             </div>
@@ -65,23 +65,23 @@
                     <h3>Explore Events by Category</h3>
                     <p class="para">Stay updated with all the exciting happenings at Guiding Star International Schools and Academy. You can explore events based on:</p>
                     <ul>
-                        <li><img src="../../../public/assets/images/dark-tick.png" alt="tick"> Academic Events</li>
-                        <li><img src="../../../public/assets/images/dark-tick.png" alt="tick"> Sports Activities</li>
-                        <li><img src="../../../public/assets/images/dark-tick.png" alt="tick"> Cultural Programs</li>
-                        <li><img src="../../../public/assets/images/dark-tick.png" alt="tick">Competitions</li>
-                        <li><img src="../../../public/assets/images/dark-tick.png" alt="tick">Workshops & Training Sessions</li>
-                        <li><img src="../../../public/assets/images/dark-tick.png" alt="tick"> Field Trips & Educational Tours</li>
-                        <li><img src="../../../public/assets/images/dark-tick.png" alt="tick">Community Service Programs</li>
-                        <li><img src="../../../public/assets/images/dark-tick.png" alt="tick">Special Assemblies</li>
-                        <li><img src="../../../public/assets/images/dark-tick.png" alt="tick">National & International Days</li>
-                        <li><img src="../../../public/assets/images/dark-tick.png" alt="tick">Parent Engagement Activities</li>
+                        <li><img src="../../../public/assets/images/dark-tick.webp" alt="tick"> Academic Events</li>
+                        <li><img src="../../../public/assets/images/dark-tick.webp" alt="tick"> Sports Activities</li>
+                        <li><img src="../../../public/assets/images/dark-tick.webp" alt="tick"> Cultural Programs</li>
+                        <li><img src="../../../public/assets/images/dark-tick.webp" alt="tick">Competitions</li>
+                        <li><img src="../../../public/assets/images/dark-tick.webp" alt="tick">Workshops & Training Sessions</li>
+                        <li><img src="../../../public/assets/images/dark-tick.webp" alt="tick"> Field Trips & Educational Tours</li>
+                        <li><img src="../../../public/assets/images/dark-tick.webp" alt="tick">Community Service Programs</li>
+                        <li><img src="../../../public/assets/images/dark-tick.webp" alt="tick">Special Assemblies</li>
+                        <li><img src="../../../public/assets/images/dark-tick.webp" alt="tick">National & International Days</li>
+                        <li><img src="../../../public/assets/images/dark-tick.webp" alt="tick">Parent Engagement Activities</li>
                        
                     </ul>
                 </div>
                 <div class="col-md-6 right">
                     <div class="img-con">
                         <div class="filter-bg-gradient"></div>
-                        <img src="../../../public/assets/images/gsipic11copy3.png" alt="GSI Schools Students Group Discussion">
+                        <img src="../../../public/assets/images/gsipic11copy3.webp" alt="GSI Schools Students Group Discussion">
                     </div>
                 </div>
             </div>
@@ -94,22 +94,22 @@
 
                     <p style="font-size:20px;">Join us in celebrating learning through exciting activities such as:</p>
                     <ul>
-                        <li><img src="../../../public/assets/images/dark-tick.png" alt="tick">Annual Day Celebrations</li>
-                        <li><img src="../../../public/assets/images/dark-tick.png" alt="tick">Cultural Festivals</li>
-                        <li><img src="../../../public/assets/images/dark-tick.png" alt="tick">Parent-Teacher Meetings</li>
-                        <li><img src="../../../public/assets/images/dark-tick.png" alt="tick">Sports Day Competitions
+                        <li><img src="../../../public/assets/images/dark-tick.webp" alt="tick">Annual Day Celebrations</li>
+                        <li><img src="../../../public/assets/images/dark-tick.webp" alt="tick">Cultural Festivals</li>
+                        <li><img src="../../../public/assets/images/dark-tick.webp" alt="tick">Parent-Teacher Meetings</li>
+                        <li><img src="../../../public/assets/images/dark-tick.webp" alt="tick">Sports Day Competitions
                         </li>
-                        <li><img src="../../../public/assets/images/dark-tick.png" alt="tick">Science & Art Exhibitions</li>
-                        <li><img src="../../../public/assets/images/dark-tick.png" alt="tick">Educational Workshops & Seminars</li>
+                        <li><img src="../../../public/assets/images/dark-tick.webp" alt="tick">Science & Art Exhibitions</li>
+                        <li><img src="../../../public/assets/images/dark-tick.webp" alt="tick">Educational Workshops & Seminars</li>
 
-                        <!-- <li><img src="../../../public/assets/images/dark-tick.png" alt="tick">and much more!</li> -->
+                        <!-- <li><img src="../../../public/assets/images/dark-tick.webp" alt="tick">and much more!</li> -->
                     </ul>
                     <p class="para3"></p>
                 </div>
                 <div class="col-md-6 right">
                     <div class="img-con">
                         <div class="filter-bg-gradient"></div>
-                        <img src="../../../public/assets/images/gsipic27copy2.png" alt="GSI Schools Modern Computer Lab">
+                        <img src="../../../public/assets/images/gsipic27copy2.webp" alt="GSI Schools Modern Computer Lab">
                     </div>
                 </div>
             </div>

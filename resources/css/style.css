@@ -3227,6 +3227,7 @@ section {
     border-top-right-radius: 60px;
     border-bottom-left-radius: 60px;
     position: relative;
+    width:620px;
     z-index: 1;
 }
 
@@ -4245,6 +4246,10 @@ section {
 }
 
 .who-we-are .left .img-con .front-img {
+    width:600px;
+    height:600px;
+    background-size: cover;
+
     border-radius: 32px;
     /* margin-right: 31px; */
 }
@@ -7987,4 +7992,7 @@ video::-webkit-media-controls-time-remaining-display {
 .goals-wrapper {
   height: auto !important;
   min-height: unset !important;
+}
+.imggsi{
+    border-radius: 15px;
 }

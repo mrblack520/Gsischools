@@ -1,45 +1,17 @@
 @extends('frontend.layout.app')
 
-@section('title', 'GSI International Schools & Academy – About Our Vision & Story')
-
-@section('meta_description', 'GSI Schools & Academy! From Mont to Grade 12, we build confidence, discipline & skills like AI, Cybersecurity & Web Development. Our story and vision today!')
-
-
-@section('meta')
-<!-- Open Graph / Facebook -->
-<meta property="og:title" content="GSI International Schools & Academy – Our Vision & Story" />
-<meta property="og:description" content="GSI Schools & Academy! From Mont Junior to Grade 12, we nurture curiosity, build confidence, discipline & future-ready skills like AI, Cybersecurity & Web Development. Discover our story and vision today!" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://gsischools.com/about" />
-<meta property="og:site_name" content="GSI International Schools & Academy" />
-
-<!-- Recommended OG Image (1200x630) -->
-<meta property="og:image" content="https://gsischools.com/assets/images/about-02.png" />  
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
-<meta property="og:image:alt" content="GSI International Schools & Academy students learning with curiosity and confidence in a modern classroom" />
-
-<!-- Twitter Cards -->
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="GSI International Schools & Academy – Our Vision & Story" />
-<meta name="twitter:description" content="From Mont Junior to Grade 12 — curiosity, confidence, and future skills like AI & Cybersecurity. Discover our story!" />
-<meta name="twitter:image" content="https://gsischools.com/assets/images/about-02.png" />
-
-<!-- Fallback meta -->
-<meta name="description" content="GSI Schools & Academy! From Mont Junior to Grade 12, we nurture curiosity, build confidence, discipline & future-ready skills like AI, Cybersecurity & Web Development. Discover our story and vision today!" />
-
-
-
-@endsection
-
-@section('schema')
+@section('head')
+<title>GSI Schools & Academy – About Our Vision & Story</title>
+<meta name="description" content="GSI Schools & Academy! From Mont to Grade 12, we build confidence, discipline & skills like AI, Cybersecurity & Web Development. Our story and vision today!
+">
+<link rel="canonical" href="https://gsischools.com/about" />
 @verbatim
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "EducationalOrganization",
   "@id": "https://gsischools.com/about#organization",
-  "name": "GSI International Schools & Academy",
+  "name": "GSI Schools & Academy",
   "alternateName": "GSI Schools & Academy",
   "url": "https://gsischools.com/about",
   "logo": "https://gsischools.com/assets/images/about-02.png",
@@ -97,10 +69,28 @@
   }
 }
 </script>
-
-
-
 @endverbatim
+<!-- Open Graph / Facebook -->
+<meta property="og:title" content="GSI Schools & Academy – Where Success Begins" />
+<meta property="og:description" content="GSI Schools & Academy! From Montessori right through to 12th. Where academics meet practical skills in AI, robotics, cybersecurity, PHP, and more. Join now!" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://gsischools.com/" />
+<meta property="og:site_name" content="GSI Schools & Academy" />
+
+<!-- Recommended OG Image (replace with your actual hero/banner or school photo URL) -->
+<meta property="og:image" content="https://gsischools.com/assets/images/gsipic10.jpeg" />  <!-- Use a high-quality 1200x630 image of students/school/skills in action -->
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="GSI Schools & Academy – Little kids studying together at a table in a cheerful and interactive classroom atmosphere." />
+
+<!-- Twitter Cards (for better X/Twitter sharing) -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="GSI Schools & Academy – Where Success Begins" />
+<meta name="twitter:description" content="Complete education from Montessori to Grade 12 with hands-on AI, robotics, cybersecurity, PHP, and more. Where success begins!" />
+<meta name="twitter:image" content="https://gsischools.com/assets/images/gsipic10.jpeg" />  <!-- Same image as OG -->
+
+<!-- Optional: Fallback for older platforms / general sharing -->
+<meta name="description" content="GSI Schools & Academy! From Montessori right through to 12th. Where academics meet practical skills in AI, robotics, cybersecurity, PHP, and more. Join now!" />
 @endsection
 
 @section('content')
@@ -125,9 +115,9 @@
                     <div class="col-12 col-md-6 right">
                         <div class="img-con ms-5 ms-md-0">
 
-                            <img class="bg-effect img-fluid" src="assets/images/girl-bg 3.png" alt="">
+                            <img class="bg-effect img-fluid" src="assets/images/girl-bg 3.webp" alt="">
 
-                            <img class="front-img img-fluid" src="/assets/images/about-02.png" alt="">
+                            <img class="front-img img-fluid" src="/assets/images/about-02.webp" alt="">
 
                             <div class="bg-object"></div>
 
@@ -148,7 +138,7 @@
                 <div class="col-md-6 right d-flex justify-content-start">
                     <div class="img-con ms-md-0 about-img">
                         <div class="bg-gradient"></div>
-                        <img class="front-img img-fluid" src="/assets/images/about-01.png" alt="">
+                        <img class="front-img img-fluid" src="/assets/images/about-01.webp" alt="">
                         <div class="bg-object"></div>
                     </div>
 
@@ -193,7 +183,7 @@
                     <div class="swiper-slide">
                         <div class="slider">
                             <div class="slide"
-                                style="background-image: url('/assets/images/gsipicn2about.png');">
+                                style="background-image: url('/assets/images/gsipicn2about.webp');">
                                 <div class="content-box">
                                     <h3> Strong Foundation from the Start</h3>
                                     <p>GSI Schools offer quality education from Mont Junior to Grade 10, focusing not only
@@ -211,7 +201,7 @@
                     </div>
                     <div class="swiper-slide">
                         <div class="slider">
-                            <div class="slide" style="background-image: url('/assets/images/gsipicn7about.png');">
+                            <div class="slide" style="background-image: url('/assets/images/gsipicn7about.webp');">
                                 <div class="content-box">
                                     <h3>Experiences and Insight</h3>
                                     <p>We’re not just a platform — we’re a network of real people.</p>
@@ -224,7 +214,7 @@
                     </div>
                     <div class="swiper-slide">
                         <div class="slider">
-                            <div class="slide" style="background-image: url('/assets/images/gsipic33about.png');">
+                            <div class="slide" style="background-image: url('/assets/images/gsipic33about.webp');">
                                 <div class="content-box">
                                     <h3>It’s all about the questions</h3>
                                     <p>What do you really want to know?</p>
@@ -237,7 +227,7 @@
                     <div class="swiper-slide">
                         <div class="slider">
                             <div class="slide"
-                                style="background-image: url('/assets/images/gsipic18about.png');">
+                                style="background-image: url('/assets/images/gsipic18about.webp');">
                                 <div class="content-box">
                                     <h3>Mutual benefit </h3>
                                     <p>The Next Gen gain valuable insight and direction, while the Aficionado is
@@ -253,7 +243,7 @@
                     <div class="swiper-slide">
                         <div class="slider">
                             <div class="slide"
-                                style="background-image: url('/assets/images/gsipicn9about.png');">
+                                style="background-image: url('/assets/images/gsipicn9about.webp');">
                                 <div class="content-box">
                                     <h3>Stand out from the competition</h3>
                                     <p>The Next Gen can learn how Aficionados approached their personal statements,
@@ -268,7 +258,7 @@
                     <div class="swiper-slide">
                         <div class="slider">
                             <div class="slide"
-                                style="background-image: url('/assets/images/gsipicn12about.png');">
+                                style="background-image: url('/assets/images/gsipicn12about.webp');">
                                 <div class="content-box">
                                     <h3>Our commitment</h3>
                                     <p>A smooth, secure, and user-friendly experience — from booking to conversation. We
@@ -294,7 +284,7 @@
                         <div>
                             <img src="/assets/images/new-expert-bg.svg" class="img-fluid" alt="GSI Schools Background">
                         </div>
-                        <img class="img-fluid me-4 pe-3" src="/assets/images/about-03.png" alt="GSI Schools 2 persons">
+                        <img class="img-fluid me-4 pe-3" src="/assets/images/about-03.webp" alt="GSI Schools 2 persons">
                     </div>
                 </div>
 

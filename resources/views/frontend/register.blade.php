@@ -14,7 +14,7 @@
 
             <div class="col-md-6 right">
                 <div class="img-con">
-                    <img class="img-bg-gradient" src="assets/images/register-bg-gradient.png" alt="GSI Schools Register background">
+                    <img class="img-bg-gradient" src="assets/images/register-bg-gradient.webp" alt="GSI Schools Register background">
                     <img src="./assets/images/register-1.webp" alt="GSI Schools Register">
                 </div>
             </div>

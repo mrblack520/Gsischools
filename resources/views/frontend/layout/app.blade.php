@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @yield('head')
     <title>GSI International Schools & Academy</title>
+    
     <meta name="csrf-token" content="{{ csrf_token() }}">
     @include('frontend.partials.head')
 
@@ -196,15 +197,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (gallery) {
         const images = [
-            "gsipic20.jpeg","gsipic21.jpeg","gsipic22.jpeg","gsipic1.jpeg",
-            "gsipic3.jpeg","gsipic4.jpeg","gsipic5.jpeg","gsipic6.jpeg",
-            "gsipic7.jpeg","gsipic8.jpeg","gsipic9.jpeg","gsipic10.jpeg",
-            "gsipic11.jpeg","gsipic12.jpeg","gsipic13.jpeg","gsipic14.jpeg",
-            "gsipic15.jpeg","gsipic16.jpeg","gsipic17.jpeg","gsipic18.jpeg",
-            "gsipic19.jpeg","gsipic23.jpeg","gsipic24.jpeg","gsipic25.jpeg",
-            "gsipic26.jpeg","gsipic27.jpeg","gsipic28.jpeg","gsipic29.jpeg",
-            "gsipic30.jpeg","gsipic31.jpeg","gsipic32.jpeg","gsipic33.jpeg",
-            "gsipic34.jpeg","gsipic35.jpeg","gsipic36.jpeg","gsipic2.jpeg"
+            "gsipic20.webp","gsipic21.webp","gsipic22.webp","gsipic1.webp",
+            "gsipic3.webp","gsipic4.webp","gsipic5.webp","gsipic6.webp",
+            "gsipic7.webp","gsipic8.webp","gsipic9.webp","gsipic10.webp",
+            "gsipic11.webp","gsipic12.webp","gsipic13.webp","gsipic14.webp",
+            "gsipic15.webp","gsipic16.webp","gsipic17.webp","gsipic18.webp",
+            "gsipic19.webp","gsipic23.webp","gsipic24.webp","gsipic25.webp",
+            "gsipic26.webp","gsipic27.webp","gsipic28.webp","gsipic29.webp",
+            "gsipic30.webp","gsipic31.webp","gsipic32.webp","gsipic33.webp",
+            "gsipic34.webp","gsipic35.webp","gsipic36.webp","gsipic2.webp"
         ];
 
         images.forEach(img => {

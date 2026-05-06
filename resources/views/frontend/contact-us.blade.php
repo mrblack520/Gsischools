@@ -1,108 +1,54 @@
 @extends('frontend.layout.app')
 
-
-@section('title', 'GSI International Schools & Academy – Contact Us')
-
-@section('meta_description', 'GSI Schools & Academy! Check our FAQs first, then fill the form below for questions about admissions, fees, academy coaching, skills courses or anything else!')
-
-
-@section('meta')
-<!-- Open Graph / Facebook -->
-<meta property="og:title" content="GSI International Schools & Academy – Our Vision & Story" />
-<meta property="og:description" content="GSI Schools & Academy! From Mont Junior to Grade 12, we nurture curiosity, build confidence, discipline & future-ready skills like AI, Cybersecurity & Web Development. Discover our story and vision today!" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://gsischools.com/about" />
-<meta property="og:site_name" content="GSI International Schools & Academy" />
-
-<!-- Recommended OG Image (1200x630) -->
-<meta property="og:image" content="https://gsischools.com/assets/images/about-02.png" />  
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
-<meta property="og:image:alt" content="GSI International Schools & Academy students learning with curiosity and confidence in a modern classroom" />
-
-<!-- Twitter Cards -->
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="GSI International Schools & Academy – Our Vision & Story" />
-<meta name="twitter:description" content="From Mont Junior to Grade 12 — curiosity, confidence, and future skills like AI & Cybersecurity. Discover our story!" />
-<meta name="twitter:image" content="https://gsischools.com/assets/images/about-02.png" />
-
-<!-- Fallback meta -->
-<meta name="description" content="GSI Schools & Academy! From Mont Junior to Grade 12, we nurture curiosity, build confidence, discipline & future-ready skills like AI, Cybersecurity & Web Development. Discover our story and vision today!" />
-
-
-
-@endsection
-
-@section('schema')
-@verbatim
-<script type="application/ld+json">
+@section('head')
+    <title>GSI Schools & Academy – Contact Us</title>
+    <meta name="descripttion" content="GSI Schools & Academy! Check our FAQs first, then fill the form below for questions about admissions, fees, academy coaching, skills courses or anything else!">
+    <link rel="canonical" href="https://gsischools.com/contact-us" />
+    @verbatim
+        <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "EducationalOrganization",
-  "@id": "https://gsischools.com/about#organization",
-  "name": "GSI International Schools & Academy",
-  "alternateName": "GSI Schools & Academy",
-  "url": "https://gsischools.com/about",
-  "logo": "https://gsischools.com/assets/images/about-02.png",
-  "description": "Visual representation of Guiding Star International Schools Academy, highlighting a star motif that signifies academic excellence.",
-  "slogan": "Where Success Begins",
-  "foundingDate": "2024",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Plot 7, Sector 2, Street 5, Hub River Road, Naval Colony, Baldia Town",
-    "addressLocality": "Karachi",
-    "addressRegion": "Sindh",
-    "postalCode": "75760",
-    "addressCountry": "PK"
+  "@type": "ContactPage",
+  "name": "GSI Schools & Academy – Contact Us",
+  "url": "https://gsischools.com/contact-us",
+  "description": "GSI Schools & Academy! Check our FAQs first, then fill the form below for questions about admissions, fees, academy coaching, skills courses or anything else!",
+  "isPartOf": {
+    "@type": "EducationalOrganization",
+    "@id": "https://gsischools.com/#organization"
   },
-  "areaServed": [
-    {
-      "@type": "Country",
-      "name": "Pakistan"
-    }
-  ],
-  "sameAs": [
-    "https://www.facebook.com/people/Guiding-Star-International-School/61568131737424/",
-    "https://www.instagram.com/guidingstarschools",
-    "https://www.tiktok.com/@guiding.star.scho"
-  ],
-  "knowsAbout": [
-    "Artificial Intelligence",
-    "Robotics",
-    "Cybersecurity",
-    "Web Development",
-    "Php/Laravel",
-    "English Language Education"
-  ],
-  "offers": {
-    "@type": "OfferCatalog",
-    "name": "Educational Programs",
-    "itemListElement": [
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "EducationalOccupationalProgram",
-          "name": "School Program (Mont Junior to Grade 10)",
-          "description": "Holistic education focusing on curiosity, confidence, discipline, creativity, and character building."
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "EducationalOccupationalProgram",
-          "name": "Academy Coaching (up to Grade 12)",
-          "description": "Board exam support with specialized training in AI, Cybersecurity, Web Development, and future-ready skills."
-        }
-      }
-    ]
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "customer service",
+    "areaServed": "Pakistan",
+    "availableLanguage": ["English", "Urdu"]
   }
 }
 </script>
+    @endverbatim
+    <!-- Open Graph / Facebook -->
+<meta property="og:title" content="GSI Schools & Academy – Contact Us" />
+<meta property="og:description" content="GSI Schools & Academy! Questions about admissions, fees or academy? Check FAQs then fill the form below. Quick reply guaranteed!" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://gsischools.com/contact-us" />
+<meta property="og:site_name" content="GSI Schools & Academy" />
 
+<!-- Recommended OG Image (replace with your preferred contact/hero image) -->
+<meta property="og:image" content="https://gsischools.com/assets/images/gsilogo.png" />  
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="GSI Schools & Academy – Get in Touch" />
 
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="GSI Schools & Academy – Contact Us" />
+<meta name="twitter:description" content="Fill the form or reach us for admissions, academy coaching & more. Quick help from GSI!" />
+<meta name="twitter:image" content="https://gsischools.com/assets/images/gsilogo.png" />
 
-@endverbatim
+<!-- Fallback meta -->
+<meta name="description" content="GSI Schools & Academy! Have questions? Check FAQs first then fill the simple form. Quick & friendly support for admissions, fees & more!" />
+
 @endsection
+
 @section('content')
 
     <section class="contact-us-banner">

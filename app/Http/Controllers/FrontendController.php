@@ -32,31 +32,31 @@ class FrontendController extends Controller
         $slides = [
     [
         'title' => 'Easy Registration',
-        'image' => asset('/assets/images/gsipicn12.png'),
+        'image' => asset('/assets/images/gsipicn12.webp'),
         'alt' => 'GSI Schools Library',
         'paragraphs' => ['We make admissions simple and stress-free for both parents and students. From Play Group to Grade 10, every step is transparent and supportive.']
     ],
     [
         'title' => 'Book Your Slot',
-        'image' => asset('/assets/images/gsipicn2.png'),
+        'image' => asset('/assets/images/gsipicn2.webp'),
         'alt' => 'GSI Schools Students',
         'paragraphs' => ['Students can book their slot and get placed at the right academic level to ensure success.']
     ],
     [
         'title' => 'Stay Connected',
-        'image' => asset('/assets/images/gsipicn7.png'),
+        'image' => asset('/assets/images/gsipicn7.webp'),
         'alt' => 'GSI Schools Class',
         'paragraphs' => ['We keep parents updated through progress reports, meetings, and online systems.']
     ],
     [
         'title' => 'Mutual Growth',
-        'image' => asset('/assets/images/gsipic18.png'),
+        'image' => asset('/assets/images/gsipic18.webp'),
         'alt' => 'Guiding Star International',
         'paragraphs' => ['Teachers, parents, and students work together to build confidence and growth.']
     ],
     [
         'title' => 'Our Commitment',
-        'image' => asset('/assets/images/gsipicn11.png'),
+        'image' => asset('/assets/images/gsipicn11.webp'),
         'alt' => 'GSI Schools Shelves & Chair',
         'paragraphs' => ['We provide a safe learning environment and prepare students for life, not just exams.']
     ],
@@ -224,7 +224,7 @@ return view('frontend.home', compact('slides'));}
      $slides = [
     [
         'title' => 'Moments That Inspire Excellence',
-        'image' => asset('/assets/images/gsipic18.png'),
+        'image' => asset('/assets/images/gsipic18.webp'),
         'alt' => asset('GSI Banner'),
         'paragraphs' => [
             'At Guiding Star International Schools and Academy, every event is a celebration of learning and growth.',
@@ -234,7 +234,7 @@ return view('frontend.home', compact('slides'));}
     ],
     [
         'title' => 'Academic Competitions & Achievements',
-        'image' => asset('/assets/images/gsipicn9copy.png'),
+        'image' => asset('/assets/images/gsipicn9copy.webp'),
         'alt' => asset('GSI Schools Shelves & Chair '),
         'paragraphs' => [
             'We encourage students to challenge themselves through debates, quizzes, science fairs, and Olympiads.',
@@ -244,7 +244,7 @@ return view('frontend.home', compact('slides'));}
     ],
     [
         'title' => 'Cultural & Creative Events',
-        'image' => asset('/assets/images/gsipic32copy.png'),
+        'image' => asset('/assets/images/gsipic32copy.webp'),
         'alt' => asset('GSI Schools Classroom Whiteboard Lesson'),
         'paragraphs' => [
             'From annual functions to art exhibitions, creativity is celebrated at every level.',
@@ -254,7 +254,7 @@ return view('frontend.home', compact('slides'));}
     ],
     [
         'title' => 'Sports & Physical Development',
-        'image' => asset('/assets/images/gsipicn2copy.png'),
+        'image' => asset('/assets/images/gsipicn2copy.webp'),
         'alt'=> asset('GSI Schools Students'),
         'paragraphs' => [
             'Sports activities promote teamwork, discipline, and resilience.',
@@ -264,7 +264,7 @@ return view('frontend.home', compact('slides'));}
     ],
     [
         'title' => 'Leadership & Character Building',
-        'image' => asset('/assets/images/gsipic27copy.png'),
+        'image' => asset('/assets/images/gsipic27copy.webp'),
         'alt'=> asset('GSI Schools Modern Computer Lab'),
         'paragraphs' => [
             'Our events develop responsibility, confidence, and communication skills.',
@@ -273,7 +273,7 @@ return view('frontend.home', compact('slides'));}
     ],
     [
         'title' => 'Creating Lifelong Memories',
-        'image' => asset('/assets/images/gsipicn7copy.png'),
+        'image' => asset('/assets/images/gsipicn7copy.webp'),
         'alt'=> asset('GSI Schools Student Success Workshop'),
         'paragraphs' => [
             'Every event at Guiding Star International Schools and Academy leaves a lasting impact.',
@@ -290,7 +290,7 @@ return view('frontend.home', compact('slides'));}
         $slides = [
             [
                 'title' => 'Strong Foundation from the Start',
-                'image' => asset('/assets/images/gsipicn2about.png'),
+                'image' => asset('/assets/images/gsipicn2about.webp'),
                 'alt' => asset('GSI Schools Confident Student Portrait'),
                 'paragraphs' => [
                     'GSI Schools provide education from Mont Junior to Grade 10, ensuring that every child builds a strong academic and character-based foundation. Early learning, discipline, and values help students grow into confident individuals ready for the future.
@@ -300,7 +300,7 @@ return view('frontend.home', compact('slides'));}
             ],
             [
                 'title' => 'Coaching for Every Stream & Board',
-                'image' => asset('/assets/images/gsipicn7about.png'),
+                'image' => asset('/assets/images/gsipicn7about.webp'),
                 'alt' => asset('GSI Schools Student Success Workshop'),
                 'paragraphs' => [
                     'At GSI Academy, we offer expert coaching from Mont Junior to Grade 12, covering Ziauddin, Sindh, Balochistan and federal boards. Students get the right support in every subject, stream, and level — ensuring they achieve top results in their exams.
@@ -310,7 +310,7 @@ return view('frontend.home', compact('slides'));}
             ],
             [
                 'title' => 'Future-Ready Skills',
-                'image' => asset('/assets/images/gsipic33about.png'),
+                'image' => asset('/assets/images/gsipic33about.webp'),
                 'alt' => asset('GSI Schools Academic Grammar Lesson'),
                 'paragraphs' => [
                     'In today’s fast-changing world, academics alone aren’t enough. That’s why GSI Academy provides modern computer courses like AI, Cybersecurity, Web Development, and English Language Training, preparing students for careers of tomorrow.
@@ -320,7 +320,7 @@ return view('frontend.home', compact('slides'));}
             ],
             [
                 'title' => 'A Community of Growth',
-                'image' => asset('/assets/images/gsipic18about.png'),
+                'image' => asset('/assets/images/gsipic18about.webp'),
                 'alt' => asset('GSI Schools Student Group Banner'),
                 'paragraphs' => [
             
@@ -330,7 +330,7 @@ return view('frontend.home', compact('slides'));}
             ],
             [
                 'title' => 'Standing Out from the Competition',
-                'image' => asset('/assets/images/gsipicn9about.png'),
+                'image' => asset('/assets/images/gsipicn9about.webp'),
                 'alt' => asset('GSI Schools Executive Head Office'),
                 'paragraphs' => [
                     'What makes GSI different is our complete approach — combining academics, coaching, skills training, and values under one roof. While others focus only on grades, we prepare students for life by nurturing confidence, creativity, and leadership. This balance is what sets GSI apart.',
@@ -339,7 +339,7 @@ return view('frontend.home', compact('slides'));}
             ],
             [
                 'title' => 'Our commitment',
-                'image' => asset('/assets/images/gsipicn12about.png'),
+                'image' => asset('/assets/images/gsipicn12about.webp'),
                 'alt' => asset('GSI Schools Admission Reception Desk'),
                 'paragraphs' => [
                     'A smooth, secure, and user-friendly experience — from booking to conversation. We handle the logistics so you can focus on what matters: the questions and the connection.',
