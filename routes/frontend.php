@@ -15,3 +15,4 @@ Route::get('/faqs', [FrontendController::class, 'faqs'])->name('frontend.faqs');
 Route::get('/privacy-policy', [FrontendController::class, 'privacyPolicy'])->name('frontend.privacy-policy');
 Route::get('/contact-us', [FrontendController::class, 'contactUs'])->name('frontend.contact-us');
 Route::view('register2','frontend.register2');
+Route::view('oldregister','frontend.oldregister');

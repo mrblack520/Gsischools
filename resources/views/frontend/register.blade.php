@@ -157,7 +157,14 @@
                                     <input type="number" class="form-control" id="phone_number" name="phone_number"
                                         placeholder=" Enter Your Phone Number" required>
                                 </div>
-
+                                <div class="col-md-6">
+                                    <label class="form-label">Password *</label>
+                                    <input type="password" class="form-control" name="password" placeholder="Enter Password" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Confirm Password *</label>
+                                    <input type="password" class="form-control" name="password_confirm" placeholder="Confirm Password" required>
+                                </div>
                                 <div class="col-md-6">
                                     <label class="form-label">Religion</label>
                                     <select class="form-select" name="religion">
@@ -249,12 +256,16 @@
         e.preventDefault();
         hideError();
 
-        const name            = document.getElementById('name').value.trim();
-        const email           = document.getElementById('email').value.trim();
-        const password        = document.getElementById('password').value.trim();
-        const password_confirm = document.getElementById('password_confirm').value.trim();
+        const first_name       = document.querySelector('[name="first_name"]').value.trim();
+        const last_name        = document.querySelector('[name="last_name"]').value.trim();
+        const email            = document.querySelector('[name="email_address"]').value.trim();
+        const password         = document.querySelector('[name="password"]').value.trim();
+        const password_confirm = document.querySelector('[name="password_confirm"]').value.trim();
 
-        if (!name || !email || !password || !password_confirm) {
+        // Combine first + last name into "name" for the API
+        const name = (first_name + ' ' + last_name).trim();
+
+        if (!first_name || !last_name || !email || !password || !password_confirm) {
             showError('Please fill in all fields!');
             return;
         }
@@ -279,10 +290,8 @@
                 credentials: 'include'
             });
 
-            // Pehle text lo
             const responseText = await response.text();
 
-            // Phir safely JSON parse karo
             let data;
             try {
                 data = JSON.parse(responseText);
@@ -325,7 +334,6 @@
                 }
 
             } else {
-                // Registration failed
                 showError(data.message || 'Registration failed! Please try again.');
                 btn.disabled    = false;
                 btn.textContent = 'Register';
