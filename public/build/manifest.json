@@ -1,73 +1,69 @@
 {
-  "public/assets/images/arrow-right-dark.png": {
-    "file": "assets/arrow-right-dark-D5tkU5lk.png",
-    "src": "public/assets/images/arrow-right-dark.png"
+  "public/assets/images/chain.webp": {
+    "file": "assets/chain-D30CW1Ce.webp",
+    "src": "public/assets/images/chain.webp"
   },
-  "public/assets/images/chain.png": {
-    "file": "assets/chain-9ROSMcj4.png",
-    "src": "public/assets/images/chain.png"
-  },
-  "public/assets/images/chat.png": {
-    "file": "assets/chat-BY_7Kwb5.png",
-    "src": "public/assets/images/chat.png"
+  "public/assets/images/chat.webp": {
+    "file": "assets/chat-Bl69kWw4.webp",
+    "src": "public/assets/images/chat.webp"
   },
   "public/assets/images/dark-bullets.svg": {
     "file": "assets/dark-bullets-Ck83vl3w.svg",
     "src": "public/assets/images/dark-bullets.svg"
   },
-  "public/assets/images/dark-tick.png": {
-    "file": "assets/dark-tick-BL4XH91W.png",
-    "src": "public/assets/images/dark-tick.png"
+  "public/assets/images/dark-tick.webp": {
+    "file": "assets/dark-tick-DKLnU542.webp",
+    "src": "public/assets/images/dark-tick.webp"
   },
-  "public/assets/images/filter.png": {
-    "file": "assets/filter-oCvLfBeq.png",
-    "src": "public/assets/images/filter.png"
+  "public/assets/images/filter.webp": {
+    "file": "assets/filter-D6fS0okG.webp",
+    "src": "public/assets/images/filter.webp"
   },
-  "public/assets/images/gsipic11copy3.png": {
-    "file": "assets/gsipic11copy3-BlkWyGS9.png",
-    "src": "public/assets/images/gsipic11copy3.png"
+  "public/assets/images/gsipic11copy3.webp": {
+    "file": "assets/gsipic11copy3-DGImVHGC.webp",
+    "src": "public/assets/images/gsipic11copy3.webp"
   },
-  "public/assets/images/gsipic27copy2.png": {
-    "file": "assets/gsipic27copy2-C6MhgcTI.png",
-    "src": "public/assets/images/gsipic27copy2.png"
+  "public/assets/images/gsipic27copy2.webp": {
+    "file": "assets/gsipic27copy2-D8A-Xz7-.webp",
+    "src": "public/assets/images/gsipic27copy2.webp"
   },
-  "public/assets/images/gsipic9copy1.png": {
-    "file": "assets/gsipic9copy1-Br9oZC6D.png",
-    "src": "public/assets/images/gsipic9copy1.png"
+  "public/assets/images/gsipic9copy1.webp": {
+    "file": "assets/gsipic9copy1-DiE9UlS7.webp",
+    "src": "public/assets/images/gsipic9copy1.webp"
   },
-  "public/assets/images/handle-multi-tasks.png": {
-    "file": "assets/handle-multi-tasks-CJw9PT5c.png",
-    "src": "public/assets/images/handle-multi-tasks.png"
+  "public/assets/images/handle-multi-tasks.webp": {
+    "file": "assets/handle-multi-tasks-CNwjRSBS.webp",
+    "src": "public/assets/images/handle-multi-tasks.webp"
   },
-  "public/assets/images/ng-3.png": {
-    "file": "assets/ng-3-CUBmKNDI.png",
-    "src": "public/assets/images/ng-3.png"
+  "public/assets/images/ng-3.webp": {
+    "file": "assets/ng-3-BWwEAKiR.webp",
+    "src": "public/assets/images/ng-3.webp"
   },
   "public/assets/images/video-chat-img.webp": {
-    "file": "assets/video-chat-img-C49wlAQ1.webp",
+    "file": "assets/video-chat-img-BVGl5Maq.webp",
     "src": "public/assets/images/video-chat-img.webp"
   },
   "public/assets/images/young-man-wearing-headphones.webp": {
-    "file": "assets/young-man-wearing-headphones-DQAMYnxl.webp",
+    "file": "assets/young-man-wearing-headphones-CZAvH8LN.webp",
     "src": "public/assets/images/young-man-wearing-headphones.webp"
   },
   "public/assets/images/young-woman-sits-cafe.webp": {
-    "file": "assets/young-woman-sits-cafe-C4R22q6Q.webp",
+    "file": "assets/young-woman-sits-cafe-BPYJRjiF.webp",
     "src": "public/assets/images/young-woman-sits-cafe.webp"
   },
   "resources/css/app-legacy.css": {
-    "file": "assets/app-legacy-DC2AVRFI.js",
+    "file": "assets/app-legacy-0WkIrulV.js",
     "name": "app",
     "src": "resources/css/app-legacy.css",
     "isEntry": true
   },
   "resources/css/app.css": {
-    "file": "assets/app-BdYMfglR.css",
+    "file": "assets/app-BpV0eP36.css",
     "src": "resources/css/app.css",
     "isEntry": true
   },
   "resources/css/style-legacy.css": {
-    "file": "assets/style-legacy-D795QToF.js",
+    "file": "assets/style-legacy-wGSUtrIj.js",
     "name": "style",
     "src": "resources/css/style-legacy.css",
     "isEntry": true,
@@ -84,12 +80,11 @@
       "assets/tick-light-DorUqsIK.png",
       "assets/plus-DH-DoNCd.png",
       "assets/minus-DMCZXzPn.png",
-      "assets/login-side-img-CVpSnAPd.png",
-      "assets/arrow-right-dark-D5tkU5lk.png"
+      "assets/login-side-img-CVpSnAPd.png"
     ]
   },
   "resources/css/style.css": {
-    "file": "assets/style-Bv9UFakK.css",
+    "file": "assets/style-CLfCO33l.css",
     "src": "resources/css/style.css",
     "isEntry": true
   },
@@ -150,48 +145,48 @@
     "src": "resources/images/tick-light.png"
   },
   "resources/js/app-legacy.js": {
-    "file": "assets/app-legacy-BORa82tx.js",
+    "file": "assets/app-legacy-zuTvyRDW.js",
     "name": "app",
     "src": "resources/js/app-legacy.js",
     "isEntry": true,
     "assets": [
-      "assets/chat-BY_7Kwb5.png",
-      "assets/filter-oCvLfBeq.png",
-      "assets/chain-9ROSMcj4.png",
-      "assets/video-chat-img-C49wlAQ1.webp",
+      "assets/chain-D30CW1Ce.webp",
+      "assets/filter-D6fS0okG.webp",
+      "assets/chat-Bl69kWw4.webp",
       "assets/dark-bullets-Ck83vl3w.svg",
-      "assets/young-woman-sits-cafe-C4R22q6Q.webp",
-      "assets/dark-tick-BL4XH91W.png",
-      "assets/handle-multi-tasks-CJw9PT5c.png",
-      "assets/young-man-wearing-headphones-DQAMYnxl.webp",
-      "assets/gsipic9copy1-Br9oZC6D.png",
-      "assets/gsipic11copy3-BlkWyGS9.png",
-      "assets/gsipic27copy2-C6MhgcTI.png",
-      "assets/ng-3-CUBmKNDI.png"
+      "assets/gsipic9copy1-DiE9UlS7.webp",
+      "assets/dark-tick-DKLnU542.webp",
+      "assets/gsipic11copy3-DGImVHGC.webp",
+      "assets/gsipic27copy2-D8A-Xz7-.webp",
+      "assets/young-woman-sits-cafe-BPYJRjiF.webp",
+      "assets/handle-multi-tasks-CNwjRSBS.webp",
+      "assets/young-man-wearing-headphones-CZAvH8LN.webp",
+      "assets/video-chat-img-BVGl5Maq.webp",
+      "assets/ng-3-BWwEAKiR.webp"
     ]
   },
   "resources/js/app.js": {
-    "file": "assets/app-DvxC-q5b.js",
+    "file": "assets/app-ByUhqQj_.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
     "css": [
-      "assets/app-C5CalS03.css"
+      "assets/app-BYRe42Yu.css"
     ],
     "assets": [
-      "assets/chat-BY_7Kwb5.png",
-      "assets/filter-oCvLfBeq.png",
-      "assets/chain-9ROSMcj4.png",
-      "assets/video-chat-img-C49wlAQ1.webp",
+      "assets/chain-D30CW1Ce.webp",
+      "assets/filter-D6fS0okG.webp",
+      "assets/chat-Bl69kWw4.webp",
       "assets/dark-bullets-Ck83vl3w.svg",
-      "assets/young-woman-sits-cafe-C4R22q6Q.webp",
-      "assets/dark-tick-BL4XH91W.png",
-      "assets/handle-multi-tasks-CJw9PT5c.png",
-      "assets/young-man-wearing-headphones-DQAMYnxl.webp",
-      "assets/gsipic9copy1-Br9oZC6D.png",
-      "assets/gsipic11copy3-BlkWyGS9.png",
-      "assets/gsipic27copy2-C6MhgcTI.png",
-      "assets/ng-3-CUBmKNDI.png"
+      "assets/gsipic9copy1-DiE9UlS7.webp",
+      "assets/dark-tick-DKLnU542.webp",
+      "assets/gsipic11copy3-DGImVHGC.webp",
+      "assets/gsipic27copy2-D8A-Xz7-.webp",
+      "assets/young-woman-sits-cafe-BPYJRjiF.webp",
+      "assets/handle-multi-tasks-CNwjRSBS.webp",
+      "assets/young-man-wearing-headphones-CZAvH8LN.webp",
+      "assets/video-chat-img-BVGl5Maq.webp",
+      "assets/ng-3-BWwEAKiR.webp"
     ]
   },
   "resources/js/partials/optional-profession-form-legacy.js": {

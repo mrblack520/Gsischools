@@ -6,7 +6,7 @@
                     <div class="img-con">
                         <div class="layer1">
                             <div class="layer2">
-                                <img src="../../../public/assets/images/chain.png" alt="Connect">
+                                <img src="../../../public/assets/images/chain.webp" alt="Connect">
                             </div>
                         </div>
                     </div>
@@ -16,7 +16,7 @@
                     <div class="img-con">
                         <div class="layer1">
                             <div class="layer2">
-                                <img src="../../../public/assets/images/filter.png" alt="Apply Filters">
+                                <img src="../../../public/assets/images/filter.webp" alt="Apply Filters">
                             </div>
                         </div>
                     </div>
@@ -26,7 +26,7 @@
                     <div class="img-con">
                         <div class="layer1">
                             <div class="layer2">
-                                <img src="../../../public/assets/images/chat.png" alt="Video chat">
+                                <img src="../../../public/assets/images/chat.webp" alt="Video chat">
                             </div>
                         </div>
                     </div>

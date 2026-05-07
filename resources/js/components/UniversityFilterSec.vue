@@ -6,7 +6,7 @@
                     <div class="img-con">
                         <div class="layer1">
                             <div class="layer2">
-                                <img src="../../../public/assets/images/chain.png" alt="Connect">
+                                <img src="../../../public/assets/images/chain.webp" alt="Connect">
                             </div>
                         </div>
                     </div>
@@ -16,7 +16,7 @@
                     <div class="img-con">
                         <div class="layer1">
                             <div class="layer2">
-                                <img src="../../../public/assets/images/filter.png" alt="Apply Filters">
+                                <img src="../../../public/assets/images/filter.webp" alt="Apply Filters">
                             </div>
                         </div>
                     </div>
@@ -26,7 +26,7 @@
                     <div class="img-con">
                         <div class="layer1">
                             <div class="layer2">
-                                <img src="../../../public/assets/images/chat.png" alt="Video chat">
+                                <img src="../../../public/assets/images/chat.webp" alt="Video chat">
                             </div>
                         </div>
                     </div>
@@ -68,21 +68,21 @@
                     <h3>Apply <span>Filter</span></h3>
                     <p class="para">The Next Gen can apply filters to discover the right Aficionado.</p>
                     <ul>
-                        <li><img src="../../../public/assets/images/dark-tick.png" alt="tick"> Universities</li>
-                        <li><img src="../../../public/assets/images/dark-tick.png" alt="tick"> Courses</li>
-                        <li><img src="../../../public/assets/images/dark-tick.png" alt="tick"> Level</li>
-                        <li><img src="../../../public/assets/images/dark-tick.png" alt="tick"> Accommodation experience</li>
-                        <li><img src="../../../public/assets/images/dark-tick.png" alt="tick"> Languages</li>
-                        <li><img src="../../../public/assets/images/dark-tick.png" alt="tick"> Age</li>
-                        <li><img src="../../../public/assets/images/dark-tick.png" alt="tick"> Gender</li>
-                        <li><img src="../../../public/assets/images/dark-tick.png" alt="tick"> Location</li>
-                        <li><img src="../../../public/assets/images/dark-tick.png" alt="tick"> Rate</li>
+                        <li><img src="../../../public/assets/images/dark-tick.webp" alt="tick"> Universities</li>
+                        <li><img src="../../../public/assets/images/dark-tick.webp" alt="tick"> Courses</li>
+                        <li><img src="../../../public/assets/images/dark-tick.webp" alt="tick"> Level</li>
+                        <li><img src="../../../public/assets/images/dark-tick.webp" alt="tick"> Accommodation experience</li>
+                        <li><img src="../../../public/assets/images/dark-tick.webp" alt="tick"> Languages</li>
+                        <li><img src="../../../public/assets/images/dark-tick.webp" alt="tick"> Age</li>
+                        <li><img src="../../../public/assets/images/dark-tick.webp" alt="tick"> Gender</li>
+                        <li><img src="../../../public/assets/images/dark-tick.webp" alt="tick"> Location</li>
+                        <li><img src="../../../public/assets/images/dark-tick.webp" alt="tick"> Rate</li>
                     </ul>
                 </div>
                 <div class="col-md-6 right">
                     <div class="img-con">
                         <div class="filter-bg-gradient"></div>
-                        <img src="../../../public/assets/images/handle-multi-tasks.png" alt="">
+                        <img src="../../../public/assets/images/handle-multi-tasks.webp" alt="">
                     </div>
                 </div>
             </div>
@@ -95,12 +95,12 @@
                         the questions and seek the guidance they need, with complete flexibility on the timing and the
                         topics to be discussed, including*:</p>
                     <ul>
-                        <li><img src="../../../public/assets/images/dark-tick.png" alt="tick">Applications and interview tips </li>
-                        <li><img src="../../../public/assets/images/dark-tick.png" alt="tick">University and course structure </li>
-                        <li><img src="../../../public/assets/images/dark-tick.png" alt="tick">Transition to university</li>
-                        <li><img src="../../../public/assets/images/dark-tick.png" alt="tick">Campus culture and social experience
+                        <li><img src="../../../public/assets/images/dark-tick.webp" alt="tick">Applications and interview tips </li>
+                        <li><img src="../../../public/assets/images/dark-tick.webp" alt="tick">University and course structure </li>
+                        <li><img src="../../../public/assets/images/dark-tick.webp" alt="tick">Transition to university</li>
+                        <li><img src="../../../public/assets/images/dark-tick.webp" alt="tick">Campus culture and social experience
                         </li>
-                        <li><img src="../../../public/assets/images/dark-tick.png" alt="tick">and much more!</li>
+                        <li><img src="../../../public/assets/images/dark-tick.webp" alt="tick">and much more!</li>
                     </ul>
                     <p class="para3">*Aficionados have discretion on the scope of questions permitted and may set this
                         out in their profile.</p>
