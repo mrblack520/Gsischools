@@ -228,6 +228,11 @@
                                     <textarea class="form-control" rows="3" name="guardians_address" id="guardians_address"
                                         placeholder="Enter Guardian Address"></textarea>
                                 </div>
+                                <div class="text-center mt-5">
+                                    <button type="submit" class="register-btn">
+                                        <span>Complete Registration</span>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>

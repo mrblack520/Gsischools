@@ -8083,3 +8083,47 @@ video::-webkit-media-controls-time-remaining-display {
                 height: 45px;
             }
         }
+        .conreg .register-btn {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border: none;
+    color: white;
+    padding: 14px 45px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 50px;
+    letter-spacing: 0.5px;
+    transition: all 0.35s ease;
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.35);
+}
+
+.conreg .register-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(102, 126, 234, 0.45);
+}
+
+.conreg .register-btn:active {
+    transform: scale(0.97);
+}
+
+.conreg .register-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: rgba(255,255,255,0.25);
+    transform: skewX(-25deg);
+    transition: 0.6s;
+}
+
+.conreg .register-btn:hover::before {
+    left: 130%;
+}
+
+.conreg .register-btn span {
+    position: relative;
+    z-index: 2;
+}
