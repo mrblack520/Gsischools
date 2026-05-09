@@ -22,10 +22,10 @@
     </div>
 </section>
    <div class="conreg container-fluid px-5 mt-4">
-        <form class="registeration-form" id="registerForm">
-            <div class="row">
-                <div class="col-12">
-                    <div class="panel">
+        <div class="row">
+            <div class="col-12">
+                <div class="panel">
+                    <form class="registeration-form" id="registerForm">
                         <div class="card-box">
                             <div class="section-title">ACADEMIC INFORMATION</div>
 
@@ -235,10 +235,10 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
-        </form>
+        </div>
     </div>
 
 <script>
