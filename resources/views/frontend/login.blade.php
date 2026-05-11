@@ -11,7 +11,7 @@
                 <div class="form-block">
                     <div class="text-center mb-5">
                         <h3>Login to <strong>GSI</strong></h3>
-                    </div>
+                    </div> 
 
                     <form id="loginForm">
                         <div class="form-group">
