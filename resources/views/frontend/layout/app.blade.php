@@ -447,37 +447,42 @@ if (playButton && modalWrapper && video) {
         btn.textContent = 'Submitting...';
 
         try {
-            const response = await fetch('https://gsischools.com/portal/api/loginapi', {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    // ✅ Do NOT set Content-Type manually with FormData
-                    //    The browser sets it automatically with the correct boundary
-                },
-                body: formData,
-                credentials: 'include'
-            });
+    const response = await fetch('https://gsischools.com/portal/api/loginapi', {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+        },
+        body: formData,
+        credentials: 'include'
+    });
 
-            if (!response.ok) {
-                throw new Error(`Server error: ${response.status}`);
-            }
+    const rawText = await response.text(); // ✅ read ONCE
+    alert(rawText); // 👈 temporary - shows exact server response
 
-            let data;
-            try {
-                data = await response.json();
-            } catch {
-                throw new Error('Unexpected server response. Please try again.');
-            }
+    let data;
+    try {
+        data = JSON.parse(rawText);
+    } catch {
+        throw new Error('Server returned non-JSON: ' + rawText);
+    }
 
-            const rawText = await response.text();
-alert(rawText); // This will popup exact server response
+    console.log('Server response:', data);
 
-        } catch (error) {
-            console.error('Registration error:', error);
-            showError(error.message || 'Something went wrong. Please try again.');
-            btn.disabled    = false;
-            btn.textContent = 'Complete Registration';
-        }
+    if (data.status && data.auto_login_url) {
+        btn.textContent = 'Redirecting...';
+        window.location.href = data.auto_login_url;
+    } else {
+        showError(data.message || 'Registration failed. Please try again.');
+        btn.disabled    = false;
+        btn.textContent = 'Complete Registration';
+    }
+
+} catch (error) {
+    console.error('Registration error:', error);
+    showError(error.message || 'Something went wrong. Please try again.');
+    btn.disabled    = false;
+    btn.textContent = 'Complete Registration';
+}
     });
 });
 </script>
