@@ -125,7 +125,7 @@
                                         placeholder="Enter Your First Name" required>
                                 </div>
 
-                                <div class="col-md-6">
+                                <div class="col-md-6"> 
                                     <label class="form-label">Last Name *</label>
                                     <input type="text" class="form-control" name="last_name"
                                         placeholder="Enter Your Last Name" required>

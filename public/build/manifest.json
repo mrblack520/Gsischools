@@ -63,7 +63,7 @@
     "isEntry": true
   },
   "resources/css/style-legacy.css": {
-    "file": "assets/style-legacy-CnSBk2kb.js",
+    "file": "assets/style-legacy-DgUsNRKe.js",
     "name": "style",
     "src": "resources/css/style-legacy.css",
     "isEntry": true,
@@ -84,7 +84,7 @@
     ]
   },
   "resources/css/style.css": {
-    "file": "assets/style-BXQVMu4e.css",
+    "file": "assets/style-CF1V_AsO.css",
     "src": "resources/css/style.css",
     "isEntry": true
   },
@@ -145,7 +145,7 @@
     "src": "resources/images/tick-light.png"
   },
   "resources/js/app-legacy.js": {
-    "file": "assets/app-legacy-zuTvyRDW.js",
+    "file": "assets/app-legacy-CvLBOll9.js",
     "name": "app",
     "src": "resources/js/app-legacy.js",
     "isEntry": true,
@@ -166,12 +166,12 @@
     ]
   },
   "resources/js/app.js": {
-    "file": "assets/app-ByUhqQj_.js",
+    "file": "assets/app-D3_SSnhJ.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
     "css": [
-      "assets/app-BYRe42Yu.css"
+      "assets/app-BWG4wOe0.css"
     ],
     "assets": [
       "assets/chain-D30CW1Ce.webp",
