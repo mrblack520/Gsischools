@@ -178,12 +178,15 @@
                                 </div>
 
                                 <div class="col-md-6">
-                                    <label class="form-label">Student Photo</label>
-                                    <label class="upload-box">
-                                        <p>Click or Drag file here</p>
-                                        <input type="file" id="placeholderPhoto" name="photo">
-                                    </label>
-                                </div>
+  <label class="form-label">Student Photo</label>
+  <label class="upload-box" id="uploadBox" onclick="triggerInput(event)">
+    <p id="uploadText">Click or Drag file here</p>
+    <img class="upload-preview" id="previewImg" alt="preview" />
+    <button type="button" class="upload-remove" id="removeBtn" onclick="removeImage(event)">✕</button>
+    <input type="file" id="placeholderPhoto" name="photo" accept="image/*" onchange="handleFile(this)" />
+  </label>
+  <p id="fileName" style="display:none; font-size:12px; color:#888; margin-top:5px;"></p>
+</div>
 
 
                             </div>
@@ -242,6 +245,36 @@
     </div>
 
 <script>
+    function triggerInput(e) {
+    if (e.target.closest('#removeBtn')) return;
+    document.getElementById('placeholderPhoto').click();
+    }
+    function handleFile(input) {
+    const file = input.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        document.getElementById('previewImg').src = e.target.result;
+        document.getElementById('previewImg').style.display = 'block';
+        document.getElementById('uploadText').style.display = 'none';
+        document.getElementById('removeBtn').style.display = 'flex';
+        document.getElementById('fileName').style.display = 'block';
+        document.getElementById('fileName').textContent = file.name;
+        document.getElementById('uploadBox').style.border = '2px solid #4caf50';
+    };
+    reader.readAsDataURL(file);
+    }
+    function removeImage(e) {
+    e.preventDefault(); e.stopPropagation();
+    document.getElementById('previewImg').style.display = 'none';
+    document.getElementById('previewImg').src = '';
+    document.getElementById('uploadText').style.display = 'block';
+    document.getElementById('removeBtn').style.display = 'none';
+    document.getElementById('fileName').style.display = 'none';
+    document.getElementById('placeholderPhoto').value = '';
+    document.getElementById('uploadBox').style.border = '2px dashed #ccc';
+    }
+
     document.addEventListener("DOMContentLoaded", function () {
 
     const form     = document.getElementById('registerForm');
