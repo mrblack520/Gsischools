@@ -387,8 +387,6 @@ if (playButton && modalWrapper && video) {
         const date_of_birth       = form.querySelector('[name="date_of_birth"]').value;
         const email_address       = form.querySelector('[name="email_address"]').value.trim();
         const phone_number        = form.querySelector('[name="phone_number"]').value.trim();
-        const password            = form.querySelector('[name="password"]').value;
-        const password_confirm    = form.querySelector('[name="password_confirm"]').value;
         const religion            = form.querySelector('[name="religion"]').value;
 
         const guardians_name      = form.querySelector('[name="guardians_name"]').value.trim();
@@ -407,21 +405,6 @@ if (playButton && modalWrapper && video) {
 
         if (!first_name || !last_name || !gender || !date_of_birth || !phone_number) {
             showError('Please fill in all required Personal Info fields.');
-            return;
-        }
-
-        if (!password || !password_confirm) {
-            showError('Please enter and confirm your password.');
-            return;
-        }
-
-        if (password !== password_confirm) {
-            showError('Passwords do not match.');
-            return;
-        }
-
-        if (password.length < 6) {
-            showError('Password must be at least 6 characters.');
             return;
         }
 
@@ -446,7 +429,6 @@ if (playButton && modalWrapper && video) {
         formData.append('date_of_birth',        date_of_birth);
         formData.append('email_address',        email_address);
         formData.append('phone_number',         phone_number);
-        formData.append('password',             password);
         formData.append('religion',             religion);
         formData.append('guardians_name',       guardians_name);
         formData.append('relation',             relation);
