@@ -78,13 +78,13 @@
                                 <div class="col-md-6">
                                     <label class="form-label">Admission Number *</label>
                                     <input type="number" class="form-control" name="admission_number"
-                                        onkeyup="GetAdmin(this.value)" placeholder="Enter Your Admission Number" required>
+                                         placeholder="Enter Your Admission Number" required>
                                 </div>
 
                                 <div class="col-md-6">
                                     <label class="form-label">Admission Date</label>
                                     <input type="date" class="form-control" id="admission_date" name="admission_date"
-                                        value="05/05/2026">
+                                        value="2026-05-05">
                                 </div>
 
                                 <div class="col-md-6">
@@ -144,11 +144,11 @@
                                 <div class="col-md-6">
                                     <label class="form-label">Date of Birth *</label>
                                     <input type="date" class="form-control" name="date_of_birth" id="date_of_birth"
-                                        value="05/05/2026" required>
+                                        value="2026-05-05" required>
                                 </div>
                                 <div class="col-md-6">
                                     <label class="form-label">Email Address</label>
-                                    <input type="email" class="form-control" oninput="emailCheck(this)" id="email_address"
+                                    <input type="email" class="form-control"  id="email_address"
                                         name="email_address" placeholder="Enter Your Email">
                                 </div>
 
@@ -157,14 +157,7 @@
                                     <input type="number" class="form-control" id="phone_number" name="phone_number"
                                         placeholder=" Enter Your Phone Number" required>
                                 </div>
-                                <div class="col-md-6">
-                                    <label class="form-label">Password *</label>
-                                    <input type="password" class="form-control" name="password" placeholder="Enter Password" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <label class="form-label">Confirm Password *</label>
-                                    <input type="password" class="form-control" name="password_confirm" placeholder="Confirm Password" required>
-                                </div>
+                                
                                 <div class="col-md-6">
                                     <label class="form-label">Religion</label>
                                     <select class="form-select" name="religion">
@@ -244,147 +237,5 @@
         </div>
     </div>
 
-<script>
-    function triggerInput(e) {
-    if (e.target.closest('#removeBtn')) return;
-    document.getElementById('placeholderPhoto').click();
-    }
-    function handleFile(input) {
-    const file = input.files[0];
-    if (!file) return;
-    const reader = new FileReader();
-    reader.onload = function(e) {
-        document.getElementById('previewImg').src = e.target.result;
-        document.getElementById('previewImg').style.display = 'block';
-        document.getElementById('uploadText').style.display = 'none';
-        document.getElementById('removeBtn').style.display = 'flex';
-        document.getElementById('fileName').style.display = 'block';
-        document.getElementById('fileName').textContent = file.name;
-        document.getElementById('uploadBox').style.border = '2px solid #4caf50';
-    };
-    reader.readAsDataURL(file);
-    }
-    function removeImage(e) {
-    e.preventDefault(); e.stopPropagation();
-    document.getElementById('previewImg').style.display = 'none';
-    document.getElementById('previewImg').src = '';
-    document.getElementById('uploadText').style.display = 'block';
-    document.getElementById('removeBtn').style.display = 'none';
-    document.getElementById('fileName').style.display = 'none';
-    document.getElementById('placeholderPhoto').value = '';
-    document.getElementById('uploadBox').style.border = '2px dashed #ccc';
-    }
 
-    document.addEventListener("DOMContentLoaded", function () {
-
-    const form     = document.getElementById('registerForm');
-    const errorMsg = document.getElementById('errorMsg');
-
-    function showError(msg) {
-        errorMsg.textContent = msg;
-        errorMsg.style.display = 'block';
-    }
-
-    function hideError() {
-        errorMsg.textContent = '';
-        errorMsg.style.display = 'none';
-    }
-
-    form.addEventListener('submit', async function(e) {
-        e.preventDefault();
-        hideError();
-
-        const first_name       = document.querySelector('[name="first_name"]').value.trim();
-        const last_name        = document.querySelector('[name="last_name"]').value.trim();
-        const email            = document.querySelector('[name="email_address"]').value.trim();
-        const password         = document.querySelector('[name="password"]').value.trim();
-        const password_confirm = document.querySelector('[name="password_confirm"]').value.trim();
-
-        // Combine first + last name into "name" for the API
-        const name = (first_name + ' ' + last_name).trim();
-
-        if (!first_name || !last_name || !email || !password || !password_confirm) {
-            showError('Please fill in all fields!');
-            return;
-        }
-
-        if (password !== password_confirm) {
-            showError('Passwords do not match!');
-            return;
-        }
-
-        const btn = form.querySelector('button[type="submit"]');
-        btn.disabled    = true;
-        btn.textContent = 'Registering...';
-
-        try {
-            const response = await fetch('https://gsischools.com/portal/api/registerapi', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept':       'application/json',
-                },
-                body: JSON.stringify({ name, email, password, password_confirm }),
-                credentials: 'include'
-            });
-
-            const responseText = await response.text();
-
-            let data;
-            try {
-                data = JSON.parse(responseText);
-            } catch(e) {
-                throw new Error('Registration failed! Invalid server response.');
-            }
-
-            if (data.status && data.auto_login_url) {
-
-                btn.textContent = 'Please wait...';
-
-                let redirected = false;
-
-                for (let i = 0; i < 5; i++) {
-
-                    await new Promise(resolve => setTimeout(resolve, 1000));
-
-                    try {
-                        const checkResponse = await fetch(data.auto_login_url, {
-                            method: 'GET',
-                            redirect: 'manual',
-                            credentials: 'include'
-                        });
-
-                        if (checkResponse.status === 302 || checkResponse.type === 'opaqueredirect') {
-                            redirected = true;
-                            window.location.href = data.auto_login_url;
-                            break;
-                        }
-
-                    } catch(err) {
-                        redirected = true;
-                        window.location.href = data.auto_login_url;
-                        break;
-                    }
-                }
-
-                if (!redirected) {
-                    window.location.href = data.auto_login_url;
-                }
-
-            } else {
-                showError(data.message || 'Registration failed! Please try again.');
-                btn.disabled    = false;
-                btn.textContent = 'Register';
-            }
-
-        } catch (error) {
-            console.error('Error:', error);
-            showError(error.message);
-            btn.disabled    = false;
-            btn.textContent = 'Register';
-        }
-    });
-
-});
-</script>
 @endsection

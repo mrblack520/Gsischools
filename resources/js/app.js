@@ -14,7 +14,7 @@ import UniversityFilterSec from './components/UniversityFilterSec.vue'
 import NextGenFilterSec from './components/NextGenFilterSec.vue'
 import AficionadoFilterSec from './components/AficionadoFilterSec.vue'
 import UniversityForm from './components/UniversityForm.vue';
-import RegisterForm from './components/auth/RegisterForm.vue';
+
 
 import SideNav from './components/SideNav.vue'
 import HomeFaqs from './components/HomeFaqs.vue'
@@ -39,7 +39,7 @@ app.component('university-filter-sec', UniversityFilterSec)
 app.component('profession-filter-sec', ProfessionFilterSec)
 app.component('aficionado-filter-sec', AficionadoFilterSec)
 app.component('user-info', UserInfo)
-app.component('register-form', RegisterForm)
+
 app.component('university-form', UniversityForm)
 app.component('side-nav', SideNav)
 app.component('login-form', LoginForm)

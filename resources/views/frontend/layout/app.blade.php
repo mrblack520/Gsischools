@@ -24,6 +24,11 @@
         @yield('content')
         @include('frontend.partials.footer')
     </div>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<!-- 2. phir slick -->
+<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
   
      <!-- Slick JS -->
@@ -315,6 +320,186 @@ if (playButton && modalWrapper && video) {
     if (modalOverlay) modalOverlay.addEventListener("click", closeModal);
 }
 
+});
+</script>
+<script>
+    function triggerInput(e) {
+    if (e.target.closest('#removeBtn')) return;
+    document.getElementById('placeholderPhoto').click();
+    }
+    function handleFile(input) {
+    const file = input.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        document.getElementById('previewImg').src = e.target.result;
+        document.getElementById('previewImg').style.display = 'block';
+        document.getElementById('uploadText').style.display = 'none';
+        document.getElementById('removeBtn').style.display = 'flex';
+        document.getElementById('fileName').style.display = 'block';
+        document.getElementById('fileName').textContent = file.name;
+        document.getElementById('uploadBox').style.border = '2px solid #4caf50';
+    };
+    reader.readAsDataURL(file);
+    }
+    function removeImage(e) {
+    e.preventDefault(); e.stopPropagation();
+    document.getElementById('previewImg').style.display = 'none';
+    document.getElementById('previewImg').src = '';
+    document.getElementById('uploadText').style.display = 'block';
+    document.getElementById('removeBtn').style.display = 'none';
+    document.getElementById('fileName').style.display = 'none';
+    document.getElementById('placeholderPhoto').value = '';
+    document.getElementById('uploadBox').style.border = '2px dashed #ccc';
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+    const form     = document.getElementById('registerForm');
+    const errorMsg = document.getElementById('errorMsg');
+
+    function showError(msg) {
+        errorMsg.textContent = msg;
+        errorMsg.style.display = 'block';
+    }
+
+    function hideError() {
+        errorMsg.textContent = '';
+        errorMsg.style.display = 'none';
+    }
+
+    form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        hideError();
+
+        // ── Field References ──────────────────────────────────────────
+        const academic_year       = form.querySelector('[name="academic"]').value;
+        const class_name          = form.querySelector('[name="class"]').value;
+        const section             = form.querySelector('[name="section"]').value;
+        const admission_number    = form.querySelector('[name="admission_number"]').value.trim();
+        const admission_date      = form.querySelector('[name="admission_date"]').value;
+        const roll_number         = form.querySelector('[name="roll_number"]').value.trim();
+        const group               = form.querySelector('[name="group"]').value;
+        const shift               = form.querySelector('[name="shift"]').value;
+
+        const first_name          = form.querySelector('[name="first_name"]').value.trim();
+        const last_name           = form.querySelector('[name="last_name"]').value.trim();
+        const gender              = form.querySelector('[name="gender"]').value;
+        const date_of_birth       = form.querySelector('[name="date_of_birth"]').value;
+        const email_address       = form.querySelector('[name="email_address"]').value.trim();
+        const phone_number        = form.querySelector('[name="phone_number"]').value.trim();
+        const password            = form.querySelector('[name="password"]').value;
+        const password_confirm    = form.querySelector('[name="password_confirm"]').value;
+        const religion            = form.querySelector('[name="religion"]').value;
+
+        const guardians_name      = form.querySelector('[name="guardians_name"]').value.trim();
+        const relation            = form.querySelector('[name="relation"]').value.trim();
+        const guardians_email     = form.querySelector('[name="guardians_email"]').value.trim();
+        const guardians_phone     = form.querySelector('[name="guardians_phone"]').value.trim();
+        const guardians_occupation= form.querySelector('[name="guardians_occupation"]').value.trim();
+        const guardians_address   = form.querySelector('[name="guardians_address"]').value.trim();
+        const photo               = form.querySelector('[name="photo"]').files[0];
+
+        // ── Validations ───────────────────────────────────────────────
+        if (!academic_year || !class_name || !section || !admission_number) {
+            showError('Please fill in all required Academic fields.');
+            return;
+        }
+
+        if (!first_name || !last_name || !gender || !date_of_birth || !phone_number) {
+            showError('Please fill in all required Personal Info fields.');
+            return;
+        }
+
+        if (!password || !password_confirm) {
+            showError('Please enter and confirm your password.');
+            return;
+        }
+
+        if (password !== password_confirm) {
+            showError('Passwords do not match.');
+            return;
+        }
+
+        if (password.length < 6) {
+            showError('Password must be at least 6 characters.');
+            return;
+        }
+
+        if (!guardians_phone) {
+            showError('Guardian\'s phone number is required.');
+            return;
+        }
+
+        // ── Build FormData (supports file upload) ─────────────────────
+        const formData = new FormData();
+        formData.append('academic_year',        academic_year);
+        formData.append('class',                class_name);
+        formData.append('section',              section);
+        formData.append('admission_number',     admission_number);
+        formData.append('admission_date',       admission_date);
+        formData.append('roll_number',          roll_number);
+        formData.append('group',                group);
+        formData.append('shift',                shift);
+        formData.append('first_name',           first_name);
+        formData.append('last_name',            last_name);
+        formData.append('gender',               gender);
+        formData.append('date_of_birth',        date_of_birth);
+        formData.append('email_address',        email_address);
+        formData.append('phone_number',         phone_number);
+        formData.append('password',             password);
+        formData.append('religion',             religion);
+        formData.append('guardians_name',       guardians_name);
+        formData.append('relation',             relation);
+        formData.append('guardians_email',      guardians_email);
+        formData.append('guardians_phone',      guardians_phone);
+        formData.append('guardians_occupation', guardians_occupation);
+        formData.append('guardians_address',    guardians_address);
+        if (photo) formData.append('photo',     photo);
+
+        // ── Submit ────────────────────────────────────────────────────
+        const btn = form.querySelector('button[type="submit"]');
+        btn.disabled   = true;
+        btn.textContent = 'Submitting...';
+
+        try {
+            const response = await fetch('https://gsischools.com/portal/api/loginapi', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    // ✅ Do NOT set Content-Type manually with FormData
+                    //    The browser sets it automatically with the correct boundary
+                },
+                body: formData,
+                credentials: 'include'
+            });
+
+            if (!response.ok) {
+                throw new Error(`Server error: ${response.status}`);
+            }
+
+            let data;
+            try {
+                data = await response.json();
+            } catch {
+                throw new Error('Unexpected server response. Please try again.');
+            }
+
+            if (data.status && data.auto_login_url) {
+                btn.textContent = 'Redirecting...';
+                window.location.href = data.auto_login_url;
+            } else {
+                showError(data.message || 'Registration failed. Please try again.');
+                btn.disabled    = false;
+                btn.textContent = 'Complete Registration';
+            }
+
+        } catch (error) {
+            console.error('Registration error:', error);
+            showError(error.message || 'Something went wrong. Please try again.');
+            btn.disabled    = false;
+            btn.textContent = 'Complete Registration';
+        }
+    });
 });
 </script>
 </body>
