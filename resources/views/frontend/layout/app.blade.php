@@ -457,7 +457,6 @@ if (playButton && modalWrapper && video) {
     });
 
     const rawText = await response.text(); // ✅ read ONCE
-    alert(rawText); // 👈 temporary - shows exact server response
 
     let data;
     try {
