@@ -469,14 +469,8 @@ if (playButton && modalWrapper && video) {
                 throw new Error('Unexpected server response. Please try again.');
             }
 
-            if (data.status && data.auto_login_url) {
-                btn.textContent = 'Redirecting...';
-                window.location.href = data.auto_login_url;
-            } else {
-                showError(data.message || 'Registration failed. Please try again.');
-                btn.disabled    = false;
-                btn.textContent = 'Complete Registration';
-            }
+            const rawText = await response.text();
+alert(rawText); // This will popup exact server response
 
         } catch (error) {
             console.error('Registration error:', error);

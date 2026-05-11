@@ -171,17 +171,15 @@
                                 </div>
 
                                 <div class="col-md-6">
-  <label class="form-label">Student Photo</label>
-  <label class="upload-box" id="uploadBox" onclick="triggerInput(event)">
-    <p id="uploadText">Click or Drag file here</p>
-    <img class="upload-preview" id="previewImg" alt="preview" />
-    <button type="button" class="upload-remove" id="removeBtn" onclick="removeImage(event)">✕</button>
-    <input type="file" id="placeholderPhoto" name="photo" accept="image/*" onchange="handleFile(this)" />
-  </label>
-  <p id="fileName" style="display:none; font-size:12px; color:#888; margin-top:5px;"></p>
-</div>
-
-
+                                    <label class="form-label">Student Photo</label>
+                                    <label class="upload-box" id="uploadBox" onclick="triggerInput(event)">
+                                        <p id="uploadText">Click or Drag file here</p>
+                                        <img class="upload-preview" id="previewImg" alt="preview" />
+                                        <button type="button" class="upload-remove" id="removeBtn" onclick="removeImage(event)">✕</button>
+                                        <input type="file" id="placeholderPhoto" name="photo" accept="image/*" onchange="handleFile(this)" />
+                                    </label>
+                                    <p id="fileName" style="display:none; font-size:12px; color:#888; margin-top:5px;"></p>
+                                </div>
                             </div>
                             <div class="section-title">GUARDIAN INFO</div>
                             <!-- Name & Relation -->
