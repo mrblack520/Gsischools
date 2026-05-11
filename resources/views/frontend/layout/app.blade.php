@@ -355,14 +355,17 @@ if (playButton && modalWrapper && video) {
 
     document.addEventListener("DOMContentLoaded", function () {
     const form     = document.getElementById('registerForm');
-    const errorMsg = document.getElementById('errorMsg');
 
     function showError(msg) {
+        const errorMsg = document.getElementById('errorMsg');
+        if (!errorMsg) return;
         errorMsg.textContent = msg;
         errorMsg.style.display = 'block';
     }
 
     function hideError() {
+        const errorMsg = document.getElementById('errorMsg');
+        if (!errorMsg) return;
         errorMsg.textContent = '';
         errorMsg.style.display = 'none';
     }
