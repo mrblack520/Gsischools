@@ -21,6 +21,7 @@ class VerifyCsrfToken extends Middleware
     protected $except = [
         '/install/*','payment_gateway_success_callback/PhonePe*',
         '/ssl-commerz/*',
-           'portal/api/loginapi'
+           'portal/api/loginapi',
+           'api/student-register',
     ];
 }
