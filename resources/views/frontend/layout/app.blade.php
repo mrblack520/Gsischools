@@ -447,16 +447,17 @@ if (playButton && modalWrapper && video) {
         btn.textContent = 'Submitting...';
 
         try {
-    const response = await fetch('https://gsischools.com/portal/api/loginapi', {
-        method: 'POST',
-        headers: {
-            'Accept': 'application/json',
-        },
-        body: formData,
-        credentials: 'include'
-    });
+  const response = await fetch('https://gsischools.com/portal/student-store', {
+    method: 'POST',
+    headers: {
+        'Accept': 'application/json',
+        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')?.content || '',
+    },
+    body: formData,
+    credentials: 'include'
+});
 
-    const rawText = await response.text(); // ✅ read ONCE
+    const rawText = await response.text(); 
 
     let data;
     try {
