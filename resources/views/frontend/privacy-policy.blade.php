@@ -50,7 +50,7 @@
 
     <section class="contact-us-banner">
         <div class="text-center">
-            <h2>GSI Schools & Academy <span>Policies</span></h2>
+            <h1>GSI Schools & Academy <span>Policies</span></h1>
         </div>
     </section>
 
