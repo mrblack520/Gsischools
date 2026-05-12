@@ -93,3 +93,7 @@ Route::get('migrate', function () {
 
 Route::post('editor/upload-file', 'UploadFileController@upload_image');
 // Route::get('hide-routes',[HomeController::class,'hideRoute']);
+// web.php mai add karo - CSRF ke baghair
+Route::post('public/student-register', [
+    \App\Http\Controllers\Api\StudentRegistrationController::class, 'store'
+])->withoutMiddleware([\App\Http\Middleware\VerifyCsrfToken::class]);
