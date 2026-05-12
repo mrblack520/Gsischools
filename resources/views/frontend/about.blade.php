@@ -145,10 +145,10 @@
                 </div>
                 <div class="col-md-6 left">
 
-                    <h2>
+                    <h1>
                         <br class="d-md-none">
                         The GSI <span>Vision</span>
-                    </h2>
+                    </h1>
 
                     <ul>
                         <li><img src="./assets/images/dark-bullets.svg" alt="bullets"><span>At GSI Schools, we nurture

@@ -6560,7 +6560,7 @@ input::-webkit-inner-spin-button {
     left: 86px;
 }
 
-.about-university-sec h2 {
+.about-university-sec h1 {
     margin-top: 0;
 }
 
@@ -6588,12 +6588,12 @@ input::-webkit-inner-spin-button {
     gap: 10px;
 }
 
-.about-expert-area h2 {
+.about-expert-area h1 {
     font-size: 60px;
     margin-bottom: 6px;
 }
 @media(max-width:768px){
-    .about-expert-area h2{
+    .about-expert-area h1{
         font-size: 30px;
     }
 }
