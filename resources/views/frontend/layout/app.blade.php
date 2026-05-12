@@ -418,28 +418,27 @@ if (playButton && modalWrapper && video) {
 
         // ── Build FormData (supports file upload) ─────────────────────
         const formData = new FormData();
-        formData.append('academic_year',        academic_year);
-        formData.append('class',                class_name);
-        formData.append('section',              section);
-        formData.append('admission_number',     admission_number);
-        formData.append('admission_date',       admission_date);
-        formData.append('roll_number',          roll_number);
-        formData.append('group',                group);
-        formData.append('shift',                shift);
-        formData.append('first_name',           first_name);
-        formData.append('last_name',            last_name);
-        formData.append('gender',               gender);
-        formData.append('date_of_birth',        date_of_birth);
-        formData.append('email_address',        email_address);
-        formData.append('phone_number',         phone_number);
-        formData.append('religion',             religion);
-        formData.append('guardians_name',       guardians_name);
-        formData.append('relation',             relation);
-        formData.append('guardians_email',      guardians_email);
-        formData.append('guardians_phone',      guardians_phone);
-        formData.append('guardians_occupation', guardians_occupation);
-        formData.append('guardians_address',    guardians_address);
-        if (photo) formData.append('photo',     photo);
+formData.append('session',            academic_year);
+formData.append('class_id',           class_name);
+formData.append('section_id',         section);
+formData.append('admission_number',   admission_number);
+formData.append('admission_date',     admission_date);
+formData.append('roll_number',        roll_number);
+formData.append('group',              group);
+formData.append('shift',              shift);
+formData.append('first_name',         first_name);
+formData.append('last_name',          last_name);
+formData.append('gender',             gender);
+formData.append('date_of_birth',      date_of_birth);
+formData.append('email',              email_address);
+formData.append('contact_number',     phone_number);
+formData.append('religion',           religion);
+formData.append('guardian_name',      guardians_name);
+formData.append('joinned_as',         relation);
+formData.append('guardian_email',     guardians_email);
+formData.append('guardian_phone',     guardians_phone);
+formData.append('guardian_address',   guardians_address);
+if (photo) formData.append('photo',   photo);
 
         // ── Submit ────────────────────────────────────────────────────
         const btn = form.querySelector('button[type="submit"]');
@@ -447,7 +446,7 @@ if (playButton && modalWrapper && video) {
         btn.textContent = 'Submitting...';
 
         try {
-  const response = await fetch('https://gsischools.com/portal/student-store', {
+  const response = await fetch('https://gsischools.com/portal/api/student-register', {
     method: 'POST',
     headers: {
         'Accept': 'application/json',
@@ -468,14 +467,19 @@ if (playButton && modalWrapper && video) {
 
     console.log('Server response:', data);
 
-    if (data.status && data.auto_login_url) {
-        btn.textContent = 'Redirecting...';
-        window.location.href = data.auto_login_url;
-    } else {
-        showError(data.message || 'Registration failed. Please try again.');
-        btn.disabled    = false;
-        btn.textContent = 'Complete Registration';
-    }
+    if (data.status === true) {
+    btn.textContent = 'Registered!';
+    showError(''); // error clear karo
+    // success message dikhao
+    alert('Registration Successful! Student: ' + data.student.full_name);
+    form.reset(); // form clear karo
+    btn.disabled = false;
+    btn.textContent = 'Complete Registration';
+} else {
+    showError(data.message || 'Registration failed. Please try again.');
+    btn.disabled = false;
+    btn.textContent = 'Complete Registration';
+}
 
 } catch (error) {
     console.error('Registration error:', error);
