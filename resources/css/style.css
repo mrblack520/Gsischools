@@ -2837,7 +2837,7 @@ section {
     padding: 60px 0;
 }
 
-.uni-sub-banner h2 {
+.uni-sub-banner h1 {
     font-weight: 400;
     font-size: 51px;
     line-height: 59px;
@@ -2848,12 +2848,12 @@ section {
 }
 
 @media(max-width:768px){
-    .uni-sub-banner h2 {
+    .uni-sub-banner h1 {
             font-size: 37px;
     }
 }
 
-.uni-sub-banner h2 span {
+.uni-sub-banner h1 span {
     font-weight: 600;
     font-size: 70px;
     line-height: 59px;
@@ -2871,7 +2871,7 @@ section {
     margin: 100px 0 55px;
 }
 
-.inner-uni-area h3 {
+.inner-uni-area h2 {
     font-size: 40px;
     color: var(--color-secondary-dark);
     font-weight: 600;
@@ -2880,15 +2880,15 @@ section {
     margin-bottom: 16px;
 }
 
-.aficianado-sub-banner .inner-uni-area h3 {
+.aficianado-sub-banner .inner-uni-area h2 {
     font-weight: 400;
 }
 
-.aficianado-sub-banner .inner-uni-area h3 span {
+.aficianado-sub-banner .inner-uni-area h2 span {
     font-weight: 600;
 }
 
-.aficionado-sub-banner h3 {
+.aficionado-sub-banner h2 {
     font-family: "Lato";
     font-weight: 500;
     font-size: 26px;
@@ -2898,7 +2898,7 @@ section {
     margin: 0;
 }
 
-.aficionado-sub-banner h3 span {
+.aficionado-sub-banner h2 span {
     font-weight: 800;
 }
 

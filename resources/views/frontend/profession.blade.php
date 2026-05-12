@@ -48,13 +48,13 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h2 class="sub-banner-heading"><span>Where Guidance </span> Meets Excellence</h2>
+                <h1 class="sub-banner-heading"><span>Where Guidance </span> Meets Excellence</h1>
             </div>
             <div class="inner-uni-area">
                 <div class="col-md-6 left">
                     <img class="img" src="/assets/images/uni-3.webp" alt="">
                     <div class="div">
-                        <h3>🎓 School</h3>
+                        <h2>🎓 School</h2>
                         <p> <strong>Celebrating Student Life
                             </strong><br>
 
@@ -73,7 +73,7 @@
                 <div class="col-md-6 right">
                     <img class="img" src="/assets/images/university-area-right-img.svg" alt="GSI Schools purple fluid">
                     <div class="div">
-                        <h3>🏫 Academy</h3>
+                        <h2>🏫 Academy</h2>
                         <p><strong> Enriching Academic Excellence</strong> <br>
 
                         Our academy events focus on workshops, competitions, career guidance, and skill development programs. These experiences prepare students for academic success and future opportunities.
