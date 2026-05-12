@@ -5,7 +5,13 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-
+// ✅ Sabse upar add karo - kisi bhi Route::group se PEHLE
+Route::post('portal/api/student-register', [
+    \App\Http\Controllers\Api\StudentRegistrationController::class, 'store'
+])->withoutMiddleware([
+    \App\Http\Middleware\VerifyCsrfToken::class,
+    \App\Http\Middleware\XSS::class,
+]);
 if (config('app.app_sync')) {
     Route::get('/', 'LandingController@index')->name('/');
 }
@@ -94,6 +100,6 @@ Route::get('migrate', function () {
 Route::post('editor/upload-file', 'UploadFileController@upload_image');
 // Route::get('hide-routes',[HomeController::class,'hideRoute']);
 // web.php mai add karo - CSRF ke baghair
-Route::post('public/student-register', [
+Route::post('student-register', [
     \App\Http\Controllers\Api\StudentRegistrationController::class, 'store'
 ])->withoutMiddleware([\App\Http\Middleware\VerifyCsrfToken::class]);
