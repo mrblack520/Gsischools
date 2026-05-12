@@ -1,6 +1,6 @@
 @extends('frontend.layout.app')
 @section('head')
-<title>GSI Schools & Academy – Where Success Begins</title>
+<title>{{ $title ?? 'GSI Schools & Academy – Where Success Begins' }}</title>
 <meta name="description" content="GSI Schools & Academy! From Montessori right through to 12th. Where academics meet practical skills in AI, robotics, cybersecurity, PHP, and more. Join now!">
 <link rel="canonical" href="https://gsischools.com/" />
 
