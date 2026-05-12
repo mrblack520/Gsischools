@@ -53,7 +53,7 @@
 
     <section class="contact-us-banner">
         <div class="text-center">
-            <h2>Contact <span>Us</span></h2>
+            <h1>Contact <span>Us</span></h1>
         </div>
     </section>
     <section class="register-form-sec">
