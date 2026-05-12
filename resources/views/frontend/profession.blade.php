@@ -3,14 +3,14 @@
 @section('head')
     <title>GSI Schools & Academy – Student Life & Excellence</title>
     <meta name="description" content="GSI Schools & Academy! Celebrate student life with events, workshops, competitions, career guidance & skill development. Discover your potential today!">
-    <link rel="canonical" href="https://gsischools.com/profession" />
+    <link rel="canonical" href="https://gsischools.com/event" />
     @verbatim
         <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebPage",
   "name": "GSI Schools & Academy – Student Life & Excellence",
-  "url": "https://gsischools.com/profession",
+  "url": "https://gsischools.com/event",
   "description": "GSI Schools & Academy! Celebrate student life with events, workshops, competitions, career guidance & skill development. Discover your potential today!",
   "isPartOf": {
     "@type": "EducationalOrganization",
@@ -23,7 +23,7 @@
 <meta property="og:title" content="GSI Schools & Academy – Student Life & Excellence" />
 <meta property="og:description" content="GSI Schools & Academy! Celebrate student life with exciting events, workshops, competitions, career guidance & skill development. From school fun to academy excellence!" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://gsischools.com/profession" />
+<meta property="og:url" content="https://gsischools.com/event" />
 <meta property="og:site_name" content="GSI Schools & Academy" />
 
 <!-- Your chosen OG Image -->
