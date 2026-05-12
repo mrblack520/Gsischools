@@ -450,10 +450,10 @@ if (photo) formData.append('photo',   photo);
     method: 'POST',
     headers: {
         'Accept': 'application/json',
-        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')?.content || '',
+      
     },
     body: formData,
-    credentials: 'include'
+   
 });
 
     const rawText = await response.text(); 
