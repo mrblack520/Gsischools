@@ -344,7 +344,7 @@
 
 <section class="contact-us-banner">
     <div class="text-center">
-        <h2>Frequently Asked <span>Questions</span></h2>
+        <h1>Frequently Asked <span>Questions</span></h1>
     </div>
 </section>
 

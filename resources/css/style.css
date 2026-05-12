@@ -5362,7 +5362,7 @@ div:where(.swal2-container) button:where(.swal2-styled):where(.swal2-confirm) {
     z-index: 1;
 }
 
-.contact-us-banner h2 {
+.contact-us-banner h1 {
     font-weight: 400;
     font-size: 51px;
     line-height: 59px;
@@ -5384,7 +5384,7 @@ div:where(.swal2-container) button:where(.swal2-styled):where(.swal2-confirm) {
     font-size: 20px;
 }
 
-.contact-us-banner h2 span {
+.contact-us-banner h1 span {
     font-weight: 600;
     font-size: 70px;
     line-height: 59px;
@@ -5395,13 +5395,13 @@ div:where(.swal2-container) button:where(.swal2-styled):where(.swal2-confirm) {
     margin-bottom: 35px;
 }
 
-.policy-sec .container div h2 {
+.policy-sec .container div h1 {
     font-size: 40px;
     font-weight: 600;
     margin-bottom: 12px;
 }
 
-.curiosity-hub-sec .container div h2 {
+.curiosity-hub-sec .container div h1 {
     margin: 0px 0 28px;
     font-size: 26px;
     line-height: 44px;
@@ -7045,12 +7045,12 @@ input::-webkit-inner-spin-button {
         text-align: center;
     }
 
-    .contact-us-banner h2 {
+    .contact-us-banner h1 {
         font-size: 24px;
         line-height: 1.4;
     }
 
-    .contact-us-banner h2 span {
+    .contact-us-banner h1 span {
     font-weight: 600;
     font-size: 27px;
     line-height: 45px;
