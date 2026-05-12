@@ -10,7 +10,7 @@
             <div class="px-0 half col-md-6 right">
                 <div class="form-block">
                     <div class="text-center mb-5">
-                        <h3>Login to <strong>GSI</strong></h3>
+                        <h1 class="fs-4">Login to <strong>GSI</strong></h1>
                     </div> 
 
                     <form id="loginForm">
