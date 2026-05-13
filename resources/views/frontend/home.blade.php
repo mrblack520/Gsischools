@@ -121,7 +121,7 @@
 
         <div class="yt-main-wrapper">
             <div class="yt-video-section">
-                <video id="myVideo" class="custom-video" controls autoplay muted playsinline>
+                <video id="myVideo" class="custom-video" controls muted playsinline>
                     <source src="assets/video/sir.mp4" type="video/mp4">
                 </video>
             </div>
