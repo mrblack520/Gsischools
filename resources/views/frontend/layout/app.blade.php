@@ -321,7 +321,7 @@ if (playButton && modalWrapper && video) {
 
 });
 </script>
-<script>
+<!-- <script>
     function triggerInput(e) {
     if (e.target.closest('#removeBtn')) return;
     document.getElementById('placeholderPhoto').click();
@@ -493,7 +493,7 @@ if (photo) formData.append('photo',   photo);
 }
     });
 });
-</script>
+</script> -->
 </body>
 
 </html>

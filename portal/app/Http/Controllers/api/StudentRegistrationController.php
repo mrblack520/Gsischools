@@ -3,150 +3,184 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\User;
-use App\SmParent;
-use App\SmStudent;
+use App\Models\SmAcademicYear;
+use App\Models\SmParent;
+use App\Models\SmStudent;
 use App\Models\StudentRecord;
-use App\SmAcademicYear;
-use Illuminate\Support\Facades\Hash;
+use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
-class StudentRegistrationController extends Controller
+class StudentRegisterController extends Controller
 {
+    /**
+     * POST /portal/api/student-register
+     * Public endpoint — no auth required.
+     * Frontend (gsischools.com) form se data aata hai.
+     */
     public function store(Request $request)
     {
-        // Validation
-        $request->validate([
-            'first_name'               => 'required|string',
-            'last_name'                => 'required|string',
-            'date_of_birth'            => 'required|date',
-            'gender'                   => 'required',
-            'contact_number'           => 'required',
-            'email'                    => 'required|email',
-            'address'                  => 'required|string',
-            'religion'                 => 'required|string',
-            'national_id_no'           => 'required|string',
-            'guardian_name'            => 'required|string',
-            'guardian_email'           => 'required|email',
-            'guardian_phone'           => 'required|string',
-            'admission_date'           => 'required|date',
+        // ── 1. VALIDATE ───────────────────────────────────────────────
+        $validated = $request->validate([
+            // Academic
+            'session'          => 'required|integer',
+            'class_id'         => 'required|integer',
+            'section_id'       => 'required|integer',
+            'admission_number' => 'required|string|max:50',
+            'admission_date'   => 'nullable|date',
+            'roll_number'      => 'nullable|string|max:20',
+            'group'            => 'nullable|integer',
+            'shift'            => 'nullable|integer',
+
+            // Student
+            'first_name'       => 'required|string|max:100',
+            'last_name'        => 'required|string|max:100',
+            'gender'           => 'required|integer',
+            'date_of_birth'    => 'required|date',
+            'email_address'    => 'nullable|email|max:150',
+            'phone_number'     => 'required|string|max:20',
+            'religion'         => 'nullable|integer',
+            'photo'            => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
+
+            // Guardian
+            'guardians_name'       => 'nullable|string|max:150',
+            'relation'             => 'nullable|string|max:50',
+            'guardians_email'      => 'nullable|email|max:150',
+            'guardians_phone'      => 'required|string|max:20',
+            'guardians_occupation' => 'nullable|string|max:150',
+            'guardians_address'    => 'nullable|string|max:500',
         ]);
+
+        // ── 2. SCHOOL ID (portal ka fixed school) ─────────────────────
+        $school_id = 2; // apna school_id yahan daalo
+
+        // ── 3. ACADEMIC YEAR ──────────────────────────────────────────
+        // Frontend ne session ID bheja hai (1 = 2025, 2 = 2026 ...)
+        // Portal ki SmAcademicYear table se match karo
+        $academic_year = SmAcademicYear::where('school_id', $school_id)
+            ->where('id', $request->session)       // frontend ki value = DB id
+            ->first();
+
+        // Fallback: active academic year lo
+        if (!$academic_year) {
+            $academic_year = SmAcademicYear::where('school_id', $school_id)
+                ->where('active_status', 1)
+                ->first();
+        }
+
+        if (!$academic_year) {
+            return response()->json([
+                'status'  => false,
+                'message' => 'Academic year nahi mili. Admin se rabta karein.',
+            ], 422);
+        }
 
         DB::beginTransaction();
 
         try {
 
-            // School ID — portal ka default school
-            $school_id = 2; // apna school_id daalo
+            $created_at_ts = $academic_year->year . '-01-01 12:00:00';
+            $email         = $request->email_address ?: null;
+            $phone         = $request->phone_number;
+            $g_email       = $request->guardians_email ?: null;
+            $g_phone       = $request->guardians_phone;
 
-            // Academic Year
-            $academic_year = SmAcademicYear::where('school_id', $school_id)
-                ->where('active_status', 1)
-                ->first();
-
-            if (!$academic_year) {
-                return response()->json([
-                    'status'  => false,
-                    'message' => 'Academic year not found'
-                ], 404);
-            }
-
-            // Student User banao
-            $user_stu             = new User();
-            $user_stu->role_id    = 2;
-            $user_stu->full_name  = $request->first_name . ' ' . $request->last_name;
-            $user_stu->username   = $request->contact_number ?: $request->email;
-            $user_stu->email      = $request->email;
-            $user_stu->phone_number = $request->contact_number;
-            $user_stu->password   = Hash::make(123456);
-            $user_stu->school_id  = $school_id;
-            $user_stu->created_at = $academic_year->year . '-01-01 12:00:00';
+            // ── 4. STUDENT USER ───────────────────────────────────────
+            $user_stu               = new User();
+            $user_stu->role_id      = 2;
+            $user_stu->full_name    = $request->first_name . ' ' . $request->last_name;
+            $user_stu->username     = $phone ?: ($email ?: $request->admission_number);
+            $user_stu->email        = $email;
+            $user_stu->phone_number = $phone;
+            $user_stu->password     = Hash::make('123456');
+            $user_stu->school_id    = $school_id;
+            $user_stu->created_at   = $created_at_ts;
             $user_stu->save();
 
-            // Parent User banao
-            $user_parent              = new User();
-            $user_parent->role_id     = 3;
-            $user_parent->full_name   = $request->guardian_name;
-            $user_parent->username    = $request->guardian_phone ?: $request->guardian_email;
-            $user_parent->email       = $request->guardian_email;
-            $user_parent->phone_number = $request->guardian_phone;
-            $user_parent->password    = Hash::make(123456);
-            $user_parent->school_id   = $school_id;
-            $user_parent->created_at  = $academic_year->year . '-01-01 12:00:00';
+            // ── 5. PARENT USER ────────────────────────────────────────
+            $user_parent               = new User();
+            $user_parent->role_id      = 3;
+            $user_parent->full_name    = $request->guardians_name ?? 'Guardian';
+            $user_parent->username     = $g_phone ?: ($g_email ?: $g_phone);
+            $user_parent->email        = $g_email;
+            $user_parent->phone_number = $g_phone;
+            $user_parent->password     = Hash::make('123456');
+            $user_parent->school_id    = $school_id;
+            $user_parent->created_at   = $created_at_ts;
             $user_parent->save();
 
-            // Parent record banao
-            $parent                    = new SmParent();
-            $parent->user_id           = $user_parent->id;
-            $parent->fathers_name      = $request->joinned_as == 1 ? $request->guardian_name : null;
-            $parent->mothers_name      = $request->joinned_as == 2 ? $request->guardian_name : null;
-            $parent->guardians_name    = $request->guardian_name;
-            $parent->guardians_mobile  = $request->guardian_phone;
-            $parent->guardians_email   = $request->guardian_email;
-            $parent->guardians_address = $request->guardian_address;
-            $parent->guardians_relation = $request->joinned_as;
-            $parent->school_id         = $school_id;
-            $parent->academic_id       = $academic_year->id;
-            $parent->created_at        = $academic_year->year . '-01-01 12:00:00';
+            // ── 6. PARENT RECORD ──────────────────────────────────────
+            $parent                     = new SmParent();
+            $parent->user_id            = $user_parent->id;
+            $parent->guardians_name     = $request->guardians_name;
+            $parent->guardians_mobile   = $g_phone;
+            $parent->guardians_email    = $g_email;
+            $parent->guardians_address  = $request->guardians_address;
+            $parent->guardians_relation = $request->relation;
+            $parent->school_id          = $school_id;
+            $parent->academic_id        = $academic_year->id;
+            $parent->created_at         = $created_at_ts;
             $parent->save();
 
-            // Image upload
+            // ── 7. PHOTO UPLOAD ───────────────────────────────────────
             $student_photo = null;
             if ($request->hasFile('photo')) {
                 $student_photo = fileUpload($request->file('photo'), 'public/uploads/student/');
             }
 
-            // Student record banao
-            $smStudent                         = new SmStudent();
-            $smStudent->user_id                = $user_stu->id;
-            $smStudent->parent_id              = $parent->id;
-            $smStudent->role_id                = 2;
-            $smStudent->first_name             = $request->first_name;
-            $smStudent->last_name              = $request->last_name;
-            $smStudent->full_name              = $request->first_name . ' ' . $request->last_name;
-            $smStudent->gender_id              = $request->gender;
-            $smStudent->date_of_birth          = date('Y-m-d', strtotime($request->date_of_birth));
-            $smStudent->email                  = $request->email;
-            $smStudent->mobile                 = $request->contact_number;
-            $smStudent->admission_date         = date('Y-m-d', strtotime($request->admission_date));
-            $smStudent->student_photo          = $student_photo;
-            $smStudent->religion_id            = $request->religion;
-            $smStudent->current_address        = $request->address;
-            $smStudent->national_id_no         = $request->national_id_no;
-            $smStudent->previous_school_details = $request->previous_school;
-            $smStudent->school_id              = $school_id;
-            $smStudent->academic_id            = $academic_year->id;
-            $smStudent->created_at             = $academic_year->year . '-01-01 12:00:00';
+            // ── 8. STUDENT RECORD ─────────────────────────────────────
+            $smStudent                  = new SmStudent();
+            $smStudent->user_id         = $user_stu->id;
+            $smStudent->parent_id       = $parent->id;
+            $smStudent->role_id         = 2;
+            $smStudent->admission_no    = $request->admission_number;
+            $smStudent->roll_no         = $request->roll_number;
+            $smStudent->first_name      = $request->first_name;
+            $smStudent->last_name       = $request->last_name;
+            $smStudent->full_name       = $request->first_name . ' ' . $request->last_name;
+            $smStudent->gender_id       = $request->gender;
+            $smStudent->date_of_birth   = date('Y-m-d', strtotime($request->date_of_birth));
+            $smStudent->email           = $email;
+            $smStudent->mobile          = $phone;
+            $smStudent->admission_date  = $request->admission_date
+                                            ? date('Y-m-d', strtotime($request->admission_date))
+                                            : date('Y-m-d');
+            $smStudent->student_photo   = $student_photo;
+            $smStudent->religion_id     = $request->religion;
+            $smStudent->school_id       = $school_id;
+            $smStudent->academic_id     = $academic_year->id;
+            $smStudent->created_at      = $created_at_ts;
             $smStudent->save();
 
-            // Student Record insert
-            $studentRecord                = new StudentRecord();
-            $studentRecord->student_id    = $smStudent->id;
-            $studentRecord->class_id      = $request->class_id ?? 1;
-            $studentRecord->section_id    = $request->section_id ?? 1;
-            $studentRecord->academic_id   = $academic_year->id;
-            $studentRecord->school_id     = $school_id;
-            $studentRecord->is_default    = 1;
+            // ── 9. STUDENT CLASS RECORD ───────────────────────────────
+            $studentRecord               = new StudentRecord();
+            $studentRecord->student_id   = $smStudent->id;
+            $studentRecord->class_id     = $request->class_id;
+            $studentRecord->section_id   = $request->section_id;
+            $studentRecord->academic_id  = $academic_year->id;
+            $studentRecord->school_id    = $school_id;
+            $studentRecord->is_default   = 1;
             $studentRecord->save();
 
             DB::commit();
 
             return response()->json([
                 'status'  => true,
-                'message' => 'Student registered successfully!',
+                'message' => 'Student successfully register ho gaya!',
                 'student' => [
-                    'id'         => $smStudent->id,
-                    'full_name'  => $smStudent->full_name,
-                    'email'      => $smStudent->email,
-                ]
+                    'id'        => $smStudent->id,
+                    'full_name' => $smStudent->full_name,
+                    'email'     => $smStudent->email,
+                ],
             ]);
 
         } catch (\Exception $e) {
             DB::rollback();
+
             return response()->json([
                 'status'  => false,
-                'message' => 'Registration failed: ' . $e->getMessage()
+                'message' => 'Registration fail ho gayi: ' . $e->getMessage(),
             ], 500);
         }
     }
