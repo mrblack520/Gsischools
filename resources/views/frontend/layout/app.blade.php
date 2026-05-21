@@ -439,17 +439,19 @@ formData.append('guardian_phone',     guardians_phone);
 formData.append('guardian_address',   guardians_address);
 if (photo) formData.append('photo',   photo);
 
-        // ── Submit ────────────────────────────────────────────────────
-        const btn = form.querySelector('button[type="submit"]');
-        btn.disabled   = true;
-        btn.textContent = 'Submitting...';
+    // ── Submit ────────────────────────────────────────────────────
+    const btn = form.querySelector('button[type="submit"]');
+    btn.disabled   = true;
+    btn.textContent = 'Submitting...';
 
-        try {
-  const response = await fetch('https://gsischools.com/portal/api/student-register', {
+    try {
+    const csrfToken = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
+    const response = await fetch('https://gsischools.com/portal/api/student-register', {
     method: 'POST',
     headers: {
         'Accept': 'application/json',
-      
+        'X-CSRF-TOKEN': csrfToken,  // add this
+    
     },
     body: formData,
    
@@ -462,6 +464,9 @@ if (photo) formData.append('photo',   photo);
         data = JSON.parse(rawText);
     } catch {
         throw new Error('Server returned non-JSON: ' + rawText);
+
+        console.log('HTTP Status:', response.status);
+        console.log('Response preview:', rawText.substring(0, 200));
     }
 
     console.log('Server response:', data);
