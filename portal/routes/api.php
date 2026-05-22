@@ -10,8 +10,7 @@ use Illuminate\Support\Facades\Route;
 });
 // Middleware ke BAHAR add karo - public route hai
 // api.php mai sirf yeh line add karo - kisi bhi group ke bahar
-Route::post('student-register', 'Api\StudentRegistrationController@store')->withoutMiddleware(['auth']);
-// admin section visitor
+Route::post('student-register', 'Api\StudentRegistrationController@store');// admin section visitor
 Route::any('login', 'SmApiController@mobileLogin');
 Route::get('user-demo', 'SmApiController@DemoUser');
 Route::any('saas-login', 'SmApiController@saasLogin');
