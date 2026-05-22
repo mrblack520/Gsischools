@@ -494,24 +494,21 @@ if (photo) formData.append('photo',   photo);
     });
 });
 </script> -->
-
 <script>
 // ══════════════════════════════════════════════
-//  PHOTO UPLOAD HELPERS
+//  PHOTO HELPERS
 // ══════════════════════════════════════════════
 function triggerInput(e) {
     if (e.target.closest('#removeBtn')) return;
     document.getElementById('placeholderPhoto').click();
 }
-
 function handleFile(input) {
     const file = input.files[0];
     if (!file) return;
     const reader = new FileReader();
-    reader.onload = function (e) {
-        const img = document.getElementById('previewImg');
-        img.src = e.target.result;
-        img.style.display = 'block';
+    reader.onload = function(e) {
+        document.getElementById('previewImg').src            = e.target.result;
+        document.getElementById('previewImg').style.display  = 'block';
         document.getElementById('uploadText').style.display  = 'none';
         document.getElementById('removeBtn').style.display   = 'flex';
         document.getElementById('fileName').style.display    = 'block';
@@ -520,10 +517,9 @@ function handleFile(input) {
     };
     reader.readAsDataURL(file);
 }
-
 function removeImage(e) {
-    e.preventDefault();
-    e.stopPropagation();
+    if (e && e.preventDefault) e.preventDefault();
+    if (e && e.stopPropagation) e.stopPropagation();
     document.getElementById('previewImg').style.display  = 'none';
     document.getElementById('previewImg').src            = '';
     document.getElementById('uploadText').style.display  = 'block';
@@ -538,126 +534,90 @@ function removeImage(e) {
 // ══════════════════════════════════════════════
 function showError(msg) {
     const el = document.getElementById('errorMsg');
-    el.textContent  = msg;
+    el.textContent   = msg;
     el.style.display = msg ? 'block' : 'none';
     document.getElementById('successMsg').style.display = 'none';
     if (msg) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
-
 function showSuccess(msg) {
     const el = document.getElementById('successMsg');
-    el.textContent  = msg;
+    el.innerHTML     = msg;
     el.style.display = 'block';
     document.getElementById('errorMsg').style.display = 'none';
     el.scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
 
 // ══════════════════════════════════════════════
-//  FORM SUBMIT
+//  FORM SUBMIT — No CSRF needed (api/* exempt hai)
 // ══════════════════════════════════════════════
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
 
     const form = document.getElementById('registerForm');
     const btn  = document.getElementById('submitBtn');
 
-    form.addEventListener('submit', async function (e) {
+    form.addEventListener('submit', async function(e) {
         e.preventDefault();
         showError('');
 
-        // ── Build FormData directly from form ──────────────────────
-        // (FormData(form) automatically picks up all named inputs)
-        const formData = new FormData(form);
+        // ── Validation ─────────────────────────────────────────────
+        const v = (name) => (form.querySelector(`[name="${name}"]`)?.value ?? '').trim();
 
-        // ── Basic client-side checks ───────────────────────────────
-        if (!formData.get('session')) {
-            showError('Please select Academic Year.');
-            return;
-        }
-        if (!formData.get('class_id')) {
-            showError('Please select Class.');
-            return;
-        }
-        if (!formData.get('section_id')) {
-            showError('Please select Section.');
-            return;
-        }
-        if (!formData.get('admission_number').trim()) {
-            showError('Admission Number is required.');
-            return;
-        }
-        if (!formData.get('first_name').trim() || !formData.get('last_name').trim()) {
-            showError('First Name and Last Name are required.');
-            return;
-        }
-        if (!formData.get('gender')) {
-            showError('Please select Gender.');
-            return;
-        }
-        if (!formData.get('date_of_birth')) {
-            showError('Date of Birth is required.');
-            return;
-        }
-        if (!formData.get('phone_number').trim()) {
-            showError('Phone Number is required.');
-            return;
-        }
-        if (!formData.get('guardians_phone').trim()) {
-            showError("Guardian's Phone Number is required.");
-            return;
-        }
+        if (!v('session'))          { showError('Academic Year select karein.');          return; }
+        if (!v('class_id'))         { showError('Class select karein.');                  return; }
+        if (!v('section_id'))       { showError('Section select karein.');                return; }
+        if (!v('admission_number')) { showError('Admission Number required hai.');        return; }
+        if (!v('first_name'))       { showError('First Name required hai.');              return; }
+        if (!v('last_name'))        { showError('Last Name required hai.');               return; }
+        if (!v('gender'))           { showError('Gender select karein.');                 return; }
+        if (!v('date_of_birth'))    { showError('Date of Birth required hai.');           return; }
+        if (!v('phone_number'))     { showError('Phone Number required hai.');            return; }
+        if (!v('guardians_phone'))  { showError("Guardian ka Phone Number required hai."); return; }
 
         // ── Submit ─────────────────────────────────────────────────
-        btn.disabled     = true;
+        btn.disabled = true;
         btn.querySelector('span').textContent = 'Submitting...';
 
         try {
-        // Step 1: Portal se CSRF token lo
-const csrfResponse = await fetch('/portal/api/get-csrf');
-const csrfData = await csrfResponse.json();
+            const response = await fetch('https://gsischools.com/portal/api/student-register', {
+                method : 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    // ✅ CSRF nahi chahiye — api/* exempt hai
+                },
+                body: new FormData(form),
+            });
 
-// Step 2: Woh token use karo
-const response = await fetch('/portal/api/student-register', {
-    method: 'POST',
-    headers: {
-        'Accept': 'application/json',
-        'X-CSRF-TOKEN': csrfData.token,  // portal ka token
-    },
-    body: formData,
-});
-
-            // ── Parse response ─────────────────────────────────────
-            let data;
+            console.log('Status:', response.status);
             const rawText = await response.text();
+            console.log('Response:', rawText.substring(0, 300));
 
+            let data;
             try {
                 data = JSON.parse(rawText);
             } catch {
-                console.error('Non-JSON response:', rawText.substring(0, 300));
-                throw new Error('Server ne unexpected response diya. (Status: ' + response.status + ')');
+                throw new Error('Server error. Status: ' + response.status + '\n' + rawText.substring(0, 150));
             }
-
-            console.log('Server response:', data);
 
             if (data.status === true) {
                 showSuccess(
-                    '✅ Registration Successful! Student: ' + (data.student?.full_name ?? '') +
-                    ' — Login credentials aapke email/phone par bhej diye gaye hain.'
+                    '✅ <strong>Registration Successful!</strong><br>' +
+                    'Student: <strong>' + (data.student?.full_name ?? '') + '</strong><br>' +
+                    'Login credentials aapke phone/email par bhej diye gaye hain.'
                 );
                 form.reset();
-                removeImage({ preventDefault: () => {}, stopPropagation: () => {} });
+                removeImage(null);
             } else {
-                // ── Laravel validation errors (422) ────────────────
                 if (data.errors) {
-                    const msgs = Object.values(data.errors).flat().join('\n');
+                    const msgs = Object.values(data.errors).flat().join('<br>');
                     showError(msgs);
                 } else {
-                    showError(data.message || 'Registration fail ho gayi. Please dobara try karein.');
+                    showError(data.message || 'Registration fail ho gayi. Dobara try karein.');
                 }
             }
 
-        } catch (error) {
-            console.error('Registration error:', error);
-            showError(error.message || 'Kuch masla ho gaya. Please dobara try karein.');
+        } catch (err) {
+            console.error('Error:', err);
+            showError(err.message || 'Network error. Dobara try karein.');
         } finally {
             btn.disabled = false;
             btn.querySelector('span').textContent = 'Complete Registration';
@@ -665,7 +625,6 @@ const response = await fetch('/portal/api/student-register', {
     });
 });
 </script>
-
 </body>
 
 </html>

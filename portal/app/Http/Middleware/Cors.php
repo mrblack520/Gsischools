@@ -2,29 +2,27 @@
 
 namespace App\Http\Middleware;
 
-use const ALLOW;
-use const AUTH;
-use const AUTHORIZATION’;
-use const CONTENT;
-use const CONTROL;
-use const HEADERS’;
-use const METHODS’;
-use const ORIGIN’;
-use const REQUESTED;
-use const TOKEN;
-use const TYPE;
-use const WITH;
-use const ‘ACCESS;
-
 use Closure;
 
 class Cors
 {
     public function handle($request, Closure $next)
     {
-        return $next($request)
-            ->header(‘ACCESS - CONTROL - ALLOW - ORIGIN’, ‘ * ’)
-            ->header(‘ACCESS - CONTROL - ALLOW - METHODS’, ‘GET, POST, PUT, DELETE, OPTIONS’)
-            ->header(‘ACCESS - CONTROL - ALLOW - HEADERS’, ‘X - REQUESTED - WITH, CONTENT - TYPE, X - TOKEN - AUTH, AUTHORIZATION’);
+        // Preflight OPTIONS request ka seedha jawab do
+        if ($request->isMethod('OPTIONS')) {
+            return response('', 200)
+                ->header('Access-Control-Allow-Origin',      '*')
+                ->header('Access-Control-Allow-Methods',     'GET, POST, PUT, DELETE, OPTIONS')
+                ->header('Access-Control-Allow-Headers',     'Content-Type, Accept, Authorization, X-CSRF-TOKEN, X-Requested-With')
+                ->header('Access-Control-Allow-Credentials', 'true');
+        }
+
+        $response = $next($request);
+
+        return $response
+            ->header('Access-Control-Allow-Origin',      '*')
+            ->header('Access-Control-Allow-Methods',     'GET, POST, PUT, DELETE, OPTIONS')
+            ->header('Access-Control-Allow-Headers',     'Content-Type, Accept, Authorization, X-CSRF-TOKEN, X-Requested-With')
+            ->header('Access-Control-Allow-Credentials', 'true');
     }
 }

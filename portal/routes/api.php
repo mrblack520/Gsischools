@@ -2,7 +2,9 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+Route::options('{any}', function() {
+    return response('', 200);
+})->where('any', '.*');
  Route::get('get-csrf', function() {
     return response()->json([
         'token' => csrf_token()
