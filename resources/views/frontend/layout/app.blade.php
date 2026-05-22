@@ -611,16 +611,19 @@ document.addEventListener('DOMContentLoaded', function () {
         btn.querySelector('span').textContent = 'Submitting...';
 
         try {
-            const response = await fetch('/portal/api/student-register', {
-                method : 'POST',
-                headers: {
-                    'Accept'       : 'application/json',
-                    
-                    'X-CSRF-TOKEN' : document.querySelector('meta[name="csrf-token"]')
-                                        ?.getAttribute('content') ?? '',
-                },
-                body: formData,  
-            });
+        // Step 1: Portal se CSRF token lo
+const csrfResponse = await fetch('/portal/api/get-csrf');
+const csrfData = await csrfResponse.json();
+
+// Step 2: Woh token use karo
+const response = await fetch('/portal/api/student-register', {
+    method: 'POST',
+    headers: {
+        'Accept': 'application/json',
+        'X-CSRF-TOKEN': csrfData.token,  // portal ka token
+    },
+    body: formData,
+});
 
             // ── Parse response ─────────────────────────────────────
             let data;

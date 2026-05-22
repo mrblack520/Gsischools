@@ -23,5 +23,6 @@ class VerifyCsrfToken extends Middleware
         '/ssl-commerz/*',
            'portal/api/loginapi',
            'api/student-register',
+           'api/*',
     ];
 }
