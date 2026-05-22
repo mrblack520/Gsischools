@@ -2,6 +2,9 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+Route::get('test-public', function() {
+    return response()->json(['status' => true, 'message' => 'Working!']);
+});
 Route::options('{any}', function() {
     return response('', 200);
 })->where('any', '.*');
