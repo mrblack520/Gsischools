@@ -494,6 +494,175 @@ if (photo) formData.append('photo',   photo);
     });
 });
 </script> -->
+
+<script>
+// ══════════════════════════════════════════════
+//  PHOTO UPLOAD HELPERS
+// ══════════════════════════════════════════════
+function triggerInput(e) {
+    if (e.target.closest('#removeBtn')) return;
+    document.getElementById('placeholderPhoto').click();
+}
+
+function handleFile(input) {
+    const file = input.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = function (e) {
+        const img = document.getElementById('previewImg');
+        img.src = e.target.result;
+        img.style.display = 'block';
+        document.getElementById('uploadText').style.display  = 'none';
+        document.getElementById('removeBtn').style.display   = 'flex';
+        document.getElementById('fileName').style.display    = 'block';
+        document.getElementById('fileName').textContent      = file.name;
+        document.getElementById('uploadBox').style.border    = '2px solid #4caf50';
+    };
+    reader.readAsDataURL(file);
+}
+
+function removeImage(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    document.getElementById('previewImg').style.display  = 'none';
+    document.getElementById('previewImg').src            = '';
+    document.getElementById('uploadText').style.display  = 'block';
+    document.getElementById('removeBtn').style.display   = 'none';
+    document.getElementById('fileName').style.display    = 'none';
+    document.getElementById('placeholderPhoto').value    = '';
+    document.getElementById('uploadBox').style.border    = '2px dashed #ccc';
+}
+
+// ══════════════════════════════════════════════
+//  MESSAGE HELPERS
+// ══════════════════════════════════════════════
+function showError(msg) {
+    const el = document.getElementById('errorMsg');
+    el.textContent  = msg;
+    el.style.display = msg ? 'block' : 'none';
+    document.getElementById('successMsg').style.display = 'none';
+    if (msg) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+function showSuccess(msg) {
+    const el = document.getElementById('successMsg');
+    el.textContent  = msg;
+    el.style.display = 'block';
+    document.getElementById('errorMsg').style.display = 'none';
+    el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+// ══════════════════════════════════════════════
+//  FORM SUBMIT
+// ══════════════════════════════════════════════
+document.addEventListener('DOMContentLoaded', function () {
+
+    const form = document.getElementById('registerForm');
+    const btn  = document.getElementById('submitBtn');
+
+    form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        showError('');
+
+        // ── Build FormData directly from form ──────────────────────
+        // (FormData(form) automatically picks up all named inputs)
+        const formData = new FormData(form);
+
+        // ── Basic client-side checks ───────────────────────────────
+        if (!formData.get('session')) {
+            showError('Please select Academic Year.');
+            return;
+        }
+        if (!formData.get('class_id')) {
+            showError('Please select Class.');
+            return;
+        }
+        if (!formData.get('section_id')) {
+            showError('Please select Section.');
+            return;
+        }
+        if (!formData.get('admission_number').trim()) {
+            showError('Admission Number is required.');
+            return;
+        }
+        if (!formData.get('first_name').trim() || !formData.get('last_name').trim()) {
+            showError('First Name and Last Name are required.');
+            return;
+        }
+        if (!formData.get('gender')) {
+            showError('Please select Gender.');
+            return;
+        }
+        if (!formData.get('date_of_birth')) {
+            showError('Date of Birth is required.');
+            return;
+        }
+        if (!formData.get('phone_number').trim()) {
+            showError('Phone Number is required.');
+            return;
+        }
+        if (!formData.get('guardians_phone').trim()) {
+            showError("Guardian's Phone Number is required.");
+            return;
+        }
+
+        // ── Submit ─────────────────────────────────────────────────
+        btn.disabled     = true;
+        btn.querySelector('span').textContent = 'Submitting...';
+
+        try {
+            const response = await fetch('/portal/api/student-register', {
+                method : 'POST',
+                headers: {
+                    'Accept'       : 'application/json',
+                    
+                    'X-CSRF-TOKEN' : document.querySelector('meta[name="csrf-token"]')
+                                        ?.getAttribute('content') ?? '',
+                },
+                body: formData,  
+            });
+
+            // ── Parse response ─────────────────────────────────────
+            let data;
+            const rawText = await response.text();
+
+            try {
+                data = JSON.parse(rawText);
+            } catch {
+                console.error('Non-JSON response:', rawText.substring(0, 300));
+                throw new Error('Server ne unexpected response diya. (Status: ' + response.status + ')');
+            }
+
+            console.log('Server response:', data);
+
+            if (data.status === true) {
+                showSuccess(
+                    '✅ Registration Successful! Student: ' + (data.student?.full_name ?? '') +
+                    ' — Login credentials aapke email/phone par bhej diye gaye hain.'
+                );
+                form.reset();
+                removeImage({ preventDefault: () => {}, stopPropagation: () => {} });
+            } else {
+                // ── Laravel validation errors (422) ────────────────
+                if (data.errors) {
+                    const msgs = Object.values(data.errors).flat().join('\n');
+                    showError(msgs);
+                } else {
+                    showError(data.message || 'Registration fail ho gayi. Please dobara try karein.');
+                }
+            }
+
+        } catch (error) {
+            console.error('Registration error:', error);
+            showError(error.message || 'Kuch masla ho gaya. Please dobara try karein.');
+        } finally {
+            btn.disabled = false;
+            btn.querySelector('span').textContent = 'Complete Registration';
+        }
+    });
+});
+</script>
+
 </body>
 
 </html>
