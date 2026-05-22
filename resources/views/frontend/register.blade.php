@@ -30,7 +30,7 @@
                 <div id="successMsg" class="alert alert-success" style="display:none;"></div>
                 <div id="errorMsg"   class="alert alert-danger"  style="display:none;"></div>
 
-                <form class="registeration-form" id="registerForm" enctype="multipart/form-data">
+                <form class="registeration-form" id="registerForm" method="POST" enctype="multipart/form-data">
                     @csrf
 
                     {{-- ══════════════════════════════════════
@@ -377,11 +377,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 method : 'POST',
                 headers: {
                     'Accept'       : 'application/json',
-                    // CSRF token — meta tag se (same domain toh kaam karega)
+                    
                     'X-CSRF-TOKEN' : document.querySelector('meta[name="csrf-token"]')
                                         ?.getAttribute('content') ?? '',
                 },
-                body: formData,  // FormData automatically sets Content-Type multipart
+                body: formData,  
             });
 
             // ── Parse response ─────────────────────────────────────
