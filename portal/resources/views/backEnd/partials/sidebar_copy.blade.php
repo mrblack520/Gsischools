@@ -218,6 +218,11 @@
                                             @lang('student.student_attendance')</a>
                                     </li>
                                 @endif
+                                @if (userPermission('student_attendance') && menuStatus(68))
+                                    <li>
+                                        <a href="{{ route('zkteco.devices') }}">ZKTeco Biometric</a>
+                                    </li>
+                                @endif
                                 @if (userPermission('student_attendance_report') && menuStatus(70))
                                     <li data-position="{{ menuPosition(70) }}">
                                         <a href="{{ route('student_attendance_report') }}">

@@ -36,6 +36,7 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function map(): void
     {
+        $this->mapZktecoRoutes();
         $this->mapApiRoutes();
         $this->mapV2ApiRoutes();
         $this->mapWebRoutes();
@@ -53,6 +54,12 @@ class RouteServiceProvider extends ServiceProvider
         Route::middleware('web')
             ->namespace($this->namespace)
             ->group(base_path('routes/web.php'));
+    }
+
+    protected function mapZktecoRoutes(): void
+    {
+        Route::middleware('api')
+            ->group(base_path('routes/zkteco.php'));
     }
 
     protected function mapAdminRoutes()

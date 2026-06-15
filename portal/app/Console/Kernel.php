@@ -68,6 +68,8 @@ class Kernel extends ConsoleKernel
                 $schedule->command('qrcode:attendance')->everyOddHour()->withoutOverlapping();
             }
 
+            $schedule->command('zkteco:sync')->everyFiveMinutes()->withoutOverlapping();
+
         }
     }
 

@@ -1236,6 +1236,18 @@ Route::group(['middleware' => ['XSS', 'subscriptionAccessUrl']], function () {
         Route::get('download-student-attendance-file', 'Admin\StudentInfo\SmStudentAttendanceController@downloadStudentAtendanceFile');
         Route::post('student-attendance-bulk-store', 'Admin\StudentInfo\SmStudentAttendanceController@studentAttendanceBulkStore')->name('student-attendance-bulk-store');
 
+        // ZKTeco Biometric Attendance
+        Route::get('zkteco/devices', 'Admin\Zkteco\ZktecoDeviceController@index')->name('zkteco.devices');
+        Route::post('zkteco/devices', 'Admin\Zkteco\ZktecoDeviceController@store')->name('zkteco.devices.store');
+        Route::put('zkteco/devices/{device}', 'Admin\Zkteco\ZktecoDeviceController@update')->name('zkteco.devices.update');
+        Route::delete('zkteco/devices/{device}', 'Admin\Zkteco\ZktecoDeviceController@destroy')->name('zkteco.devices.destroy');
+        Route::post('zkteco/devices/{device}/sync', 'Admin\Zkteco\ZktecoDeviceController@syncDevice')->name('zkteco.devices.sync');
+        Route::post('zkteco/devices/{device}/test', 'Admin\Zkteco\ZktecoDeviceController@testConnection')->name('zkteco.devices.test');
+        Route::post('zkteco/settings', 'Admin\Zkteco\ZktecoDeviceController@saveSettings')->name('zkteco.settings');
+        Route::post('zkteco/sync-all', 'Admin\Zkteco\ZktecoDeviceController@syncAll')->name('zkteco.sync_all');
+        Route::get('zkteco/punch-logs', 'Admin\Zkteco\ZktecoDeviceController@punchLogs')->name('zkteco.punch_logs');
+        Route::post('zkteco/reprocess', 'Admin\Zkteco\ZktecoDeviceController@reprocessLogs')->name('zkteco.reprocess');
+
         // Student Report
         Route::get('student-report', ['as' => 'student_report', 'uses' => 'Admin\StudentInfo\SmStudentReportController@studentReport'])->middleware('userRolePermission:student_report');
         Route::post('student-report', ['as' => 'student_report_search', 'uses' => 'Admin\StudentInfo\SmStudentReportController@studentReportSearch']);
